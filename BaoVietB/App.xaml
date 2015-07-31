@@ -1,0 +1,28 @@
+﻿<Application
+    x:Class="BaoViet.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BaoViet"
+    xmlns:style="using:BaoViet.Styles"
+    xmlns:converter="using:BaoViet.Converters"
+    RequestedTheme="Dark">
+
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Style.xaml"/>
+                <style:Template/>
+                <!--<ResourceDictionary Source="Styles/Template.xaml"/>-->
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--<Style TargetType="TextBlock" BasedOn="{StaticResource SplitViewTextBlockStyle}" />
+            <Style TargetType="RadioButton" BasedOn="{StaticResource SplitViewRadioButtonStyle}" />-->
+
+            <converter:BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
+            <converter:BooleanToVisibilityInvertConverter x:Key="BooleanToVisibilityInvert"/>
+            <converter:NullToEnableConverter x:Key="NullToEnable"/>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

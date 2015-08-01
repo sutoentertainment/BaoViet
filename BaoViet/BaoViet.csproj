@@ -191,6 +191,10 @@
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\Tiles\BadgeLogo.png" />
+    <Content Include="Assets\Tiles\SquareTile150x150.png" />
+    <Content Include="Assets\Tiles\SquareTile71x71.png" />
+    <Content Include="Assets\Tiles\WideLogo.png" />
     <Content Include="Assets\WideLogo.scale-100.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

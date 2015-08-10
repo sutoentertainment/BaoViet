@@ -17,6 +17,8 @@ using BaoViet.ViewModels;
 using Windows.UI.Input;
 using System.Diagnostics;
 using BaoViet.Models;
+using ThHelper;
+using Windows.ApplicationModel.Store;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -97,6 +99,23 @@ namespace BaoViet.Views
         {
             TileManager tile = new TileManager();
             tile.UpdateTile(TransparentTile.IsOn);
+            SettingHelper.SaveSetting("TransparentTile", TransparentTile.IsOn);
+        }
+
+        private void SideMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ViewModel.IsPaneOpen = false;
+        }
+
+        private async void RateUs_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store:reviewapp?appid=" + CurrentApp.AppId));
+        }
+
+        private async void Suggest_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var mailto = new Uri("mailto:?to=thang2410199@gmail.com&subject=Góp ý cho Báo Việt&body=");
+            await Windows.System.Launcher.LaunchUriAsync(mailto);
         }
 
 

@@ -67,7 +67,7 @@
 
             <SplitView.Pane>
                 <Grid Background="{StaticResource AppBlackGray}">
-                    <ListView IsItemClickEnabled="True" SelectionMode="Single" ItemsSource="{x:Bind ViewModel.ListMenuItem}" ItemContainerStyle="{StaticResource ListViewStandartItemStyle}" x:Name="SideMenu" SelectedIndex="{Binding SelectedIndex, ElementName=rootPivot, Mode=TwoWay}">
+                    <ListView IsItemClickEnabled="True" SelectionMode="Single" ItemsSource="{x:Bind ViewModel.ListMenuItem}" ItemContainerStyle="{StaticResource ListViewStandartItemStyle}" x:Name="SideMenu" SelectedIndex="{Binding SelectedIndex, ElementName=rootPivot, Mode=TwoWay}" SelectionChanged="SideMenu_SelectionChanged">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" Width="240">
@@ -120,16 +120,16 @@
                         <!--<PivotItem Margin="0" Background="Crimson"></PivotItem>-->
                         <PivotItem Margin="0">
 
-                            <ScrollViewer>
+                            <ScrollViewer VerticalScrollBarVisibility="Hidden">
                                 <StackPanel>
 
-                                    <Button HorizontalContentAlignment="Left" Content="Ẩn một số báo" Margin="12" Command="{x:Bind ViewModel.GoToPaperToHidePageCommand}">
+                                    <!--<Button HorizontalContentAlignment="Left" Content="Ẩn một số báo" Margin="12" Command="{x:Bind ViewModel.GoToPaperToHidePageCommand}" Padding="8">
         
-                                    </Button>
+                                    </Button>-->
 
 
                                     <ListViewItem>
-                                        <ToggleSwitch Header="Tile trong suốt" OffContent="Tắt" OnContent="Bật" Toggled="ToggleSwitch_Toggled" x:Name="TransparentTile"/>
+                                        <ToggleSwitch Header="Tile trong suốt" OffContent="Tắt" OnContent="Bật" Toggled="ToggleSwitch_Toggled" x:Name="TransparentTile" IsOn="{Binding IsTransparentTile, Mode=TwoWay}"/>
                                     </ListViewItem>
 
                                     <ListViewItem>
@@ -146,13 +146,13 @@
                                         </StackPanel>
                                     </ListViewItem>
 
-                                    <ListViewItem>
+                                    <ListViewItem Tapped="Suggest_Tapped">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Đóng góp ý kiến"/>
                                         </StackPanel>
                                     </ListViewItem>
 
-                                    <ListViewItem>
+                                    <ListViewItem Tapped="RateUs_Tapped">
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Đánh giá phần mềm"/>
                                         </StackPanel>

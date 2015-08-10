@@ -1,0 +1,2 @@
+MainPackage=D:\Study\GitHub\BaoViet\BaoViet\bin\x86\Release\Upload\BaoViet_2.7.0.0_x86.appx
+SymbolPackage=D:\Study\GitHub\BaoViet\BaoViet\AppPackages\BaoViet_2.7.0.0\BaoViet_2.7.0.0_x86.appxsym

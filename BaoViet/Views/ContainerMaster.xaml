@@ -15,13 +15,13 @@
                 </core:EventTriggerBehavior>
             </i:Interaction.Behaviors>
         </Frame>
-
-        <Button Content="test toast" Tapped="ToastTapped"/>
-        <Border Background="{StaticResource AppColor}" VerticalAlignment="Top" Opacity="0" Visibility="Collapsed" x:Name="NotificationContainer" HorizontalAlignment="Right" Margin="0,100,0,0">
+<!--//UNDONE-->
+        <!--<Button Content="test toast" Tapped="ToastTapped"/>-->
+        <Border Background="{StaticResource AppColor}" VerticalAlignment="Top" Opacity="0" Visibility="Collapsed" x:Name="NotificationContainer" HorizontalAlignment="Right" Margin="0,100,0,0" MaxWidth="300" Tapped="DissmisToast">
             <Border.RenderTransform>
                 <TranslateTransform x:Name="NotificationTransform" X="-10"/>
             </Border.RenderTransform>
-            <TextBlock Name="NotificationText" Text="" VerticalAlignment="Center" Margin="12"/>
+            <TextBlock Name="NotificationText" Text="" VerticalAlignment="Center" Margin="12" TextWrapping="Wrap" TextLineBounds="Full"/>
         </Border>
     </Grid>
 </Page>

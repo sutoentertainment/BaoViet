@@ -24,18 +24,18 @@ namespace BaoViet.Helpers
 
         public void UpdateTile(bool Transparent)
         {
-            XmlDocument tileXml = TileUpdateManager.GetTemplateContent(TileTemplateType.TileWide310x150ImageAndText01);
+            XmlDocument tileXml = TileUpdateManager.GetTemplateContent(TileTemplateType.TileWide310x150Image);
 
             XmlNodeList tileTextAttributes = tileXml.GetElementsByTagName("text");
             //tileTextAttributes[0].InnerText = "Hello World! My very own tile notification";
 
             XmlNodeList tileImageAttributes = tileXml.GetElementsByTagName("image");
-            ((XmlElement)tileImageAttributes[0]).SetAttribute("src", (Transparent ? "ms-appx:///Assets/WideLogoTrans.png" : "ms-appx:///Assets/WideLogo.png"));
+            ((XmlElement)tileImageAttributes[0]).SetAttribute("src", (Transparent ? "ms-appx:///Assets/Wide310x150LogoTrans.png" : "ms-appx:///Assets/Wide310x150Logo.png"));
             ((XmlElement)tileImageAttributes[0]).SetAttribute("alt", "");
 
             XmlDocument squareTileXml = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare150x150Image);
             XmlNodeList tileImageAttributesSquare = squareTileXml.GetElementsByTagName("image");
-            ((XmlElement)tileImageAttributesSquare[0]).SetAttribute("src", (Transparent ? "ms-appx:///Assets/LogoTrans.png" : "ms-appx:///Assets/Logo.png"));
+            ((XmlElement)tileImageAttributesSquare[0]).SetAttribute("src", (Transparent ? "ms-appx:///Assets/Square150x150LogoTrans.png" : "ms-appx:///Assets/Square150x150Logo.png"));
 
             XmlNodeList squareTileTextAttributes = squareTileXml.GetElementsByTagName("text");
             //squareTileTextAttributes[0].AppendChild(squareTileXml.CreateTextNode("Hello World! My very own tile notification"));

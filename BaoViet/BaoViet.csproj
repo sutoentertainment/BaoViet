@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BaoViet</RootNamespace>
     <AssemblyName>BaoViet</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>vi-VN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
@@ -17,7 +17,10 @@
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>BaoViet_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>BaoViet_StoreKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <PackageCertificateThumbprint>4AFD933610A69B219EB6EDB8E3611B9F7246F471</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -90,6 +93,8 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="BaoViet_StoreKey.pfx" />
+    <None Include="BaoViet_TemporaryKey.pfx" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +103,7 @@
     </Compile>
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="DataContext\RootDataContext.cs" />
+    <Compile Include="Helpers\Library.cs" />
     <Compile Include="Helpers\Screen.cs" />
     <Compile Include="Helpers\TileManager.cs" />
     <Compile Include="Helpers\ToastAction.cs" />
@@ -110,6 +116,7 @@
     </Compile>
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\DispatcherTimerExt.cs" />
     <Compile Include="Models\Enum\PaperType.cs" />
     <Compile Include="Models\FeedItem.cs" />
     <Compile Include="Models\MenuItem.cs" />
@@ -148,7 +155,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="BaoViet_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.scale-100.png" />
@@ -156,54 +162,60 @@
     <Content Include="Assets\Logo\logo-antd.png" />
     <Content Include="Assets\Logo\logo-bbc.png" />
     <Content Include="Assets\Logo\logo-bdp.png" />
-    <Content Include="Assets\Logo\logo-bm.png" />
+    <Content Include="Assets\Logo\logo-baomoi.png" />
     <Content Include="Assets\Logo\logo-bongda.png" />
     <Content Include="Assets\Logo\logo-cand.png" />
     <Content Include="Assets\Logo\logo-dantri.png" />
     <Content Include="Assets\Logo\logo-datviet.png" />
+    <Content Include="Assets\Logo\logo-dspl.png" />
     <Content Include="Assets\Logo\logo-edaily.png" />
     <Content Include="Assets\Logo\logo-eva.png" />
     <Content Include="Assets\Logo\logo-genk.png" />
     <Content Include="Assets\Logo\logo-giadinh.png" />
-    <Content Include="Assets\Logo\logo-gthu.png" />
+    <Content Include="Assets\Logo\logo-gamethu.png" />
     <Content Include="Assets\Logo\logo-ictnews.png" />
-    <Content Include="Assets\Logo\logo-k14.png" />
+    <Content Include="Assets\Logo\logo-kenh14.png" />
     <Content Include="Assets\Logo\logo-laodong.png" />
     <Content Include="Assets\Logo\logo-ncdt.png" />
-    <Content Include="Assets\Logo\logo-ns.png" />
+    <Content Include="Assets\Logo\logo-ngoisao.png" />
     <Content Include="Assets\Logo\logo-pcworld.png" />
+    <Content Include="Assets\Logo\logo-petro.png" />
     <Content Include="Assets\Logo\logo-qdnd.png" />
     <Content Include="Assets\Logo\logo-quantrimang.png" />
     <Content Include="Assets\Logo\logo-sohoa.png" />
     <Content Include="Assets\Logo\logo-thegioigame.png" />
     <Content Include="Assets\Logo\logo-tinhte.png" />
     <Content Include="Assets\Logo\logo-tinthethao.png" />
-    <Content Include="Assets\Logo\logo-tphong.png" />
+    <Content Include="Assets\Logo\logo-tienphong.png" />
     <Content Include="Assets\Logo\logo-ttcn.png" />
-    <Content Include="Assets\Logo\logo-ttre.png" />
+    <Content Include="Assets\Logo\logo-tuoitre.png" />
+    <Content Include="Assets\Logo\logo-vietbao.png" />
     <Content Include="Assets\Logo\logo-vne.png" />
     <Content Include="Assets\Logo\logo-vneconomy.png" />
-    <Content Include="Assets\Logo\logo-vnn.png" />
+    <Content Include="Assets\Logo\logo-vietnamnet.png" />
     <Content Include="Assets\Logo\logo-vnp.png" />
     <Content Include="Assets\Logo\logo-voa.png" />
+    <Content Include="Assets\Logo\logo-webtretho.png" />
     <Content Include="Assets\Logo\logo-wpv.png" />
     <Content Include="Assets\Logo\logo-zing.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
-    <Content Include="Assets\SplashScreen.scale-100.png" />
-    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Square150x150LogoTrans.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44LogoTrans.scale-400.png" />
+    <Content Include="Assets\Square71x71Logo.scale-400.png" />
+    <Content Include="Assets\Square71x71Trans.scale-400.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
     <Content Include="Assets\Tiles\BadgeLogo.png" />
     <Content Include="Assets\Tiles\SquareTile150x150.png" />
     <Content Include="Assets\Tiles\SquareTile71x71.png" />
     <Content Include="Assets\Tiles\WideLogo.png" />
-    <Content Include="Assets\WideLogo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\Wide310x150LogoTrans.scale-400.png" />
+    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

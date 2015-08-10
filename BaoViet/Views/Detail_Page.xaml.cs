@@ -52,7 +52,6 @@ namespace BaoViet.Views
                 return;
 
             var address = "";
-            //TODO: handle backpress event for phone
             if(e.Parameter != null)
             {
                 address = e.Parameter.ToString();
@@ -62,6 +61,7 @@ namespace BaoViet.Views
             webView.NavigationFailed += webView_NavigationFailed;
             webView.DOMContentLoaded += webView_DOMContentLoaded;
             webView.NavigationStarting += webView_NavigationStarting;
+            webView.NavigationFailed += WebView_NavigationFailed;
             ViewModel.WebViewControl = webView;
             //webViewContainer.Children.Add(webView);
 
@@ -72,6 +72,11 @@ namespace BaoViet.Views
                 ViewModel.CurrentWebPage = new Uri(address);
             });
             base.OnNavigatedTo(e);
+        }
+
+        private void WebView_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
+        {
+            App.InvokeOnToastRise("Lỗi khi tải trang, hãy thử refresh lại trang web bằng nút F5", 4000);
         }
 
         private void webView_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs e)
@@ -94,6 +99,8 @@ namespace BaoViet.Views
             ViewModel.CurrentWebTitle = webView.DocumentTitle;
             ViewModel.CurrentWebPage = e.Uri;
             ViewModel.IsBusy = false;
+            //UNDONE
+            //App.InvokeOnToastRise("Lỗi khi tải trang, hãy thử refresh lại trang web bằng nút F5", 4000);
             ViewModel.UpdateButton();
         }
 
@@ -107,7 +114,7 @@ namespace BaoViet.Views
             ViewModel.WebViewControl = null;
             webViewContainer.Children.Clear();
             App.OnRefreshRequested -= App_OnRefreshRequested;
-            GC.Collect();
+            //GC.Collect();
             //GC.Collect();
             base.OnNavigatedFrom(e);
         }

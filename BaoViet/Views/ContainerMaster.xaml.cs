@@ -1,5 +1,6 @@
 ﻿using BaoViet.DataContext;
 using BaoViet.Helpers;
+using BaoViet.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -68,7 +69,7 @@ namespace BaoViet.Views
                     OnBackRequested(null, null);
                 }
 
-                if(e.VirtualKey == Windows.System.VirtualKey.F5)
+                if (e.VirtualKey == Windows.System.VirtualKey.F5)
                 {
                     App.InvokeOnRefreshRequested();
                 }
@@ -136,13 +137,17 @@ namespace BaoViet.Views
 
         }
 
+        List<DispatcherTimerExt> Timers = new List<DispatcherTimerExt>();
+
         private void StartTimer(object sender, object e)
         {
             //Start hiding timer
-            DispatcherTimer NotificationTimer = new DispatcherTimer();
-            NotificationTimer.Interval = TimeSpan.FromMilliseconds(pmilisecs);
-            NotificationTimer.Tick += NotificationTimer_Tick;
-            NotificationTimer.Start();
+            DispatcherTimerExt NotificationTimer = new DispatcherTimerExt();
+            NotificationTimer.Timer.Interval = TimeSpan.FromMilliseconds(pmilisecs);
+            NotificationTimer.Timer.Tick += NotificationTimer_Tick;
+            NotificationTimer.Timer.Start();
+            NotificationContainer.DataContext = NotificationTimer;
+            Timers.Add(NotificationTimer);
         }
 
         private void NotificationTimer_Tick(object sender, object e)
@@ -180,6 +185,16 @@ namespace BaoViet.Views
                     NotificationTimer.Stop();
 
             }
+            else
+            {
+                var timer = NotificationContainer.DataContext as DispatcherTimer;
+                if (timer != null)
+                {
+                    if (timer.IsEnabled)
+                        timer.Stop();
+                    Timers.Clear();
+                }
+            }
 
         }
 
@@ -191,6 +206,11 @@ namespace BaoViet.Views
         private void MasterFrame_Navigated(object sender, NavigationEventArgs e)
         {
 
+        }
+
+        private void DissmisToast(object sender, TappedRoutedEventArgs e)
+        {
+            NotificationTimer_Tick(null, null);
         }
     }
 }

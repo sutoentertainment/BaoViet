@@ -96,6 +96,11 @@ namespace BaoViet.Views
                 if (e != null)
                     e.Handled = true;
             }
+            //if (!App.MasterFrame.CanGoBack && App.RootDataContext.SectionIndex != 0)
+            //{
+            //    App.RootDataContext.SectionIndex = 0;
+            //    e.Handled = true;
+            //}
         }
 
 

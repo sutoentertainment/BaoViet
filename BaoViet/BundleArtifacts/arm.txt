@@ -1,5 +1,4 @@
-MainPackage=D:\Study\GitHub\BaoViet\BaoViet\bin\ARM\Release\BaoViet_2.7.0.0_ARM.appx
-SymbolPackage=D:\Study\GitHub\BaoViet\BaoViet\AppPackages\BaoViet_2.7.0.0\BaoViet_2.7.0.0_ARM.appxsym
-ResourcePack=D:\Study\GitHub\BaoViet\BaoViet\bin\ARM\Release\BaoViet_2.7.0.0_language-en.appx
-ResourcePack=D:\Study\GitHub\BaoViet\BaoViet\bin\ARM\Release\BaoViet_2.7.0.0_scale-100.appx
-ResourcePack=D:\Study\GitHub\BaoViet\BaoViet\bin\ARM\Release\BaoViet_2.7.0.0_scale-400.appx
+MainPackage=C:\Users\thang2410199\Documents\GitHub\BaoViet\BaoViet\bin\ARM\Release\BaoViet_2.7.4.0_ARM.appx
+SymbolPackage=C:\Users\thang2410199\Documents\GitHub\BaoViet\BaoViet\AppPackages\BaoViet_2.7.4.0\BaoViet_2.7.4.0_ARM.appxsym
+ResourcePack=C:\Users\thang2410199\Documents\GitHub\BaoViet\BaoViet\bin\ARM\Release\BaoViet_2.7.4.0_scale-100.appx
+ResourcePack=C:\Users\thang2410199\Documents\GitHub\BaoViet\BaoViet\bin\ARM\Release\BaoViet_2.7.4.0_scale-400.appx

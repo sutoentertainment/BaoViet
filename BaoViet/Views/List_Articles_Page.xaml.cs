@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BaoViet.Interfaces;
+using BaoViet.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Croft.Core.Extensions;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,9 +25,29 @@ namespace BaoViet.Views
     /// </summary>
     public sealed partial class List_Articles_Page : Page
     {
+        public List_Articles_ViewModel ViewModel
+        {
+            get
+            {
+                return DataContext as List_Articles_ViewModel;
+            }
+        }
         public List_Articles_Page()
         {
             this.InitializeComponent();
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            ViewModel.ListFeed.Clear();
+            if (e.Parameter != null)
+            {
+                var paper = e.Parameter as IPaper;
+
+                var feeds = await paper.GetFeed(paper.Categories[0].Source);
+                ViewModel.ListFeed.AddRange(feeds);
+            }
         }
     }
 }

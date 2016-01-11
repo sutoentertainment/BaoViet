@@ -49,17 +49,13 @@ namespace BaoViet.ViewModels
         public bool IsForwardEnable { get; set; }
 
         public RelayCommand ShareCommand { get; set; }
-        Action ShareAction;
         public WebView WebViewControl;
 
         public RelayCommand BackCommand { get; set; }
-        Action BackAction;
 
         public RelayCommand ForwardCommand { get; set; }
-        Action ForwardAction;
 
         public RelayCommand RefreshCommand { get; set; }
-        Action RefreshAction;
 
         bool _IsBusy = false;
         public bool IsBusy
@@ -81,18 +77,14 @@ namespace BaoViet.ViewModels
             CurrentWebTitle = "";
 
             IsBackEnable = IsForwardEnable = false;
-
-            ShareAction = new Action(Share);
-            ShareCommand = new RelayCommand(ShareAction);
-
-            BackAction = new Action(Back);
-            BackCommand = new RelayCommand(BackAction);
-
-            ForwardAction = new Action(Forward);
-            ForwardCommand = new RelayCommand(ForwardAction);
-
-            RefreshAction = new Action(Refresh);
-            RefreshCommand = new RelayCommand(RefreshAction);
+            
+            ShareCommand = new RelayCommand(Share);
+            
+            BackCommand = new RelayCommand(Back);
+            
+            ForwardCommand = new RelayCommand(Forward);
+            
+            RefreshCommand = new RelayCommand(Refresh);
         }
 
         #region ShareLink

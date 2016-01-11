@@ -30,20 +30,25 @@ namespace BaoViet.Views
     public sealed partial class Home_Page : Page
     {
         
-        public Home_Page_ViewModel ViewModel { get; set; }
+        public Home_Page_ViewModel ViewModel
+        {
+            get
+            {
+                return this.DataContext as Home_Page_ViewModel;
+            }
+        }
         GestureRecognizer gestureRecognizer = new Windows.UI.Input.GestureRecognizer();
 
         public Home_Page()
         {
             this.InitializeComponent();
-            ViewModel = new Home_Page_ViewModel();
-            this.DataContext = ViewModel;
+            //ViewModel = new Home_Page_ViewModel();
+            //this.DataContext = ViewModel;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
-            
+            base.OnNavigatedTo(e);            
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -82,12 +87,11 @@ namespace BaoViet.Views
 
         private void FrontPage_ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var paper = e.ClickedItem as Paper;
-            App.MasterFrame.Navigate(typeof(Detail_Page), paper.HomePage);
+            var paper = e.ClickedItem as VnExpressPaper;
+            //App.MasterFrame.Navigate(typeof(Detail_Page), paper.HomePage);
 
             //TODO: Prepare the data model for next page
-
-            //this.Frame.Navigate(typeof(List_Articles_Page));
+            App.MasterFrame.Navigate(typeof(List_Articles_Page), paper);
         }
 
         /// <summary>

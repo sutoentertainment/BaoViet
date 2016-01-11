@@ -1,43 +1,78 @@
-﻿using BaoViet.Helpers;
+﻿using BaoViet.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
+using BaoViet.Helpers;
+using System.Text.RegularExpressions;
 
 namespace BaoViet.Models
 {
-    public class Paper : BaseModel
+    public abstract class PaperBase : BaseModel, IPaper
     {
-        public string Title { get; set; }
-        public string ImageSource { get; set; }
+        public virtual ObservableCollection<Category> Categories
+        {
+            get; set;
+        }
 
-        public ObservableCollection<Category> Categories { get; set; }
+        public virtual double CellWidth
+        {
+            get; set;
+        }
 
-        public PaperType Type;
-        public string HomePage;
+        public virtual string HomePage
+        {
+            get; set;
+        }
 
-        #region UI Property
+        public virtual string ImageSource
+        {
+            get; set;
+        }
 
-        public Thickness Margin { get; set; }
-        public double CellWidth { get; set; }
+        public virtual int Index
+        {
+            get; set;
+        }
 
-        #endregion
+        public virtual Thickness Margin
+        {
+            get; set;
+        }
 
+        public virtual string Title
+        {
+            get; set;
+        }
 
-        public int Index = 0;
+        public virtual PaperType Type
+        {
+            get; set;
+        }
 
-        public Paper()
+        public virtual Task<IEnumerable<FeedItem>> GetFeed(string url)
+        {
+            throw new NotImplementedException();
+        }
+
+        public PaperBase(PaperType type)
         {
             this.Title = "";
             this.ImageSource = "";
-            if(App.IsMobile)
+            Type = type;
+            if (DeviceHelper.CurrentDevice() == DeviceTypes.Mobile)
                 this.CellWidth = ((WindowsSize.Width - 10 * 4) / 3);
             else
                 this.CellWidth = ((500 - 10 * 4) / 2);
             Categories = new ObservableCollection<Category>();
+        }
+
+        public string StripHTML(string input)
+        {
+            return Regex.Replace(input, "<.*?>", String.Empty);
         }
     }
 }

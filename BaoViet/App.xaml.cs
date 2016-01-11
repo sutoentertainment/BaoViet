@@ -23,6 +23,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using BaoViet.DataContext;
 using Windows.ApplicationModel.Core;
+using StackCore.Services.WebServices;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -84,7 +85,6 @@ namespace BaoViet
 
         public static event OnAppResumeEventHandler OnAppResumed;
 
-        public static bool IsMobile = true;
 
         public static void InvokeOnToastRise(string text, double milisec)
         {
@@ -97,7 +97,7 @@ namespace BaoViet
             if (OnToastTapped != null)
                 OnToastTapped.Invoke(action);
         }
-
+        public static WebService WebService = new WebService();
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -111,13 +111,6 @@ namespace BaoViet
             this.Resuming += App_Resuming;
             this.UnhandledException += App_UnhandledException;
             RootDataContext = new RootDataContext();
-            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
-            {
-                //HardwareButtons.BackPressed += HardwareButtons_BackPressed;
-                IsMobile = true;
-            }
-            else
-                IsMobile = false;
         }
 
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)

@@ -3,12 +3,60 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
+      "Comet/0.2.0": {
+        "dependencies": {
+          "System.Collections": "[4.0.10, )",
+          "System.Diagnostics.Debug": "[4.0.10, )",
+          "System.Diagnostics.Tools": "[4.0.0, )",
+          "System.ObjectModel": "[4.0.10, )",
+          "System.Runtime": "[4.0.20, )",
+          "System.Runtime.Extensions": "[4.0.10, )",
+          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
+          "System.Runtime.WindowsRuntime": "[4.0.10, )",
+          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
+          "System.Threading": "[4.0.10, )",
+          "System.Threading.Tasks": "[4.0.10, )"
+        },
+        "compile": {
+          "lib/uap10.0/Comet.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Comet.dll": {}
+        }
+      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "Croft.Core.Common/1.1.0": {
+        "compile": {
+          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+        }
+      },
+      "Croft.Core.UWP/1.1.0": {
+        "dependencies": {
+          "Croft.Core.Common": "[1.1.0, )"
+        },
+        "compile": {
+          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.4.9": {
+        "compile": {
+          "lib/NetCore45/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/NetCore45/HtmlAgilityPack.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -209,6 +257,18 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "mort8088.XML.XmlHelper/1.0.2": {
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Xml"
+        ]
+      },
+      "MvvmLight/5.2.0": {
+        "dependencies": {
+          "MvvmLightLibs": "[5.2.0, )"
+        }
+      },
       "MvvmLightLibs/5.2.0": {
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, )"
@@ -222,6 +282,14 @@
           "lib/windows81/GalaSoft.MvvmLight.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.Extras.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.Platform.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.2": {
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -1561,12 +1629,60 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
+      "Comet/0.2.0": {
+        "dependencies": {
+          "System.Collections": "[4.0.10, )",
+          "System.Diagnostics.Debug": "[4.0.10, )",
+          "System.Diagnostics.Tools": "[4.0.0, )",
+          "System.ObjectModel": "[4.0.10, )",
+          "System.Runtime": "[4.0.20, )",
+          "System.Runtime.Extensions": "[4.0.10, )",
+          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
+          "System.Runtime.WindowsRuntime": "[4.0.10, )",
+          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
+          "System.Threading": "[4.0.10, )",
+          "System.Threading.Tasks": "[4.0.10, )"
+        },
+        "compile": {
+          "lib/uap10.0/Comet.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Comet.dll": {}
+        }
+      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "Croft.Core.Common/1.1.0": {
+        "compile": {
+          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+        }
+      },
+      "Croft.Core.UWP/1.1.0": {
+        "dependencies": {
+          "Croft.Core.Common": "[1.1.0, )"
+        },
+        "compile": {
+          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.4.9": {
+        "compile": {
+          "lib/NetCore45/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/NetCore45/HtmlAgilityPack.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -1810,6 +1926,18 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "mort8088.XML.XmlHelper/1.0.2": {
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Xml"
+        ]
+      },
+      "MvvmLight/5.2.0": {
+        "dependencies": {
+          "MvvmLightLibs": "[5.2.0, )"
+        }
+      },
       "MvvmLightLibs/5.2.0": {
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, )"
@@ -1823,6 +1951,14 @@
           "lib/windows81/GalaSoft.MvvmLight.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.Extras.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.Platform.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.2": {
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -3209,12 +3345,60 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
+      "Comet/0.2.0": {
+        "dependencies": {
+          "System.Collections": "[4.0.10, )",
+          "System.Diagnostics.Debug": "[4.0.10, )",
+          "System.Diagnostics.Tools": "[4.0.0, )",
+          "System.ObjectModel": "[4.0.10, )",
+          "System.Runtime": "[4.0.20, )",
+          "System.Runtime.Extensions": "[4.0.10, )",
+          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
+          "System.Runtime.WindowsRuntime": "[4.0.10, )",
+          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
+          "System.Threading": "[4.0.10, )",
+          "System.Threading.Tasks": "[4.0.10, )"
+        },
+        "compile": {
+          "lib/uap10.0/Comet.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Comet.dll": {}
+        }
+      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "Croft.Core.Common/1.1.0": {
+        "compile": {
+          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+        }
+      },
+      "Croft.Core.UWP/1.1.0": {
+        "dependencies": {
+          "Croft.Core.Common": "[1.1.0, )"
+        },
+        "compile": {
+          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.4.9": {
+        "compile": {
+          "lib/NetCore45/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/NetCore45/HtmlAgilityPack.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -3444,6 +3628,18 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "mort8088.XML.XmlHelper/1.0.2": {
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Xml"
+        ]
+      },
+      "MvvmLight/5.2.0": {
+        "dependencies": {
+          "MvvmLightLibs": "[5.2.0, )"
+        }
+      },
       "MvvmLightLibs/5.2.0": {
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, )"
@@ -3457,6 +3653,14 @@
           "lib/windows81/GalaSoft.MvvmLight.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.Extras.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.Platform.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.2": {
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -4829,12 +5033,60 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
+      "Comet/0.2.0": {
+        "dependencies": {
+          "System.Collections": "[4.0.10, )",
+          "System.Diagnostics.Debug": "[4.0.10, )",
+          "System.Diagnostics.Tools": "[4.0.0, )",
+          "System.ObjectModel": "[4.0.10, )",
+          "System.Runtime": "[4.0.20, )",
+          "System.Runtime.Extensions": "[4.0.10, )",
+          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
+          "System.Runtime.WindowsRuntime": "[4.0.10, )",
+          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
+          "System.Threading": "[4.0.10, )",
+          "System.Threading.Tasks": "[4.0.10, )"
+        },
+        "compile": {
+          "lib/uap10.0/Comet.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Comet.dll": {}
+        }
+      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "Croft.Core.Common/1.1.0": {
+        "compile": {
+          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+        }
+      },
+      "Croft.Core.UWP/1.1.0": {
+        "dependencies": {
+          "Croft.Core.Common": "[1.1.0, )"
+        },
+        "compile": {
+          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.4.9": {
+        "compile": {
+          "lib/NetCore45/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/NetCore45/HtmlAgilityPack.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -5083,6 +5335,18 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "mort8088.XML.XmlHelper/1.0.2": {
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Xml"
+        ]
+      },
+      "MvvmLight/5.2.0": {
+        "dependencies": {
+          "MvvmLightLibs": "[5.2.0, )"
+        }
+      },
       "MvvmLightLibs/5.2.0": {
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, )"
@@ -5096,6 +5360,14 @@
           "lib/windows81/GalaSoft.MvvmLight.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.Extras.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.Platform.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.2": {
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -6482,12 +6754,60 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
+      "Comet/0.2.0": {
+        "dependencies": {
+          "System.Collections": "[4.0.10, )",
+          "System.Diagnostics.Debug": "[4.0.10, )",
+          "System.Diagnostics.Tools": "[4.0.0, )",
+          "System.ObjectModel": "[4.0.10, )",
+          "System.Runtime": "[4.0.20, )",
+          "System.Runtime.Extensions": "[4.0.10, )",
+          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
+          "System.Runtime.WindowsRuntime": "[4.0.10, )",
+          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
+          "System.Threading": "[4.0.10, )",
+          "System.Threading.Tasks": "[4.0.10, )"
+        },
+        "compile": {
+          "lib/uap10.0/Comet.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Comet.dll": {}
+        }
+      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "Croft.Core.Common/1.1.0": {
+        "compile": {
+          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+        }
+      },
+      "Croft.Core.UWP/1.1.0": {
+        "dependencies": {
+          "Croft.Core.Common": "[1.1.0, )"
+        },
+        "compile": {
+          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.4.9": {
+        "compile": {
+          "lib/NetCore45/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/NetCore45/HtmlAgilityPack.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -6717,6 +7037,18 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "mort8088.XML.XmlHelper/1.0.2": {
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Xml"
+        ]
+      },
+      "MvvmLight/5.2.0": {
+        "dependencies": {
+          "MvvmLightLibs": "[5.2.0, )"
+        }
+      },
       "MvvmLightLibs/5.2.0": {
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, )"
@@ -6730,6 +7062,14 @@
           "lib/windows81/GalaSoft.MvvmLight.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.Extras.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.Platform.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.2": {
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -8102,12 +8442,60 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
+      "Comet/0.2.0": {
+        "dependencies": {
+          "System.Collections": "[4.0.10, )",
+          "System.Diagnostics.Debug": "[4.0.10, )",
+          "System.Diagnostics.Tools": "[4.0.0, )",
+          "System.ObjectModel": "[4.0.10, )",
+          "System.Runtime": "[4.0.20, )",
+          "System.Runtime.Extensions": "[4.0.10, )",
+          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
+          "System.Runtime.WindowsRuntime": "[4.0.10, )",
+          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
+          "System.Threading": "[4.0.10, )",
+          "System.Threading.Tasks": "[4.0.10, )"
+        },
+        "compile": {
+          "lib/uap10.0/Comet.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Comet.dll": {}
+        }
+      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "Croft.Core.Common/1.1.0": {
+        "compile": {
+          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+        }
+      },
+      "Croft.Core.UWP/1.1.0": {
+        "dependencies": {
+          "Croft.Core.Common": "[1.1.0, )"
+        },
+        "compile": {
+          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.4.9": {
+        "compile": {
+          "lib/NetCore45/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/NetCore45/HtmlAgilityPack.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -8356,6 +8744,18 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "mort8088.XML.XmlHelper/1.0.2": {
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Xml"
+        ]
+      },
+      "MvvmLight/5.2.0": {
+        "dependencies": {
+          "MvvmLightLibs": "[5.2.0, )"
+        }
+      },
       "MvvmLightLibs/5.2.0": {
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, )"
@@ -8369,6 +8769,14 @@
           "lib/windows81/GalaSoft.MvvmLight.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.Extras.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.Platform.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.2": {
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -9755,12 +10163,60 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
+      "Comet/0.2.0": {
+        "dependencies": {
+          "System.Collections": "[4.0.10, )",
+          "System.Diagnostics.Debug": "[4.0.10, )",
+          "System.Diagnostics.Tools": "[4.0.0, )",
+          "System.ObjectModel": "[4.0.10, )",
+          "System.Runtime": "[4.0.20, )",
+          "System.Runtime.Extensions": "[4.0.10, )",
+          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
+          "System.Runtime.WindowsRuntime": "[4.0.10, )",
+          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
+          "System.Threading": "[4.0.10, )",
+          "System.Threading.Tasks": "[4.0.10, )"
+        },
+        "compile": {
+          "lib/uap10.0/Comet.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Comet.dll": {}
+        }
+      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "Croft.Core.Common/1.1.0": {
+        "compile": {
+          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+        }
+      },
+      "Croft.Core.UWP/1.1.0": {
+        "dependencies": {
+          "Croft.Core.Common": "[1.1.0, )"
+        },
+        "compile": {
+          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.4.9": {
+        "compile": {
+          "lib/NetCore45/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/NetCore45/HtmlAgilityPack.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -9990,6 +10446,18 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "mort8088.XML.XmlHelper/1.0.2": {
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Xml"
+        ]
+      },
+      "MvvmLight/5.2.0": {
+        "dependencies": {
+          "MvvmLightLibs": "[5.2.0, )"
+        }
+      },
       "MvvmLightLibs/5.2.0": {
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, )"
@@ -10003,6 +10471,14 @@
           "lib/windows81/GalaSoft.MvvmLight.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.Extras.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.Platform.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.2": {
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -11376,6 +11852,21 @@
     }
   },
   "libraries": {
+    "Comet/0.2.0": {
+      "sha512": "xIargCBt6VZk2nOc1nN7hnt/pa+bAQ3nowo2aZFQXrTP2cfuswkZ3CaJILtCb33f+hTnEOYzsyfG5uGU8iILnQ==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "Comet.nuspec",
+        "lib/uap10.0/Comet.dll",
+        "lib/uap10.0/Comet.pri",
+        "lib/uap10.0/Comet/Comet.xr.xml",
+        "lib/uap10.0/Comet/Properties/Comet.rd.xml",
+        "lib/uap10.0/Comet/Themes/Generic.xbf",
+        "package/services/metadata/core-properties/436b0e550ce04179ba434b732fb4a907.psmdcp"
+      ]
+    },
     "CommonServiceLocator/1.3.0": {
       "sha512": "fbjO0SNwbOFPdwVfyqv+B7gIJ2CVBOFPKqn1mDDECK7KER8jFaOdcvroFYoAHa0ktPbxi5s+15qOLnA96f8GSA==",
       "type": "Package",
@@ -11389,6 +11880,68 @@
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML",
         "package/services/metadata/core-properties/8a82b9e5a63a439481bfa8d4ec335002.psmdcp",
         "package/services/metadata/core-properties/99be0c88b2fd41c8b07c42071005ee47.psmdcp"
+      ]
+    },
+    "Croft.Core.Common/1.1.0": {
+      "sha512": "nBYY36vn8qFaPsijYd6n8tZN8fugJVp2+pWn4XCnjHxPhEb+RnxwQ6Vw0Zz4riw87yVdA7bIGTlTo6PWSTEIhg==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "Croft.Core.Common.nuspec",
+        "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll",
+        "package/services/metadata/core-properties/7f5d113ae0424a1fab7fbc170841a8cc.psmdcp"
+      ]
+    },
+    "Croft.Core.UWP/1.1.0": {
+      "sha512": "fy5ON78ZPdii9kSDBEUfWmGS/56qTnAvyYkL/R4Yp8BffKxf1WxNNHU5lvCL8+bewKRuiR3MX8kF96LyOCeY3w==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "content/Properties/Croft.Core.UWP.rd.xml",
+        "Croft.Core.UWP.nuspec",
+        "lib/.NETCore50/Croft.Core.UWP.dll",
+        "package/services/metadata/core-properties/3d1d77266a3e43ffacfa0634cea5b19c.psmdcp"
+      ]
+    },
+    "HtmlAgilityPack/1.4.9": {
+      "sha512": "anZIsi7bbHZ35ZZzvCA+gVWC/mEXVhcJjJvxr3wzUEDsOE4uk0Fa0ZiaxVn83AZpVKVO4RHyqamPkzzJbMUgmQ==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "HAPIcon.png",
+        "HtmlAgilityPack.nuspec",
+        "lib/Net20/HtmlAgilityPack.dll",
+        "lib/Net20/HtmlAgilityPack.pdb",
+        "lib/Net20/HtmlAgilityPack.xml",
+        "lib/Net40/HtmlAgilityPack.dll",
+        "lib/Net40/HtmlAgilityPack.pdb",
+        "lib/Net40/HtmlAgilityPack.XML",
+        "lib/Net40-client/HtmlAgilityPack.dll",
+        "lib/Net40-client/HtmlAgilityPack.pdb",
+        "lib/Net40-client/HtmlAgilityPack.xml",
+        "lib/Net45/HtmlAgilityPack.dll",
+        "lib/Net45/HtmlAgilityPack.pdb",
+        "lib/Net45/HtmlAgilityPack.XML",
+        "lib/NetCore45/HtmlAgilityPack.dll",
+        "lib/NetCore45/HtmlAgilityPack.pdb",
+        "lib/NetCore45/HtmlAgilityPack.pri",
+        "lib/NetCore45/HtmlAgilityPack.xml",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
+        "lib/sl3-wp/_._",
+        "lib/sl4/HtmlAgilityPack.dll",
+        "lib/sl4/HtmlAgilityPack.pdb",
+        "lib/sl4/HtmlAgilityPack.XML",
+        "lib/sl5/HtmlAgilityPack.dll",
+        "lib/sl5/HtmlAgilityPack.pdb",
+        "lib/sl5/HtmlAgilityPack.XML",
+        "package/services/metadata/core-properties/43fdb80a5711487696f5a99b6d1418d0.psmdcp",
+        "readme.txt"
       ]
     },
     "Microsoft.CSharp/4.0.0": {
@@ -12044,6 +12597,32 @@
         "ref/xamarinmac20/_._"
       ]
     },
+    "mort8088.XML.XmlHelper/1.0.2": {
+      "sha512": "eEF61ERrNsAeFZKmmHQ1N6NOh5H0b5CJSIwYbzFTWSyPWyHi2/ZOSc71mYwLYiruAr0O54ztYtoJk+xLe4E0hw==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "content/README.txt",
+        "lib/mort8088.XML.dll",
+        "lib/mort8088.XML.pdb",
+        "mort8088.XML.XmlHelper.nuspec",
+        "package/services/metadata/core-properties/93133a162d3e4ed1b44518941242c6ba.psmdcp"
+      ]
+    },
+    "MvvmLight/5.2.0": {
+      "sha512": "MZbIMIFEjPMWx8hFnlcbMbwjyrCboXqmVKHZ265XYKK4/XtYfEVVJ3ptqmD5LRQOOhl4P+RzXXTr8Exzarr5TQ==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "Content/ViewModel/MainViewModel.cs.pp",
+        "Content/ViewModel/ViewModelLocator.cs.pp",
+        "MvvmLight.nuspec",
+        "package/services/metadata/core-properties/0b54fc98b3a242ceb6bc624649949a8a.psmdcp",
+        "tools/install.ps1"
+      ]
+    },
     "MvvmLightLibs/5.2.0": {
       "sha512": "F16xSNXK0nE5os3lrY+G2NkFdAXPJV7Ux8A9WUxZlyLZShUdCkoe14tov9KxGmgfCuQA/IKM/NWEyN0Dac1Mog==",
       "type": "Package",
@@ -12176,6 +12755,29 @@
         "lib/xamarin.ios10/GalaSoft.MvvmLight.XML",
         "MvvmLightLibs.nuspec",
         "package/services/metadata/core-properties/2416d2969a834c638aba3851d652cc13.psmdcp"
+      ]
+    },
+    "Newtonsoft.Json/8.0.2": {
+      "sha512": "e5yWmEfu68rmtG431zl9N/7PlNKQDIuiDW5MHlEFAZcecakcxrIGnKqrPAtWNILzK2oNanRB5cD150MYhECK3g==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
+        "Newtonsoft.Json.nuspec",
+        "package/services/metadata/core-properties/cc8c591d554640789c6a6ef6456f7772.psmdcp",
+        "tools/install.ps1"
       ]
     },
     "System.AppContext/4.0.0": {
@@ -14876,8 +15478,15 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "Comet >= 0.2.0",
+      "Croft.Core.Common >= 1.1.0",
+      "Croft.Core.UWP >= 1.1.0",
+      "HtmlAgilityPack >= 1.4.9",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
-      "MvvmLightLibs >= 5.2.0"
+      "mort8088.XML.XmlHelper >= 1.0.2",
+      "MvvmLight >= 5.2.0",
+      "MvvmLightLibs >= 5.2.0",
+      "Newtonsoft.Json >= 8.0.2"
     ],
     "UAP,Version=v10.0": []
   }

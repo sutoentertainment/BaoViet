@@ -13,6 +13,9 @@
     d:DataContext="{Binding Source={StaticResource sample_data}}" NavigationCacheMode="Required"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    DataContext="{Binding Main,
+                                          Mode=OneWay,
+                                          Source={StaticResource Locator}}"
     >
     <!--xmlns:usercontrol="using:BaoViet.UserControls"-->
 

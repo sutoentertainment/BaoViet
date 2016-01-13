@@ -14,6 +14,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using BaoViet.Helpers;
+using Newtonsoft.Json;
+using BaoViet.Models;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,14 +28,18 @@ namespace BaoViet.Views
     public sealed partial class Detail_Page : Page
     {
 
-        public Detail_Page_ViewModel ViewModel { get; set; }
+        public Detail_Page_ViewModel ViewModel
+        {
+            get
+            {
+                return this.DataContext as Detail_Page_ViewModel;
+            }
+        }
         //public WebView webView = new WebView(WebViewExecutionMode.SeparateThread);
 
         public Detail_Page()
         {
             this.InitializeComponent();
-            ViewModel = new Detail_Page_ViewModel();
-            this.DataContext = ViewModel;
             App.OnRefreshRequested += App_OnRefreshRequested;
         }
 
@@ -51,11 +58,14 @@ namespace BaoViet.Views
             if (e.NavigationMode == NavigationMode.Back)
                 return;
 
+            ViewModel.IsBusy = true;
+
             var address = "";
-            if(e.Parameter != null)
-            {
-                address = e.Parameter.ToString();
-            }
+            address = ViewModel.CurrentFeed.Link;
+            address = address.ToReadability();
+
+            var response_content = await App.WebService.GetString(address);
+            var response = JsonConvert.DeserializeObject<ReadabilityResponse>(response_content);
 
             webView.NavigationCompleted += webView_NavigationCompleted;
             webView.NavigationFailed += webView_NavigationFailed;
@@ -65,10 +75,11 @@ namespace BaoViet.Views
             ViewModel.WebViewControl = webView;
             //webViewContainer.Children.Add(webView);
 
-            await Task.Delay(500);
+            await Task.Delay(200);
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-                webView.Navigate(new Uri(address));
+                //webView.Navigate(new Uri(address));
+                webView.NavigateToString(response.content);
                 ViewModel.CurrentWebPage = new Uri(address);
             });
             base.OnNavigatedTo(e);

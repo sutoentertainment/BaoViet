@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Croft.Core.Extensions;
+using BaoViet.Models;
+using Microsoft.Practices.ServiceLocation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -40,14 +42,20 @@ namespace BaoViet.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            ViewModel.ListFeed.Clear();
-            if (e.Parameter != null)
-            {
-                var paper = e.Parameter as IPaper;
+            if (e.NavigationMode == NavigationMode.Back)
+                return;
 
-                var feeds = await paper.GetFeed(paper.Categories[0].Source);
-                ViewModel.ListFeed.AddRange(feeds);
-            }
+            ViewModel.ListFeed.Clear();
+            var feeds = await ViewModel.CurrentCategory.Owner.GetFeed(ViewModel.CurrentCategory.Source);
+            ViewModel.ListFeed.AddRange(feeds);
+        }
+
+        private void ListArticle_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var feed = e.ClickedItem as FeedItem;
+            var detail = ServiceLocator.Current.GetInstance<Detail_Page_ViewModel>();
+            detail.CurrentFeed = feed;
+            App.MasterFrame.Navigate(typeof(Detail_Page));
         }
     }
 }

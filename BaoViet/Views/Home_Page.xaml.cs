@@ -19,6 +19,7 @@ using System.Diagnostics;
 using BaoViet.Models;
 using ThHelper;
 using Windows.ApplicationModel.Store;
+using Microsoft.Practices.ServiceLocation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -90,8 +91,11 @@ namespace BaoViet.Views
             var paper = e.ClickedItem as VnExpressPaper;
             //App.MasterFrame.Navigate(typeof(Detail_Page), paper.HomePage);
 
+            var vm = ServiceLocator.Current.GetInstance<List_Categories_ViewModel>();
+            vm.CurrentPaper = paper;
+
             //TODO: Prepare the data model for next page
-            App.MasterFrame.Navigate(typeof(List_Articles_Page), paper);
+            App.MasterFrame.Navigate(typeof(List_Categories_Page));
         }
 
         /// <summary>

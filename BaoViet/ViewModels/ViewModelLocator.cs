@@ -49,6 +49,7 @@ namespace BaoViet.ViewModels
             SimpleIoc.Default.Register<Home_Page_ViewModel>();
             SimpleIoc.Default.Register<Detail_Page_ViewModel>();
             SimpleIoc.Default.Register<List_Articles_ViewModel>();
+            SimpleIoc.Default.Register<List_Categories_ViewModel>();
             //SimpleIoc.Default.Register<PromotionViewModel>();
             //SimpleIoc.Default.Register<WalletViewModel>();
             //SimpleIoc.Default.Register<SettingViewModel>();
@@ -75,6 +76,14 @@ namespace BaoViet.ViewModels
             get
             {
                 return ServiceLocator.Current.GetInstance<List_Articles_ViewModel>();
+            }
+        }
+
+        public List_Categories_ViewModel ListCategories
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<List_Categories_ViewModel>();
             }
         }
 

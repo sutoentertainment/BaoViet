@@ -10,6 +10,7 @@ using System.Xml;
 using Windows.UI.Xaml;
 using System.Xml.Linq;
 using HtmlAgilityPack;
+using System.Net;
 
 namespace BaoViet.Models
 {
@@ -39,6 +40,11 @@ namespace BaoViet.Models
             Categories.Add(new Category("Cộng đồng", "http://vnexpress.net/rss/cong-dong.rss"));
             Categories.Add(new Category("Tâm sự", "http://vnexpress.net/rss/tam-su.rss"));
             Categories.Add(new Category("Cười", "http://vnexpress.net/rss/cuoi.rss"));
+
+            foreach (var item in Categories)
+            {
+                item.Owner = this;
+            }
         }
         
         public override async Task<IEnumerable<FeedItem>> GetFeed(string url)
@@ -52,13 +58,13 @@ namespace BaoViet.Models
             foreach (var item in nodes)
             {
                 var feed = new FeedItem();
-                feed.Title = item.Descendants().Where(e => e.Name == "title").FirstOrDefault().Value;
+                feed.Title = WebUtility.HtmlDecode(item.Descendants().Where(e => e.Name == "title").FirstOrDefault().Value);
                 var description = item.Descendants().Where(e => e.Name == "description").FirstOrDefault();
 
                 HtmlDocument htmldocs = new HtmlDocument();
                 htmldocs.LoadHtml(description.Value);
 
-                feed.Description = htmldocs.DocumentNode.InnerText;
+                feed.Description = WebUtility.HtmlDecode(htmldocs.DocumentNode.InnerText);
                 try
                 {
                     feed.Thumbnail = htmldocs.DocumentNode.Descendants("img").FirstOrDefault().Attributes["src"].Value;

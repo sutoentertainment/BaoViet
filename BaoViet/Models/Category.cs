@@ -1,7 +1,10 @@
-﻿namespace BaoViet.Models
+﻿using BaoViet.Interfaces;
+
+namespace BaoViet.Models
 {
     public class Category
     {
+        public IPaper Owner { get; set; }
         public string Title {get;set;}
         public string Source { get; set; }
 

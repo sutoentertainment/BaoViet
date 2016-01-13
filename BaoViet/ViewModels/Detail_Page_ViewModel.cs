@@ -70,7 +70,19 @@ namespace BaoViet.ViewModels
                 RaisePropertyChanged("IsBusy");
             }
         }
-
+        FeedItem _CurrentFeed;
+        public FeedItem CurrentFeed
+        {
+            get
+            {
+                return _CurrentFeed;
+            }
+            set
+            {
+                _CurrentFeed = value;
+                RaisePropertyChanged("CurrentFeed");
+            }
+        }
 
         public Detail_Page_ViewModel()
         {

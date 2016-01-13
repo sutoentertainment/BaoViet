@@ -22,6 +22,14 @@
         </StackPanel>
     </DataTemplate>
 
+    <DataTemplate x:Key="CategoryTemplate" x:DataType="model:Category">
+        <StackPanel Margin="4,12,4,12">
+            <TextBlock HorizontalAlignment="Center"
+                       FontSize="14"
+                       Text="{x:Bind Title}" />
+        </StackPanel>
+    </DataTemplate>
+
     <Style x:Key="BasicItem" TargetType="ListViewItem">
         <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
         <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />

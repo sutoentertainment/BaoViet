@@ -4,6 +4,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:BaoViet.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      NavigationCacheMode="Required"
       xmlns:model="using:BaoViet.Models"
       DataContext="{Binding ListArticles,
                             Mode=OneWay,
@@ -19,7 +20,7 @@
 
         <ListView Grid.Row="1"
                   ItemContainerStyle="{StaticResource ListViewStandartItemStyle}"
-                  ItemsSource="{Binding ListFeed}">
+                  ItemsSource="{Binding ListFeed}" ItemClick="ListArticle_ItemClick" IsItemClickEnabled="True">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:FeedItem">
                     <Grid Margin="12">

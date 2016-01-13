@@ -91,10 +91,18 @@ namespace BaoViet.ViewModels
         public void LoadData()
         {
             FrontPagePaper.Add(PaperFactory.Create(PaperType.VnExpress));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
+
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Dân trí", Type = PaperType.DânTrí, HomePage = "http://dantri.com.vn", ImageSource = "ms-appx:///Assets/Logo/logo-dantri.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Tiền phong", Type = PaperType.TienPhong, HomePage = "http://www.tienphong.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-tienphong.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "VietnamPlus", Type = PaperType.VietnamPlus, HomePage = "http://www.vietnamplus.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-vnp.png" });
-            
+
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Tinh tế", Type = PaperType.TinhTế, HomePage = "http://tinhte.vn", ImageSource = "ms-appx:///Assets/Logo/logo-tinhte.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Số hóa", Type = PaperType.SốHóa, HomePage = "http://sohoa.vnexpress.net", ImageSource = "ms-appx:///Assets/Logo/logo-sohoa.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Vietnamnet", Type = PaperType.Vietnamnet, HomePage="http://vietnamnet.vn", ImageSource = "ms-appx:///Assets/Logo/logo-vietnamnet.png" });

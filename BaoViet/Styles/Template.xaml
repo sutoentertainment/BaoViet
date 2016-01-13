@@ -10,7 +10,9 @@
 
     <DataTemplate x:Key="FrontPaperTemplate" x:DataType="interface:IPaper">
         <StackPanel Width="{x:Bind CellWidth}" Margin="4,12,4,12">
-            <Ellipse Width="60" Height="60">
+            <Ellipse Width="60"
+                     Height="60"
+                     ContinuumNavigationTransitionInfo.IsExitElement="True">
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="{Binding ImageSource, Mode=OneWay}" />
                 </Ellipse.Fill>
@@ -26,7 +28,7 @@
         <StackPanel Margin="4,12,4,12">
             <TextBlock HorizontalAlignment="Center"
                        FontSize="14"
-                       Text="{x:Bind Title}" />
+                       Text="{x:Bind Title}" ContinuumNavigationTransitionInfo.IsExitElement="True"/>
         </StackPanel>
     </DataTemplate>
 

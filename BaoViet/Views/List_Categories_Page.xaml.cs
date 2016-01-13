@@ -25,6 +25,14 @@ namespace BaoViet.Views
     /// </summary>
     public sealed partial class List_Categories_Page : Page
     {
+        public List_Categories_ViewModel ViewModel
+        {
+            get
+            {
+                return this.DataContext as List_Categories_ViewModel;
+            }
+        }
+
         public List_Categories_Page()
         {
             this.InitializeComponent();

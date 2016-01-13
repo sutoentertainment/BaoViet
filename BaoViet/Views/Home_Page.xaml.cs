@@ -20,6 +20,7 @@ using BaoViet.Models;
 using ThHelper;
 using Windows.ApplicationModel.Store;
 using Microsoft.Practices.ServiceLocation;
+using BaoViet.Interfaces;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -88,7 +89,7 @@ namespace BaoViet.Views
 
         private void FrontPage_ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var paper = e.ClickedItem as VnExpressPaper;
+            var paper = e.ClickedItem as IPaper;
             //App.MasterFrame.Navigate(typeof(Detail_Page), paper.HomePage);
 
             var vm = ServiceLocator.Current.GetInstance<List_Categories_ViewModel>();

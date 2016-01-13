@@ -11,12 +11,39 @@
                             Source={StaticResource Locator}}"
       mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <ContinuumNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid Background="{StaticResource AppColorBackground}">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="48" />
             <RowDefinition />
         </Grid.RowDefinitions>
+
+        <Grid>
+            <StackPanel Orientation="Horizontal">
+                <Ellipse Width="32"
+                         Height="32"
+                         Margin="8">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{Binding CurrentCategory.Owner.ImageSource, Mode=OneWay}" />
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <TextBlock VerticalAlignment="Center"
+                           FontSize="14"
+                           Text="{Binding CurrentCategory.Title}" ContinuumNavigationTransitionInfo.IsEntranceElement="True"/>
+            </StackPanel>
+        </Grid>
 
         <ListView Grid.Row="1"
                   ItemContainerStyle="{StaticResource ListViewStandartItemStyle}"

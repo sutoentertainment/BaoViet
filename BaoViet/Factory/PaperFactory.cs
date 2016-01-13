@@ -1,5 +1,6 @@
 ﻿using BaoViet.Interfaces;
 using BaoViet.Models;
+using BaoViet.Models.Paper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +19,11 @@ namespace BaoViet.Factory
                 case PaperType.VnExpress:
                     paper = new VnExpressPaper(type);
                     break;
+                case PaperType.DânTrí:
+                    paper = new DanTriPaper(type);
+                    break;
                 default:
-                    paper = new VnExpressPaper(type);
+                    paper = new UnknowPaper(type);
                     break;
             }
 

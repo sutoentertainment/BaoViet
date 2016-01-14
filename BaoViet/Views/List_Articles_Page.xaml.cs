@@ -46,8 +46,17 @@ namespace BaoViet.Views
                 return;
 
             ViewModel.ListFeed.Clear();
+            ViewModel.IsBusy = true;
             var feeds = await ViewModel.CurrentCategory.Owner.GetFeed(ViewModel.CurrentCategory.Source);
             ViewModel.ListFeed.AddRange(feeds);
+            ViewModel.IsBusy = false;
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            if (e.NavigationMode == NavigationMode.Back)
+                App.WebService.CancelCurrentRequests();
         }
 
         private void ListArticle_ItemClick(object sender, ItemClickEventArgs e)
@@ -56,6 +65,11 @@ namespace BaoViet.Views
             var detail = ServiceLocator.Current.GetInstance<Detail_Page_ViewModel>();
             detail.CurrentFeed = feed;
             App.MasterFrame.Navigate(typeof(Detail_Page));
+        }
+
+        private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
+        {
+            App.InvokeOnToastRise("Đã lưu", 1000);
         }
     }
 }

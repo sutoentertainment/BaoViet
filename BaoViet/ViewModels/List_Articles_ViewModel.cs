@@ -26,6 +26,20 @@ namespace BaoViet.ViewModels
         }
         public ObservableCollection<FeedItem> ListFeed { get; set; }
 
+        bool _IsBusy = false;
+        public bool IsBusy
+        {
+            get
+            {
+                return _IsBusy;
+            }
+            set
+            {
+                _IsBusy = value;
+                RaisePropertyChanged("IsBusy");
+            }
+        }
+
         public List_Articles_ViewModel()
         {
             ListFeed = new ObservableCollection<FeedItem>();

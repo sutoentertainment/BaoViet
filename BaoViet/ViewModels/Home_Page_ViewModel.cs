@@ -92,14 +92,15 @@ namespace BaoViet.ViewModels
         {
             FrontPagePaper.Add(PaperFactory.Create(PaperType.VnExpress));
             FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
 
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Dân trí", Type = PaperType.DânTrí, HomePage = "http://dantri.com.vn", ImageSource = "ms-appx:///Assets/Logo/logo-dantri.png" });
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.TienPhong));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.VietnamPlus));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.TinhTế));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.SốHóa));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.Vietnamnet));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.WinphoneViet));
+
+
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Tiền phong", Type = PaperType.TienPhong, HomePage = "http://www.tienphong.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-tienphong.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "VietnamPlus", Type = PaperType.VietnamPlus, HomePage = "http://www.vietnamplus.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-vnp.png" });
 

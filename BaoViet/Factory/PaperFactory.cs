@@ -14,13 +14,16 @@ namespace BaoViet.Factory
         public static IPaper Create(PaperType type)
         {
             PaperBase paper;
-            switch(type)
+            switch (type)
             {
                 case PaperType.VnExpress:
                     paper = new VnExpressPaper(type);
                     break;
                 case PaperType.DânTrí:
                     paper = new DanTriPaper(type);
+                    break;
+                case PaperType.TinhTế:
+                    paper = new TinhTePaper(type);
                     break;
                 default:
                     paper = new UnknowPaper(type);

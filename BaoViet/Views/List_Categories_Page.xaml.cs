@@ -38,6 +38,23 @@ namespace BaoViet.Views
             this.InitializeComponent();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (e.NavigationMode == NavigationMode.Back)
+                return;
+            ViewModel.HeaderLoaded = true;
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            if(e.NavigationMode == NavigationMode.Back)
+            {
+                ViewModel.HeaderLoaded = false;
+            }
+        }
+
         private void Category_ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var cate = e.ClickedItem as Category;

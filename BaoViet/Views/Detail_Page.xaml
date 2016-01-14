@@ -33,12 +33,12 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="48"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Grid Background="{StaticResource AppColorBackground}">
-            <TextBlock Text="{Binding CurrentFeed.Title}" x:Name="title_tb" VerticalAlignment="Center" Margin="12,0"/>
+            <TextBlock Text="{Binding CurrentFeed.Title}" x:Name="title_tb" VerticalAlignment="Center" Margin="12,0" FontSize="18"/>
         </Grid>
         
         <Grid Name="webViewContainer" Grid.Row="1">

@@ -27,8 +27,8 @@
     <DataTemplate x:Key="CategoryTemplate" x:DataType="model:Category">
         <StackPanel Margin="4,12,4,12">
             <TextBlock HorizontalAlignment="Center"
-                       FontSize="14"
-                       Text="{x:Bind Title}" ContinuumNavigationTransitionInfo.IsExitElement="True"/>
+                       FontSize="18"
+                       Text="{x:Bind Title}" ContinuumNavigationTransitionInfo.IsExitElement="True" TextLineBounds="Tight" OpticalMarginAlignment="TrimSideBearings"/>
         </StackPanel>
     </DataTemplate>
 

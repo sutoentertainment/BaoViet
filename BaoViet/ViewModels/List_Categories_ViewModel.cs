@@ -24,6 +24,20 @@ namespace BaoViet.ViewModels
             }
         }
 
+        bool _HeaderLoaded = false;
+        public bool HeaderLoaded
+        {
+            get
+            {
+                return _HeaderLoaded;
+            }
+            set
+            {
+                _HeaderLoaded = value;
+                RaisePropertyChanged("HeaderLoaded");
+            }
+        }
+
         public List_Categories_ViewModel()
         {
 

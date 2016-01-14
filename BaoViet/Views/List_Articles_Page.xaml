@@ -40,7 +40,7 @@
                 </Ellipse>
 
                 <TextBlock VerticalAlignment="Center"
-                           FontSize="14"
+                           FontSize="18"
                            Text="{Binding CurrentCategory.Title}" ContinuumNavigationTransitionInfo.IsEntranceElement="True"/>
             </StackPanel>
         </Grid>

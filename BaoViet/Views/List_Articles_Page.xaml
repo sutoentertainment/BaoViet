@@ -101,7 +101,7 @@
                                            MaxLines="2"
                                            Text="{Binding Description}"
                                            TextTrimming="CharacterEllipsis"
-                                           TextWrapping="Wrap" />
+                                           TextWrapping="Wrap" Opacity="0.6"/>
                             </StackPanel>
                         </Grid>
                     </comet:SlidableListItem>

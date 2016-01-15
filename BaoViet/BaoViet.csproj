@@ -126,6 +126,7 @@
     <Compile Include="Interfaces\IPaper.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Paper.cs" />
+    <Compile Include="Models\Paper\WinphoneVietPaper.cs" />
     <Compile Include="Models\Paper\TinhTePaper.cs" />
     <Compile Include="Models\Paper\DanTriPaper.cs" />
     <Compile Include="Models\Paper\UnknowPaper.cs" />

@@ -25,6 +25,9 @@ namespace BaoViet.Factory
                 case PaperType.TinhTế:
                     paper = new TinhTePaper(type);
                     break;
+                case PaperType.WinphoneViet:
+                    paper = new WinphoneVietPaper(type);
+                    break;
                 default:
                     paper = new UnknowPaper(type);
                     break;

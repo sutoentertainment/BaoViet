@@ -8,7 +8,7 @@
     mc:Ignorable="d" Background="Black" xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core">
     <Grid>
-        <Frame Name="MasterFrame">
+        <Frame Name="MasterFrame" Background="{StaticResource AppColorBackground}">
             <i:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Navigated">
                     <core:InvokeCommandAction Command="{x:Bind ViewModel.OnNavigatedCommand}"/>

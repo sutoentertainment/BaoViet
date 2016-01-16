@@ -100,15 +100,8 @@ namespace BaoViet.ViewModels
             FrontPagePaper.Add(PaperFactory.Create(PaperType.Vietnamnet));
             FrontPagePaper.Add(PaperFactory.Create(PaperType.WinphoneViet));
 
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.BaoMoi));
 
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Tiền phong", Type = PaperType.TienPhong, HomePage = "http://www.tienphong.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-tienphong.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "VietnamPlus", Type = PaperType.VietnamPlus, HomePage = "http://www.vietnamplus.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-vnp.png" });
-
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Tinh tế", Type = PaperType.TinhTế, HomePage = "http://tinhte.vn", ImageSource = "ms-appx:///Assets/Logo/logo-tinhte.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Số hóa", Type = PaperType.SốHóa, HomePage = "http://sohoa.vnexpress.net", ImageSource = "ms-appx:///Assets/Logo/logo-sohoa.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Vietnamnet", Type = PaperType.Vietnamnet, HomePage="http://vietnamnet.vn", ImageSource = "ms-appx:///Assets/Logo/logo-vietnamnet.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "WinphoneViet", Type = PaperType.WinphoneViet, HomePage = "http://winphoneviet.com", ImageSource = "ms-appx:///Assets/Logo/logo-wpv.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Báo mới", Type = PaperType.BaoMoi, HomePage = "http://www.baomoi.com/", ImageSource = "ms-appx:///Assets/Logo/logo-baomoi.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Ngôi sao", Type = PaperType.NgôiSao, HomePage = "http://ngoisao.net", ImageSource = "ms-appx:///Assets/Logo/logo-ngoisao.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Tuổi trẻ", Type = PaperType.TuổiTre, HomePage = "http://tuoitre.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-tuoitre.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Game thủ", Type = PaperType.Gamethu, HomePage = "http://gamethu.vnexpress.net/", ImageSource = "ms-appx:///Assets/Logo/logo-gamethu.png" });

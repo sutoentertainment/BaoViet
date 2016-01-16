@@ -47,8 +47,12 @@ namespace BaoViet.Views
 
             ViewModel.ListFeed.Clear();
             ViewModel.IsBusy = true;
-            var feeds = await ViewModel.CurrentCategory.Owner.GetFeed(ViewModel.CurrentCategory.Source);
-            ViewModel.ListFeed.AddRange(feeds);
+            try
+            {
+                var feeds = await ViewModel.CurrentCategory.Owner.GetFeed(ViewModel.CurrentCategory.Source);
+                ViewModel.ListFeed.AddRange(feeds);
+            }
+            catch { }
             ViewModel.IsBusy = false;
         }
 

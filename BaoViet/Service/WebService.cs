@@ -18,7 +18,7 @@ namespace StackCore.Services.WebServices
 
         public WebService()
         {
-            Client = new HttpClient();
+            Client = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate });
             CancelToken = new CancellationTokenSource();
         }
 

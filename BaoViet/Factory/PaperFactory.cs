@@ -25,8 +25,20 @@ namespace BaoViet.Factory
                 case PaperType.TinhTế:
                     paper = new TinhTePaper(type);
                     break;
+                case PaperType.VietnamPlus:
+                    paper = new VietnamPlusPaper(type);
+                    break;
+                case PaperType.TienPhong:
+                    paper = new TienPhongPaper(type);
+                    break;
                 case PaperType.WinphoneViet:
                     paper = new WinphoneVietPaper(type);
+                    break;
+                case PaperType.SốHóa:
+                    paper = new SoHoaPaper(type);
+                    break;
+                case PaperType.BaoMoi:
+                    paper = new BaoMoiPaper(type);
                     break;
                 default:
                     paper = new UnknowPaper(type);

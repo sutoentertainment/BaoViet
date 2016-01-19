@@ -37,8 +37,56 @@ namespace BaoViet.Factory
                 case PaperType.SốHóa:
                     paper = new SoHoaPaper(type);
                     break;
+                case PaperType.BongDa:
+                    paper = new BongDaPaper(type);
+                    break;
+                case PaperType.TinTheThao:
+                    paper = new TinTheThaoPaper(type);
+                    break;
                 case PaperType.BaoMoi:
                     paper = new BaoMoiPaper(type);
+                    break;
+                case PaperType.NgôiSao:
+                    paper = new NgoiSaoPaper(type);
+                    break;
+                case PaperType.TuổiTre:
+                    paper = new TuoiTrePaper(type);
+                    break;
+                case PaperType.Gamethu:
+                    paper = new GameThuPaper(type);
+                    break;
+                case PaperType.Genk:
+                    paper = new GenkPaper(type);
+                    break;
+                case PaperType.LaoDong:
+                    paper = new LaoDongPaper(type);
+                    break;
+                case PaperType.Báo24H:
+                    paper = new Hai4hPaper(type);
+                    break;
+                case PaperType.PcWorld:
+                    paper = new PcWorldPaper(type);
+                    break;
+                case PaperType.TheGioiGame:
+                    paper = new TheGioiGamePaper(type);
+                    break;
+                case PaperType.ThongTinCongNghe:
+                    paper = new ThongTinCongNghePaper(type);
+                    break;
+                case PaperType.QuanTriMang:
+                    paper = new QuanTriMangPaper(type);
+                    break;
+                case PaperType.Zing:
+                    paper = new ZingPaper(type);
+                    break;
+                case PaperType.GiaDinh:
+                    paper = new GiaDinhPaper(type);
+                    break;
+                case PaperType.ICTNews:
+                    paper = new ICTNewsPaper(type);
+                    break;
+                case PaperType.VnEconomy:
+                    paper = new VnEconomyPaper(type);
                     break;
                 default:
                     paper = new UnknowPaper(type);

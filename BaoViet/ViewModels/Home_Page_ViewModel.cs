@@ -92,17 +92,33 @@ namespace BaoViet.ViewModels
         {
             FrontPagePaper.Add(PaperFactory.Create(PaperType.VnExpress));
             FrontPagePaper.Add(PaperFactory.Create(PaperType.DânTrí));
-
             FrontPagePaper.Add(PaperFactory.Create(PaperType.TienPhong));
             FrontPagePaper.Add(PaperFactory.Create(PaperType.VietnamPlus));
             FrontPagePaper.Add(PaperFactory.Create(PaperType.TinhTế));
             FrontPagePaper.Add(PaperFactory.Create(PaperType.SốHóa));
             FrontPagePaper.Add(PaperFactory.Create(PaperType.Vietnamnet));
             FrontPagePaper.Add(PaperFactory.Create(PaperType.WinphoneViet));
-
             FrontPagePaper.Add(PaperFactory.Create(PaperType.BaoMoi));
 
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Ngôi sao", Type = PaperType.NgôiSao, HomePage = "http://ngoisao.net", ImageSource = "ms-appx:///Assets/Logo/logo-ngoisao.png" });
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.NgôiSao));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.TuổiTre));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.Gamethu));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.Genk));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.LaoDong));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.BongDa));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.TinTheThao));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.Báo24H));
+
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.PcWorld));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.TheGioiGame));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.ThongTinCongNghe));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.QuanTriMang));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.Zing));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.GiaDinh));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.ICTNews));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.VnEconomy));
+
+
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Tuổi trẻ", Type = PaperType.TuổiTre, HomePage = "http://tuoitre.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-tuoitre.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Game thủ", Type = PaperType.Gamethu, HomePage = "http://gamethu.vnexpress.net/", ImageSource = "ms-appx:///Assets/Logo/logo-gamethu.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Genk", Type = PaperType.Genk, HomePage = "http://genk.vn", ImageSource = "ms-appx:///Assets/Logo/logo-genk.png" });

@@ -126,7 +126,7 @@
     <Compile Include="Interfaces\IPaper.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Paper.cs" />
-    <Compile Include="Models\Paper\GameThu.cs" />
+    <Compile Include="Models\Paper\GameThuPaper.cs" />
     <Compile Include="Models\Paper\GenkPaper.cs" />
     <Compile Include="Models\Paper\LaoDongPaper.cs" />
     <Compile Include="Models\Paper\BongDaPaper.cs" />

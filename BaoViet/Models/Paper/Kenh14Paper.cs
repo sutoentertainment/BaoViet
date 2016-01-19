@@ -9,9 +9,9 @@ using System.Xml.Linq;
 
 namespace BaoViet.Models.Paper
 {
-    public class DanTriPaper : PaperBase
+    public class Kenh14Paper : PaperBase
     {
-        public DanTriPaper(PaperType type) : base(type)
+        public Kenh14Paper(PaperType type) : base(type)
         {
             Title = "Dân trí";
             HomePage = "http://dantri.com.vn";

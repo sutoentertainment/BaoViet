@@ -9,37 +9,46 @@ using System.Xml.Linq;
 
 namespace BaoViet.Models.Paper
 {
-    public class DanTriPaper : PaperBase
+    public class NgoiSaoPaper : PaperBase
     {
-        public DanTriPaper(PaperType type) : base(type)
+        public NgoiSaoPaper(PaperType type) : base(type)
         {
-            Title = "Dân trí";
-            HomePage = "http://dantri.com.vn";
-            ImageSource = "ms-appx:///Assets/Logo/logo-dantri.png";
+            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Ngôi sao", Type = PaperType.NgôiSao, HomePage = "http://ngoisao.net", ImageSource = "ms-appx:///Assets/Logo/logo-ngoisao.png" });
+
+            Title = "Ngôi sao";
+            HomePage = "http://ngoisao.net";
+            ImageSource = "ms-appx:///Assets/Logo/logo-ngoisao.png";
 
 
-            Categories.Add(new Category("Trang chủ", "http://dantri.com.vn/trangchu.rss"));
-            Categories.Add(new Category("Sức khỏe", "http://dantri.com.vn/suc-khoe.rss"));
-            Categories.Add(new Category("Xã hội", "http://dantri.com.vn/xa-hoi.rss"));
-            Categories.Add(new Category("Giải trí", "http://dantri.com.vn/giai-tri.rss"));
-            Categories.Add(new Category("Giáo dục - Khuyến học", "http://dantri.com.vn/giao-duc-khuyen-hoc.rss"));
-            Categories.Add(new Category("Thể thao", "http://dantri.com.vn/the-thao.rss"));
-            Categories.Add(new Category("Thế giới", "http://dantri.com.vn/the-gioi.rss"));
-            Categories.Add(new Category("Kinh doanh", "http://dantri.com.vn/kinh-doanh.rss"));
-            Categories.Add(new Category("Ô tô - Xe máy", "http://dantri.com.vn/o-to-xe-may.rss"));
-            Categories.Add(new Category("Sức mạnh số", "http://dantri.com.vn/suc-manh-so.rss"));
-            Categories.Add(new Category("Tình yêu - Giới tính", "http://dantri.com.vn/tinh-yeu-gioi-tinh.rss"));
-            Categories.Add(new Category("Chuyện lạ", "http://dantri.com.vn/chuyen-la.rss"));
-            Categories.Add(new Category("Việc làm", "http://dantri.com.vn/viec-lam.rss"));
-            Categories.Add(new Category("Nhịp sống trẻ", "http://dantri.com.vn/nhip-song-tre.rss"));
-            Categories.Add(new Category("Tấm lòng nhân ái", "http://dantri.com.vn/tam-long-nhan-ai.rss"));
-            Categories.Add(new Category("Pháp luật", "http://dantri.com.vn/phap-luat.rss"));
-            Categories.Add(new Category("Bạn đọc", "http://dantri.com.vn/ban-doc.rss"));
-            Categories.Add(new Category("Diễn đàn", "http://dantri.com.vn/dien-dan.rss"));
-            Categories.Add(new Category("Blog", "http://dantri.com.vn/blog.rss"));
-            Categories.Add(new Category("Văn hóa", "http://dantri.com.vn/van-hoa.rss"));
-            Categories.Add(new Category("Du học", "http://dantri.com.vn/du-hoc.rss"));
-            Categories.Add(new Category("Đời sống", "http://dantri.com.vn/doi-song.rss"));
+            Categories.Add(new Category("Hậu trường", "http://ngoisao.net/rss/hau-truong.rss"));
+            Categories.Add(new Category("Bên lề", "http://ngoisao.net/rss/ben-le.rss"));
+            Categories.Add(new Category("Thời cuộc", "http://ngoisao.net/rss/thoi-cuoc.rss"));
+            Categories.Add(new Category("Phong cách", "http://ngoisao.net/rss/phong-cach.rss"));
+            Categories.Add(new Category("Thư giãn", "http://ngoisao.net/rss/thu-gian.rss"));
+            Categories.Add(new Category("Cưới", "http://ngoisao.net/rss/cuoi-hoi.rss"));
+            Categories.Add(new Category("Showbiz Việt", "http://ngoisao.net/rss/showbiz-viet.rss"));
+            Categories.Add(new Category("Châu Á", "http://ngoisao.net/rss/chau-a.rss"));
+            Categories.Add(new Category("Hollywood", "http://ngoisao.net/rss/hollywood.rss"));
+            Categories.Add(new Category("Clip", "http://ngoisao.net/rss/clip.rss"));
+            Categories.Add(new Category("Khỏe đẹp", "http://ngoisao.net/rss/khoe-dep.rss"));
+            Categories.Add(new Category("24h", "http://ngoisao.net/rss/24h.rss"));
+            Categories.Add(new Category("Chuyện lạ", "http://ngoisao.net/rss/chuyen-la.rss"));
+            Categories.Add(new Category("Hình sự", "http://ngoisao.net/rss/hinh-su.rss"));
+            Categories.Add(new Category("Thương trường", "http://ngoisao.net/rss/thuong-truong.rss"));
+            Categories.Add(new Category("Thời trang", "http://ngoisao.net/rss/thoi-trang.rss"));
+            Categories.Add(new Category("Làm đẹp", "http://ngoisao.net/rss/lam-dep.rss"));
+            Categories.Add(new Category("Trắc nghiệm", "http://ngoisao.net/rss/trac-nghiem.rss"));
+            Categories.Add(new Category("Ăn chơi", "http://ngoisao.net/rss/an-choi.rss"));
+            Categories.Add(new Category("Dân chơi", "http://ngoisao.net/rss/dan-choi.rss"));
+            Categories.Add(new Category("Cười", "http://ngoisao.net/rss/cuoi.rss"));
+            Categories.Add(new Category("Game", "http://ngoisao.net/rss/game.rss"));
+            Categories.Add(new Category("Chơi blog", "http://ngoisao.net/rss/choi-blog.rss"));
+            Categories.Add(new Category("Thi ảnh", "http://ngoisao.net/rss/thi-anh.rss"));
+            Categories.Add(new Category("Miss", "http://ngoisao.net/rss/miss.rss"));
+            Categories.Add(new Category("Cô dâu", "http://ngoisao.net/rss/co-dau.rss"));
+            Categories.Add(new Category("Cẩm nang", "http://ngoisao.net/rss/cam-nang.rss"));
+            Categories.Add(new Category("Ảnh cưới", "http://ngoisao.net/rss/anh-cuoi.rss"));
+            Categories.Add(new Category("Chia sẻ", "http://ngoisao.net/rss/chia-se.rss"));
 
 
             foreach (var item in Categories)

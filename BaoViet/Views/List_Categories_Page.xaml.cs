@@ -38,18 +38,32 @@ namespace BaoViet.Views
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             if (e.NavigationMode == NavigationMode.Back)
                 return;
             ViewModel.HeaderLoaded = true;
+
+            if (ViewModel.CurrentPaper.Categories.Count == 0)
+            {
+                var feed = new FeedItem();
+                feed.Link = ViewModel.CurrentPaper.HomePage;
+                var detail = ServiceLocator.Current.GetInstance<Detail_Page_ViewModel>();
+                detail.CurrentFeed = feed;
+
+                await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+
+                    App.MasterFrame.Navigate(typeof(Detail_Page));
+                });
+            }
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-            if(e.NavigationMode == NavigationMode.Back)
+            if (e.NavigationMode == NavigationMode.Back)
             {
                 ViewModel.HeaderLoaded = false;
             }

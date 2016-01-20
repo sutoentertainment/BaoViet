@@ -61,6 +61,9 @@ namespace BaoViet.Factory
                 case PaperType.LaoDong:
                     paper = new LaoDongPaper(type);
                     break;
+                case PaperType.Vietnamnet:
+                    paper = new VietnamnetPaper(type);
+                    break;
                 case PaperType.Báo24H:
                     paper = new Hai4hPaper(type);
                     break;

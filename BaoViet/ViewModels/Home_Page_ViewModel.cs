@@ -119,9 +119,9 @@ namespace BaoViet.ViewModels
             FrontPagePaper.Add(PaperFactory.Create(PaperType.VnEconomy));
 
 
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Tuổi trẻ", Type = PaperType.TuổiTre, HomePage = "http://tuoitre.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-tuoitre.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Game thủ", Type = PaperType.Gamethu, HomePage = "http://gamethu.vnexpress.net/", ImageSource = "ms-appx:///Assets/Logo/logo-gamethu.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Genk", Type = PaperType.Genk, HomePage = "http://genk.vn", ImageSource = "ms-appx:///Assets/Logo/logo-genk.png" });
+            
+            
+
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Lao động", Type = PaperType.LaoDong, HomePage = "http://laodong.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-laodong.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Bóng đá", Type = PaperType.BongDa, HomePage = "http://www.bongda.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-bongda.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Tin thể thao", Type = PaperType.TinTheThao, HomePage = "http://www.tinthethao.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-tinthethao.png" });

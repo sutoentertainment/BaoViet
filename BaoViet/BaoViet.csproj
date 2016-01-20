@@ -137,6 +137,7 @@
     <Compile Include="Models\Paper\TheGioiGamePaper.cs" />
     <Compile Include="Models\Paper\ThongTinCongNghePaper.cs" />
     <Compile Include="Models\Paper\QuanTriMangPaper.cs" />
+    <Compile Include="Models\Paper\VietnamnetPaper.cs" />
     <Compile Include="Models\Paper\ZingPaper.cs" />
     <Compile Include="Models\Paper\GiaDinhPaper.cs" />
     <Compile Include="Models\Paper\ICTNewsPaper.cs" />

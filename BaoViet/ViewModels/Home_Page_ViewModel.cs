@@ -122,7 +122,7 @@ namespace BaoViet.ViewModels
             
             
 
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Lao động", Type = PaperType.LaoDong, HomePage = "http://laodong.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-laodong.png" });
+
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Bóng đá", Type = PaperType.BongDa, HomePage = "http://www.bongda.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-bongda.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Tin thể thao", Type = PaperType.TinTheThao, HomePage = "http://www.tinthethao.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-tinthethao.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "24h", Type = PaperType.Báo24H, HomePage = "http://24h.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-24h.png" });

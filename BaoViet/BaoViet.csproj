@@ -111,6 +111,7 @@
     <Compile Include="Helpers\ToastAction.cs" />
     <Compile Include="Helpers\UriExtension.cs" />
     <Compile Include="Helpers\VisualTreeHelperExtensions.cs" />
+    <Compile Include="Interfaces\INavigable.cs" />
     <Compile Include="Interfaces\IRssSource.cs" />
     <Compile Include="KeyboardService\KeyboardEventArgs.cs" />
     <Compile Include="KeyboardService\KeyboardHelper.cs" />

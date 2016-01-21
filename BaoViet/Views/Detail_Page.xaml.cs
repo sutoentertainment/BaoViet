@@ -58,15 +58,6 @@ namespace BaoViet.Views
             if (e.NavigationMode == NavigationMode.Back)
                 return;
 
-            ViewModel.IsBusy = true;
-
-            var address = "";
-            address = ViewModel.CurrentFeed.Link;
-            address = address.ToReadability();
-
-            var response_content = await App.WebService.GetString(address);
-            var response = JsonConvert.DeserializeObject<ReadabilityResponse>(response_content);
-
             webView.NavigationCompleted += webView_NavigationCompleted;
             webView.NavigationFailed += webView_NavigationFailed;
             webView.DOMContentLoaded += webView_DOMContentLoaded;
@@ -75,15 +66,11 @@ namespace BaoViet.Views
             ViewModel.WebViewControl = webView;
             //webViewContainer.Children.Add(webView);
 
-            await Task.Delay(200);
-            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-            {
-                //webView.Navigate(new Uri(address));
-                webView.NavigateToString(response.content);
-                ViewModel.CurrentWebPage = new Uri(address);
-            });
+            await ViewModel.LoadPageUsingReadability();
             base.OnNavigatedTo(e);
         }
+
+
 
         private void WebView_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
         {
@@ -125,7 +112,8 @@ namespace BaoViet.Views
             ViewModel.WebViewControl = null;
             webViewContainer.Children.Clear();
             App.OnRefreshRequested -= App_OnRefreshRequested;
-            //GC.Collect();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
             //GC.Collect();
             base.OnNavigatedFrom(e);
         }

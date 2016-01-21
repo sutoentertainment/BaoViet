@@ -47,7 +47,7 @@ namespace BaoViet.Models
             }
         }
         
-        public override async Task<IEnumerable<FeedItem>> GetFeed(string url)
+        public override async Task<RssResult> GetFeed(string url)
         {
             var xml = await App.WebService.GetString(url);
             XDocument docs = XDocument.Parse(xml, LoadOptions.None);
@@ -78,7 +78,7 @@ namespace BaoViet.Models
                 feeds.Add(feed);
             }
 
-            return feeds;
+            return new RssResult() { Feeds = feeds, Paper = this.Type };
         }
     }
 }

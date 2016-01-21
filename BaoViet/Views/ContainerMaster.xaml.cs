@@ -1,5 +1,6 @@
 ﻿using BaoViet.DataContext;
 using BaoViet.Helpers;
+using BaoViet.Interfaces;
 using BaoViet.Models;
 using System;
 using System.Collections.Generic;
@@ -85,6 +86,18 @@ namespace BaoViet.Views
 
         private void OnBackRequested(object sender, BackRequestedEventArgs e)
         {
+            var page = App.MasterFrame.Content as Page;
+            if (page != null)
+            {
+                var navigable = page.DataContext as INavigable;
+                if (navigable != null)
+                {
+                    if (navigable.AllowBack())
+                        App.MasterFrame.GoBack();
+                    e.Handled = true;
+                    return;
+                }
+            }
             if (App.MasterFrame == null)
             {
                 return;

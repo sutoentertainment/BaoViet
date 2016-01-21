@@ -53,7 +53,7 @@ namespace BaoViet.Models
             get; set;
         }
 
-        public virtual Task<IEnumerable<FeedItem>> GetFeed(string url)
+        public virtual Task<RssResult> GetFeed(string url)
         {
             throw new NotImplementedException();
         }

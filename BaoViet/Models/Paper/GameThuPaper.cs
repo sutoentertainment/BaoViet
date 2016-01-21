@@ -1,4 +1,6 @@
 ﻿using HtmlAgilityPack;
+using BaoViet.Interfaces;
+using BaoViet.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +35,7 @@ namespace BaoViet.Models.Paper
             }
         }
 
-        public override async Task<IEnumerable<FeedItem>> GetFeed(string url)
+        public override async Task<RssResult> GetFeed(string url)
         {
             var xml = await App.WebService.GetString(url);
             XDocument docs = XDocument.Parse(xml, LoadOptions.None);
@@ -64,7 +66,7 @@ namespace BaoViet.Models.Paper
                 feeds.Add(feed);
             }
 
-            return feeds;
+            return new RssResult() { Feeds = feeds, Paper = this.Type };
         }
     }
 }

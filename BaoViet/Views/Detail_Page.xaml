@@ -1,52 +1,61 @@
-﻿<Page
-    x:Class="BaoViet.Views.Detail_Page"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:BaoViet.Views"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" NavigationCacheMode="Disabled" DataContext="{Binding Detail,
-                                          Mode=OneWay,
-                                          Source={StaticResource Locator}}">
+﻿<Page x:Class="BaoViet.Views.Detail_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:BaoViet.Views"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      DataContext="{Binding Detail,
+                            Mode=OneWay,
+                            Source={StaticResource Locator}}"
+      NavigationCacheMode="Disabled"
+      mc:Ignorable="d">
 
     <Grid Background="White">
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
-                <!--For PC, Xbox, Tablet-->
+                <!--  For PC, Xbox, Tablet  -->
                 <VisualState x:Name="TabletState">
-                    <VisualState.Setters>
-                    </VisualState.Setters>
+                    <VisualState.Setters />
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="720"/>
+                        <AdaptiveTrigger MinWindowWidth="720" />
                     </VisualState.StateTriggers>
                 </VisualState>
 
-                <!--For Phone, Phablet and small Tablet-->
+                <!--  For Phone, Phablet and small Tablet  -->
                 <VisualState x:Name="PhoneState">
-                    <VisualState.Setters>
-                    </VisualState.Setters>
+                    <VisualState.Setters />
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0"/>
+                        <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
-            <RowDefinition Height="48"/>
-            <RowDefinition/>
+            <RowDefinition Height="48" />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <Grid Background="{StaticResource AppColorBackground}">
-            <TextBlock Text="{Binding CurrentFeed.Title}" x:Name="title_tb" VerticalAlignment="Center" Margin="12,0" FontSize="18"/>
+            <TextBlock x:Name="title_tb"
+                       Margin="12,0"
+                       VerticalAlignment="Center"
+                       FontSize="18"
+                       Text="{Binding CurrentFeed.Title}" />
         </Grid>
-        
+
         <Grid Name="webViewContainer" Grid.Row="1">
-            <WebView Name="webView"/>
+            <WebView Name="webView" />
         </Grid>
 
 
-        <ProgressBar VerticalAlignment="Top" IsIndeterminate="{Binding IsBusy, Mode=OneWay}" Grid.Row="1" Margin="20,20,0,0" Width="200" HorizontalAlignment="Left"/>
+        <ProgressBar Grid.Row="1"
+                     Width="200"
+                     Margin="20,20,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     IsIndeterminate="{Binding IsBusy,
+                                               Mode=OneWay}" />
 
         <!--<ProgressBar VerticalAlignment="Bottom" IsIndeterminate="{x:Bind Model.IsBusy, Mode=OneWay}"/>-->
     </Grid>
@@ -54,10 +63,37 @@
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.PrimaryCommands>
-                <AppBarButton Label="back" x:Name="BackButton" Icon="Back" Command="{Binding BackCommand}" IsEnabled="{Binding CanGoBack}" ToolTipService.ToolTip="back" ToolTipService.Placement="Mouse" ToolTipService.PlacementTarget="{x:Bind BackButton}"/>
-                <AppBarButton Label="forward" x:Name="ForwardButton" Icon="Forward" Command="{Binding ForwardCommand}" IsEnabled="{Binding CanGoForward}" ToolTipService.ToolTip="forward" ToolTipService.Placement="Mouse" ToolTipService.PlacementTarget="{x:Bind ForwardButton}"/>
-                <AppBarButton Label="refresh" x:Name="RefreshButton" Icon="Refresh" Command="{Binding RefreshCommand}" ToolTipService.ToolTip="refresh" ToolTipService.Placement="Mouse" ToolTipService.PlacementTarget="{x:Bind RefreshButton}"/>
-                <AppBarButton Label="share" x:Name="ShareButton" Command="{Binding ShareCommand}" IsEnabled="{Binding CurrentWebPage, Converter={StaticResource NullToEnable}}" ToolTipService.ToolTip="share" ToolTipService.Placement="Mouse" ToolTipService.PlacementTarget="{x:Bind ShareButton}" Icon="Send"/>
+                <AppBarButton x:Name="BackButton"
+                              Command="{Binding OpenWebCommand}"
+                              Icon="Globe"
+                              Label="open web"
+                              ToolTipService.Placement="Mouse"
+                              ToolTipService.PlacementTarget="{x:Bind BackButton}"
+                              ToolTipService.ToolTip="open web" />
+                <!--<AppBarButton x:Name="ForwardButton"
+                              Command="{Binding ForwardCommand}"
+                              Icon="Forward"
+                              IsEnabled="{Binding CanGoForward}"
+                              Label="forward"
+                              ToolTipService.Placement="Mouse"
+                              ToolTipService.PlacementTarget="{x:Bind ForwardButton}"
+                              ToolTipService.ToolTip="forward" />-->
+                <AppBarButton x:Name="RefreshButton"
+                              Command="{Binding RefreshCommand}"
+                              Icon="Refresh"
+                              Label="refresh"
+                              ToolTipService.Placement="Mouse"
+                              ToolTipService.PlacementTarget="{x:Bind RefreshButton}"
+                              ToolTipService.ToolTip="refresh" />
+                <AppBarButton x:Name="ShareButton"
+                              Command="{Binding ShareCommand}"
+                              Icon="Send"
+                              IsEnabled="{Binding CurrentWebPage,
+                                                  Converter={StaticResource NullToEnable}}"
+                              Label="share"
+                              ToolTipService.Placement="Mouse"
+                              ToolTipService.PlacementTarget="{x:Bind ShareButton}"
+                              ToolTipService.ToolTip="share" />
                 <!--<AppBarButton Label="save it" x:Name="SaveButton" Icon="Favorite" Command="{Binding SaveCommand}"/>-->
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>

@@ -49,8 +49,9 @@ namespace BaoViet.Views
             ViewModel.IsBusy = true;
             try
             {
-                var feeds = await ViewModel.CurrentCategory.Owner.GetFeed(ViewModel.CurrentCategory.Source);
-                ViewModel.ListFeed.AddRange(feeds);
+                var result = await ViewModel.CurrentCategory.Owner.GetFeed(ViewModel.CurrentCategory.Source);
+                if(result.Paper == ViewModel.CurrentCategory.Owner.Type)
+                    ViewModel.ListFeed.AddRange(result.Feeds);
             }
             catch { }
             ViewModel.IsBusy = false;

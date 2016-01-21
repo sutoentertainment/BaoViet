@@ -1,4 +1,5 @@
 ﻿using HtmlAgilityPack;
+using BaoViet.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,33 +14,27 @@ namespace BaoViet.Models.Paper
     {
         public LaoDongPaper(PaperType type) : base(type)
         {
-            Title = "Dân trí";
-            HomePage = "http://dantri.com.vn";
-            ImageSource = "ms-appx:///Assets/Logo/logo-dantri.png";
+            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Lao động", Type = PaperType.LaoDong, HomePage = "http://laodong.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-laodong.png" });
+            Title = "Lao động";
+            HomePage = "http://laodong.com.vn/";
+            ImageSource = "ms-appx:///Assets/Logo/logo-laodong.png";
 
 
-            Categories.Add(new Category("Trang chủ", "http://dantri.com.vn/trangchu.rss"));
-            Categories.Add(new Category("Sức khỏe", "http://dantri.com.vn/suc-khoe.rss"));
-            Categories.Add(new Category("Xã hội", "http://dantri.com.vn/xa-hoi.rss"));
-            Categories.Add(new Category("Giải trí", "http://dantri.com.vn/giai-tri.rss"));
-            Categories.Add(new Category("Giáo dục - Khuyến học", "http://dantri.com.vn/giao-duc-khuyen-hoc.rss"));
-            Categories.Add(new Category("Thể thao", "http://dantri.com.vn/the-thao.rss"));
-            Categories.Add(new Category("Thế giới", "http://dantri.com.vn/the-gioi.rss"));
-            Categories.Add(new Category("Kinh doanh", "http://dantri.com.vn/kinh-doanh.rss"));
-            Categories.Add(new Category("Ô tô - Xe máy", "http://dantri.com.vn/o-to-xe-may.rss"));
-            Categories.Add(new Category("Sức mạnh số", "http://dantri.com.vn/suc-manh-so.rss"));
-            Categories.Add(new Category("Tình yêu - Giới tính", "http://dantri.com.vn/tinh-yeu-gioi-tinh.rss"));
-            Categories.Add(new Category("Chuyện lạ", "http://dantri.com.vn/chuyen-la.rss"));
-            Categories.Add(new Category("Việc làm", "http://dantri.com.vn/viec-lam.rss"));
-            Categories.Add(new Category("Nhịp sống trẻ", "http://dantri.com.vn/nhip-song-tre.rss"));
-            Categories.Add(new Category("Tấm lòng nhân ái", "http://dantri.com.vn/tam-long-nhan-ai.rss"));
-            Categories.Add(new Category("Pháp luật", "http://dantri.com.vn/phap-luat.rss"));
-            Categories.Add(new Category("Bạn đọc", "http://dantri.com.vn/ban-doc.rss"));
-            Categories.Add(new Category("Diễn đàn", "http://dantri.com.vn/dien-dan.rss"));
-            Categories.Add(new Category("Blog", "http://dantri.com.vn/blog.rss"));
-            Categories.Add(new Category("Văn hóa", "http://dantri.com.vn/van-hoa.rss"));
-            Categories.Add(new Category("Du học", "http://dantri.com.vn/du-hoc.rss"));
-            Categories.Add(new Category("Đời sống", "http://dantri.com.vn/doi-song.rss"));
+            Categories.Add(new Category("Trang chủ", "http://laodong.com.vn/rss/home.rss"));
+            Categories.Add(new Category("Video", "http://laodong.com.vn/rss/video-161.rss"));
+            Categories.Add(new Category("Thời sự - Xã hội", "http://laodong.com.vn/rss/thoi-su-xa-hoi-1321.rss"));
+            Categories.Add(new Category("Công đoàn", "http://laodong.com.vn/rss/cong-doan-58.rss"));
+            Categories.Add(new Category("Thế giới", "http://laodong.com.vn/rss/the-gioi-62.rss"));
+            Categories.Add(new Category("Pháp luật", "http://laodong.com.vn/rss/phap-luat-65.rss"));
+            Categories.Add(new Category("Văn hóa - Thể thao", "http://laodong.com.vn/rss/van-hoa-the-thao-1322.rss"));
+            Categories.Add(new Category("Công nghệ", "http://laodong.com.vn/rss/cong-nghe-66.rss"));
+            Categories.Add(new Category("Khám phá", "http://laodong.com.vn/rss/kham-pha-108.rss"));
+            Categories.Add(new Category("Vũ khí", "http://laodong.com.vn/rss/vu-khi-107.rss"));
+            Categories.Add(new Category("Sức khỏe", "http://laodong.com.vn/rss/suc-khoe-1166.rss"));
+            Categories.Add(new Category("Kinh tế", "http://laodong.com.vn/rss/kinh-te-63.rss"));
+            Categories.Add(new Category("Bất động sản", "http://laodong.com.vn/rss/bat-dong-san-64.rss"));
+            Categories.Add(new Category("Xe+", "http://laodong.com.vn/rss/xe-105.rss"));
+            Categories.Add(new Category("Photo", "http://laodong.com.vn/rss/photo-160.rss"));
 
 
             foreach (var item in Categories)
@@ -48,7 +43,7 @@ namespace BaoViet.Models.Paper
             }
         }
 
-        public override async Task<IEnumerable<FeedItem>> GetFeed(string url)
+        public override async Task<RssResult> GetFeed(string url)
         {
             var xml = await App.WebService.GetString(url);
             XDocument docs = XDocument.Parse(xml, LoadOptions.None);
@@ -79,7 +74,7 @@ namespace BaoViet.Models.Paper
                 feeds.Add(feed);
             }
 
-            return feeds;
+            return new RssResult() { Feeds = feeds, Paper = this.Type };
         }
     }
 }

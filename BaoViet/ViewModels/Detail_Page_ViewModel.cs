@@ -1,5 +1,8 @@
-﻿using BaoViet.Models;
+﻿using BaoViet.Helpers;
+using BaoViet.Interfaces;
+using BaoViet.Models;
 using GalaSoft.MvvmLight.Command;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +14,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace BaoViet.ViewModels
 {
-    public class Detail_Page_ViewModel : BaseModel
+    public class Detail_Page_ViewModel : BaseModel, INavigable
     {
         Uri _CurrentWebPage = null;
         public Uri CurrentWebPage
@@ -52,6 +55,7 @@ namespace BaoViet.ViewModels
         public WebView WebViewControl;
 
         public RelayCommand BackCommand { get; set; }
+        public RelayCommand OpenWebCommand { get; set; }
 
         public RelayCommand ForwardCommand { get; set; }
 
@@ -89,14 +93,21 @@ namespace BaoViet.ViewModels
             CurrentWebTitle = "";
 
             IsBackEnable = IsForwardEnable = false;
-            
+
             ShareCommand = new RelayCommand(Share);
-            
+
             BackCommand = new RelayCommand(Back);
-            
+
             ForwardCommand = new RelayCommand(Forward);
-            
+
             RefreshCommand = new RelayCommand(Refresh);
+
+            OpenWebCommand = new RelayCommand(OpenWeb);
+        }
+
+        private void OpenWeb()
+        {
+            WebViewControl.Navigate(new Uri(CurrentFeed.Link));
         }
 
         #region ShareLink
@@ -125,11 +136,13 @@ namespace BaoViet.ViewModels
 
         #endregion
 
-        void Back()
+        async void Back()
         {
             if (WebViewControl.CanGoBack)
             {
-                WebViewControl.GoBack();
+                IsBusy = true;
+                await WebViewControl.InvokeScriptAsync("eval", new[] { "(function(){ history.go(-1);})()" });
+
             }
         }
 
@@ -146,9 +159,40 @@ namespace BaoViet.ViewModels
             //TODO: Save web uri and title to saved list, use SQL here
         }
 
-        void Refresh()
+        async void Refresh()
         {
             WebViewControl.Refresh();
+
+            if (WebViewControl.Source == null)
+            {
+                await LoadPageUsingReadability();
+            }
+        }
+
+        public async Task LoadPageUsingReadability()
+        {
+            IsBusy = true;
+
+            var address = "";
+            address = CurrentFeed.Link;
+            address = address.ToReadability();
+
+            var response_content = await App.WebService.GetString(address);
+            var response = JsonConvert.DeserializeObject<ReadabilityResponse>(response_content);
+
+
+            await Task.Delay(200);
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                //webView.Navigate(new Uri(address));
+                WebViewControl.NavigateToString(response.content);
+                CurrentWebPage = new Uri(address);
+            });
+        }
+
+        public bool AllowBack()
+        {
+                return true;
         }
     }
 }

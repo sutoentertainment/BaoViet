@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Graphics.Display;
 using Windows.System.Profile;
 
 namespace BaoViet.Helpers
@@ -29,6 +30,14 @@ namespace BaoViet.Helpers
                     return DeviceTypes.Other;
 
             }
+        }
+
+        public static void LockDisplayOrientations(bool auto = true)
+        {
+            if (auto)
+                DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait | DisplayOrientations.Landscape;
+            else
+                DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
         }
     }
 }

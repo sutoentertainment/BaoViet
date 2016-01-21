@@ -9,6 +9,12 @@ namespace BaoViet.Interfaces
 {
     public interface IRssSource
     {
-        Task<IEnumerable<FeedItem>> GetFeed(string url);
+        Task<RssResult> GetFeed(string url);
+    }
+
+    public class RssResult
+    {
+        public IEnumerable<FeedItem> Feeds { get; set; }
+        public PaperType Paper { get; set; }
     }
 }

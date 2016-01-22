@@ -49,7 +49,7 @@ namespace BaoViet.Views
             {
                 var feed = new FeedItem();
                 feed.Link = ViewModel.CurrentPaper.HomePage;
-                var detail = ServiceLocator.Current.GetInstance<Detail_Page_ViewModel>();
+                var detail = ServiceLocator.Current.GetInstance<Detail_ViewModel>();
                 detail.CurrentFeed = feed;
 
                 await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>

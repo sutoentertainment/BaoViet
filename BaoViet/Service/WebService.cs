@@ -50,7 +50,7 @@ namespace StackCore.Services.WebServices
                 CancelToken = new CancellationTokenSource();
                 return new HttpResponseMessage(HttpStatusCode.PreconditionFailed);
             }
-            catch
+            catch(Exception e)
             {
                 return new HttpResponseMessage(HttpStatusCode.RequestTimeout);
             }

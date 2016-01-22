@@ -1,6 +1,7 @@
 ﻿using BaoViet.Helpers;
 using BaoViet.Interfaces;
 using BaoViet.Models;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Newtonsoft.Json;
 using System;
@@ -14,7 +15,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace BaoViet.ViewModels
 {
-    public class Detail_Page_ViewModel : BaseModel, INavigable
+    public class Detail_ViewModel : ViewModelBase, INavigable
     {
         Uri _CurrentWebPage = null;
         public Uri CurrentWebPage
@@ -25,8 +26,7 @@ namespace BaoViet.ViewModels
             }
             set
             {
-                _CurrentWebPage = value;
-                RaisePropertyChanged("CurrentWebPage");
+                Set(ref _CurrentWebPage, value);
             }
         }
 
@@ -38,6 +38,18 @@ namespace BaoViet.ViewModels
             }
         }
 
+        bool _IsFullScreen = false;
+        public bool IsFullScreen
+        {
+            get
+            {
+                return _IsFullScreen;
+            }
+            set
+            {
+                Set(ref _IsFullScreen, value);
+            }
+        }
         public bool CanGoForward
         {
             get
@@ -70,8 +82,7 @@ namespace BaoViet.ViewModels
             }
             set
             {
-                _IsBusy = value;
-                RaisePropertyChanged("IsBusy");
+                Set(ref _IsBusy, value);
             }
         }
         FeedItem _CurrentFeed;
@@ -83,12 +94,25 @@ namespace BaoViet.ViewModels
             }
             set
             {
-                _CurrentFeed = value;
-                RaisePropertyChanged("CurrentFeed");
+                Set(ref _CurrentFeed, value);
             }
         }
 
-        public Detail_Page_ViewModel()
+        Uri _FullScreenSource;
+
+        public Uri FullScreenSource
+        {
+            get
+            {
+                return _FullScreenSource;
+            }
+            set
+            {
+                Set(ref _FullScreenSource, value);
+            }
+        }
+
+        public Detail_ViewModel()
         {
             CurrentWebTitle = "";
 
@@ -107,7 +131,8 @@ namespace BaoViet.ViewModels
 
         private void OpenWeb()
         {
-            WebViewControl.Navigate(new Uri(CurrentFeed.Link));
+            IsFullScreen = true;
+            FullScreenSource = new Uri(CurrentFeed.Link);
         }
 
         #region ShareLink
@@ -131,18 +156,20 @@ namespace BaoViet.ViewModels
             dataTransferManager.DataRequested -= new TypedEventHandler<DataTransferManager, DataRequestedEventArgs>(this.ShareLinkHandler);
             DataRequest request = e.Request;
             request.Data.Properties.Title = this.CurrentWebTitle;
-            request.Data.SetWebLink(CurrentWebPage);
+            if (IsFullScreen)
+                request.Data.SetWebLink(FullScreenSource);
+            else
+                request.Data.SetWebLink(CurrentWebPage);
         }
 
         #endregion
 
-        async void Back()
+        void Back()
         {
             if (WebViewControl.CanGoBack)
             {
                 IsBusy = true;
-                await WebViewControl.InvokeScriptAsync("eval", new[] { "(function(){ history.go(-1);})()" });
-
+                WebViewControl.GoBack();
             }
         }
 
@@ -180,19 +207,28 @@ namespace BaoViet.ViewModels
             var response_content = await App.WebService.GetString(address);
             var response = JsonConvert.DeserializeObject<ReadabilityResponse>(response_content);
 
-
+            //response.content += @"<style>img{width:100% !important;}</style>";
             await Task.Delay(200);
+            
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-                //webView.Navigate(new Uri(address));
-                WebViewControl.NavigateToString(response.content);
+                if (response.content != null)
+                    //webView.Navigate(new Uri(address));
+                    WebViewControl.NavigateToString(response.content);
+                else
+                    WebViewControl.Navigate(new Uri(CurrentFeed.Link));
                 CurrentWebPage = new Uri(address);
             });
         }
 
         public bool AllowBack()
         {
-                return true;
+            if (IsFullScreen)
+            {
+                IsFullScreen = false;
+                return false;
+            }
+            return true;
         }
     }
 }

@@ -14,33 +14,36 @@ namespace BaoViet.Models.Paper
     {
         public Hai4hPaper(PaperType type) : base(type)
         {
-            Title = "Dân trí";
-            HomePage = "http://dantri.com.vn";
-            ImageSource = "ms-appx:///Assets/Logo/logo-dantri.png";
+
+            //FrontPagePaper.Add(new VnExpressPaper() { Title = "24h", Type = PaperType.Báo24H, HomePage = "http://24h.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-24h.png"});
+            Title = "24h";
+            HomePage = "http://24h.com.vn";
+            ImageSource = "ms-appx:///Assets/Logo/logo-24h.png";
 
 
-            Categories.Add(new Category("Trang chủ", "http://dantri.com.vn/trangchu.rss"));
-            Categories.Add(new Category("Sức khỏe", "http://dantri.com.vn/suc-khoe.rss"));
-            Categories.Add(new Category("Xã hội", "http://dantri.com.vn/xa-hoi.rss"));
-            Categories.Add(new Category("Giải trí", "http://dantri.com.vn/giai-tri.rss"));
-            Categories.Add(new Category("Giáo dục - Khuyến học", "http://dantri.com.vn/giao-duc-khuyen-hoc.rss"));
-            Categories.Add(new Category("Thể thao", "http://dantri.com.vn/the-thao.rss"));
-            Categories.Add(new Category("Thế giới", "http://dantri.com.vn/the-gioi.rss"));
-            Categories.Add(new Category("Kinh doanh", "http://dantri.com.vn/kinh-doanh.rss"));
-            Categories.Add(new Category("Ô tô - Xe máy", "http://dantri.com.vn/o-to-xe-may.rss"));
-            Categories.Add(new Category("Sức mạnh số", "http://dantri.com.vn/suc-manh-so.rss"));
-            Categories.Add(new Category("Tình yêu - Giới tính", "http://dantri.com.vn/tinh-yeu-gioi-tinh.rss"));
-            Categories.Add(new Category("Chuyện lạ", "http://dantri.com.vn/chuyen-la.rss"));
-            Categories.Add(new Category("Việc làm", "http://dantri.com.vn/viec-lam.rss"));
-            Categories.Add(new Category("Nhịp sống trẻ", "http://dantri.com.vn/nhip-song-tre.rss"));
-            Categories.Add(new Category("Tấm lòng nhân ái", "http://dantri.com.vn/tam-long-nhan-ai.rss"));
-            Categories.Add(new Category("Pháp luật", "http://dantri.com.vn/phap-luat.rss"));
-            Categories.Add(new Category("Bạn đọc", "http://dantri.com.vn/ban-doc.rss"));
-            Categories.Add(new Category("Diễn đàn", "http://dantri.com.vn/dien-dan.rss"));
-            Categories.Add(new Category("Blog", "http://dantri.com.vn/blog.rss"));
-            Categories.Add(new Category("Văn hóa", "http://dantri.com.vn/van-hoa.rss"));
-            Categories.Add(new Category("Du học", "http://dantri.com.vn/du-hoc.rss"));
-            Categories.Add(new Category("Đời sống", "http://dantri.com.vn/doi-song.rss"));
+            Categories.Add(new Category("Tin tức trong ngày", "http://www.24h.com.vn/upload/rss/tintuctrongngay.rss"));
+            Categories.Add(new Category("Bóng đá", "http://www.24h.com.vn/upload/rss/bongda.rss"));
+            Categories.Add(new Category("An ninh - Hình sự", "http://www.24h.com.vn/upload/rss/anninhhinhsu.rss"));
+            Categories.Add(new Category("Thời trang", "http://www.24h.com.vn/upload/rss/thoitrang.rss"));
+            Categories.Add(new Category("Thời trang Hi-tech", "http://www.24h.com.vn/upload/rss/thoitranghitech.rss"));
+            Categories.Add(new Category("Tài chính – Bất động sản", "http://www.24h.com.vn/upload/rss/taichinhbatdongsan.rss"));
+            Categories.Add(new Category("Ẩm thực", "http://www.24h.com.vn/upload/rss/amthuc.rss"));
+            Categories.Add(new Category("Làm đẹp", "http://www.24h.com.vn/upload/rss/lamdep.rss"));
+            Categories.Add(new Category("Phim", "http://www.24h.com.vn/upload/rss/phim.rss"));
+            Categories.Add(new Category("Giáo dục - du học", "http://www.24h.com.vn/upload/rss/giaoducduhoc.rss"));
+            Categories.Add(new Category("Bạn trẻ - Cuộc sống", "http://www.24h.com.vn/upload/rss/bantrecuocsong.rss"));
+            Categories.Add(new Category("Ca nhạc - MTV", "http://www.24h.com.vn/upload/rss/canhacmtv.rss"));
+            Categories.Add(new Category("Thể thao", "http://www.24h.com.vn/upload/rss/thethao.rss"));
+            Categories.Add(new Category("Phi thường - kỳ quặc", "http://www.24h.com.vn/upload/rss/phithuongkyquac.rss"));
+            Categories.Add(new Category("Công nghệ thông tin", "http://www.24h.com.vn/upload/rss/congnghethongtin.rss"));
+            Categories.Add(new Category("Ô tô - Xe máy", "http://www.24h.com.vn/upload/rss/otoxemay.rss"));
+            Categories.Add(new Category("Thị trường - Tiêu dùng", "http://www.24h.com.vn/upload/rss/thitruongtieudung.rss"));
+            Categories.Add(new Category("Du lịch", "http://www.24h.com.vn/upload/rss/dulich.rss"));
+            Categories.Add(new Category("Sức khỏe đời sống", "http://www.24h.com.vn/upload/rss/suckhoedoisong.rss"));
+            Categories.Add(new Category("Cười 24h", "http://www.24h.com.vn/upload/rss/cuoi24h.rss"));
+            Categories.Add(new Category("Thế giới", "http://www.24h.com.vn/upload/rss/tintucquocte.rss"));
+            Categories.Add(new Category("Đời sống Showbiz", "http://www.24h.com.vn/upload/rss/doisongshowbiz.rss"));
+            Categories.Add(new Category("Giải trí", "http://www.24h.com.vn/upload/rss/giaitri.rss"));
 
 
             foreach (var item in Categories)

@@ -48,6 +48,13 @@
             <WebView Name="webView" />
         </Grid>
 
+        <Grid Name="webViewDetailContainer"
+              Grid.RowSpan="2"
+              Visibility="{Binding IsFullScreen,
+                                   Converter={StaticResource BooleanToVisibility}}">
+            <WebView Name="webViewDetail" Source="{Binding FullScreenSource, Mode=TwoWay}" />
+        </Grid>
+
 
         <ProgressBar Grid.Row="1"
                      Width="200"
@@ -78,13 +85,13 @@
                               ToolTipService.Placement="Mouse"
                               ToolTipService.PlacementTarget="{x:Bind ForwardButton}"
                               ToolTipService.ToolTip="forward" />-->
-                <AppBarButton x:Name="RefreshButton"
+                <!--<AppBarButton x:Name="RefreshButton"
                               Command="{Binding RefreshCommand}"
                               Icon="Refresh"
                               Label="refresh"
                               ToolTipService.Placement="Mouse"
                               ToolTipService.PlacementTarget="{x:Bind RefreshButton}"
-                              ToolTipService.ToolTip="refresh" />
+                              ToolTipService.ToolTip="refresh" />-->
                 <AppBarButton x:Name="ShareButton"
                               Command="{Binding ShareCommand}"
                               Icon="Send"

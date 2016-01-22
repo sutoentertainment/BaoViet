@@ -67,7 +67,7 @@ namespace BaoViet.Views
         private void ListArticle_ItemClick(object sender, ItemClickEventArgs e)
         {
             var feed = e.ClickedItem as FeedItem;
-            var detail = ServiceLocator.Current.GetInstance<Detail_Page_ViewModel>();
+            var detail = ServiceLocator.Current.GetInstance<Detail_ViewModel>();
             detail.CurrentFeed = feed;
             App.MasterFrame.Navigate(typeof(Detail_Page));
         }

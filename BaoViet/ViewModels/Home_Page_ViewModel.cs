@@ -119,21 +119,23 @@ namespace BaoViet.ViewModels
             FrontPagePaper.Add(PaperFactory.Create(PaperType.VnEconomy));
 
 
-            
-            
 
 
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Bóng đá", Type = PaperType.BongDa, HomePage = "http://www.bongda.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-bongda.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Tin thể thao", Type = PaperType.TinTheThao, HomePage = "http://www.tinthethao.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-tinthethao.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "24h", Type = PaperType.Báo24H, HomePage = "http://24h.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-24h.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Pc World VN", Type = PaperType.PcWorld, HomePage = "http://www.pcworld.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-pcworld.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Thế giới Game", Type = PaperType.TheGioiGame, HomePage = "http://thegioigame.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-thegioigame.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Thông tin công nghệ", Type = PaperType.ThongTinCongNghe, HomePage = "http://www.thongtincongnghe.com/", ImageSource = "ms-appx:///Assets/Logo/logo-ttcn.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Quản trị mạng", Type = PaperType.QuanTriMang, HomePage = "http://quantrimang.com/", ImageSource = "ms-appx:///Assets/Logo/logo-quantrimang.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Zing news", Type = PaperType.Zing, HomePage = "http://news.zing.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-zing.png" });
+
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Gia đình", Type = PaperType.GiaDinh, HomePage = "http://giadinh.net.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-giadinh.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "ICT news", Type = PaperType.ICTNews, HomePage = "http://www.ictnews.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-ictnews.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "VnEconomy", Type = PaperType.VnEconomy, HomePage = "http://vneconomy.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-vneconomy.png" });
+
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.NhipCauDauTu));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.BBC));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.VOA));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.Eva));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.CongAnNhanDan));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.AnNinhThuDo));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.ICTNews));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.QuanDoiNhanDan));
+
+
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Nhịp cầu đầu tư", Type = PaperType.NhipCauDauTu, HomePage = "http://nhipcaudautu.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-ncdt.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "BBC tiếng Việt", Type = PaperType.BBC, HomePage = "http://www.bbc.com/vietnamese", ImageSource = "ms-appx:///Assets/Logo/logo-bbc.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "VOA tiếng Việt", Type = PaperType.VOA, HomePage = "http://www.voatiengviet.com/", ImageSource = "ms-appx:///Assets/Logo/logo-voa.png" });
@@ -141,6 +143,14 @@ namespace BaoViet.ViewModels
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Công An Nhân Dân", Type = PaperType.CongAnNhanDan, HomePage = "http://cand.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-cand.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "An ninh thủ đô", Type = PaperType.AnNinhThuDo, HomePage = "http://anninhthudo.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-antd.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Quân đội nhân dân", Type = PaperType.QuanDoiNhanDan, HomePage = "http://www.qdnd.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-qdnd.png" });
+
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.DatViet));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.WebTreTho));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.VietBao));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.PetroTimes));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.DoiSongPhapLuat));
+            FrontPagePaper.Add(PaperFactory.Create(PaperType.Kenh14));
+
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Đất Việt", Type = PaperType.DatViet, HomePage = "http://baodatviet.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-datviet.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Web trẻ thơ", Type = PaperType.WebTreTho, HomePage = "http://www.webtretho.com/", ImageSource = "ms-appx:///Assets/Logo/logo-webtretho.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Việt báo", Type = PaperType.VietBao, HomePage = "http://vietbao.vn", ImageSource = "ms-appx:///Assets/Logo/logo-vietbao.png" });

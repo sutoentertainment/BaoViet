@@ -69,12 +69,16 @@
                   ItemsSource="{Binding ListFeed}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:FeedItem">
-                    <comet:SlidableListItem ActivationWidth="100" MouseSlidingEnabled="True" LeftForeground="{StaticResource AppColorBackground}"
+                    <comet:SlidableListItem ActivationWidth="100"
                                             Background="{StaticResource AppColorBackground}"
                                             LeftBackground="{StaticResource AppColorBackground}"
+                                            LeftForeground="{StaticResource AppColorBackground}"
+                                            LeftIcon="Camera"
+                                            MouseSlidingEnabled="True"
                                             RightBackground="Transparent"
+                                            RightCommandRequested="SlidableListItem_RightCommandRequested"
                                             RightIcon="SaveLocal"
-                                            RightLabel="Lưu tin" LeftIcon="Camera" RightCommandRequested="SlidableListItem_RightCommandRequested">
+                                            RightLabel="Lưu tin">
                         <Grid Margin="12">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
@@ -99,9 +103,10 @@
                                            TextWrapping="Wrap" />
                                 <TextBlock Margin="0,5,0,0"
                                            MaxLines="2"
+                                           Opacity="0.6"
                                            Text="{Binding Description}"
                                            TextTrimming="CharacterEllipsis"
-                                           TextWrapping="Wrap" Opacity="0.6"/>
+                                           TextWrapping="Wrap" />
                             </StackPanel>
                         </Grid>
                     </comet:SlidableListItem>

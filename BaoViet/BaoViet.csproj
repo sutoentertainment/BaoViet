@@ -175,7 +175,7 @@
     <Compile Include="UserControls\FrontPaperCell.xaml.cs">
       <DependentUpon>FrontPaperCell.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\Detail_Page_ViewModel.cs" />
+    <Compile Include="ViewModels\Detail_ViewModel.cs" />
     <Compile Include="ViewModels\Home_Page_ViewModel.cs" />
     <Compile Include="ViewModels\List_Articles_ViewModel.cs" />
     <Compile Include="ViewModels\List_Categories_ViewModel.cs" />

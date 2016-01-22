@@ -28,11 +28,11 @@ namespace BaoViet.Views
     public sealed partial class Detail_Page : Page
     {
 
-        public Detail_Page_ViewModel ViewModel
+        public Detail_ViewModel ViewModel
         {
             get
             {
-                return this.DataContext as Detail_Page_ViewModel;
+                return this.DataContext as Detail_ViewModel;
             }
         }
         //public WebView webView = new WebView(WebViewExecutionMode.SeparateThread);
@@ -110,6 +110,9 @@ namespace BaoViet.Views
             webView.NavigationStarting -= webView_NavigationStarting;
             webView = null;
             ViewModel.WebViewControl = null;
+
+            webViewDetail = null;
+            webViewDetailContainer.Children.Clear();
             webViewContainer.Children.Clear();
             App.OnRefreshRequested -= App_OnRefreshRequested;
             GC.Collect();

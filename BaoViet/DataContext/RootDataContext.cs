@@ -1,5 +1,5 @@
-﻿using BaoViet.Models;
-using BaoViet.Views;
+﻿using BaoViet.Views;
+using BaoVietCore.Models;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
@@ -15,12 +15,10 @@ namespace BaoViet.DataContext
     public class RootDataContext : BaseModel
     {
         public RelayCommand<NavigationEventArgs> OnNavigatedCommand { get; set; }
-        Action<NavigationEventArgs> OnNavigatedAction;
 
         public RootDataContext()
         {
-            OnNavigatedAction = new Action<NavigationEventArgs>(OnNavigated);
-            OnNavigatedCommand = new RelayCommand<NavigationEventArgs>(OnNavigatedAction);
+            OnNavigatedCommand = new RelayCommand<NavigationEventArgs>(OnNavigated);
         }
 
         public void OnNavigated(NavigationEventArgs e)
@@ -29,7 +27,7 @@ namespace BaoViet.DataContext
             // Register a handler for BackRequested events and set the
             // visibility of the Back button
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
-                App.MasterFrame.CanGoBack ?
+                App.Current.MasterFrame.CanGoBack ?
                 AppViewBackButtonVisibility.Visible :
                 AppViewBackButtonVisibility.Collapsed;
 

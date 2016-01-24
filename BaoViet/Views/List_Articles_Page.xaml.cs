@@ -15,8 +15,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Croft.Core.Extensions;
-using BaoViet.Models;
 using Microsoft.Practices.ServiceLocation;
+using BaoVietCore.Models;
+using BaoVietCore.Interfaces;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -61,7 +62,7 @@ namespace BaoViet.Views
         {
             base.OnNavigatedFrom(e);
             if (e.NavigationMode == NavigationMode.Back)
-                App.WebService.CancelCurrentRequests();
+                App.Current.Manager.WebService.CancelCurrentRequests();
         }
 
         private void ListArticle_ItemClick(object sender, ItemClickEventArgs e)
@@ -69,12 +70,17 @@ namespace BaoViet.Views
             var feed = e.ClickedItem as FeedItem;
             var detail = ServiceLocator.Current.GetInstance<Detail_ViewModel>();
             detail.CurrentFeed = feed;
-            App.MasterFrame.Navigate(typeof(Detail_Page));
+            App.Current.MasterFrame.Navigate(typeof(Detail_Page));
         }
 
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
         {
-            App.InvokeOnToastRise("Đã lưu", 1000);
+            var model = (sender as FrameworkElement).DataContext as FeedItem;
+            if(model != null)
+            {
+                App.Current.Manager.Database.AddItem(model);
+                App.Current.InvokeOnToastRise("Đã lưu", 1000);
+            }
         }
     }
 }

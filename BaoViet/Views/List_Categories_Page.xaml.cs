@@ -1,5 +1,5 @@
-﻿using BaoViet.Models;
-using BaoViet.ViewModels;
+﻿using BaoViet.ViewModels;
+using BaoVietCore.Models;
 using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
@@ -44,7 +44,7 @@ namespace BaoViet.Views
             if (e.NavigationMode == NavigationMode.Back)
                 return;
             ViewModel.HeaderLoaded = true;
-
+            //VisualStateManager.GoToState(this, "HeaderLoaded", true);
             if (ViewModel.CurrentPaper.Categories.Count == 0)
             {
                 var feed = new FeedItem();
@@ -55,7 +55,7 @@ namespace BaoViet.Views
                 await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
 
-                    App.MasterFrame.Navigate(typeof(Detail_Page));
+                    App.Current.MasterFrame.Navigate(typeof(Detail_Page));
                 });
             }
         }
@@ -74,7 +74,7 @@ namespace BaoViet.Views
             var cate = e.ClickedItem as Category;
             var vm = ServiceLocator.Current.GetInstance<List_Articles_ViewModel>();
             vm.CurrentCategory = cate;
-            App.MasterFrame.Navigate(typeof(List_Articles_Page));
+            App.Current.MasterFrame.Navigate(typeof(List_Articles_Page));
         }
     }
 }

@@ -3,12 +3,8 @@
     "Comet": "0.2.0",
     "Croft.Core.Common": "1.1.0",
     "Croft.Core.UWP": "1.1.0",
-    "HtmlAgilityPack": "1.4.9",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
-    "mort8088.XML.XmlHelper": "1.0.2",
-    "MvvmLight": "5.2.0",
-    "MvvmLightLibs": "5.2.0",
-    "Newtonsoft.Json": "8.0.2"
+    "MvvmLightLibs": "5.2.0"
   },
   "frameworks": {
     "uap10.0": {}

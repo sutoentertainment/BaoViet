@@ -18,9 +18,10 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>BaoViet_StoreKey.pfx</PackageCertificateKeyFile>
-    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <PackageCertificateThumbprint>EE7085F550F62336562ECC1982BA20973EA583A1</PackageCertificateThumbprint>
+    <AppxBundle>Never</AppxBundle>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -103,72 +104,16 @@
     </Compile>
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="DataContext\RootDataContext.cs" />
-    <Compile Include="Factory\PaperFactory.cs" />
-    <Compile Include="Helpers\DeviceHelper.cs" />
-    <Compile Include="Helpers\Library.cs" />
-    <Compile Include="Helpers\Screen.cs" />
     <Compile Include="Helpers\TileManager.cs" />
     <Compile Include="Helpers\ToastAction.cs" />
-    <Compile Include="Helpers\UriExtension.cs" />
     <Compile Include="Helpers\VisualTreeHelperExtensions.cs" />
+    <Compile Include="Interfaces\IApp.cs" />
     <Compile Include="Interfaces\INavigable.cs" />
-    <Compile Include="Interfaces\IRssSource.cs" />
-    <Compile Include="KeyboardService\KeyboardEventArgs.cs" />
-    <Compile Include="KeyboardService\KeyboardHelper.cs" />
-    <Compile Include="KeyboardService\KeyboardService.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\BaseModel.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\DispatcherTimerExt.cs" />
-    <Compile Include="Models\Enum\PaperType.cs" />
-    <Compile Include="Models\FeedItem.cs" />
-    <Compile Include="Interfaces\IPaper.cs" />
-    <Compile Include="Models\MenuItem.cs" />
-    <Compile Include="Models\Paper.cs" />
-    <Compile Include="Models\Paper\GameThuPaper.cs" />
-    <Compile Include="Models\Paper\GenkPaper.cs" />
-    <Compile Include="Models\Paper\LaoDongPaper.cs" />
-    <Compile Include="Models\Paper\BongDaPaper.cs" />
-    <Compile Include="Models\Paper\TinTheThaoPaper.cs" />
-    <Compile Include="Models\Paper\BaoMoiPaper.cs" />
-    <Compile Include="Models\Paper\24hPaper.cs" />
-    <Compile Include="Models\Paper\PcWorldPaper.cs" />
-    <Compile Include="Models\Paper\TheGioiGamePaper.cs" />
-    <Compile Include="Models\Paper\ThongTinCongNghePaper.cs" />
-    <Compile Include="Models\Paper\QuanTriMangPaper.cs" />
-    <Compile Include="Models\Paper\VietnamnetPaper.cs" />
-    <Compile Include="Models\Paper\ZingPaper.cs" />
-    <Compile Include="Models\Paper\GiaDinhPaper.cs" />
-    <Compile Include="Models\Paper\ICTNewsPaper.cs" />
-    <Compile Include="Models\Paper\VnEconomyPaper.cs" />
-    <Compile Include="Models\Paper\NhipCauDauTuPaper.cs" />
-    <Compile Include="Models\Paper\VOAPaper.cs" />
-    <Compile Include="Models\Paper\EvaPaper.cs" />
-    <Compile Include="Models\Paper\DatVietPaper.cs" />
-    <Compile Include="Models\Paper\QDNDPaper.cs" />
-    <Compile Include="Models\Paper\AnNinhThuDoPaper.cs" />
-    <Compile Include="Models\Paper\CongAnNhanDanPaper.cs" />
-    <Compile Include="Models\Paper\BBCPaper.cs" />
-    <Compile Include="Models\Paper\WebTreThoPaper.cs" />
-    <Compile Include="Models\Paper\PetroTimesPaper.cs" />
-    <Compile Include="Models\Paper\DSPLPaper.cs" />
-    <Compile Include="Models\Paper\Kenh14Paper.cs" />
-    <Compile Include="Models\Paper\TuoiTrePaper.cs" />
-    <Compile Include="Models\Paper\NgoiSaoPaper.cs" />
-    <Compile Include="Models\Paper\SoHoaPaper.cs" />
-    <Compile Include="Models\Paper\VietnamPlusPaper.cs" />
-    <Compile Include="Models\Paper\TienPhongPaper.cs" />
-    <Compile Include="Models\Paper\WinphoneVietPaper.cs" />
-    <Compile Include="Models\Paper\TinhTePaper.cs" />
-    <Compile Include="Models\Paper\DanTriPaper.cs" />
-    <Compile Include="Models\Paper\UnknowPaper.cs" />
-    <Compile Include="Models\ReadabilityResponse.cs" />
-    <Compile Include="Models\Paper\VnExpressPaper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleData\SampleData_Home_Page.cs" />
-    <Compile Include="Service\WebService.cs" />
     <Compile Include="Styles\Template.xaml.cs">
       <DependentUpon>Template.xaml</DependentUpon>
     </Compile>
@@ -177,6 +122,7 @@
     </Compile>
     <Compile Include="ViewModels\Detail_ViewModel.cs" />
     <Compile Include="ViewModels\Home_Page_ViewModel.cs" />
+    <Compile Include="ViewModels\Saved_Articles_ViewModel.cs" />
     <Compile Include="ViewModels\List_Articles_ViewModel.cs" />
     <Compile Include="ViewModels\List_Categories_ViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
@@ -197,6 +143,9 @@
     </Compile>
     <Compile Include="Views\PaperToHide_Page.xaml.cs">
       <DependentUpon>PaperToHide_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Saved_Articles_Page.xaml.cs">
+      <DependentUpon>Saved_Articles_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Setting_Page.xaml.cs">
       <DependentUpon>Setting_Page.xaml</DependentUpon>
@@ -265,6 +214,7 @@
     <Content Include="Assets\Square71x71Logo.scale-200.png" />
     <Content Include="Assets\Square71x71Logo.scale-400.png" />
     <Content Include="Assets\Square71x71Trans.scale-400.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
     <Content Include="Assets\StoreLogo.scale-400.png" />
     <Content Include="Assets\Tiles\BadgeLogo.png" />
     <Content Include="Assets\Tiles\SquareTile150x150.png" />
@@ -324,6 +274,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Saved_Articles_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Setting_Page.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -338,7 +292,15 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="String\" />
     <Folder Include="Themes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaoVietCore\BaoVietCore.csproj">
+      <Project>{59a5bc0f-6fda-4495-bdd5-a2f9849dc14d}</Project>
+      <Name>BaoVietCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

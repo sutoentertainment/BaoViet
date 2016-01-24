@@ -16,7 +16,6 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using BaoViet.Helpers;
 using Newtonsoft.Json;
-using BaoViet.Models;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -40,7 +39,7 @@ namespace BaoViet.Views
         public Detail_Page()
         {
             this.InitializeComponent();
-            App.OnRefreshRequested += App_OnRefreshRequested;
+            App.Current.OnRefreshRequested += App_OnRefreshRequested;
         }
 
         ~Detail_Page()
@@ -74,7 +73,7 @@ namespace BaoViet.Views
 
         private void WebView_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
         {
-            App.InvokeOnToastRise("Lỗi khi tải trang, hãy thử refresh lại trang web bằng nút F5", 4000);
+            App.Current.InvokeOnToastRise("Lỗi khi tải trang, hãy thử refresh lại trang web bằng nút F5", 4000);
         }
 
         private void webView_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs e)
@@ -94,8 +93,10 @@ namespace BaoViet.Views
 
         private void webView_DOMContentLoaded(WebView sender, WebViewDOMContentLoadedEventArgs e)
         {
-            ViewModel.CurrentWebTitle = webView.DocumentTitle;
-            ViewModel.CurrentWebPage = e.Uri;
+            if(webView.DocumentTitle != "")
+                ViewModel.CurrentWebTitle = webView.DocumentTitle;
+            if(e.Uri != null)
+                ViewModel.CurrentWebPage = e.Uri;
             ViewModel.IsBusy = false;
             //UNDONE
             //App.InvokeOnToastRise("Lỗi khi tải trang, hãy thử refresh lại trang web bằng nút F5", 4000);
@@ -114,7 +115,7 @@ namespace BaoViet.Views
             webViewDetail = null;
             webViewDetailContainer.Children.Clear();
             webViewContainer.Children.Clear();
-            App.OnRefreshRequested -= App_OnRefreshRequested;
+            App.Current.OnRefreshRequested -= App_OnRefreshRequested;
             GC.Collect();
             GC.WaitForPendingFinalizers();
             //GC.Collect();

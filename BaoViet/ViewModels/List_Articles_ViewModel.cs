@@ -1,4 +1,5 @@
-﻿using BaoViet.Models;
+﻿using BaoVietCore.Models;
+using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BaoViet.ViewModels
 {
-    public class List_Articles_ViewModel : BaseModel
+    public class List_Articles_ViewModel : ViewModelBase
     {
         Category _CurrentCategory;
         public Category CurrentCategory
@@ -19,8 +20,7 @@ namespace BaoViet.ViewModels
             }
             set
             {
-                _CurrentCategory = value;
-                RaisePropertyChanged("CurrentCategory");
+                Set(ref _CurrentCategory, value);
             }
 
         }
@@ -35,8 +35,7 @@ namespace BaoViet.ViewModels
             }
             set
             {
-                _IsBusy = value;
-                RaisePropertyChanged("IsBusy");
+                Set(ref _IsBusy, value);
             }
         }
 

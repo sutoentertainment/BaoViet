@@ -1,7 +1,9 @@
-﻿using BaoViet.Factory;
+﻿using BaoVietCore.Factory;
 using BaoViet.Interfaces;
-using BaoViet.Models;
 using BaoViet.Views;
+using BaoVietCore.Interfaces;
+using BaoVietCore.Models;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,7 @@ using ThHelper;
 
 namespace BaoViet.ViewModels
 {
-    public class Home_Page_ViewModel : BaseModel
+    public class Home_Page_ViewModel : ViewModelBase
     {
 
         string _HambugerIcon = "\x2261";
@@ -26,8 +28,7 @@ namespace BaoViet.ViewModels
             }
             set
             {
-                _HambugerIcon = value;
-                RaisePropertyChanged("HambugerIcon");
+                Set(ref _HambugerIcon, value);
             }
         }
 
@@ -42,7 +43,6 @@ namespace BaoViet.ViewModels
             }
             set
             {
-                _IsPaneOpen = value;
                 if (_IsPaneOpen)
                 {
                     HambugerIcon = "\xE096";
@@ -51,7 +51,7 @@ namespace BaoViet.ViewModels
                 {
                     HambugerIcon = "\x2261";
                 }
-                RaisePropertyChanged("IsPaneOpen");
+                Set(ref _IsPaneOpen, value);
             }
         }
 
@@ -66,8 +66,7 @@ namespace BaoViet.ViewModels
             }
             set
             {
-                _IsTransparentTile = value;
-                RaisePropertyChanged("Property");
+                Set(ref _IsTransparentTile, value);
             }
         }
 
@@ -120,20 +119,13 @@ namespace BaoViet.ViewModels
 
 
 
-
-
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Gia đình", Type = PaperType.GiaDinh, HomePage = "http://giadinh.net.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-giadinh.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "ICT news", Type = PaperType.ICTNews, HomePage = "http://www.ictnews.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-ictnews.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "VnEconomy", Type = PaperType.VnEconomy, HomePage = "http://vneconomy.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-vneconomy.png" });
-
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.NhipCauDauTu));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.BBC));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.VOA));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.Eva));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.CongAnNhanDan));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.AnNinhThuDo));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.ICTNews));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.QuanDoiNhanDan));
+            //FrontPagePaper.Add(PaperFactory.Create(PaperType.NhipCauDauTu));
+            //FrontPagePaper.Add(PaperFactory.Create(PaperType.BBC));
+            //FrontPagePaper.Add(PaperFactory.Create(PaperType.VOA));
+            //FrontPagePaper.Add(PaperFactory.Create(PaperType.Eva));
+            //FrontPagePaper.Add(PaperFactory.Create(PaperType.CongAnNhanDan));
+            //FrontPagePaper.Add(PaperFactory.Create(PaperType.AnNinhThuDo));
+            //FrontPagePaper.Add(PaperFactory.Create(PaperType.QuanDoiNhanDan));
 
 
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Nhịp cầu đầu tư", Type = PaperType.NhipCauDauTu, HomePage = "http://nhipcaudautu.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-ncdt.png" });
@@ -144,24 +136,24 @@ namespace BaoViet.ViewModels
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "An ninh thủ đô", Type = PaperType.AnNinhThuDo, HomePage = "http://anninhthudo.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-antd.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Quân đội nhân dân", Type = PaperType.QuanDoiNhanDan, HomePage = "http://www.qdnd.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-qdnd.png" });
 
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.DatViet));
+            //FrontPagePaper.Add(PaperFactory.Create(PaperType.DatViet));
             FrontPagePaper.Add(PaperFactory.Create(PaperType.WebTreTho));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.VietBao));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.PetroTimes));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.DoiSongPhapLuat));
-            FrontPagePaper.Add(PaperFactory.Create(PaperType.Kenh14));
+            //FrontPagePaper.Add(PaperFactory.Create(PaperType.VietBao));
+            //FrontPagePaper.Add(PaperFactory.Create(PaperType.PetroTimes));
+            //FrontPagePaper.Add(PaperFactory.Create(PaperType.DoiSongPhapLuat));
+            //FrontPagePaper.Add(PaperFactory.Create(PaperType.Kenh14));
 
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Đất Việt", Type = PaperType.DatViet, HomePage = "http://baodatviet.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-datviet.png" });
-            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Web trẻ thơ", Type = PaperType.WebTreTho, HomePage = "http://www.webtretho.com/", ImageSource = "ms-appx:///Assets/Logo/logo-webtretho.png" });
+            
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Việt báo", Type = PaperType.VietBao, HomePage = "http://vietbao.vn", ImageSource = "ms-appx:///Assets/Logo/logo-vietbao.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Petro Times", Type = PaperType.PetroTimes, HomePage = "http://petrotimes.vn", ImageSource = "ms-appx:///Assets/Logo/logo-petro.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Đời sống pháp luật", Type = PaperType.DoiSongPhapLuat, HomePage = "http://www.doisongphapluat.com/", ImageSource = "ms-appx:///Assets/Logo/logo-dspl.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Kênh 14", Type = PaperType.Kenh14, HomePage = "http://kenh14.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-kenh14.png" });
 
 
-            ListMenuItem.Add(new MenuItem() { MenuTitle = "Trang nhất", Glyph = "\xE154" });
-            //ListMenuItem.Add(new MenuItem() { MenuTitle = "Đã lưu", Glyph = "\xE082" });
-            ListMenuItem.Add(new MenuItem() { MenuTitle = "Cài đặt", Glyph = "\xE115" });
+            ListMenuItem.Add(new MenuItem() { MenuTitle = "Trang nhất", Glyph = "\xE154", Type = MenuItemType.Home });
+            ListMenuItem.Add(new MenuItem() { MenuTitle = "Đã lưu", Glyph = "\xE082", Type = MenuItemType.Saved });
+            ListMenuItem.Add(new MenuItem() { MenuTitle = "Cài đặt", Glyph = "\xE115", Type = MenuItemType.Setting });
             
             OpenMenuCommand = new RelayCommand(OpenMenu);
             
@@ -170,7 +162,7 @@ namespace BaoViet.ViewModels
 
         private void GoToPaperToHidePage()
         {
-            App.MasterFrame.Navigate(typeof(PaperToHide_Page));
+            App.Current.MasterFrame.Navigate(typeof(PaperToHide_Page));
         }
 
         private void OpenMenu()

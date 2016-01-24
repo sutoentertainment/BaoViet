@@ -6,7 +6,7 @@
       xmlns:i="using:Microsoft.Xaml.Interactivity"
       xmlns:local="using:BaoViet"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:model="using:BaoViet.Models"
+      xmlns:model="using:BaoVietCore.Models"
       xmlns:sample="using:BaoViet.SampleData"
       xmlns:usercontrol="using:BaoViet.UserControls"
       xmlns:viewModel="using:BaoViet.ViewModels"
@@ -94,21 +94,18 @@
                    Grid.Row="1"
                    CompactPaneLength="0"
                    DisplayMode="Overlay"
-                   IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}"
-                   OpenPaneLength="240">
-
+                   IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}">
+            <!--  IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}"  -->
 
             <SplitView.Pane>
                 <Grid Background="{StaticResource AppBlackGray}">
                     <ListView x:Name="SideMenu"
                               IsItemClickEnabled="True"
+                              ItemClick="SlideMenu_ItemClick"
                               ItemContainerStyle="{StaticResource ListViewStandartItemStyle}"
-                              ItemsSource="{x:Bind ViewModel.ListMenuItem}"
-                              SelectedIndex="{Binding SelectedIndex,
-                                                      ElementName=rootPivot,
-                                                      Mode=TwoWay}"
+                              ItemsSource="{Binding ListMenuItem}"
                               SelectionChanged="SideMenu_SelectionChanged"
-                              SelectionMode="Single">
+                              SelectionMode="None">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Width="240" Orientation="Horizontal">
@@ -154,7 +151,7 @@
                                       ItemClick="FrontPage_ListView_ItemClick"
                                       ItemContainerStyle="{StaticResource GridViewItemStyle}"
                                       ItemTemplate="{StaticResource FrontPaperTemplate}"
-                                      ItemsSource="{Binding FrontPagePaper}"
+                                      ItemsSource="{x:Bind ViewModel.FrontPagePaper}"
                                       ScrollViewer.VerticalScrollBarVisibility="Hidden"
                                       SelectionMode="None">
 
@@ -197,7 +194,7 @@
                                     <ListViewItem>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Phiên bản:" />
-                                            <TextBlock Text=" 1.0" />
+                                            <TextBlock Text=" 3.0" />
                                         </StackPanel>
                                     </ListViewItem>
 

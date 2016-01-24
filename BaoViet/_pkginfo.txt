@@ -1,1 +1,1 @@
-C:\Users\thang2410199\Documents\GitHub\BaoViet\BaoViet\AppPackages\BaoViet_2.7.4.0\BaoViet_2.7.4.0_x86_x64_arm.appxbundle
+D:\Study\GitHub\BaoViet\BaoViet\AppPackages\BaoViet_3.0.0.0\BaoViet_3.0.0.0_x86_x64_arm.appxbundle

@@ -1,29 +1,20 @@
-﻿using BaoViet.Helpers;
-using BaoViet.Views;
+﻿using BaoViet.Views;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Networking.Connectivity;
 using Windows.Phone.UI.Input;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using BaoViet.DataContext;
-using Windows.ApplicationModel.Core;
-using StackCore.Services.WebServices;
+using BaoVietCore.Helpers;
+using BaoVietCore;
+using BaoViet.Interfaces;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -32,10 +23,10 @@ namespace BaoViet
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application
+    sealed partial class App : Application, IApp
     {
 
-        public static bool CustomBackPressed = false;
+        public bool CustomBackPressed = false;
         /// <summary>
         /// Allows tracking page views, exceptions and other telemetry through the Microsoft Application Insights service.
         /// </summary>
@@ -46,58 +37,61 @@ namespace BaoViet
         /// </summary>
         public NetworkStatusChangedEventHandler networkStatusCallback { get; set; }
 
-        public static Frame MasterFrame { get; set; }
-        public static RootDataContext RootDataContext { get; set; }
+        public static App Current { get; set; }
+        public Manager Manager { get; set; }
+
+        public Frame MasterFrame { get; set; }
+        public RootDataContext RootDataContext { get; set; }
 
         public delegate void OnToastActivatedEventHandler(string text, double milisecs);
 
-        public static event OnToastActivatedEventHandler OnToastRise;
+        public event OnToastActivatedEventHandler OnToastRise;
 
         public delegate void OnToastTappedEventHandler(ToastAction action);
 
-        public static event OnToastTappedEventHandler OnToastTapped;
+        public event OnToastTappedEventHandler OnToastTapped;
 
         public delegate void OnProtocolActivatedEventHandler(string param);
 
-        public static event OnProtocolActivatedEventHandler OnProtocolActivated;
+        public event OnProtocolActivatedEventHandler OnProtocolActivated;
 
         public delegate void OnBackRequestedEventHandler();
 
-        public static event OnBackRequestedEventHandler OnBackRequested;
+        public event OnBackRequestedEventHandler OnBackRequested;
 
         public delegate void OnRefreshRequestedEventHandler();
 
-        public static event OnRefreshRequestedEventHandler OnRefreshRequested;
+        public event OnRefreshRequestedEventHandler OnRefreshRequested;
 
-        public static void InvokeOnBackRequested()
+        public delegate void OnAppResumeEventHandler();
+
+        public event OnAppResumeEventHandler OnAppResumed;
+
+        public void InvokeOnBackRequested()
         {
             if (OnBackRequested != null)
                 OnBackRequested.Invoke();
         }
 
-        internal static void InvokeOnRefreshRequested()
+        internal void InvokeOnRefreshRequested()
         {
             if (OnRefreshRequested != null)
                 OnRefreshRequested.Invoke();
         }
 
-        public delegate void OnAppResumeEventHandler();
 
-        public static event OnAppResumeEventHandler OnAppResumed;
-
-
-        public static void InvokeOnToastRise(string text, double milisec)
+        public void InvokeOnToastRise(string text, double milisec)
         {
             if (OnToastRise != null)
                 OnToastRise.Invoke(text, milisec);
         }
 
-        public static void InvokeOnToastTapped(ToastAction action)
+        public void InvokeOnToastTapped(ToastAction action)
         {
             if (OnToastTapped != null)
                 OnToastTapped.Invoke(action);
         }
-        public static WebService WebService = new WebService();
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -110,6 +104,8 @@ namespace BaoViet
             this.Suspending += OnSuspending;
             this.Resuming += App_Resuming;
             this.UnhandledException += App_UnhandledException;
+            Current = this;
+            Manager = new Manager();
             RootDataContext = new RootDataContext();
         }
 
@@ -211,6 +207,7 @@ namespace BaoViet
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
+                Manager.Configure();
                 rootFrame.Navigate(typeof(ContainerMaster), e.Arguments);
             }
             // Ensure the current window is active

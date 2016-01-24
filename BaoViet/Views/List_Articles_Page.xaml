@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:BaoViet.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:model="using:BaoViet.Models"
+      xmlns:model="using:BaoVietCore.Models"
       DataContext="{Binding ListArticles,
                             Mode=OneWay,
                             Source={StaticResource Locator}}"
@@ -65,7 +65,7 @@
         <ListView Grid.Row="1"
                   IsItemClickEnabled="True"
                   ItemClick="ListArticle_ItemClick"
-                  ItemContainerStyle="{StaticResource ListViewStandartItemStyle}"
+                  ItemContainerStyle="{StaticResource FullWidthListViewStyle}"
                   ItemsSource="{Binding ListFeed}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:FeedItem">

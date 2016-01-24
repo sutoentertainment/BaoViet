@@ -1,5 +1,6 @@
 ﻿using BaoViet.Interfaces;
-using BaoViet.Models;
+using BaoVietCore.Interfaces;
+using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BaoViet.ViewModels
 {
-    public class List_Categories_ViewModel : BaseModel
+    public class List_Categories_ViewModel : ViewModelBase
     {
         IPaper _CurrentPaper;
         public IPaper CurrentPaper
@@ -19,8 +20,7 @@ namespace BaoViet.ViewModels
             }
             set
             {
-                _CurrentPaper = value;
-                RaisePropertyChanged("CurrentPaper");
+                Set(ref _CurrentPaper, value);
             }
         }
 
@@ -33,8 +33,7 @@ namespace BaoViet.ViewModels
             }
             set
             {
-                _HeaderLoaded = value;
-                RaisePropertyChanged("HeaderLoaded");
+                Set(ref _HeaderLoaded, value);
             }
         }
 

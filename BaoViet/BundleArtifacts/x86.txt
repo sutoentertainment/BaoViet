@@ -1,2 +1,2 @@
-MainPackage=C:\Users\thang2410199\Documents\GitHub\BaoViet\BaoViet\bin\x86\Release\BaoViet_2.7.4.0_x86.appx
-SymbolPackage=C:\Users\thang2410199\Documents\GitHub\BaoViet\BaoViet\AppPackages\BaoViet_2.7.4.0\BaoViet_2.7.4.0_x86.appxsym
+MainPackage=D:\Study\GitHub\BaoViet\BaoViet\bin\x86\Release\BaoViet_3.0.0.0_x86.appx
+SymbolPackage=D:\Study\GitHub\BaoViet\BaoViet\AppPackages\BaoViet_3.0.0.0_Test\BaoViet_3.0.0.0_x86.appxsym

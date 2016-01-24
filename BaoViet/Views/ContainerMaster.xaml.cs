@@ -1,7 +1,8 @@
 ﻿using BaoViet.DataContext;
 using BaoViet.Helpers;
 using BaoViet.Interfaces;
-using BaoViet.Models;
+using BaoVietCore.Helpers;
+using BaoVietCore.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,75 +38,62 @@ namespace BaoViet.Views
         public ContainerMaster()
         {
             this.InitializeComponent();
-            App.MasterFrame = MasterFrame;
-            ViewModel = App.RootDataContext;
+            App.Current.MasterFrame = MasterFrame;
+            ViewModel = App.Current.RootDataContext;
             this.DataContext = ViewModel;
 
-            App.MasterFrame.Navigate(typeof(Home_Page));
-            App.OnToastRise += App_OnToastActivated;
+            App.Current.MasterFrame.Navigate(typeof(Home_Page));
+            App.Current.OnToastRise += App_OnToastActivated;
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
-            Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
-            Window.Current.CoreWindow.KeyUp += CoreWindow_KeyUp;
+
+            App.Current.Manager.KeyboardService.KeyDown += KeyboardService_KeyDown;
         }
 
-        bool IsAltKeyPressed = false;
-
-        private void CoreWindow_KeyUp(CoreWindow sender, KeyEventArgs e)
+        private void KeyboardService_KeyDown(object sender, KeyboardEventArgs e)
         {
-            if (e.VirtualKey == Windows.System.VirtualKey.Menu)
-                IsAltKeyPressed = false;
-        }
-
-        private void CoreWindow_KeyDown(CoreWindow sender, KeyEventArgs e)
-        {
-            //if (e.VirtualKey == Windows.System.VirtualKey.Menu)
-            //    IsAltKeyPressed = true;
-            //else
+            if (e.VirtualKey == Windows.System.VirtualKey.Back)
             {
-                if (e.VirtualKey == Windows.System.VirtualKey.Back)
-                {
-                    //TODO: Raise backNavigation();
-                    //App.InvokeOnBackRequested();
+                //TODO: Raise backNavigation();
+                //App.InvokeOnBackRequested();
 
-                    OnBackRequested(null, null);
-                }
+                OnBackRequested(null, null);
+            }
 
-                if (e.VirtualKey == Windows.System.VirtualKey.F5)
-                {
-                    App.InvokeOnRefreshRequested();
-                }
+            if (e.VirtualKey == Windows.System.VirtualKey.F5)
+            {
+                App.Current.InvokeOnRefreshRequested();
             }
         }
 
         private void ToastTapped(object sender, TappedRoutedEventArgs e)
         {
-            App.InvokeOnToastRise("Sync complete", 2500);
+            App.Current.InvokeOnToastRise("Sync complete", 2500);
 
             TileManager tileManager = new TileManager();
         }
 
         private void OnBackRequested(object sender, BackRequestedEventArgs e)
         {
-            var page = App.MasterFrame.Content as Page;
+            var page = App.Current.MasterFrame.Content as Page;
             if (page != null)
             {
                 var navigable = page.DataContext as INavigable;
                 if (navigable != null)
                 {
                     if (navigable.AllowBack())
-                        App.MasterFrame.GoBack();
+                        App.Current.MasterFrame.GoBack();
                     e.Handled = true;
                     return;
                 }
             }
-            if (App.MasterFrame == null)
+            if (App.Current.MasterFrame == null)
             {
                 return;
             }
 
-            if (App.MasterFrame.CanGoBack)
+            if (App.Current.MasterFrame.CanGoBack)
             {
-                App.MasterFrame.GoBack();
+                App.Current.MasterFrame.GoBack();
                 if (e != null)
                     e.Handled = true;
             }

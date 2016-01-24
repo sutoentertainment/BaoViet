@@ -95,8 +95,6 @@
                 <AppBarButton x:Name="ShareButton"
                               Command="{Binding ShareCommand}"
                               Icon="Send"
-                              IsEnabled="{Binding CurrentWebPage,
-                                                  Converter={StaticResource NullToEnable}}"
                               Label="share"
                               ToolTipService.Placement="Mouse"
                               ToolTipService.PlacementTarget="{x:Bind ShareButton}"

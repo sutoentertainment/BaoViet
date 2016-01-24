@@ -1,6 +1,7 @@
 ﻿using BaoViet.Helpers;
 using BaoViet.Interfaces;
-using BaoViet.Models;
+using BaoVietCore.Helpers;
+using BaoVietCore.Models;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Newtonsoft.Json;
@@ -140,6 +141,8 @@ namespace BaoViet.ViewModels
 
         public void Share()
         {
+            if (!IsFullScreen && CurrentWebPage == null)
+                return;
             dataTransferManager = DataTransferManager.GetForCurrentView();
             dataTransferManager.DataRequested += new TypedEventHandler<DataTransferManager, DataRequestedEventArgs>(this.ShareLinkHandler);
             Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI();
@@ -202,14 +205,15 @@ namespace BaoViet.ViewModels
 
             var address = "";
             address = CurrentFeed.Link;
+            CurrentWebTitle = CurrentFeed.Title;
             address = address.ToReadability();
 
-            var response_content = await App.WebService.GetString(address);
+            var response_content = await App.Current.Manager.WebService.GetString(address);
             var response = JsonConvert.DeserializeObject<ReadabilityResponse>(response_content);
 
             //response.content += @"<style>img{width:100% !important;}</style>";
             await Task.Delay(200);
-            
+
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
                 if (response.content != null)
@@ -217,8 +221,8 @@ namespace BaoViet.ViewModels
                     WebViewControl.NavigateToString(response.content);
                 else
                     WebViewControl.Navigate(new Uri(CurrentFeed.Link));
-                CurrentWebPage = new Uri(address);
             });
+            CurrentWebPage = new Uri(CurrentFeed.Link);
         }
 
         public bool AllowBack()

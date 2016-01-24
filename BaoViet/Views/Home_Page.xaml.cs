@@ -16,11 +16,12 @@ using BaoViet.Helpers;
 using BaoViet.ViewModels;
 using Windows.UI.Input;
 using System.Diagnostics;
-using BaoViet.Models;
 using ThHelper;
 using Windows.ApplicationModel.Store;
 using Microsoft.Practices.ServiceLocation;
 using BaoViet.Interfaces;
+using BaoVietCore.Interfaces;
+using BaoVietCore.Models;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -96,7 +97,7 @@ namespace BaoViet.Views
             vm.CurrentPaper = paper;
 
             //TODO: Prepare the data model for next page
-            App.MasterFrame.Navigate(typeof(List_Categories_Page));
+            App.Current.MasterFrame.Navigate(typeof(List_Categories_Page));
         }
 
         /// <summary>
@@ -114,6 +115,30 @@ namespace BaoViet.Views
         private void SideMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ViewModel.IsPaneOpen = false;
+            if (SideMenu.SelectedIndex == 0)
+                rootPivot.SelectedIndex = 0;
+            if (SideMenu.SelectedIndex == 1)
+                App.Current.MasterFrame.Navigate(typeof(Saved_Articles_Page));
+            if (SideMenu.SelectedIndex == 2)
+                rootPivot.SelectedIndex = 1;
+        }
+
+        private void SlideMenu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ViewModel.IsPaneOpen = false;
+            var menuItem = e.ClickedItem as MenuItem;
+            switch (menuItem.Type)
+            {
+                case MenuItemType.Home:
+                    rootPivot.SelectedIndex = 0;
+                    break;
+                case MenuItemType.Saved:
+                    App.Current.MasterFrame.Navigate(typeof(Saved_Articles_Page));
+                    break;
+                case MenuItemType.Setting:
+                    rootPivot.SelectedIndex = 1;
+                    break;
+            }
         }
 
         private async void RateUs_Tapped(object sender, TappedRoutedEventArgs e)
@@ -126,6 +151,7 @@ namespace BaoViet.Views
             var mailto = new Uri("mailto:?to=thang2410199@gmail.com&subject=Góp ý cho Báo Việt&body=");
             await Windows.System.Launcher.LaunchUriAsync(mailto);
         }
+
 
 
 

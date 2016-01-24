@@ -43,6 +43,7 @@ namespace BaoViet.ViewModels
             }
             set
             {
+                Set(ref _IsPaneOpen, value);
                 if (_IsPaneOpen)
                 {
                     HambugerIcon = "\xE096";
@@ -51,7 +52,6 @@ namespace BaoViet.ViewModels
                 {
                     HambugerIcon = "\x2261";
                 }
-                Set(ref _IsPaneOpen, value);
             }
         }
 

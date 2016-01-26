@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 namespace BaoViet.ViewModels
 {
@@ -225,7 +226,7 @@ namespace BaoViet.ViewModels
             CurrentWebPage = new Uri(CurrentFeed.Link);
         }
 
-        public bool AllowBack()
+        public bool AllowGoBack()
         {
             if (IsFullScreen)
             {
@@ -233,6 +234,21 @@ namespace BaoViet.ViewModels
                 return false;
             }
             return true;
+        }
+
+        public void OnNavigatedTo(NavigationEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

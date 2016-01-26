@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Navigation;
 
 namespace BaoViet.Interfaces
 {
-    interface INavigable
+    public interface INavigable
     {
-        bool AllowBack();
+        void OnNavigatedTo(NavigationEventArgs e);
+        void OnNavigatedFrom(NavigationEventArgs e);
+        void OnNavigatingFrom(NavigatingCancelEventArgs e);
+        bool AllowGoBack();
     }
 }

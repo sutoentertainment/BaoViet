@@ -11,6 +11,7 @@ using BaoVietCore.Interfaces;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using BaoVietCore.CustomEventArgs;
+using Windows.UI.Xaml.Controls.Primitives;
 
 namespace BaoVietCore.Models
 {
@@ -74,6 +75,11 @@ namespace BaoVietCore.Models
             get; set;
         }
 
+        public RelayCommand<FrameworkElement> ShowMenuCommand
+        {
+            get; set;
+        }
+
         public PaperBase(PaperType type)
         {
             this.Title = "";
@@ -86,6 +92,13 @@ namespace BaoVietCore.Models
             Categories = new ObservableCollection<Category>();
 
             PinCommand = new RelayCommand(PinToStart);
+
+            ShowMenuCommand = new RelayCommand<FrameworkElement>(ShowMenu);
+        }
+
+        private void ShowMenu(FrameworkElement senderElement)
+        {
+            Messenger.Default.Send<ShowMenuEventArgs>(new ShowMenuEventArgs(senderElement));
         }
 
         private void PinToStart()

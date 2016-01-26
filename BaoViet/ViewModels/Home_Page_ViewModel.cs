@@ -15,6 +15,8 @@ using System.Windows.Input;
 using ThHelper;
 using GalaSoft.MvvmLight.Messaging;
 using BaoVietCore.CustomEventArgs;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Navigation;
 
 namespace BaoViet.ViewModels
 {
@@ -81,19 +83,60 @@ namespace BaoViet.ViewModels
 
         public RelayCommand GoToPaperToHidePageCommand { get; set; }
 
+        public RelayCommand<NavigationEventArgs> OnNavigatedToCommand { get; set; }
+        public RelayCommand<NavigationEventArgs> OnNavigatedFromCommand { get; set; }
+
         public Home_Page_ViewModel()
         {
             FrontPagePaper = new ObservableCollection<IPaper>();
             ListMenuItem = new ObservableCollection<MenuItem>();
             _IsTransparentTile = SettingHelper.LoadSetting("TransparentTile") == null ? false : (bool)SettingHelper.LoadSetting("TransparentTile");
+
+            CreateCommand();
+
             LoadData();
 
+            
+        }
+
+        private void CreateCommand()
+        {
+
+            OpenMenuCommand = new RelayCommand(OpenMenu);
+
+            GoToPaperToHidePageCommand = new RelayCommand(GoToPaperToHidePage);
+
+            OnNavigatedToCommand = new RelayCommand<NavigationEventArgs>(OnNavigatedTo);
+            OnNavigatedFromCommand = new RelayCommand<NavigationEventArgs>(OnNavigatedFrom);
+        }
+
+        private void OnNavigatedFrom(NavigationEventArgs obj)
+        {
+            Messenger.Default.Unregister(this);
+        }
+
+        private void OnNavigatedTo(NavigationEventArgs e)
+        {
             RegisterMessage();
+            if (e.NavigationMode == NavigationMode.Back)
+                return;
+        }
+
+        ~Home_Page_ViewModel()
+        {
+            
         }
 
         private void RegisterMessage()
         {
             Messenger.Default.Register<PinEventArgs>(this, PinToStart);
+            Messenger.Default.Register<ShowMenuEventArgs>(this, ShowMenu);
+        }
+
+        private void ShowMenu(ShowMenuEventArgs e)
+        {
+            FlyoutBase flyoutBase = FlyoutBase.GetAttachedFlyout(e.Element);
+            flyoutBase.ShowAt(e.Element);
         }
 
         private async void PinToStart(PinEventArgs p)
@@ -168,15 +211,12 @@ namespace BaoViet.ViewModels
             ListMenuItem.Add(new MenuItem() { MenuTitle = "Trang nhất", Glyph = "\xE154", Type = MenuItemType.Home });
             ListMenuItem.Add(new MenuItem() { MenuTitle = "Đã lưu", Glyph = "\xE082", Type = MenuItemType.Saved });
             ListMenuItem.Add(new MenuItem() { MenuTitle = "Cài đặt", Glyph = "\xE115", Type = MenuItemType.Setting });
-            
-            OpenMenuCommand = new RelayCommand(OpenMenu);
-            
-            GoToPaperToHidePageCommand = new RelayCommand(GoToPaperToHidePage);
+
     }
 
         private void GoToPaperToHidePage()
         {
-            App.Current.MasterFrame.Navigate(typeof(PaperToHide_Page));
+            //App.Current.NavigationService.NavigateTo(typeof(PaperToHide_Page));
         }
 
         private void OpenMenu()

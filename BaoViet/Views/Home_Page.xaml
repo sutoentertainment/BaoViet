@@ -1,21 +1,22 @@
-﻿<Page x:Class="BaoViet.Views.Home_Page"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:core="using:Microsoft.Xaml.Interactions.Core"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:i="using:Microsoft.Xaml.Interactivity"
-      xmlns:local="using:BaoViet"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:model="using:BaoVietCore.Models"
-      xmlns:sample="using:BaoViet.SampleData"
-      xmlns:usercontrol="using:BaoViet.UserControls"
-      xmlns:viewModel="using:BaoViet.ViewModels"
-      DataContext="{Binding Main,
-                            Mode=OneWay,
-                            Source={StaticResource Locator}}"
-      NavigationCacheMode="Required"
-      d:DataContext="{Binding Source={StaticResource sample_data}}"
-      mc:Ignorable="d">
+﻿<local:BindablePage x:Class="BaoViet.Views.Home_Page"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:i="using:Microsoft.Xaml.Interactivity"
+                    xmlns:local="using:BaoViet.Views"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:model="using:BaoVietCore.Models"
+                    xmlns:sample="using:BaoViet.SampleData"
+                    xmlns:usercontrol="using:BaoViet.UserControls"
+                    xmlns:viewModel="using:BaoViet.ViewModels"
+                    DataContext="{Binding Main,
+                                          Mode=OneWay,
+                                          Source={StaticResource Locator}}"
+                    NavigationCacheMode="Required"
+                    d:DataContext="{Binding Source={StaticResource sample_data}}"
+                    mc:Ignorable="d">
+
     <!--  xmlns:usercontrol="using:BaoViet.UserControls"  -->
 
     <!--  Handle difference screens  -->
@@ -30,9 +31,9 @@
         </TransitionCollection>
     </Page.Transitions>-->
 
-    <Page.Resources>
+    <!--<Page.Resources>
         <sample:SampleData_Home_Page x:Key="sample_data" />
-    </Page.Resources>
+    </Page.Resources>-->
 
     <Grid Background="{StaticResource AppColorBackground}">
         <VisualStateManager.VisualStateGroups>
@@ -248,4 +249,4 @@
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>-->
-</Page>
+</local:BindablePage>

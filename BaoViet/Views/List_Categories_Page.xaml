@@ -1,4 +1,4 @@
-﻿<Page x:Class="BaoViet.Views.List_Categories_Page"
+﻿<local:BindablePage x:Class="BaoViet.Views.List_Categories_Page"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
@@ -109,4 +109,4 @@
                   ScrollViewer.VerticalScrollBarVisibility="Hidden"
                   SelectionMode="None" />
     </Grid>
-</Page>
+</local:BindablePage>

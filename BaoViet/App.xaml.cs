@@ -16,6 +16,8 @@ using BaoVietCore.Helpers;
 using BaoVietCore;
 using BaoViet.Interfaces;
 using BaoViet.Helpers;
+using BaoViet.Services;
+using BaoViet.ViewModels;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -45,6 +47,7 @@ namespace BaoViet
         public RootDataContext RootDataContext { get; set; }
 
         public TileManager TileManager { get; set; }
+        public NavigationService NavigationService { get; internal set; }
 
         public delegate void OnToastActivatedEventHandler(string text, double milisecs);
 
@@ -205,6 +208,10 @@ namespace BaoViet
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
             }
+            NavigationService = new NavigationService();
+            NavigationService.ConfigPage();
+            NavigationService.Configure(ViewModels.FrameKey.RootFrame, rootFrame);
+
 
             if (rootFrame.Content == null)
             {
@@ -212,7 +219,8 @@ namespace BaoViet
                 // configuring the new page by passing required information as a navigation
                 // parameter
                 Manager.Configure();
-                rootFrame.Navigate(typeof(ContainerMaster), e.Arguments);
+
+                NavigationService.NavigateTo(Pages.Container, e.Arguments, ViewModels.FrameKey.RootFrame);
             }
             // Ensure the current window is active
             Window.Current.Activate();

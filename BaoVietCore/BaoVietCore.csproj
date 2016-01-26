@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventArgs\ShowMenuEventArgs.cs" />
     <Compile Include="EventArgs\PinEventArgs.cs" />
     <Compile Include="Factory\PaperFactory.cs" />
     <Compile Include="Helpers\DeviceHelper.cs" />

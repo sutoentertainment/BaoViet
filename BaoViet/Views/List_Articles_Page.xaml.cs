@@ -26,7 +26,7 @@ namespace BaoViet.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class List_Articles_Page : Page
+    public sealed partial class List_Articles_Page : BindablePage
     {
         public List_Articles_ViewModel ViewModel
         {
@@ -70,7 +70,7 @@ namespace BaoViet.Views
             var feed = e.ClickedItem as FeedItem;
             var detail = ServiceLocator.Current.GetInstance<Detail_ViewModel>();
             detail.CurrentFeed = feed;
-            App.Current.MasterFrame.Navigate(typeof(Detail_Page));
+            App.Current.NavigationService.NavigateTo(Pages.DetailPage);
         }
 
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)

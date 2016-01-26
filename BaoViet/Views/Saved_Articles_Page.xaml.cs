@@ -51,7 +51,7 @@ namespace BaoViet.Views
             var feed = e.ClickedItem as FeedItem;
             var detail = ServiceLocator.Current.GetInstance<Detail_ViewModel>();
             detail.CurrentFeed = feed;
-            App.Current.MasterFrame.Navigate(typeof(Detail_Page));
+            App.Current.NavigationService.NavigateTo(Pages.DetailPage);
         }
 
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)

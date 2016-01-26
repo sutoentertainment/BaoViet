@@ -8,6 +8,9 @@ using Windows.UI.Xaml;
 using System.Text.RegularExpressions;
 using BaoVietCore.Helpers;
 using BaoVietCore.Interfaces;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using BaoVietCore.CustomEventArgs;
 
 namespace BaoVietCore.Models
 {
@@ -58,6 +61,19 @@ namespace BaoVietCore.Models
             throw new NotImplementedException();
         }
 
+        public string TypeString
+        {
+            get
+            {
+                return this.Type.ToString();
+            }
+        }
+
+        public RelayCommand PinCommand
+        {
+            get; set;
+        }
+
         public PaperBase(PaperType type)
         {
             this.Title = "";
@@ -68,6 +84,13 @@ namespace BaoVietCore.Models
             else
                 this.CellWidth = ((500 - 10 * 4) / 2);
             Categories = new ObservableCollection<Category>();
+
+            PinCommand = new RelayCommand(PinToStart);
+        }
+
+        private void PinToStart()
+        {
+            Messenger.Default.Send<PinEventArgs>(new PinEventArgs(this));
         }
 
         public string StripHTML(string input)

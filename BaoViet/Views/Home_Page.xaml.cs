@@ -105,11 +105,9 @@ namespace BaoViet.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
+        private async void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
         {
-            TileManager tile = new TileManager();
-            tile.UpdateTile(TransparentTile.IsOn);
-            SettingHelper.SaveSetting("TransparentTile", TransparentTile.IsOn);
+            await App.Current.TileManager.CreateSecondaryTileAsync("TransparentTile", "ms-appx:///Assets/Square150x150LogoTrans.png", "Báo Việt", "?page=main", "ms-appx:///Assets/Wide310x150LogoTrans.png");
         }
 
         private void SideMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)

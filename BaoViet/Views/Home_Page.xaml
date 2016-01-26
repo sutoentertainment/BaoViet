@@ -182,13 +182,8 @@
 
 
                                     <ListViewItem>
-                                        <ToggleSwitch x:Name="TransparentTile"
-                                                      Header="Tile trong suốt"
-                                                      IsOn="{Binding IsTransparentTile,
-                                                                     Mode=TwoWay}"
-                                                      OffContent="Tắt"
-                                                      OnContent="Bật"
-                                                      Toggled="ToggleSwitch_Toggled" />
+
+                                        <Button Click="ToggleSwitch_Toggled" Content="Tạo Tile trong suốt" />
                                     </ListViewItem>
 
                                     <ListViewItem>

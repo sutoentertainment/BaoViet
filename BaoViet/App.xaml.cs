@@ -15,6 +15,7 @@ using BaoViet.DataContext;
 using BaoVietCore.Helpers;
 using BaoVietCore;
 using BaoViet.Interfaces;
+using BaoViet.Helpers;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -42,6 +43,8 @@ namespace BaoViet
 
         public Frame MasterFrame { get; set; }
         public RootDataContext RootDataContext { get; set; }
+
+        public TileManager TileManager { get; set; }
 
         public delegate void OnToastActivatedEventHandler(string text, double milisecs);
 
@@ -107,6 +110,7 @@ namespace BaoViet
             Current = this;
             Manager = new Manager();
             RootDataContext = new RootDataContext();
+            TileManager = new TileManager();
         }
 
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)

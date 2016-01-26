@@ -1,10 +1,13 @@
-﻿using System;
+﻿using BaoVietCore.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Data.Xml.Dom;
+using Windows.UI;
 using Windows.UI.Notifications;
+using Windows.UI.StartScreen;
 
 namespace BaoViet.Helpers
 {
@@ -20,6 +23,18 @@ namespace BaoViet.Helpers
 
             BadgeNotification badge = new BadgeNotification(badgeData);
             BadgeUpdateManager.CreateBadgeUpdaterForApplication().Update(badge);
+        }
+
+        public async Task CreateSecondaryTileAsync(string id, string imageUri, string title, string args, string wideLogo = null)
+        {
+            SecondaryTile tile = new  SecondaryTile(id, title, args, new Uri(imageUri), TileSize.Square150x150);
+            tile.VisualElements.BackgroundColor = Colors.Transparent;
+            if (wideLogo != null)
+                tile.VisualElements.Wide310x150Logo = new Uri(wideLogo);
+
+            tile.RoamingEnabled = true;
+            await tile.RequestCreateAsync();
+
         }
 
         public void UpdateTile(bool Transparent)
@@ -47,6 +62,16 @@ namespace BaoViet.Helpers
             TileNotification tileNotification = new TileNotification(tileXml);
             TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNotification);
 
+        }
+
+        internal async Task DeleteTileAsync(string id)
+        {
+            var tiles = await SecondaryTile.FindAllAsync();
+            var tile = tiles.Where(x => x.TileId == id).FirstOrDefault();
+            if(tile != null)
+            {
+                await tile.RequestDeleteAsync();
+            }
         }
     }
 }

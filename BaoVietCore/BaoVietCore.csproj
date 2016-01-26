@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventArgs\PinEventArgs.cs" />
     <Compile Include="Factory\PaperFactory.cs" />
     <Compile Include="Helpers\DeviceHelper.cs" />
     <Compile Include="Helpers\KeyboardEventArgs.cs" />
@@ -127,7 +128,7 @@
     <Compile Include="Models\Enum\PaperType.cs" />
     <Compile Include="Models\FeedItem.cs" />
     <Compile Include="Models\MenuItem.cs" />
-    <Compile Include="Models\Paper.cs" />
+    <Compile Include="Models\PaperBase.cs" />
     <Compile Include="Models\Paper\24hPaper.cs" />
     <Compile Include="Models\Paper\AnNinhThuDoPaper.cs" />
     <Compile Include="Models\Paper\BaoMoiPaper.cs" />
@@ -189,6 +190,7 @@
       <Name>SQLite for Universal App Platform</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

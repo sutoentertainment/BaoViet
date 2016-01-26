@@ -13,6 +13,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using ThHelper;
+using GalaSoft.MvvmLight.Messaging;
+using BaoVietCore.CustomEventArgs;
 
 namespace BaoViet.ViewModels
 {
@@ -83,8 +85,20 @@ namespace BaoViet.ViewModels
         {
             FrontPagePaper = new ObservableCollection<IPaper>();
             ListMenuItem = new ObservableCollection<MenuItem>();
-            IsTransparentTile = SettingHelper.LoadSetting("TransparentTile") == null ? false : (bool)SettingHelper.LoadSetting("TransparentTile");
+            _IsTransparentTile = SettingHelper.LoadSetting("TransparentTile") == null ? false : (bool)SettingHelper.LoadSetting("TransparentTile");
             LoadData();
+
+            RegisterMessage();
+        }
+
+        private void RegisterMessage()
+        {
+            Messenger.Default.Register<PinEventArgs>(this, PinToStart);
+        }
+
+        private async void PinToStart(PinEventArgs p)
+        {
+            await App.Current.TileManager.CreateSecondaryTileAsync(p.Paper.Title, p.Paper.ImageSource, p.Paper.Title, "?paper=" + p.Paper.TypeString);
         }
 
         public void LoadData()

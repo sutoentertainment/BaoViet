@@ -1,4 +1,5 @@
 ﻿using BaoVietCore.Models;
+using GalaSoft.MvvmLight.Command;
 using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 
@@ -14,5 +15,8 @@ namespace BaoVietCore.Interfaces
         PaperType Type { get; set; }
         string HomePage { get; set; }
         int Index { get; set; }
+        string TypeString { get; }
+
+        RelayCommand PinCommand { get; set; }
     }
 }

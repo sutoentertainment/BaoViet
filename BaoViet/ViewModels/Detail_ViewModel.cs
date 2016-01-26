@@ -238,17 +238,14 @@ namespace BaoViet.ViewModels
 
         public void OnNavigatedTo(NavigationEventArgs e)
         {
-            throw new NotImplementedException();
         }
 
         public void OnNavigatedFrom(NavigationEventArgs e)
         {
-            throw new NotImplementedException();
         }
 
         public void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
-            throw new NotImplementedException();
         }
     }
 }

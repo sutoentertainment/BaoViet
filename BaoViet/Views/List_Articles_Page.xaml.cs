@@ -40,31 +40,6 @@ namespace BaoViet.Views
             this.InitializeComponent();
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            if (e.NavigationMode == NavigationMode.Back)
-                return;
-
-            ViewModel.ListFeed.Clear();
-            ViewModel.IsBusy = true;
-            try
-            {
-                var result = await ViewModel.CurrentCategory.Owner.GetFeed(ViewModel.CurrentCategory.Source);
-                if(result.Paper == ViewModel.CurrentCategory.Owner.Type)
-                    ViewModel.ListFeed.AddRange(result.Feeds);
-            }
-            catch { }
-            ViewModel.IsBusy = false;
-        }
-
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            base.OnNavigatedFrom(e);
-            if (e.NavigationMode == NavigationMode.Back)
-                App.Current.Manager.WebService.CancelCurrentRequests();
-        }
-
         private void ListArticle_ItemClick(object sender, ItemClickEventArgs e)
         {
             var feed = e.ClickedItem as FeedItem;

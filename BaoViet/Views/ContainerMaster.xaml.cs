@@ -50,24 +50,24 @@ namespace BaoViet.Views
             App.Current.OnToastRise += App_OnToastActivated;
             //SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
-            //App.Current.Manager.KeyboardService.KeyDown += KeyboardService_KeyDown;
+            App.Current.Manager.KeyboardService.KeyDown += KeyboardService_KeyDown;
         }
 
-        //private void KeyboardService_KeyDown(object sender, KeyboardEventArgs e)
-        //{
-        //    if (e.VirtualKey == Windows.System.VirtualKey.Back)
-        //    {
-        //        //TODO: Raise backNavigation();
-        //        //App.InvokeOnBackRequested();
+        private void KeyboardService_KeyDown(object sender, KeyboardEventArgs e)
+        {
+            if (e.VirtualKey == Windows.System.VirtualKey.Back)
+            {
+                //TODO: Raise backNavigation();
+                //App.InvokeOnBackRequested();
 
-        //        BindablePage.CurrentPage.OnBackRequested(null, null);
-        //    }
+                BindablePage.CurrentPage.OnBackRequested(null, null);
+            }
 
-        //    if (e.VirtualKey == Windows.System.VirtualKey.F5)
-        //    {
-        //        App.Current.InvokeOnRefreshRequested();
-        //    }
-        //}
+            if (e.VirtualKey == Windows.System.VirtualKey.F5)
+            {
+                App.Current.InvokeOnRefreshRequested();
+            }
+        }
 
         private void ToastTapped(object sender, TappedRoutedEventArgs e)
         {

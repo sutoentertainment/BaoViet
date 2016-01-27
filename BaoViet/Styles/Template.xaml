@@ -10,7 +10,7 @@
                     xmlns:model="using:BaoVietCore.Models"
                     mc:Ignorable="d">
 
-    <DataTemplate x:Key="FrontPaperTemplate" x:DataType="interface:IPaper">
+    <!--<DataTemplate x:Key="FrontPaperTemplate" x:DataType="interface:IPaper">
         <StackPanel x:Name="cellContainer"
                     Width="{x:Bind CellWidth}"
                     Margin="4,12,4,12">
@@ -37,6 +37,38 @@
             <TextBlock HorizontalAlignment="Center"
                        FontSize="14"
                        Text="{x:Bind Title}" />
+        </StackPanel>
+    </DataTemplate>-->
+
+    <DataTemplate x:Key="FrontPaperTemplate">
+        <StackPanel x:Name="cellContainer"
+                    Width="{Binding CellWidth,
+                                    Mode=OneTime}"
+                    Margin="4,12,4,12">
+            <i:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="RightTapped">
+                    <core:InvokeCommandAction Command="{Binding ShowMenuCommand, Mode=OneTime}" CommandParameter="{Binding ElementName=cellContainer}" />
+                </core:EventTriggerBehavior>
+            </i:Interaction.Behaviors>
+
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout Placement="Bottom">
+                    <MenuFlyoutItem Command="{Binding PinCommand, Mode=OneTime}" Text="Gắn lên start menu" />
+                </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
+
+            <Ellipse Width="60"
+                     Height="60"
+                     ContinuumNavigationTransitionInfo.IsExitElement="True">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding ImageSource, Mode=OneWay}" />
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <TextBlock HorizontalAlignment="Center"
+                       FontSize="14"
+                       Text="{Binding Title,
+                                      Mode=OneTime}" />
         </StackPanel>
     </DataTemplate>
 

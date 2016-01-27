@@ -48,22 +48,7 @@ namespace BaoViet.Views
             //ViewModel = new Home_Page_ViewModel();
             //this.DataContext = ViewModel;
         }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);            
-        }
-
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            base.OnNavigatedFrom(e);
-        }
-
-        private void HamburgerButton_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            Debug.WriteLine("hit");
-            ViewModel.IsPaneOpen = !ViewModel.IsPaneOpen;
-        }
+        
 
         private void LayoutRoot_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {

@@ -1,6 +1,7 @@
 ﻿using BaoViet.Helpers;
 using BaoViet.Interfaces;
 using BaoVietCore.Helpers;
+using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -87,8 +88,8 @@ namespace BaoViet.ViewModels
                 Set(ref _IsBusy, value);
             }
         }
-        FeedItem _CurrentFeed;
-        public FeedItem CurrentFeed
+        IFeedItem _CurrentFeed;
+        public IFeedItem CurrentFeed
         {
             get
             {

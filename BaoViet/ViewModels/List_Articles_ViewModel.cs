@@ -1,4 +1,5 @@
 ﻿using BaoViet.Interfaces;
+using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
 using Croft.Core.Extensions;
 using GalaSoft.MvvmLight;
@@ -27,7 +28,7 @@ namespace BaoViet.ViewModels
             }
 
         }
-        public ObservableCollection<FeedItem> ListFeed { get; set; }
+        public ObservableCollection<IFeedItem> ListFeed { get; set; }
 
         bool _IsBusy = false;
         public bool IsBusy
@@ -44,7 +45,7 @@ namespace BaoViet.ViewModels
 
         public List_Articles_ViewModel()
         {
-            ListFeed = new ObservableCollection<FeedItem>();
+            ListFeed = new ObservableCollection<IFeedItem>();
         }
 
         public async void OnNavigatedTo(NavigationEventArgs e)

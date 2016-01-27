@@ -221,7 +221,7 @@ namespace BaoViet.ViewModels
 
         private void OpenMenu()
         {
-
+            IsPaneOpen = !IsPaneOpen;
         }
     }
 }

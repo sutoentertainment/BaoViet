@@ -31,9 +31,9 @@
         </TransitionCollection>
     </Page.Transitions>-->
 
-    <!--<Page.Resources>
+    <Page.Resources>
         <sample:SampleData_Home_Page x:Key="sample_data" />
-    </Page.Resources>-->
+    </Page.Resources>
 
     <Grid Background="{StaticResource AppColorBackground}">
         <VisualStateManager.VisualStateGroups>
@@ -73,8 +73,7 @@
                     VerticalAlignment="Center"
                     Background="Transparent"
                     BorderThickness="0"
-                    Command="{x:Bind ViewModel.OpenMenuCommand}"
-                    Tapped="HamburgerButton_Tapped">
+                    Command="{x:Bind ViewModel.OpenMenuCommand}">
                 <FontIcon x:Name="HambugerButton"
                           Margin="0,-8,0,0"
                           VerticalAlignment="Bottom"
@@ -104,7 +103,7 @@
                               IsItemClickEnabled="True"
                               ItemClick="SlideMenu_ItemClick"
                               ItemContainerStyle="{StaticResource ListViewStandartItemStyle}"
-                              ItemsSource="{Binding ListMenuItem}"
+                              ItemsSource="{x:Bind ViewModel.ListMenuItem}"
                               SelectionChanged="SideMenu_SelectionChanged"
                               SelectionMode="None">
                         <ListView.ItemTemplate>

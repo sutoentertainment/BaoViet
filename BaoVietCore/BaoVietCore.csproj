@@ -128,6 +128,7 @@
     <Compile Include="Helpers\DispatcherTimerExt.cs" />
     <Compile Include="Models\Enum\PaperType.cs" />
     <Compile Include="Models\FeedItem.cs" />
+    <Compile Include="Interfaces\IFeedItem.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\PaperBase.cs" />
     <Compile Include="Models\Paper\24hPaper.cs" />

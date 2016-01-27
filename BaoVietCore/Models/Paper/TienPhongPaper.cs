@@ -46,7 +46,7 @@ namespace BaoVietCore.Models.Paper
 
             var nodes = docs.Descendants().Where(n => n.Name == "item");
 
-            var feeds = new List<FeedItem>();
+            var feeds = new List<IFeedItem>();
             foreach (var item in nodes)
             {
                 var feed = new FeedItem();

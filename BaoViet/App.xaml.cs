@@ -133,9 +133,15 @@ namespace BaoViet
             }
         }
 
-        private void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        private async void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             //TelemetryClient.TrackException(e.Exception);
+            Manager.LogService.Log(e.ToString());
+            Manager.LogService.Log(e.Message);
+            Manager.LogService.Log(e.Exception.ToString());
+            Manager.LogService.Log(e.Exception.StackTrace);
+            Manager.LogService.Log(e.Exception.Message);
+            await Manager.LogService.WriteLog();
         }
 
         public void OnToastActivated_Invoke(string text, double milisecs)

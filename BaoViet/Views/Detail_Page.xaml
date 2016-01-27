@@ -52,7 +52,7 @@
               Grid.RowSpan="2"
               Visibility="{Binding IsFullScreen,
                                    Converter={StaticResource BooleanToVisibility}}">
-            <WebView Name="webViewDetail" Source="{Binding FullScreenSource, Mode=TwoWay}" />
+            <WebView Name="webViewDetail" Source="{Binding FullScreenSource, Mode=TwoWay}"/>
         </Grid>
 
 

@@ -1635,6 +1635,14 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "UniversalRateReminder/2.0.0": {
+        "compile": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -3360,6 +3368,14 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "UniversalRateReminder/2.0.0": {
+        "compile": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
@@ -5056,6 +5072,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "UniversalRateReminder/2.0.0": {
+        "compile": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
         }
       }
     },
@@ -6787,6 +6811,14 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "UniversalRateReminder/2.0.0": {
+        "compile": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
@@ -8483,6 +8515,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "UniversalRateReminder/2.0.0": {
+        "compile": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
         }
       }
     },
@@ -10214,6 +10254,14 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "UniversalRateReminder/2.0.0": {
+        "compile": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
@@ -11910,6 +11958,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "UniversalRateReminder/2.0.0": {
+        "compile": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
         }
       }
     }
@@ -15564,6 +15620,23 @@
         "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll",
         "System.Xml.XmlSerializer.nuspec"
       ]
+    },
+    "UniversalRateReminder/2.0.0": {
+      "sha512": "LXY44TSgwf4BvswRHh1xHTsqcn6lYxRz3wFA5CM9rp1TVNEzjgtsNThf0DZZbCL+So1nq8kzxtKo32U5yyWW0w==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/portable-netcore451+wpa81/UniversalRateReminder.dll",
+        "lib/portable-netcore451+wpa81/UniversalRateReminder.pri",
+        "lib/portable-netcore451+wpa81/UniversalRateReminder.XML",
+        "lib/uap10.0/UniversalRateReminder.dll",
+        "lib/uap10.0/UniversalRateReminder.pri",
+        "lib/uap10.0/UniversalRateReminder.xml",
+        "lib/uap10.0/UniversalRateReminder/Properties/UniversalRateReminder.rd.xml",
+        "package/services/metadata/core-properties/d779faa918d04526a74f7f11ed292e65.psmdcp",
+        "UniversalRateReminder.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -15577,7 +15650,8 @@
       "MvvmLightLibs >= 5.2.0",
       "Newtonsoft.Json >= 8.0.2",
       "SQLite.Net.Async-PCL >= 3.1.1",
-      "SQLite.Net-PCL >= 3.1.1"
+      "SQLite.Net-PCL >= 3.1.1",
+      "UniversalRateReminder >= 2.0.0"
     ],
     "UAP,Version=v10.0": []
   }

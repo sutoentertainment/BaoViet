@@ -3,27 +3,6 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
-      "Comet/0.2.0": {
-        "dependencies": {
-          "System.Collections": "[4.0.10, )",
-          "System.Diagnostics.Debug": "[4.0.10, )",
-          "System.Diagnostics.Tools": "[4.0.0, )",
-          "System.ObjectModel": "[4.0.10, )",
-          "System.Runtime": "[4.0.20, )",
-          "System.Runtime.Extensions": "[4.0.10, )",
-          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
-          "System.Runtime.WindowsRuntime": "[4.0.10, )",
-          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
-          "System.Threading": "[4.0.10, )",
-          "System.Threading.Tasks": "[4.0.10, )"
-        },
-        "compile": {
-          "lib/uap10.0/Comet.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Comet.dll": {}
-        }
-      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
@@ -1656,30 +1635,17 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "UniversalRateReminder/2.0.0": {
+        "compile": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
-      "Comet/0.2.0": {
-        "dependencies": {
-          "System.Collections": "[4.0.10, )",
-          "System.Diagnostics.Debug": "[4.0.10, )",
-          "System.Diagnostics.Tools": "[4.0.0, )",
-          "System.ObjectModel": "[4.0.10, )",
-          "System.Runtime": "[4.0.20, )",
-          "System.Runtime.Extensions": "[4.0.10, )",
-          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
-          "System.Runtime.WindowsRuntime": "[4.0.10, )",
-          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
-          "System.Threading": "[4.0.10, )",
-          "System.Threading.Tasks": "[4.0.10, )"
-        },
-        "compile": {
-          "lib/uap10.0/Comet.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Comet.dll": {}
-        }
-      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
@@ -3402,30 +3368,17 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "UniversalRateReminder/2.0.0": {
+        "compile": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
-      "Comet/0.2.0": {
-        "dependencies": {
-          "System.Collections": "[4.0.10, )",
-          "System.Diagnostics.Debug": "[4.0.10, )",
-          "System.Diagnostics.Tools": "[4.0.0, )",
-          "System.ObjectModel": "[4.0.10, )",
-          "System.Runtime": "[4.0.20, )",
-          "System.Runtime.Extensions": "[4.0.10, )",
-          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
-          "System.Runtime.WindowsRuntime": "[4.0.10, )",
-          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
-          "System.Threading": "[4.0.10, )",
-          "System.Threading.Tasks": "[4.0.10, )"
-        },
-        "compile": {
-          "lib/uap10.0/Comet.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Comet.dll": {}
-        }
-      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
@@ -5120,30 +5073,17 @@
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "UniversalRateReminder/2.0.0": {
+        "compile": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64": {
-      "Comet/0.2.0": {
-        "dependencies": {
-          "System.Collections": "[4.0.10, )",
-          "System.Diagnostics.Debug": "[4.0.10, )",
-          "System.Diagnostics.Tools": "[4.0.0, )",
-          "System.ObjectModel": "[4.0.10, )",
-          "System.Runtime": "[4.0.20, )",
-          "System.Runtime.Extensions": "[4.0.10, )",
-          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
-          "System.Runtime.WindowsRuntime": "[4.0.10, )",
-          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
-          "System.Threading": "[4.0.10, )",
-          "System.Threading.Tasks": "[4.0.10, )"
-        },
-        "compile": {
-          "lib/uap10.0/Comet.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Comet.dll": {}
-        }
-      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
@@ -6871,30 +6811,17 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "UniversalRateReminder/2.0.0": {
+        "compile": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
-      "Comet/0.2.0": {
-        "dependencies": {
-          "System.Collections": "[4.0.10, )",
-          "System.Diagnostics.Debug": "[4.0.10, )",
-          "System.Diagnostics.Tools": "[4.0.0, )",
-          "System.ObjectModel": "[4.0.10, )",
-          "System.Runtime": "[4.0.20, )",
-          "System.Runtime.Extensions": "[4.0.10, )",
-          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
-          "System.Runtime.WindowsRuntime": "[4.0.10, )",
-          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
-          "System.Threading": "[4.0.10, )",
-          "System.Threading.Tasks": "[4.0.10, )"
-        },
-        "compile": {
-          "lib/uap10.0/Comet.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Comet.dll": {}
-        }
-      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
@@ -8589,30 +8516,17 @@
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "UniversalRateReminder/2.0.0": {
+        "compile": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86": {
-      "Comet/0.2.0": {
-        "dependencies": {
-          "System.Collections": "[4.0.10, )",
-          "System.Diagnostics.Debug": "[4.0.10, )",
-          "System.Diagnostics.Tools": "[4.0.0, )",
-          "System.ObjectModel": "[4.0.10, )",
-          "System.Runtime": "[4.0.20, )",
-          "System.Runtime.Extensions": "[4.0.10, )",
-          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
-          "System.Runtime.WindowsRuntime": "[4.0.10, )",
-          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
-          "System.Threading": "[4.0.10, )",
-          "System.Threading.Tasks": "[4.0.10, )"
-        },
-        "compile": {
-          "lib/uap10.0/Comet.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Comet.dll": {}
-        }
-      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
@@ -10340,30 +10254,17 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "UniversalRateReminder/2.0.0": {
+        "compile": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
-      "Comet/0.2.0": {
-        "dependencies": {
-          "System.Collections": "[4.0.10, )",
-          "System.Diagnostics.Debug": "[4.0.10, )",
-          "System.Diagnostics.Tools": "[4.0.0, )",
-          "System.ObjectModel": "[4.0.10, )",
-          "System.Runtime": "[4.0.20, )",
-          "System.Runtime.Extensions": "[4.0.10, )",
-          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
-          "System.Runtime.WindowsRuntime": "[4.0.10, )",
-          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
-          "System.Threading": "[4.0.10, )",
-          "System.Threading.Tasks": "[4.0.10, )"
-        },
-        "compile": {
-          "lib/uap10.0/Comet.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Comet.dll": {}
-        }
-      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
@@ -12058,25 +11959,18 @@
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "UniversalRateReminder/2.0.0": {
+        "compile": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/UniversalRateReminder.dll": {}
+        }
       }
     }
   },
   "libraries": {
-    "Comet/0.2.0": {
-      "sha512": "xIargCBt6VZk2nOc1nN7hnt/pa+bAQ3nowo2aZFQXrTP2cfuswkZ3CaJILtCb33f+hTnEOYzsyfG5uGU8iILnQ==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "Comet.nuspec",
-        "lib/uap10.0/Comet.dll",
-        "lib/uap10.0/Comet.pri",
-        "lib/uap10.0/Comet/Comet.xr.xml",
-        "lib/uap10.0/Comet/Properties/Comet.rd.xml",
-        "lib/uap10.0/Comet/Themes/Generic.xbf",
-        "package/services/metadata/core-properties/436b0e550ce04179ba434b732fb4a907.psmdcp"
-      ]
-    },
     "CommonServiceLocator/1.3.0": {
       "sha512": "fbjO0SNwbOFPdwVfyqv+B7gIJ2CVBOFPKqn1mDDECK7KER8jFaOdcvroFYoAHa0ktPbxi5s+15qOLnA96f8GSA==",
       "type": "Package",
@@ -15725,6 +15619,23 @@
         "runtime.json",
         "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll",
         "System.Xml.XmlSerializer.nuspec"
+      ]
+    },
+    "UniversalRateReminder/2.0.0": {
+      "sha512": "LXY44TSgwf4BvswRHh1xHTsqcn6lYxRz3wFA5CM9rp1TVNEzjgtsNThf0DZZbCL+So1nq8kzxtKo32U5yyWW0w==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/portable-netcore451+wpa81/UniversalRateReminder.dll",
+        "lib/portable-netcore451+wpa81/UniversalRateReminder.pri",
+        "lib/portable-netcore451+wpa81/UniversalRateReminder.XML",
+        "lib/uap10.0/UniversalRateReminder.dll",
+        "lib/uap10.0/UniversalRateReminder.pri",
+        "lib/uap10.0/UniversalRateReminder.xml",
+        "lib/uap10.0/UniversalRateReminder/Properties/UniversalRateReminder.rd.xml",
+        "package/services/metadata/core-properties/d779faa918d04526a74f7f11ed292e65.psmdcp",
+        "UniversalRateReminder.nuspec"
       ]
     }
   },

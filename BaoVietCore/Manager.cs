@@ -21,6 +21,10 @@ namespace BaoVietCore
 
         public LogService LogService { get; set; }
 
+        public IAuthenticationService AuthenticationService { get; set; }
+
+        public IRateUsService RateUsService { get; set; }
+
         public IDatabase Database { get; set; }
 
         public Manager()
@@ -29,6 +33,8 @@ namespace BaoVietCore
             WebService = new WebService(this);
             LogService = new LogService(this);
             Database = new Database(this);
+            AuthenticationService = new AuthenticationService(this);
+            RateUsService = new RateUsService(this);
 
             Database.CreateTable<FeedItem>();
         }

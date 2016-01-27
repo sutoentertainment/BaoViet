@@ -9,6 +9,8 @@ namespace BaoVietCore.Interfaces
         AuthenticationResult PasswordAuthen(string input);
 
         void CreatePassword(string password);
+
+        void DeleteAccount();
     }
 
     public enum AuthenticationResult

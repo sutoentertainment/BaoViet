@@ -63,7 +63,8 @@ namespace BaoVietCore.Services
                 authorized = AuthenticationResult.NotAvailable;
             else
             {
-                if(input == credential.Password)
+                credential.RetrievePassword();
+                if (input == credential.Password)
                     authorized = AuthenticationResult.Success;
                 else
                     authorized = AuthenticationResult.Fail;
@@ -77,7 +78,15 @@ namespace BaoVietCore.Services
             PasswordCredential credential = null;
 
             var vault = new PasswordVault();
-            var credentialList = vault.FindAllByUserName(Username);
+            IReadOnlyList<PasswordCredential> credentialList = null;
+            try
+            {
+                credentialList = vault.FindAllByUserName(Username);
+            }
+            catch
+            {
+                return credential;
+            }
             if (credentialList.Count > 0)
             {
                 credential = credentialList[0];
@@ -93,7 +102,7 @@ namespace BaoVietCore.Services
 
         }
 
-        private void DeleteAccount()
+        public void DeleteAccount()
         {
             if (string.IsNullOrEmpty(Username))
                 return;

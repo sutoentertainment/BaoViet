@@ -14,7 +14,7 @@ namespace BaoVietCore.Interfaces
 
     public class RssResult
     {
-        public IEnumerable<FeedItem> Feeds { get; set; }
+        public IEnumerable<IFeedItem> Feeds { get; set; }
         public PaperType Paper { get; set; }
     }
 }

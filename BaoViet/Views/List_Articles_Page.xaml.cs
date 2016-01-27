@@ -26,7 +26,7 @@ namespace BaoViet.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class List_Articles_Page : Page
+    public sealed partial class List_Articles_Page : BindablePage
     {
         public List_Articles_ViewModel ViewModel
         {
@@ -40,37 +40,12 @@ namespace BaoViet.Views
             this.InitializeComponent();
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            if (e.NavigationMode == NavigationMode.Back)
-                return;
-
-            ViewModel.ListFeed.Clear();
-            ViewModel.IsBusy = true;
-            try
-            {
-                var result = await ViewModel.CurrentCategory.Owner.GetFeed(ViewModel.CurrentCategory.Source);
-                if(result.Paper == ViewModel.CurrentCategory.Owner.Type)
-                    ViewModel.ListFeed.AddRange(result.Feeds);
-            }
-            catch { }
-            ViewModel.IsBusy = false;
-        }
-
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            base.OnNavigatedFrom(e);
-            if (e.NavigationMode == NavigationMode.Back)
-                App.Current.Manager.WebService.CancelCurrentRequests();
-        }
-
         private void ListArticle_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var feed = e.ClickedItem as FeedItem;
+            var feed = e.ClickedItem as IFeedItem;
             var detail = ServiceLocator.Current.GetInstance<Detail_ViewModel>();
             detail.CurrentFeed = feed;
-            App.Current.MasterFrame.Navigate(typeof(Detail_Page));
+            App.Current.NavigationService.NavigateTo(Pages.DetailPage);
         }
 
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using BaoVietCore.Interfaces;
+using GalaSoft.MvvmLight;
 using SQLite.Net.Attributes;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace BaoVietCore.Models
 {
     [Table("FeedItems")]
-    public class FeedItem : BaseModel, ISQLItem
+    public class FeedItem : ObservableObject, IFeedItem
     {
         string _Title = "";
 
@@ -21,8 +22,7 @@ namespace BaoVietCore.Models
             }
             set
             {
-                _Title = value;
-                RaisePropertyChanged("Title");
+                Set(ref _Title, value);
             }
         }
 
@@ -35,8 +35,7 @@ namespace BaoVietCore.Models
             }
             set
             {
-                _Description = value;
-                RaisePropertyChanged("Description");
+                Set(ref _Description, value);
             }
         }
 
@@ -50,8 +49,7 @@ namespace BaoVietCore.Models
             }
             set
             {
-                _Link = value;
-                RaisePropertyChanged("Link");
+                Set(ref _Link, value);
             }
         }
 
@@ -64,8 +62,7 @@ namespace BaoVietCore.Models
             }
             set
             {
-                _Thumbnail = value;
-                RaisePropertyChanged("Thumbnail");
+                Set(ref _Thumbnail, value);
             }
         }
 

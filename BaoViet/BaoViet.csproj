@@ -114,6 +114,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleData\SampleData_Home_Page.cs" />
+    <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Styles\Template.xaml.cs">
       <DependentUpon>Template.xaml</DependentUpon>
     </Compile>
@@ -129,6 +130,7 @@
     <Compile Include="Views\ContainerMaster.xaml.cs">
       <DependentUpon>ContainerMaster.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BindablePage.cs" />
     <Compile Include="Views\Detail_Page.xaml.cs">
       <DependentUpon>Detail_Page.xaml</DependentUpon>
     </Compile>

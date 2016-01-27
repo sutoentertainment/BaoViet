@@ -1,6 +1,7 @@
 ﻿using BaoViet.Helpers;
 using BaoViet.Interfaces;
 using BaoVietCore.Helpers;
+using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 namespace BaoViet.ViewModels
 {
@@ -86,8 +88,8 @@ namespace BaoViet.ViewModels
                 Set(ref _IsBusy, value);
             }
         }
-        FeedItem _CurrentFeed;
-        public FeedItem CurrentFeed
+        IFeedItem _CurrentFeed;
+        public IFeedItem CurrentFeed
         {
             get
             {
@@ -225,7 +227,7 @@ namespace BaoViet.ViewModels
             CurrentWebPage = new Uri(CurrentFeed.Link);
         }
 
-        public bool AllowBack()
+        public bool AllowGoBack()
         {
             if (IsFullScreen)
             {
@@ -233,6 +235,18 @@ namespace BaoViet.ViewModels
                 return false;
             }
             return true;
+        }
+
+        public void OnNavigatedTo(NavigationEventArgs e)
+        {
+        }
+
+        public void OnNavigatedFrom(NavigationEventArgs e)
+        {
+        }
+
+        public void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
         }
     }
 }

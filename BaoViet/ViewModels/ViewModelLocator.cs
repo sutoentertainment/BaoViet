@@ -107,13 +107,17 @@ namespace BaoViet.ViewModels
     public enum Pages
     {
         Intro,
-        MainPage,
+        HomePage,
         RestaurantDetailPage,
         Wallet,
         Promotion,
         Setting,
         DetailPage,
         WishlistPage,
+        List_Categories_Page,
+        List_Articles_Page,
+        Container,
+        Saved_Articles_Page,
     }
 
     public enum FrameKey

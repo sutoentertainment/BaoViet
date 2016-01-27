@@ -13,7 +13,7 @@ namespace BaoViet.SampleData
         public SampleData_Home_Page() : base()
         {
             ViewModel = new Home_Page_ViewModel();
-            ViewModel.IsPaneOpen = true;
+            ViewModel.IsPaneOpen = false;
         }
     }
 

@@ -1,6 +1,8 @@
 ﻿using BaoViet.DataContext;
 using BaoViet.Helpers;
 using BaoViet.Interfaces;
+using BaoViet.Services;
+using BaoViet.ViewModels;
 using BaoVietCore.Helpers;
 using BaoVietCore.Models;
 using System;
@@ -42,9 +44,11 @@ namespace BaoViet.Views
             ViewModel = App.Current.RootDataContext;
             this.DataContext = ViewModel;
 
-            App.Current.MasterFrame.Navigate(typeof(Home_Page));
+            App.Current.NavigationService.Configure(ViewModels.FrameKey.MainFrame, MasterFrame);
+
+            App.Current.NavigationService.NavigateTo(Pages.HomePage);
             App.Current.OnToastRise += App_OnToastActivated;
-            SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+            //SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
             App.Current.Manager.KeyboardService.KeyDown += KeyboardService_KeyDown;
         }
@@ -56,7 +60,7 @@ namespace BaoViet.Views
                 //TODO: Raise backNavigation();
                 //App.InvokeOnBackRequested();
 
-                OnBackRequested(null, null);
+                BindablePage.CurrentPage.OnBackRequested(null, null);
             }
 
             if (e.VirtualKey == Windows.System.VirtualKey.F5)
@@ -72,37 +76,37 @@ namespace BaoViet.Views
             TileManager tileManager = new TileManager();
         }
 
-        private void OnBackRequested(object sender, BackRequestedEventArgs e)
-        {
-            var page = App.Current.MasterFrame.Content as Page;
-            if (page != null)
-            {
-                var navigable = page.DataContext as INavigable;
-                if (navigable != null)
-                {
-                    if (navigable.AllowBack())
-                        App.Current.MasterFrame.GoBack();
-                    e.Handled = true;
-                    return;
-                }
-            }
-            if (App.Current.MasterFrame == null)
-            {
-                return;
-            }
+        //private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        //{
+        //    var page = App.Current.MasterFrame.Content as Page;
+        //    if (page != null)
+        //    {
+        //        var navigable = page.DataContext as INavigable;
+        //        if (navigable != null)
+        //        {
+        //            if (navigable.AllowGoBack())
+        //                App.Current.NavigationService.GoBack();
+        //            e.Handled = true;
+        //            return;
+        //        }
+        //    }
+        //    if (App.Current.MasterFrame == null)
+        //    {
+        //        return;
+        //    }
 
-            if (App.Current.MasterFrame.CanGoBack)
-            {
-                App.Current.MasterFrame.GoBack();
-                if (e != null)
-                    e.Handled = true;
-            }
-            //if (!App.MasterFrame.CanGoBack && App.RootDataContext.SectionIndex != 0)
-            //{
-            //    App.RootDataContext.SectionIndex = 0;
-            //    e.Handled = true;
-            //}
-        }
+        //    if (App.Current.MasterFrame.CanGoBack)
+        //    {
+        //        App.Current.MasterFrame.GoBack();
+        //        if (e != null)
+        //            e.Handled = true;
+        //    }
+        //    //if (!App.MasterFrame.CanGoBack && App.RootDataContext.SectionIndex != 0)
+        //    //{
+        //    //    App.RootDataContext.SectionIndex = 0;
+        //    //    e.Handled = true;
+        //    //}
+        //}
 
 
         //private void App_OnToastActivated(string text, double milisecs)

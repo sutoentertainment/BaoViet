@@ -1,4 +1,5 @@
 ﻿using BaoViet.ViewModels;
+using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
 using Microsoft.Practices.ServiceLocation;
 using System;
@@ -23,7 +24,7 @@ namespace BaoViet.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Saved_Articles_Page : Page
+    public sealed partial class Saved_Articles_Page : BindablePage
     {
         public Saved_Articles_ViewModel ViewModel
         {
@@ -37,21 +38,12 @@ namespace BaoViet.Views
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-
-            if (e.NavigationMode == NavigationMode.Back)
-                return;
-            ViewModel.LoadData();
-        }
-
         private void ListArticle_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var feed = e.ClickedItem as FeedItem;
+            var feed = e.ClickedItem as IFeedItem;
             var detail = ServiceLocator.Current.GetInstance<Detail_ViewModel>();
             detail.CurrentFeed = feed;
-            App.Current.MasterFrame.Navigate(typeof(Detail_Page));
+            App.Current.NavigationService.NavigateTo(Pages.DetailPage);
         }
 
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)

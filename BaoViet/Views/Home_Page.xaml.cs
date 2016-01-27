@@ -30,7 +30,7 @@ namespace BaoViet.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Home_Page : Page
+    public sealed partial class Home_Page : BindablePage
     {
         
         public Home_Page_ViewModel ViewModel
@@ -48,22 +48,7 @@ namespace BaoViet.Views
             //ViewModel = new Home_Page_ViewModel();
             //this.DataContext = ViewModel;
         }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);            
-        }
-
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            base.OnNavigatedFrom(e);
-        }
-
-        private void HamburgerButton_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            Debug.WriteLine("hit");
-            ViewModel.IsPaneOpen = !ViewModel.IsPaneOpen;
-        }
+        
 
         private void LayoutRoot_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
@@ -97,7 +82,7 @@ namespace BaoViet.Views
             vm.CurrentPaper = paper;
 
             //TODO: Prepare the data model for next page
-            App.Current.MasterFrame.Navigate(typeof(List_Categories_Page));
+            App.Current.NavigationService.NavigateTo(Pages.List_Categories_Page);
         }
 
         /// <summary>
@@ -116,7 +101,7 @@ namespace BaoViet.Views
             if (SideMenu.SelectedIndex == 0)
                 rootPivot.SelectedIndex = 0;
             if (SideMenu.SelectedIndex == 1)
-                App.Current.MasterFrame.Navigate(typeof(Saved_Articles_Page));
+                App.Current.NavigationService.NavigateTo(Pages.Saved_Articles_Page);
             if (SideMenu.SelectedIndex == 2)
                 rootPivot.SelectedIndex = 1;
         }
@@ -131,7 +116,7 @@ namespace BaoViet.Views
                     rootPivot.SelectedIndex = 0;
                     break;
                 case MenuItemType.Saved:
-                    App.Current.MasterFrame.Navigate(typeof(Saved_Articles_Page));
+                    App.Current.NavigationService.NavigateTo(Pages.Saved_Articles_Page);
                     break;
                 case MenuItemType.Setting:
                     rootPivot.SelectedIndex = 1;

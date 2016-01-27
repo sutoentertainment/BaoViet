@@ -47,12 +47,13 @@ namespace BaoVietCore.Services
             }
             catch (OperationCanceledException e)
             {
-                Debug.WriteLine("Request cancelled");
+                Debug.WriteLine("Request cancelled: " + e.Message);
                 CancelToken = new CancellationTokenSource();
                 return new HttpResponseMessage(HttpStatusCode.PreconditionFailed);
             }
             catch(Exception e)
             {
+                Debug.WriteLine("Exception " + e.Message);
                 return new HttpResponseMessage(HttpStatusCode.RequestTimeout);
             }
         }

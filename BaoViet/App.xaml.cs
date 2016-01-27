@@ -40,7 +40,7 @@ namespace BaoViet
         /// </summary>
         public NetworkStatusChangedEventHandler networkStatusCallback { get; set; }
 
-        public static App Current { get; set; }
+        new public static App Current { get; set; }
         public Manager Manager { get; set; }
 
         public Frame MasterFrame { get; set; }
@@ -162,7 +162,7 @@ namespace BaoViet
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
 
 #if DEBUG
@@ -183,7 +183,7 @@ namespace BaoViet
             if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
             {
                 StatusBar bar = Windows.UI.ViewManagement.StatusBar.GetForCurrentView();
-                bar.HideAsync();
+                await bar.HideAsync();
             }
 
 

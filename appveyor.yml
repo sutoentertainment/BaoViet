@@ -11,5 +11,8 @@ install:
     appveyor DownloadFile https://visualstudiogallery.msdn.microsoft.com/4913e7d5-96c9-4dde-a1a1-69820d615936/file/161586/9/sqlite-uap-3100200.vsix
 
     "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\vsixinstaller.exe" /q sqlite-uap-3100200.vsix
+before_build:
+- cmd: nuget restore
+
 build:
   verbosity: minimal

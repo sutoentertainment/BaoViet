@@ -46,6 +46,9 @@
                                     Mode=OneTime}"
                     Margin="4,12,4,12">
             <i:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="Holding">
+                    <core:InvokeCommandAction Command="{Binding ShowMenuCommand, Mode=OneTime}" CommandParameter="{Binding ElementName=cellContainer}" />
+                </core:EventTriggerBehavior>
                 <core:EventTriggerBehavior EventName="RightTapped">
                     <core:InvokeCommandAction Command="{Binding ShowMenuCommand, Mode=OneTime}" CommandParameter="{Binding ElementName=cellContainer}" />
                 </core:EventTriggerBehavior>

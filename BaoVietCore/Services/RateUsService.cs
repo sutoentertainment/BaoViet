@@ -15,7 +15,7 @@ namespace BaoVietCore.Services
 
         }
 
-        public async Task ShowRatePopup(int LaunchLimit = 5, bool ResetCountOnNewVersion = false, string RateButtonText = "rate 5 stars", string CancelButtonText = "no, thanks", string Title = "Rate us!", string Content = "Your feedback helps us improve this app. If you like it, please take a minute and rate it with five stars so we can continue working on new features and updates.")
+        public async Task ShowRatePopup(int LaunchLimit = 5, bool ResetCountOnNewVersion = true, string RateButtonText = "rate 5 stars", string CancelButtonText = "no, thanks", string Title = "Rate us!", string Content = "Your feedback helps us improve this app. If you like it, please take a minute and rate it with five stars so we can continue working on new features and updates.")
         {
             Configurate(LaunchLimit, ResetCountOnNewVersion, RateButtonText, CancelButtonText, Title, Content);
             var result = await RatePopup.CheckRateReminderAsync();
@@ -27,6 +27,11 @@ namespace BaoVietCore.Services
 
         public async Task ShowFeedbackPopup()
         {
+            FeedbackPopup.ContactEmail = "thang2410199@gmail.com";
+            FeedbackPopup.EmailSubject = "[Báo Việt] Feedback";
+            FeedbackPopup.SendFeedbackButtonText = "gửi phản hồi";
+            FeedbackPopup.CancelButtonText = "để lần sau";
+            FeedbackPopup.Content = "Phần mềm còn điểm gì khiến bạn chưa hài lòng? Mọi ý kiến đóng góp của bạn sẽ được nhóm sử dụng để cải thiện phần mềm.";
             await FeedbackPopup.ShowFeedbackDialogAsync();
         }
 

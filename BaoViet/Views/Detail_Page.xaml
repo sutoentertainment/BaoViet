@@ -117,7 +117,7 @@
                 <!--<AppBarButton Label="save it" x:Name="SaveButton" Icon="Favorite" Command="{Binding SaveCommand}"/>-->
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
-                <!--<AppBarButton Label="share" x:Name="ShareButton" Command="{Binding ShareCommand}" IsEnabled="{Binding CurrentWebPage, Converter={StaticResource NullToEnable}}"/>-->
+                <AppBarButton Label="mở bằng trình duyệt ngoài" x:Name="OpenExternal" Command="{Binding OpenExternalCommand}"/>
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

@@ -78,6 +78,8 @@ namespace BaoViet.ViewModels
 
         public RelayCommand DownloadImageCommand { get; set; }
 
+        public RelayCommand OpenExternalCommand { get; set; }
+
         bool _IsBusy = false;
         public bool IsBusy
         {
@@ -135,11 +137,24 @@ namespace BaoViet.ViewModels
             OpenWebCommand = new RelayCommand(OpenWeb);
 
             DownloadImageCommand = new RelayCommand(DownloadImage);
+
+            OpenExternalCommand = new RelayCommand(OpenExternal);
         }
 
-        private void DownloadImage()
+        private async void OpenExternal()
         {
-            App.Current.Manager.ImageService.SaveImageToStorage(ImageLocation);
+            Uri uri;
+            if (IsFullScreen)
+                uri = FullScreenSource;
+            else
+                uri = new Uri(CurrentFeed.Link);
+            //Open with edge
+            await Windows.System.Launcher.LaunchUriAsync(uri);
+        }
+
+        private async void DownloadImage()
+        {
+            await App.Current.Manager.ImageService.SaveImageToStorage(ImageLocation);
         }
 
         private void OpenWeb()

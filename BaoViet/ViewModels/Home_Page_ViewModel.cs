@@ -20,7 +20,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace BaoViet.ViewModels
 {
-    public class Home_Page_ViewModel : ViewModelBase
+    public class Home_Page_ViewModel : ViewModelBase, INavigable
     {
 
         string _HambugerIcon = "\x2261";
@@ -83,9 +83,6 @@ namespace BaoViet.ViewModels
 
         public RelayCommand GoToPaperToHidePageCommand { get; set; }
 
-        public RelayCommand<NavigationEventArgs> OnNavigatedToCommand { get; set; }
-        public RelayCommand<NavigationEventArgs> OnNavigatedFromCommand { get; set; }
-
         public Home_Page_ViewModel()
         {
             FrontPagePaper = new ObservableCollection<IPaper>();
@@ -99,23 +96,20 @@ namespace BaoViet.ViewModels
             
         }
 
-        private void CreateCommand()
+        public void CreateCommand()
         {
 
             OpenMenuCommand = new RelayCommand(OpenMenu);
 
             GoToPaperToHidePageCommand = new RelayCommand(GoToPaperToHidePage);
-
-            OnNavigatedToCommand = new RelayCommand<NavigationEventArgs>(OnNavigatedTo);
-            OnNavigatedFromCommand = new RelayCommand<NavigationEventArgs>(OnNavigatedFrom);
         }
 
-        private void OnNavigatedFrom(NavigationEventArgs obj)
+        public void OnNavigatedFrom(NavigationEventArgs e)
         {
             Messenger.Default.Unregister(this);
         }
 
-        private void OnNavigatedTo(NavigationEventArgs e)
+        public void OnNavigatedTo(NavigationEventArgs e)
         {
             RegisterMessage();
             if (e.NavigationMode == NavigationMode.Back)
@@ -222,6 +216,17 @@ namespace BaoViet.ViewModels
         private void OpenMenu()
         {
             IsPaneOpen = !IsPaneOpen;
+        }
+
+
+        public void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+
+        }
+
+        public bool AllowGoBack()
+        {
+            return true;
         }
     }
 }

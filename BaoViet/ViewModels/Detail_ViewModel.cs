@@ -76,6 +76,8 @@ namespace BaoViet.ViewModels
 
         public RelayCommand RefreshCommand { get; set; }
 
+        public RelayCommand DownloadImageCommand { get; set; }
+
         bool _IsBusy = false;
         public bool IsBusy
         {
@@ -115,6 +117,7 @@ namespace BaoViet.ViewModels
             }
         }
 
+        public string ImageLocation { get; internal set; }
         public Detail_ViewModel()
         {
             CurrentWebTitle = "";
@@ -130,6 +133,13 @@ namespace BaoViet.ViewModels
             RefreshCommand = new RelayCommand(Refresh);
 
             OpenWebCommand = new RelayCommand(OpenWeb);
+
+            DownloadImageCommand = new RelayCommand(DownloadImage);
+        }
+
+        private void DownloadImage()
+        {
+            App.Current.Manager.ImageService.SaveImageToStorage(ImageLocation);
         }
 
         private void OpenWeb()
@@ -214,6 +224,11 @@ namespace BaoViet.ViewModels
             var response = JsonConvert.DeserializeObject<ReadabilityResponse>(response_content);
 
             //response.content += @"<style>img{width:100% !important;}</style>";
+
+            response.content += "<script>\r\n    function eventListener(evt) {\r\n        if (evt.detail == 1) {\r\n evt.preventDefault(); screenY = evt.clientY;\r\n            window.external.notify(evt.target.src); return false;\r\n        }\r\n    }\r\n\r\n    var gestureHandler = new Array();\r\n    var screenY;\r\n    var links = document.getElementsByTagName('img');\r\n    for (i = 0; i < links.length; i++) {\r\n        links[i].addEventListener('click', eventListener, false);\r\n    };\r\n function getSY(){	return screenY.toString();} </script>";
+
+
+            
             await Task.Delay(200);
 
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>

@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using BaoViet.Helpers;
 using Newtonsoft.Json;
+using Windows.Graphics.Display;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -62,6 +63,8 @@ namespace BaoViet.Views
             webView.DOMContentLoaded += webView_DOMContentLoaded;
             webView.NavigationStarting += webView_NavigationStarting;
             webView.NavigationFailed += WebView_NavigationFailed;
+            
+            webView.ScriptNotify += WebView_ScriptNotify;
             ViewModel.WebViewControl = webView;
             //webViewContainer.Children.Add(webView);
 
@@ -69,7 +72,26 @@ namespace BaoViet.Views
             base.OnNavigatedTo(e);
         }
 
+        float pointerY;
+        private async void WebView_ScriptNotify(object sender, NotifyEventArgs e)
+        {
+            try
+            {
+                string SY = (string)await webView.InvokeScriptAsync("getSY", new List<string>());
+                pointerY = float.Parse(SY);
+                //MenuContextGrid.RenderTransformOrigin = new Point(0.5, 0.5);
+                //transform.Y = pointerY * 100 / App.Current.Host.Content.ScaleFactor;
+                //MenuContextGrid.RenderTransform = transform;
+            }
+            catch { }
 
+            ViewModel.ImageLocation = e.Value;
+            
+            MenuContainerTransform.Y = pointerY;
+
+            FlyoutBase flyoutBase = FlyoutBase.GetAttachedFlyout(MenuContainer);
+            flyoutBase.ShowAt(MenuContainer);
+        }
 
         private void WebView_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
         {
@@ -91,11 +113,11 @@ namespace BaoViet.Views
             ViewModel.IsBusy = true;
         }
 
-        private void webView_DOMContentLoaded(WebView sender, WebViewDOMContentLoadedEventArgs e)
+        private async void webView_DOMContentLoaded(WebView sender, WebViewDOMContentLoadedEventArgs e)
         {
-            if(webView.DocumentTitle != "")
+            if (webView.DocumentTitle != "")
                 ViewModel.CurrentWebTitle = webView.DocumentTitle;
-            if(e.Uri != null)
+            if (e.Uri != null)
                 ViewModel.CurrentWebPage = e.Uri;
             ViewModel.IsBusy = false;
             //UNDONE

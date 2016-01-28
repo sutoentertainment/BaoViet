@@ -175,6 +175,7 @@
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Interfaces\IAuthenticationService.cs" />
     <Compile Include="Interfaces\IRateUsService.cs" />
+    <Compile Include="Services\ImageService.cs" />
     <Compile Include="Services\KeyboardService\KeyboardService.cs" />
     <Compile Include="Services\LocalizationService.cs" />
     <Compile Include="Services\LogService.cs" />

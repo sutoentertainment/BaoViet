@@ -3,12 +3,14 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.Storage.Streams;
 
 namespace BaoVietCore.Services
 {
@@ -65,6 +67,22 @@ namespace BaoVietCore.Services
         {
             CancelToken.Cancel();
             CancelToken = new CancellationTokenSource();
+        }
+
+        public async Task<Stream> MakeRawGetRequest(string url)
+        {
+            if (String.IsNullOrWhiteSpace(url))
+            {
+                throw new Exception("The URL is null!");
+            }
+
+            // Build the request
+            HttpClient request = new HttpClient();
+            HttpRequestMessage message = new HttpRequestMessage(HttpMethod.Get, new Uri(url, UriKind.Absolute));
+
+            // Send the request
+            HttpResponseMessage response = await request.SendAsync(message, HttpCompletionOption.ResponseHeadersRead);
+            return await response.Content.ReadAsStreamAsync();
         }
     }
 }

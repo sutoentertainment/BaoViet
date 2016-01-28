@@ -51,6 +51,12 @@ namespace BaoViet.Views
             //SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
             App.Current.Manager.KeyboardService.KeyDown += KeyboardService_KeyDown;
+            App.Current.Manager.ImageService.OnDownloadComplete += ImageService_OnDownloadComplete;
+        }
+
+        private void ImageService_OnDownloadComplete(object sender, EventArgs e)
+        {
+            App.Current.InvokeOnToastRise("Ảnh đã lưu vào 'Saved Pictures' trong bộ nhớ máy", 4000);
         }
 
         private void KeyboardService_KeyDown(object sender, KeyboardEventArgs e)

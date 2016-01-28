@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.IO;
+using System.Threading.Tasks;
+using Windows.Storage.Streams;
 
 namespace BaoVietCore.Interfaces
 {
@@ -6,5 +8,6 @@ namespace BaoVietCore.Interfaces
     {
         void CancelCurrentRequests();
         Task<string> GetString(string url);
+        Task<Stream> MakeRawGetRequest(string url);
     }
 }

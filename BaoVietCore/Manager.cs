@@ -26,6 +26,7 @@ namespace BaoVietCore
         public IRateUsService RateUsService { get; set; }
 
         public IDatabase Database { get; set; }
+        public ImageService ImageService { get; set; }
 
         public Manager()
         {
@@ -35,6 +36,7 @@ namespace BaoVietCore
             Database = new Database(this);
             AuthenticationService = new AuthenticationService(this);
             RateUsService = new RateUsService(this);
+            ImageService = new ImageService(this);
 
             Database.CreateTable<FeedItem>();
         }

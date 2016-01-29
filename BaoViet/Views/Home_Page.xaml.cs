@@ -22,6 +22,7 @@ using Microsoft.Practices.ServiceLocation;
 using BaoViet.Interfaces;
 using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
+using BaoVietCore.Helpers;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 

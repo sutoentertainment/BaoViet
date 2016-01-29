@@ -17,11 +17,19 @@ using GalaSoft.MvvmLight.Messaging;
 using BaoVietCore.CustomEventArgs;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Navigation;
+using BaoVietCore.Helpers;
 
 namespace BaoViet.ViewModels
 {
     public class Home_Page_ViewModel : ViewModelBase, INavigable
     {
+        public string AppVersion
+        {
+            get
+            {
+                return " " + DeviceHelper.GetAppVersion();
+            }
+        }
 
         string _HambugerIcon = "\x2261";
         public string HambugerIcon

@@ -113,7 +113,7 @@ namespace BaoViet.Views
             ViewModel.IsBusy = true;
         }
 
-        private async void webView_DOMContentLoaded(WebView sender, WebViewDOMContentLoadedEventArgs e)
+        private void webView_DOMContentLoaded(WebView sender, WebViewDOMContentLoadedEventArgs e)
         {
             if (webView.DocumentTitle != "")
                 ViewModel.CurrentWebTitle = webView.DocumentTitle;

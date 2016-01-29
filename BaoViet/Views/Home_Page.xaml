@@ -189,7 +189,7 @@
                                     <ListViewItem>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Phiên bản:" />
-                                            <TextBlock Text=" 3.0" />
+                                            <TextBlock x:Name="version_tb" Text="{x:Bind ViewModel.AppVersion}" />
                                         </StackPanel>
                                     </ListViewItem>
 

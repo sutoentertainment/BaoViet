@@ -18,6 +18,7 @@ using BaoViet.Interfaces;
 using BaoViet.Helpers;
 using BaoViet.Services;
 using BaoViet.ViewModels;
+using Windows.UI.Popups;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -171,6 +172,7 @@ namespace BaoViet
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
+
             
             var titleBar = ApplicationView.GetForCurrentView().TitleBar;
             //CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;

@@ -18,6 +18,8 @@ using BaoVietCore.CustomEventArgs;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Navigation;
 using BaoVietCore.Helpers;
+using Windows.UI.Xaml.Controls;
+using Microsoft.Practices.ServiceLocation;
 
 namespace BaoViet.ViewModels
 {
@@ -91,6 +93,8 @@ namespace BaoViet.ViewModels
 
         public RelayCommand GoToPaperToHidePageCommand { get; set; }
 
+        public RelayCommand<ItemClickEventArgs> PaperClickedCommand { get; set; }
+
         public Home_Page_ViewModel()
         {
             FrontPagePaper = new ObservableCollection<IPaper>();
@@ -101,7 +105,7 @@ namespace BaoViet.ViewModels
 
             LoadData();
 
-            
+
         }
 
         public void CreateCommand()
@@ -110,6 +114,28 @@ namespace BaoViet.ViewModels
             OpenMenuCommand = new RelayCommand(OpenMenu);
 
             GoToPaperToHidePageCommand = new RelayCommand(GoToPaperToHidePage);
+
+            PaperClickedCommand = new RelayCommand<ItemClickEventArgs>(PaperClicked);
+        }
+
+        private void PaperClicked(ItemClickEventArgs e)
+        {
+            var paper = e.ClickedItem as IPaper;
+            //App.MasterFrame.Navigate(typeof(Detail_Page), paper.HomePage);
+            OpenPaper(paper);
+        }
+
+        private async void OpenPaper(IPaper paper)
+        {
+            var vm = ServiceLocator.Current.GetInstance<List_Categories_ViewModel>();
+            vm.CurrentPaper = paper;
+
+
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                //TODO: Prepare the data model for next page
+                App.Current.NavigationService.NavigateTo(Pages.List_Categories_Page);
+            });
         }
 
         public void OnNavigatedFrom(NavigationEventArgs e)
@@ -122,11 +148,24 @@ namespace BaoViet.ViewModels
             RegisterMessage();
             if (e.NavigationMode == NavigationMode.Back)
                 return;
+
+            if (e.Parameter != null)
+            {
+                string uri = e.Parameter.ToString();
+                string paper = HttpUtility.ParseQueryString(uri).GetValues("paper").FirstOrDefault();
+
+                if (paper != null)
+                {
+                    PaperType type = (PaperType)Enum.Parse(typeof(PaperType), paper);
+                    var target = this.FrontPagePaper.Where(p => p.Type == type).FirstOrDefault();
+                    OpenPaper(target);
+                }
+            }
         }
 
         ~Home_Page_ViewModel()
         {
-            
+
         }
 
         private void RegisterMessage()
@@ -203,7 +242,7 @@ namespace BaoViet.ViewModels
             //FrontPagePaper.Add(PaperFactory.Create(PaperType.Kenh14));
 
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Đất Việt", Type = PaperType.DatViet, HomePage = "http://baodatviet.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-datviet.png" });
-            
+
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Việt báo", Type = PaperType.VietBao, HomePage = "http://vietbao.vn", ImageSource = "ms-appx:///Assets/Logo/logo-vietbao.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Petro Times", Type = PaperType.PetroTimes, HomePage = "http://petrotimes.vn", ImageSource = "ms-appx:///Assets/Logo/logo-petro.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Đời sống pháp luật", Type = PaperType.DoiSongPhapLuat, HomePage = "http://www.doisongphapluat.com/", ImageSource = "ms-appx:///Assets/Logo/logo-dspl.png" });
@@ -214,7 +253,7 @@ namespace BaoViet.ViewModels
             ListMenuItem.Add(new MenuItem() { MenuTitle = "Đã lưu", Glyph = "\xE082", Type = MenuItemType.Saved });
             ListMenuItem.Add(new MenuItem() { MenuTitle = "Cài đặt", Glyph = "\xE115", Type = MenuItemType.Setting });
 
-    }
+        }
 
         private void GoToPaperToHidePage()
         {

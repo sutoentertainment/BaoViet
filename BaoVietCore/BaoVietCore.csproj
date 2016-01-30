@@ -117,6 +117,7 @@
     <Compile Include="Helpers\SmartWeakEvent.cs" />
     <Compile Include="Helpers\TimeToTextHelper.cs" />
     <Compile Include="Helpers\UriExtension.cs" />
+    <Compile Include="Helpers\UriHelper.cs" />
     <Compile Include="Interfaces\IKeyboardService.cs" />
     <Compile Include="Interfaces\IPaper.cs" />
     <Compile Include="Interfaces\IRssSource.cs" />

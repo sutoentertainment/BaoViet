@@ -135,6 +135,10 @@ namespace BaoViet.ViewModels
 
         private async void OpenPaper(IPaper paper)
         {
+            var attribute = new Dictionary<string, string>();
+            attribute.Add("name", paper.Title);
+            App.Current.Manager.TrackingService.TagEvent("Open Paper", attribute);
+
             var vm = ServiceLocator.Current.GetInstance<List_Categories_ViewModel>();
             vm.CurrentPaper = paper;
 

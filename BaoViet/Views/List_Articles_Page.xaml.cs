@@ -48,11 +48,16 @@ namespace BaoViet.Views
             App.Current.NavigationService.NavigateTo(Pages.DetailPage);
         }
 
+        //TODO: move to view model
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
         {
             var model = (sender as FrameworkElement).DataContext as FeedItem;
             if(model != null)
             {
+                var attribute = new Dictionary<string, string>();
+                attribute.Add("paper name", this.ViewModel.CurrentCategory.Owner.Title);
+
+                App.Current.Manager.TrackingService.TagEvent("Save article", attribute);
                 App.Current.Manager.Database.AddItem(model);
                 App.Current.InvokeOnToastRise("Đã lưu", 1000);
             }

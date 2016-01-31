@@ -66,6 +66,11 @@ namespace BaoViet.ViewModels
 
         private async void OpenCategory(Category cate)
         {
+            var attribute = new Dictionary<string, string>();
+            attribute.Add("paper name", cate.Owner.Title);
+            attribute.Add("name", cate.Title);
+            App.Current.Manager.TrackingService.TagEvent("Open Category", attribute);
+
             var vm = ServiceLocator.Current.GetInstance<List_Articles_ViewModel>();
             vm.CurrentCategory = cate;
 

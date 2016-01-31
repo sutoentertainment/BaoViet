@@ -48,6 +48,8 @@ namespace BaoViet.Views
 
         private void SlidableListItem_RightCommandRequested(object sender, EventArgs e)
         {
+            App.Current.Manager.TrackingService.TagEvent("Delete article");
+
             var item = (sender as FrameworkElement).DataContext as FeedItem;
             ViewModel.ListFeed.Remove(item);
             App.Current.Manager.Database.Delete(item);

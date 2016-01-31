@@ -120,6 +120,15 @@ namespace BaoViet.ViewModels
         }
 
         public string ImageLocation { get; internal set; }
+
+        public string ScreenName
+        {
+            get
+            {
+                return "Detail";
+            }
+        }
+
         public Detail_ViewModel()
         {
             CurrentWebTitle = "";

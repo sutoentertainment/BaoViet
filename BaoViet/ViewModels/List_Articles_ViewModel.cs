@@ -80,5 +80,13 @@ namespace BaoViet.ViewModels
         {
             return true;
         }
+
+        public string ScreenName
+        {
+            get
+            {
+                return "List Rss";
+            }
+        }
     }
 }

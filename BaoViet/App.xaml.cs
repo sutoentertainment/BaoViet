@@ -18,6 +18,8 @@ using BaoViet.Interfaces;
 using BaoViet.Helpers;
 using BaoViet.Services;
 using BaoViet.ViewModels;
+using Windows.UI.Popups;
+using BaoVietCore.Models;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -112,6 +114,7 @@ namespace BaoViet
             this.UnhandledException += App_UnhandledException;
             Current = this;
             Manager = new Manager();
+            Manager.Database.CreateTable<FeedItem>();
             RootDataContext = new RootDataContext();
             TileManager = new TileManager();
         }
@@ -164,7 +167,7 @@ namespace BaoViet
         /// <param name="e">Details about the launch request and process.</param>
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
-
+            Manager.TrackingService.AutoIntegrate();
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {

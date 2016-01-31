@@ -28,6 +28,8 @@ namespace BaoVietCore
         public IDatabase Database { get; set; }
         public ImageService ImageService { get; set; }
 
+        public ITrackingService TrackingService { get; set; }
+
         public Manager()
         {
             Current = this;
@@ -37,8 +39,7 @@ namespace BaoVietCore
             AuthenticationService = new AuthenticationService(this);
             RateUsService = new RateUsService(this);
             ImageService = new ImageService(this);
-
-            Database.CreateTable<FeedItem>();
+            TrackingService = new LocalyticsAdapterService(this);
         }
         public void Configure()
         {

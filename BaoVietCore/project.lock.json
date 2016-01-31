@@ -38,6 +38,14 @@
           "lib/NetCore45/HtmlAgilityPack.dll": {}
         }
       },
+      "Localytics/3.1.0": {
+        "compile": {
+          "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        },
+        "runtime": {
+          "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -1679,6 +1687,14 @@
         },
         "runtime": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
+        }
+      },
+      "Localytics/3.1.0": {
+        "compile": {
+          "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        },
+        "runtime": {
+          "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -3414,6 +3430,14 @@
           "lib/NetCore45/HtmlAgilityPack.dll": {}
         }
       },
+      "Localytics/3.1.0": {
+        "compile": {
+          "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        },
+        "runtime": {
+          "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -5117,6 +5141,14 @@
         },
         "runtime": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
+        }
+      },
+      "Localytics/3.1.0": {
+        "compile": {
+          "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        },
+        "runtime": {
+          "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -6857,6 +6889,14 @@
           "lib/NetCore45/HtmlAgilityPack.dll": {}
         }
       },
+      "Localytics/3.1.0": {
+        "compile": {
+          "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        },
+        "runtime": {
+          "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -8560,6 +8600,14 @@
         },
         "runtime": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
+        }
+      },
+      "Localytics/3.1.0": {
+        "compile": {
+          "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        },
+        "runtime": {
+          "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -10298,6 +10346,14 @@
         },
         "runtime": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
+        }
+      },
+      "Localytics/3.1.0": {
+        "compile": {
+          "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        },
+        "runtime": {
+          "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -12046,6 +12102,17 @@
         "lib/sl5/HtmlAgilityPack.XML",
         "package/services/metadata/core-properties/43fdb80a5711487696f5a99b6d1418d0.psmdcp",
         "readme.txt"
+      ]
+    },
+    "Localytics/3.1.0": {
+      "sha512": "S5VxtfrCoktctC16MQW9r75nXCoOAE0ITalzHGOVqqI0Z2RQheRs+nTH4dOwx8+xm5vjDU6QnjqRBWYeo/IByw==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/portable-win81+wpa81/LocalyticsComponent.winmd",
+        "Localytics.nuspec",
+        "package/services/metadata/core-properties/944085edf2d544a0b0619be1b5de0d8a.psmdcp"
       ]
     },
     "Microsoft.CSharp/4.0.0": {
@@ -15644,6 +15711,7 @@
       "Croft.Core.Common >= 1.1.0",
       "Croft.Core.UWP >= 1.1.0",
       "HtmlAgilityPack >= 1.4.9",
+      "Localytics >= 3.1.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "mort8088.XML.XmlHelper >= 1.0.2",
       "MvvmLight >= 5.2.0",

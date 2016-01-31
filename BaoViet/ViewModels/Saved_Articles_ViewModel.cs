@@ -17,6 +17,14 @@ namespace BaoViet.ViewModels
     {
         public ObservableCollection<IFeedItem> ListFeed { get; set; }
 
+        public string ScreenName
+        {
+            get
+            {
+                return "Saved Articles";
+            }
+        }
+
         public Saved_Articles_ViewModel()
         {
             ListFeed = new ObservableCollection<IFeedItem>();

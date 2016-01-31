@@ -22,6 +22,7 @@ namespace BaoViet.Views
             var navigableViewModel = this.DataContext as INavigable;
             if (navigableViewModel != null)
             {
+                App.Current.Manager.TrackingService.TagScreen(navigableViewModel.ScreenName);
                 navigableViewModel.OnNavigatedTo(e);
                 SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
             }

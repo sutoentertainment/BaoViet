@@ -2,12 +2,14 @@
 using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
 namespace BaoViet.ViewModels
@@ -37,6 +39,16 @@ namespace BaoViet.ViewModels
             set
             {
                 Set(ref _HeaderLoaded, value);
+            }
+        }
+        
+        public RelayCommand<ItemClickEventArgs> CategoryClickedCommand { get; set; }
+
+        public string ScreenName
+        {
+            get
+            {
+                return "List Categories";
             }
         }
 

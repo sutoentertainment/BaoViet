@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Windows.System;
 using Windows.UI.Core;
 
-namespace BaoVietCore.Helpers
+namespace BaoVietCore.Services
 {
     public class KeyboardEventArgs : EventArgs
     {

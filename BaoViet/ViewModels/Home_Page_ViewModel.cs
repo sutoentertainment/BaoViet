@@ -18,6 +18,7 @@ using BaoVietCore.CustomEventArgs;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Navigation;
 using BaoVietCore.Helpers;
+using Windows.UI.Xaml.Controls;
 
 namespace BaoViet.ViewModels
 {
@@ -91,6 +92,15 @@ namespace BaoViet.ViewModels
 
         public RelayCommand GoToPaperToHidePageCommand { get; set; }
 
+        public RelayCommand<ItemClickEventArgs> PaperClickedCommand { get; set; }
+
+        public string ScreenName
+        {
+            get
+            {
+                return "Home";
+            }
+        }
         public Home_Page_ViewModel()
         {
             FrontPagePaper = new ObservableCollection<IPaper>();

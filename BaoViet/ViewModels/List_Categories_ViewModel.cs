@@ -53,8 +53,6 @@ namespace BaoViet.ViewModels
             }
         }
 
-        public RelayCommand<ItemClickEventArgs> CategoryClickedCommand { get; set; }
-
         public List_Categories_ViewModel()
         {
             CategoryClickedCommand = new RelayCommand<ItemClickEventArgs>(CategoryClicked);

@@ -14,33 +14,47 @@ namespace BaoVietCore.Models.Paper
     {
         public CongAnNhanDanPaper(PaperType type) : base(type)
         {
-            Title = "Dân trí";
-            HomePage = "http://dantri.com.vn";
-            ImageSource = "ms-appx:///Assets/Logo/logo-dantri.png";
+            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Công An Nhân Dân", Type = PaperType.CongAnNhanDan, HomePage = "http://cand.com.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-cand.png" });
+            Title = "Công An Nhân Dân";
+            HomePage = "http://cand.com.vn/";
+            ImageSource = "ms-appx:///Assets/Logo/logo-cand.png";
 
 
-            Categories.Add(new Category("Trang chủ", "http://dantri.com.vn/trangchu.rss"));
-            Categories.Add(new Category("Sức khỏe", "http://dantri.com.vn/suc-khoe.rss"));
-            Categories.Add(new Category("Xã hội", "http://dantri.com.vn/xa-hoi.rss"));
-            Categories.Add(new Category("Giải trí", "http://dantri.com.vn/giai-tri.rss"));
-            Categories.Add(new Category("Giáo dục - Khuyến học", "http://dantri.com.vn/giao-duc-khuyen-hoc.rss"));
-            Categories.Add(new Category("Thể thao", "http://dantri.com.vn/the-thao.rss"));
-            Categories.Add(new Category("Thế giới", "http://dantri.com.vn/the-gioi.rss"));
-            Categories.Add(new Category("Kinh doanh", "http://dantri.com.vn/kinh-doanh.rss"));
-            Categories.Add(new Category("Ô tô - Xe máy", "http://dantri.com.vn/o-to-xe-may.rss"));
-            Categories.Add(new Category("Sức mạnh số", "http://dantri.com.vn/suc-manh-so.rss"));
-            Categories.Add(new Category("Tình yêu - Giới tính", "http://dantri.com.vn/tinh-yeu-gioi-tinh.rss"));
-            Categories.Add(new Category("Chuyện lạ", "http://dantri.com.vn/chuyen-la.rss"));
-            Categories.Add(new Category("Việc làm", "http://dantri.com.vn/viec-lam.rss"));
-            Categories.Add(new Category("Nhịp sống trẻ", "http://dantri.com.vn/nhip-song-tre.rss"));
-            Categories.Add(new Category("Tấm lòng nhân ái", "http://dantri.com.vn/tam-long-nhan-ai.rss"));
-            Categories.Add(new Category("Pháp luật", "http://dantri.com.vn/phap-luat.rss"));
-            Categories.Add(new Category("Bạn đọc", "http://dantri.com.vn/ban-doc.rss"));
-            Categories.Add(new Category("Diễn đàn", "http://dantri.com.vn/dien-dan.rss"));
-            Categories.Add(new Category("Blog", "http://dantri.com.vn/blog.rss"));
-            Categories.Add(new Category("Văn hóa", "http://dantri.com.vn/van-hoa.rss"));
-            Categories.Add(new Category("Du học", "http://dantri.com.vn/du-hoc.rss"));
-            Categories.Add(new Category("Đời sống", "http://dantri.com.vn/doi-song.rss"));
+            Categories.Add(new Category("Trang chủ", "http://cand.com.vn/rss/trang-chu"));
+            Categories.Add(new Category("Thời sự - Chính trị", "http://cand.com.vn/rss/thoi-su"));
+            Categories.Add(new Category("Tin tức - Sự kiện", "http://cand.com.vn/rss/Su-kien-Binh-luan-thoi-su"));
+            Categories.Add(new Category("Nhịp cầu nhân ái", "http://cand.com.vn/rss/nhip-cau-nhan-ai"));
+            Categories.Add(new Category("Kinh tế", "http://cand.com.vn/rss/Kinh-te"));
+            Categories.Add(new Category("Địa ốc", "http://cand.com.vn/rss/dia-oc"));
+            Categories.Add(new Category("Tài chính - Ngân hàng", "http://cand.com.vn/rss/tai-chinh-ngan-hang"));
+            Categories.Add(new Category("Doanh nghiệp", "http://cand.com.vn/rss/doanh-nghiep"));
+            Categories.Add(new Category("Khoa học - Công nghệ", "http://cand.com.vn/rss/Khoa-hoc"));
+            Categories.Add(new Category("Công nghệ", "http://cand.com.vn/rss/the-gioi-so"));
+            Categories.Add(new Category("Thế giới phương tiện", "http://cand.com.vn/rss/the-gioi-phuong-tien"));
+            Categories.Add(new Category("Công an trong lòng dân", "http://cand.com.vn/rss/Cong-an"));
+            Categories.Add(new Category("Gương sáng", "http://cand.com.vn/rss/Guong-sang"));
+            Categories.Add(new Category("Hoạt động LL CAND", "http://cand.com.vn/rss/Hoat-dong-LL-CAND"));
+            Categories.Add(new Category("Xã hội", "http://cand.com.vn/rss/Xa-hoi"));
+            Categories.Add(new Category("Phóng sự - Tư liệu", "http://cand.com.vn/rss/Phong-su-tu-lieu"));
+            Categories.Add(new Category("Y tế", "http://cand.com.vn/rss/y-te"));
+            Categories.Add(new Category("Giáo dục", "http://cand.com.vn/rss/giao-duc"));
+            Categories.Add(new Category("Giao thông", "http://cand.com.vn/rss/Giao-thong"));
+            Categories.Add(new Category("Quốc tế", "http://cand.com.vn/rss/Quoc-te"));
+            Categories.Add(new Category("Hồ sơ - Tư liệu", "http://cand.com.vn/rss/tu-lieu-quoc-te"));
+            Categories.Add(new Category("Bình luận quốc tế", "http://cand.com.vn/rss/Binh-luan-quoc-te"));
+            Categories.Add(new Category("Pháp luật", "http://cand.com.vn/rss/Phap-luat"));
+            Categories.Add(new Category("Thông tin pháp luật", "http://cand.com.vn/rss/Thong-tin-phap-luat"));
+            Categories.Add(new Category("Bản tin 113", "http://cand.com.vn/rss/ANTT"));
+            Categories.Add(new Category("Thể thao", "http://cand.com.vn/rss/The-thao"));
+            Categories.Add(new Category("Ống nhòm", "http://cand.com.vn/rss/so-tay-the-thao"));
+            Categories.Add(new Category("Thể thao quốc tế", "http://cand.com.vn/rss/The-thao-quoc-te"));
+            Categories.Add(new Category("Thư giãn", "http://cand.com.vn/rss/Thu-gian"));
+            Categories.Add(new Category("Đời sống", "http://cand.com.vn/rss/doi-song"));
+            Categories.Add(new Category("Hôn nhân gia đình", "http://cand.com.vn/rss/hon-nhan-gia-dinh"));
+            Categories.Add(new Category("Bạn đọc & CAND", "http://cand.com.vn/rss/Ban-doc-cand"));
+            Categories.Add(new Category("Văn hóa - Giải trí", "http://cand.com.vn/rss/van-hoa"));
+            Categories.Add(new Category("Video Clip", "http://cand.com.vn/rss/video"));
+
 
 
             foreach (var item in Categories)

@@ -76,11 +76,6 @@ namespace BaoVietCore.Models
             get; set;
         }
 
-        public RelayCommand<FrameworkElement> ShowMenuCommand
-        {
-            get; set;
-        }
-
         
 
         public PaperBase(PaperType type)
@@ -95,13 +90,6 @@ namespace BaoVietCore.Models
             Categories = new ObservableCollection<Category>();
 
             PinCommand = new RelayCommand(PinToStart);
-
-            ShowMenuCommand = new RelayCommand<FrameworkElement>(ShowMenu);
-        }
-
-        private void ShowMenu(FrameworkElement senderElement)
-        {
-            Messenger.Default.Send<ShowMenuEventArgs>(new ShowMenuEventArgs(senderElement));
         }
 
         private void PinToStart()

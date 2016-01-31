@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary x:Class="BaoViet.Styles.Template"
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:action="using:BaoViet.Actions"
                     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     xmlns:i="using:Microsoft.Xaml.Interactivity"
@@ -44,13 +45,14 @@
         <StackPanel x:Name="cellContainer"
                     Width="{Binding CellWidth,
                                     Mode=OneTime}"
-                    Margin="4,12,4,12">
+                    Margin="4,12,4,12" Background="Transparent">
             <i:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Holding">
-                    <core:InvokeCommandAction Command="{Binding ShowMenuCommand, Mode=OneTime}" CommandParameter="{Binding ElementName=cellContainer}" />
+                    <action:OpenFlyoutAction />
                 </core:EventTriggerBehavior>
                 <core:EventTriggerBehavior EventName="RightTapped">
-                    <core:InvokeCommandAction Command="{Binding ShowMenuCommand, Mode=OneTime}" CommandParameter="{Binding ElementName=cellContainer}" />
+                    <!--<core:InvokeCommandAction Command="{Binding ShowMenuCommand, Mode=OneTime}" CommandParameter="{Binding ElementName=cellContainer}" />-->
+                    <action:OpenFlyoutAction />
                 </core:EventTriggerBehavior>
             </i:Interaction.Behaviors>
 

@@ -42,7 +42,7 @@ namespace BaoViet.ViewModels
                 Set(ref _HeaderLoaded, value);
             }
         }
-        
+
         public RelayCommand<ItemClickEventArgs> CategoryClickedCommand { get; set; }
 
         public string ScreenName
@@ -71,7 +71,7 @@ namespace BaoViet.ViewModels
             attribute.Add("name", cate.Title);
             App.Current.Manager.TrackingService.TagEvent("Open Category", attribute);
 
-            var vm = ServiceLocator.Current.GetInstance<List_Articles_ViewModel>();
+            var vm = ViewModelLocator.Get<List_Articles_ViewModel>();
             vm.CurrentCategory = cate;
 
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
@@ -84,7 +84,7 @@ namespace BaoViet.ViewModels
         {
             if (e.NavigationMode == NavigationMode.Back)
             {
-                if (CurrentPaper.Categories.Count == 1)
+                if (CurrentPaper.Categories.Count <= 1)
 
                     await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
@@ -98,7 +98,7 @@ namespace BaoViet.ViewModels
             {
                 var feed = new FeedItem();
                 feed.Link = CurrentPaper.HomePage;
-                var detail = ServiceLocator.Current.GetInstance<Detail_ViewModel>();
+                var detail = ViewModelLocator.Get<Detail_ViewModel>();
                 detail.CurrentFeed = feed;
 
                 await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
@@ -106,7 +106,7 @@ namespace BaoViet.ViewModels
                     App.Current.NavigationService.NavigateTo(Pages.DetailPage);
                 });
             }
-            else if(CurrentPaper.Categories.Count == 1)
+            else if (CurrentPaper.Categories.Count == 1)
             {
                 OpenCategory(CurrentPaper.Categories[0]);
             }

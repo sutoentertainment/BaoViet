@@ -14,33 +14,30 @@ namespace BaoVietCore.Models.Paper
     {
         public EvaPaper(PaperType type) : base(type)
         {
-            Title = "Dân trí";
-            HomePage = "http://dantri.com.vn";
-            ImageSource = "ms-appx:///Assets/Logo/logo-dantri.png";
+            //FrontPagePaper.Add(new VnExpressPaper() { Title = "Eva", Type = PaperType.Eva, HomePage = "http://eva.vn/", ImageSource = "ms-appx:///Assets/Logo/logo-eva.png" });
+            Title = "Eva";
+            HomePage = "http://eva.vn/";
+            ImageSource = "ms-appx:///Assets/Logo/logo-eva.png";
 
 
-            Categories.Add(new Category("Trang chủ", "http://dantri.com.vn/trangchu.rss"));
-            Categories.Add(new Category("Sức khỏe", "http://dantri.com.vn/suc-khoe.rss"));
-            Categories.Add(new Category("Xã hội", "http://dantri.com.vn/xa-hoi.rss"));
-            Categories.Add(new Category("Giải trí", "http://dantri.com.vn/giai-tri.rss"));
-            Categories.Add(new Category("Giáo dục - Khuyến học", "http://dantri.com.vn/giao-duc-khuyen-hoc.rss"));
-            Categories.Add(new Category("Thể thao", "http://dantri.com.vn/the-thao.rss"));
-            Categories.Add(new Category("Thế giới", "http://dantri.com.vn/the-gioi.rss"));
-            Categories.Add(new Category("Kinh doanh", "http://dantri.com.vn/kinh-doanh.rss"));
-            Categories.Add(new Category("Ô tô - Xe máy", "http://dantri.com.vn/o-to-xe-may.rss"));
-            Categories.Add(new Category("Sức mạnh số", "http://dantri.com.vn/suc-manh-so.rss"));
-            Categories.Add(new Category("Tình yêu - Giới tính", "http://dantri.com.vn/tinh-yeu-gioi-tinh.rss"));
-            Categories.Add(new Category("Chuyện lạ", "http://dantri.com.vn/chuyen-la.rss"));
-            Categories.Add(new Category("Việc làm", "http://dantri.com.vn/viec-lam.rss"));
-            Categories.Add(new Category("Nhịp sống trẻ", "http://dantri.com.vn/nhip-song-tre.rss"));
-            Categories.Add(new Category("Tấm lòng nhân ái", "http://dantri.com.vn/tam-long-nhan-ai.rss"));
-            Categories.Add(new Category("Pháp luật", "http://dantri.com.vn/phap-luat.rss"));
-            Categories.Add(new Category("Bạn đọc", "http://dantri.com.vn/ban-doc.rss"));
-            Categories.Add(new Category("Diễn đàn", "http://dantri.com.vn/dien-dan.rss"));
-            Categories.Add(new Category("Blog", "http://dantri.com.vn/blog.rss"));
-            Categories.Add(new Category("Văn hóa", "http://dantri.com.vn/van-hoa.rss"));
-            Categories.Add(new Category("Du học", "http://dantri.com.vn/du-hoc.rss"));
-            Categories.Add(new Category("Đời sống", "http://dantri.com.vn/doi-song.rss"));
+            Categories.Add(new Category("Trang chủ Eva", "http://eva.vn/rss/rss.php"));
+            Categories.Add(new Category("Tin tức", "http://eva.vn/rss/rss.php/73"));
+            Categories.Add(new Category("Eva tám", "http://eva.vn/rss/rss.php/66"));
+            Categories.Add(new Category("Làng sao", "http://eva.vn/rss/rss.php/20"));
+            Categories.Add(new Category("Thời trang", "http://eva.vn/rss/rss.php/36"));
+            Categories.Add(new Category("Làm đẹp", "http://eva.vn/rss/rss.php/58"));
+            Categories.Add(new Category("Bà bầu", "http://eva.vn/rss/rss.php/85"));
+            Categories.Add(new Category("Làm mẹ", "http://eva.vn/rss/rss.php/10"));
+            Categories.Add(new Category("Tình yêu - Giới tính", "http://eva.vn/rss/rss.php/3"));
+            Categories.Add(new Category("Bếp Eva", "http://eva.vn/rss/rss.php/162"));
+            Categories.Add(new Category("Nhà đẹp", "http://eva.vn/rss/rss.php/169"));
+            Categories.Add(new Category("Clip Eva", "http://eva.vn/rss/rss.php/157"));
+            Categories.Add(new Category("Sức khỏe", "http://eva.vn/rss/rss.php/131"));
+            Categories.Add(new Category("Đi đâu - Xem gì", "http://eva.vn/rss/rss.php/40"));
+            Categories.Add(new Category("Mua sắm - Giá cả", "http://eva.vn/rss/rss.php/2"));
+            Categories.Add(new Category("Eva Sành điệu", "http://eva.vn/rss/rss.php/173"));
+            Categories.Add(new Category("Lịch Vạn Niên", "http://eva.vn/rss/rss.php/192"));
+            Categories.Add(new Category("Ảnh đẹp Eva", "http://eva.vn/rss/rss.php/186"));
 
 
             foreach (var item in Categories)

@@ -14,33 +14,33 @@ namespace BaoVietCore.Models.Paper
     {
         public VOAPaper(PaperType type) : base(type)
         {
-            Title = "Dân trí";
-            HomePage = "http://dantri.com.vn";
-            ImageSource = "ms-appx:///Assets/Logo/logo-dantri.png";
+            //FrontPagePaper.Add(new VnExpressPaper() { Title = "VOA tiếng Việt", Type = PaperType.VOA, HomePage = "http://www.voatiengviet.com/", ImageSource = "ms-appx:///Assets/Logo/logo-voa.png" });
+            Title = "VOA tiếng Việt";
+            HomePage = "http://www.voatiengviet.com/";
+            ImageSource = "ms-appx:///Assets/Logo/logo-voa.png";
 
 
-            Categories.Add(new Category("Trang chủ", "http://dantri.com.vn/trangchu.rss"));
-            Categories.Add(new Category("Sức khỏe", "http://dantri.com.vn/suc-khoe.rss"));
-            Categories.Add(new Category("Xã hội", "http://dantri.com.vn/xa-hoi.rss"));
-            Categories.Add(new Category("Giải trí", "http://dantri.com.vn/giai-tri.rss"));
-            Categories.Add(new Category("Giáo dục - Khuyến học", "http://dantri.com.vn/giao-duc-khuyen-hoc.rss"));
-            Categories.Add(new Category("Thể thao", "http://dantri.com.vn/the-thao.rss"));
-            Categories.Add(new Category("Thế giới", "http://dantri.com.vn/the-gioi.rss"));
-            Categories.Add(new Category("Kinh doanh", "http://dantri.com.vn/kinh-doanh.rss"));
-            Categories.Add(new Category("Ô tô - Xe máy", "http://dantri.com.vn/o-to-xe-may.rss"));
-            Categories.Add(new Category("Sức mạnh số", "http://dantri.com.vn/suc-manh-so.rss"));
-            Categories.Add(new Category("Tình yêu - Giới tính", "http://dantri.com.vn/tinh-yeu-gioi-tinh.rss"));
-            Categories.Add(new Category("Chuyện lạ", "http://dantri.com.vn/chuyen-la.rss"));
-            Categories.Add(new Category("Việc làm", "http://dantri.com.vn/viec-lam.rss"));
-            Categories.Add(new Category("Nhịp sống trẻ", "http://dantri.com.vn/nhip-song-tre.rss"));
-            Categories.Add(new Category("Tấm lòng nhân ái", "http://dantri.com.vn/tam-long-nhan-ai.rss"));
-            Categories.Add(new Category("Pháp luật", "http://dantri.com.vn/phap-luat.rss"));
-            Categories.Add(new Category("Bạn đọc", "http://dantri.com.vn/ban-doc.rss"));
-            Categories.Add(new Category("Diễn đàn", "http://dantri.com.vn/dien-dan.rss"));
-            Categories.Add(new Category("Blog", "http://dantri.com.vn/blog.rss"));
-            Categories.Add(new Category("Văn hóa", "http://dantri.com.vn/van-hoa.rss"));
-            Categories.Add(new Category("Du học", "http://dantri.com.vn/du-hoc.rss"));
-            Categories.Add(new Category("Đời sống", "http://dantri.com.vn/doi-song.rss"));
+            Categories.Add(new Category("Trang chủ", "http://www.voatiengviet.com/api/epiqq"));
+            Categories.Add(new Category("Tin Tức", "http://www.voatiengviet.com/api/zkvypemovm"));
+            Categories.Add(new Category("Việt Nam", "http://www.voatiengviet.com/api/z$uyietpv_"));
+            Categories.Add(new Category("Thế giới", "http://www.voatiengviet.com/api/z_ty_erivy"));
+            Categories.Add(new Category("Kinh tế", "http://www.voatiengviet.com/api/zquyvekivr"));
+            Categories.Add(new Category("Nghệ thuật - giải trí", "http://www.voatiengviet.com/api/zguyre_pvo"));
+            Categories.Add(new Category("Sức khỏe", "http://www.voatiengviet.com/api/z-tymevivy"));
+            Categories.Add(new Category("Đời sống", "http://www.voatiengviet.com/api/zouytegivq"));
+            Categories.Add(new Category("Giáo dục", "http://www.voatiengviet.com/api/ziuyrejivo"));
+            Categories.Add(new Category("Phụ nữ", "http://www.voatiengviet.com/api/zrkypeupvy"));
+            Categories.Add(new Category("Khoa học công nghệ", "http://www.voatiengviet.com/api/zkuytempvq"));
+            Categories.Add(new Category("Thể thao", "http://www.voatiengviet.com/api/zjuyqeypvi"));
+            Categories.Add(new Category("Người Việt hải ngoại", "http://www.voatiengviet.com/api/zruyyeuivt"));
+            Categories.Add(new Category("Châu Á", "http://www.voatiengviet.com/api/z$qvvetkvr"));
+            Categories.Add(new Category("Châu Âu", "http://www.voatiengviet.com/api/zmuyoe$ivm"));
+            Categories.Add(new Category("Trung Đông", "http://www.voatiengviet.com/api/zvuy_eopvv"));
+            Categories.Add(new Category("Châu Phi", "http://www.voatiengviet.com/api/zytyyeqivv"));
+            Categories.Add(new Category("Châu Mỹ", "http://www.voatiengviet.com/api/zutyrepivi"));
+            Categories.Add(new Category("Hoa Kỳ", "http://www.voatiengviet.com/api/z-uyoevpvm"));
+            Categories.Add(new Category("Học tiếng Anh", "http://www.voatiengviet.com/api/zotyqegovi"));
+            Categories.Add(new Category("Blog", "http://www.voatiengviet.com/api/zgvyme_ov_"));
 
 
             foreach (var item in Categories)
@@ -69,7 +69,8 @@ namespace BaoVietCore.Models.Paper
                 feed.Description = WebUtility.HtmlDecode(htmldocs.DocumentNode.InnerText);
                 try
                 {
-                    feed.Thumbnail = htmldocs.DocumentNode.Descendants("img").FirstOrDefault().Attributes["src"].Value;
+                    var sub = item.Descendants().Where(e => e.Name == "enclosure").FirstOrDefault();
+                    feed.Thumbnail = sub.Attribute("url").Value;
                 }
                 catch
                 {

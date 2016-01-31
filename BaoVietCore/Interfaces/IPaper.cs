@@ -18,6 +18,5 @@ namespace BaoVietCore.Interfaces
         string TypeString { get; }
 
         RelayCommand PinCommand { get; set; }
-        RelayCommand<FrameworkElement> ShowMenuCommand { get; set; }
     }
 }

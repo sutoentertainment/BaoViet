@@ -56,11 +56,16 @@ namespace BaoViet.ViewModels
             //SimpleIoc.Default.Register<SettingViewModel>();
         }
 
+        internal static T Get<T>() where T : class
+        {
+            return SimpleIoc.Default.GetInstance<T>();
+        }
+
         public Home_Page_ViewModel Main
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<Home_Page_ViewModel>();
+                return Get<Home_Page_ViewModel>();
             }
         }
 
@@ -68,7 +73,7 @@ namespace BaoViet.ViewModels
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<Detail_ViewModel>();
+                return Get<Detail_ViewModel>();
             }
         }
 
@@ -76,7 +81,7 @@ namespace BaoViet.ViewModels
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<List_Articles_ViewModel>();
+                return Get<List_Articles_ViewModel>();
             }
         }
 
@@ -84,7 +89,7 @@ namespace BaoViet.ViewModels
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<List_Categories_ViewModel>();
+                return Get<List_Categories_ViewModel>();
             }
         }
 
@@ -92,7 +97,7 @@ namespace BaoViet.ViewModels
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<Saved_Articles_ViewModel>();
+                return Get<Saved_Articles_ViewModel>();
             }
         }
 

@@ -94,6 +94,36 @@ namespace BaoVietCore.Factory
                 case PaperType.WebTreTho:
                     paper = new WebTreThoPaper(type);
                     break;
+                case PaperType.BBC:
+                    paper = new BBCPaper(type);
+                    break;
+                case PaperType.VOA:
+                    paper = new VOAPaper(type);
+                    break;
+                case PaperType.Eva:
+                    paper = new EvaPaper(type);
+                    break;
+                case PaperType.CongAnNhanDan:
+                    paper = new CongAnNhanDanPaper(type);
+                    break;
+                case PaperType.AnNinhThuDo:
+                    paper = new AnNinhThuDoPaper(type);
+                    break;
+                case PaperType.QuanDoiNhanDan:
+                    paper = new QDNDPaper(type);
+                    break;
+                case PaperType.NhipCauDauTu:
+                    paper = new NhipCauDauTuPaper(type);
+                    break;
+                case PaperType.Kenh14:
+                    paper = new Kenh14Paper(type);
+                    break;
+                case PaperType.DatViet:
+                    paper = new DatVietPaper(type);
+                    break;
+                case PaperType.VietBao:
+                    paper = new VietBaoPaper(type);
+                    break;
                 default:
                     paper = new UnknowPaper(type);
                     break;

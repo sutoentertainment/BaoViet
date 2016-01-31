@@ -112,6 +112,7 @@
     <Compile Include="Factory\PaperFactory.cs" />
     <Compile Include="Helpers\DeviceHelper.cs" />
     <Compile Include="Interfaces\ITrackingService.cs" />
+    <Compile Include="Models\Paper\VietBaoPaper.cs" />
     <Compile Include="Services\KeyboardService\KeyboardEventArgs.cs" />
     <Compile Include="Helpers\SettingHelper.cs" />
     <Compile Include="Helpers\Screen.cs" />

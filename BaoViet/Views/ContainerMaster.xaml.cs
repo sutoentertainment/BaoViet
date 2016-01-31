@@ -47,7 +47,6 @@ namespace BaoViet.Views
 
             App.Current.NavigationService.Configure(ViewModels.FrameKey.MainFrame, MasterFrame);
 
-            App.Current.NavigationService.NavigateTo(Pages.HomePage);
             App.Current.OnToastRise += App_OnToastActivated;
             //SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
@@ -81,6 +80,13 @@ namespace BaoViet.Views
             App.Current.InvokeOnToastRise("Sync complete", 2500);
 
             TileManager tileManager = new TileManager();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            App.Current.NavigationService.NavigateTo(Pages.HomePage, e.Parameter);
         }
 
         //private void OnBackRequested(object sender, BackRequestedEventArgs e)

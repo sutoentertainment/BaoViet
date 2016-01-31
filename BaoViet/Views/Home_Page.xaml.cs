@@ -74,18 +74,6 @@ namespace BaoViet.Views
             }
         }
 
-        private void FrontPage_ListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            var paper = e.ClickedItem as IPaper;
-            //App.MasterFrame.Navigate(typeof(Detail_Page), paper.HomePage);
-
-            var vm = ServiceLocator.Current.GetInstance<List_Categories_ViewModel>();
-            vm.CurrentPaper = paper;
-
-            //TODO: Prepare the data model for next page
-            App.Current.NavigationService.NavigateTo(Pages.List_Categories_Page);
-        }
-
         /// <summary>
         /// Change tile
         /// </summary>

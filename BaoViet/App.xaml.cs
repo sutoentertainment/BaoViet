@@ -174,6 +174,7 @@ namespace BaoViet
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
+
             
             var titleBar = ApplicationView.GetForCurrentView().TitleBar;
             //CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;

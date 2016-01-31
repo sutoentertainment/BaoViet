@@ -38,12 +38,5 @@ namespace BaoViet.Views
             this.InitializeComponent();
         }
 
-        private void Category_ListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            var cate = e.ClickedItem as Category;
-            var vm = ServiceLocator.Current.GetInstance<List_Articles_ViewModel>();
-            vm.CurrentCategory = cate;
-            App.Current.NavigationService.NavigateTo(Pages.List_Articles_Page);
-        }
     }
 }

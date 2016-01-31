@@ -102,11 +102,16 @@
                   Grid.Row="1"
                   ContinuumNavigationTransitionInfo.ExitElementContainer="True"
                   IsItemClickEnabled="True"
-                  ItemClick="Category_ListView_ItemClick"
                   ItemContainerStyle="{StaticResource ListViewItemExpanded}"
                   ItemTemplate="{StaticResource CategoryTemplate}"
                   ItemsSource="{Binding CurrentPaper.Categories}"
                   ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                  SelectionMode="None" />
+                  SelectionMode="None">
+            <i:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="ItemClick">
+                    <core:InvokeCommandAction Command="{x:Bind ViewModel.CategoryClickedCommand}"/>
+                </core:EventTriggerBehavior>
+            </i:Interaction.Behaviors>
+        </ListView>
     </Grid>
 </local:BindablePage>

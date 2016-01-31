@@ -1,4 +1,5 @@
 ﻿using BaoViet.Interfaces;
+using BaoViet.Services;
 using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
 using GalaSoft.MvvmLight;
@@ -52,15 +53,42 @@ namespace BaoViet.ViewModels
             }
         }
 
+        public RelayCommand<ItemClickEventArgs> CategoryClickedCommand { get; set; }
+
         public List_Categories_ViewModel()
         {
+            CategoryClickedCommand = new RelayCommand<ItemClickEventArgs>(CategoryClicked);
+        }
 
+        private void CategoryClicked(ItemClickEventArgs e)
+        {
+            var cate = e.ClickedItem as Category;
+            OpenCategory(cate);
+        }
+
+        private async void OpenCategory(Category cate)
+        {
+            var vm = ServiceLocator.Current.GetInstance<List_Articles_ViewModel>();
+            vm.CurrentCategory = cate;
+
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                App.Current.NavigationService.NavigateTo(Pages.List_Articles_Page);
+            });
         }
 
         public async void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.NavigationMode == NavigationMode.Back)
+            {
+                if (CurrentPaper.Categories.Count == 1)
+
+                    await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                    {
+                        App.Current.NavigationService.GoBack();
+                    });
                 return;
+            }
             HeaderLoaded = true;
             //VisualStateManager.GoToState(this, "HeaderLoaded", true);
             if (CurrentPaper.Categories.Count == 0)
@@ -74,6 +102,10 @@ namespace BaoViet.ViewModels
                 {
                     App.Current.NavigationService.NavigateTo(Pages.DetailPage);
                 });
+            }
+            else if(CurrentPaper.Categories.Count == 1)
+            {
+                OpenCategory(CurrentPaper.Categories[0]);
             }
         }
 

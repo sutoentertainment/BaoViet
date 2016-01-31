@@ -111,12 +111,14 @@
     <Compile Include="EventArgs\PinEventArgs.cs" />
     <Compile Include="Factory\PaperFactory.cs" />
     <Compile Include="Helpers\DeviceHelper.cs" />
-    <Compile Include="Helpers\KeyboardEventArgs.cs" />
+    <Compile Include="Interfaces\ITrackingService.cs" />
+    <Compile Include="Services\KeyboardService\KeyboardEventArgs.cs" />
     <Compile Include="Helpers\SettingHelper.cs" />
     <Compile Include="Helpers\Screen.cs" />
     <Compile Include="Helpers\SmartWeakEvent.cs" />
     <Compile Include="Helpers\TimeToTextHelper.cs" />
     <Compile Include="Helpers\UriExtension.cs" />
+    <Compile Include="Helpers\UriHelper.cs" />
     <Compile Include="Interfaces\IKeyboardService.cs" />
     <Compile Include="Interfaces\IPaper.cs" />
     <Compile Include="Interfaces\IRssSource.cs" />
@@ -178,6 +180,7 @@
     <Compile Include="Services\ImageService.cs" />
     <Compile Include="Services\KeyboardService\KeyboardService.cs" />
     <Compile Include="Services\LocalizationService.cs" />
+    <Compile Include="Services\LocalyticsAdapterService.cs" />
     <Compile Include="Services\LogService.cs" />
     <Compile Include="Services\RateUsService.cs" />
     <Compile Include="Services\ServiceBase.cs" />

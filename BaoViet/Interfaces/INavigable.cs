@@ -9,8 +9,6 @@ namespace BaoViet.Interfaces
 {
     public interface INavigable
     {
-        string ScreenName { get; }
-
         void OnNavigatedTo(NavigationEventArgs e);
         void OnNavigatedFrom(NavigationEventArgs e);
         void OnNavigatingFrom(NavigatingCancelEventArgs e);

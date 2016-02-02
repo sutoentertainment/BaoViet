@@ -9,7 +9,7 @@ namespace BaoVietCore.Interfaces
 {
     public interface IRssSource
     {
-        Task<RssResult> GetFeed(string url);
+        Task<IEnumerable<IFeedItem>> GetFeed(IXmlParser parser, string source);
     }
 
     public class RssResult

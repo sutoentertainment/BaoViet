@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaoVietCore.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using Windows.Storage;
 
 namespace BaoVietCore.Services
 {
-    public class LogService : ServiceBase
+    public class LogService : ServiceBase, ILogService
     {
         public string LogText = "";
 

@@ -110,6 +110,10 @@
     <Compile Include="Helpers\VisualTreeHelperExtensions.cs" />
     <Compile Include="Interfaces\IApp.cs" />
     <Compile Include="Interfaces\INavigable.cs" />
+    <Compile Include="Interfaces\ITrackingAble.cs" />
+    <Compile Include="Localytics\LocalyticsAttribute.cs" />
+    <Compile Include="Localytics\LocalyticsEvent.cs" />
+    <Compile Include="Localytics\LocalyticsScreen.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

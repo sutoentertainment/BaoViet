@@ -76,7 +76,8 @@ namespace BaoVietCore.Models
             get; set;
         }
 
-        
+
+        public IXmlParser Parser { get; set; }
 
         public PaperBase(PaperType type)
         {

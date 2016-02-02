@@ -1,4 +1,5 @@
 ﻿using BaoVietCore.Helpers;
+using BaoVietCore.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +12,7 @@ using Windows.Storage.Streams;
 
 namespace BaoVietCore.Services
 {
-    public class ImageService : ServiceBase
+    public class ImageService : ServiceBase, IImageService
     {
         /// <summary>
         /// Fired when the image is downloaded.

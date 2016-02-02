@@ -20,6 +20,7 @@ using BaoViet.Services;
 using BaoViet.ViewModels;
 using Windows.UI.Popups;
 using BaoVietCore.Models;
+using BaoVietCore.Services;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -114,6 +115,17 @@ namespace BaoViet
             this.UnhandledException += App_UnhandledException;
             Current = this;
             Manager = new Manager();
+
+            Manager.WebService = new WebService(Manager);
+            Manager.LogService = new LogService(Manager);
+            Manager.Database = new Database(Manager);
+            Manager.AuthenticationService = new AuthenticationService(Manager);
+            Manager.RateUsService = new RateUsService(Manager);
+            Manager.ImageService = new ImageService(Manager);
+            Manager.TrackingService = new LocalyticsAdapterService(Manager);
+            Manager.RssService = new RssService(Manager);
+
+
             Manager.Database.CreateTable<FeedItem>();
             RootDataContext = new RootDataContext();
             TileManager = new TileManager();
@@ -175,7 +187,7 @@ namespace BaoViet
             }
 #endif
 
-            
+
             var titleBar = ApplicationView.GetForCurrentView().TitleBar;
             //CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
 
@@ -259,7 +271,7 @@ namespace BaoViet
         /// <param name="args"></param>
         protected override void OnActivated(IActivatedEventArgs e)
         {
-            if(e.Kind == ActivationKind.Protocol)
+            if (e.Kind == ActivationKind.Protocol)
             {
                 var protocolArgs = e as ProtocolActivatedEventArgs;
                 var uri = protocolArgs.Uri;

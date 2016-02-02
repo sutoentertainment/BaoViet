@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace BaoViet.ViewModels
 {
-    public class Saved_Articles_ViewModel : ViewModelBase, INavigable
+    public class Saved_Articles_ViewModel : ViewModelBase, INavigable, ITrackingAble
     {
         public ObservableCollection<IFeedItem> ListFeed { get; set; }
 
@@ -21,7 +21,7 @@ namespace BaoViet.ViewModels
         {
             get
             {
-                return "Saved Articles";
+                return Localytics.LocalyticsScreen.SavedArticlePage;
             }
         }
 
@@ -29,7 +29,7 @@ namespace BaoViet.ViewModels
         {
             ListFeed = new ObservableCollection<IFeedItem>();
         }
-        
+
         public void LoadData()
         {
             ListFeed.Clear();

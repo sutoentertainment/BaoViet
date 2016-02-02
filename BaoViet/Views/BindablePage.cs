@@ -22,7 +22,10 @@ namespace BaoViet.Views
             var navigableViewModel = this.DataContext as INavigable;
             if (navigableViewModel != null)
             {
-                App.Current.Manager.TrackingService.TagScreen(navigableViewModel.ScreenName);
+                if (navigableViewModel is ITrackingAble)
+                {
+                    App.Current.Manager.TrackingService.TagScreen((navigableViewModel as ITrackingAble).ScreenName);
+                }
                 navigableViewModel.OnNavigatedTo(e);
                 SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
             }
@@ -39,7 +42,7 @@ namespace BaoViet.Views
                     {
                         App.Current.NavigationService.GoBack();
                         //Prevent out app
-                        if(e != null)
+                        if (e != null)
                             e.Handled = true;
                     }
                 }

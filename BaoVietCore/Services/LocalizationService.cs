@@ -9,7 +9,7 @@ using Windows.ApplicationModel.Resources;
 
 namespace BaoVietCore.Services
 {
-    public class LocalizationService : ServiceBase
+    public class LocalizationService : ServiceBase, ILocalizationService
     {
         ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
 

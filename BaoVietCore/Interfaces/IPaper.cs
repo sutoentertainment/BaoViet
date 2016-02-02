@@ -5,7 +5,7 @@ using Windows.UI.Xaml;
 
 namespace BaoVietCore.Interfaces
 {
-    public interface IPaper : IRssSource
+    public interface IPaper
     {
         ObservableCollection<Category> Categories { get; set; }
         double CellWidth { get; set; }

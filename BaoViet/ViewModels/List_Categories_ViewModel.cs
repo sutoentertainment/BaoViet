@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace BaoViet.ViewModels
 {
-    public class List_Categories_ViewModel : ViewModelBase, INavigable
+    public class List_Categories_ViewModel : ViewModelBase, INavigable, ITrackingAble
     {
         IPaper _CurrentPaper;
         public IPaper CurrentPaper
@@ -49,7 +49,7 @@ namespace BaoViet.ViewModels
         {
             get
             {
-                return "List Categories";
+                return Localytics.LocalyticsScreen.ListCategoryPage;
             }
         }
 
@@ -69,7 +69,7 @@ namespace BaoViet.ViewModels
             var attribute = new Dictionary<string, string>();
             attribute.Add("paper name", cate.Owner.Title);
             attribute.Add("name", cate.Title);
-            App.Current.Manager.TrackingService.TagEvent("Open Category", attribute);
+            App.Current.Manager.TrackingService.TagEvent(Localytics.LocalyticsEvent.OpenCategory, attribute);
 
             var vm = ViewModelLocator.Get<List_Articles_ViewModel>();
             vm.CurrentCategory = cate;

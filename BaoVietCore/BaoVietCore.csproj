@@ -109,10 +109,23 @@
   <ItemGroup>
     <Compile Include="EventArgs\ShowMenuEventArgs.cs" />
     <Compile Include="EventArgs\PinEventArgs.cs" />
+    <Compile Include="Factory\XmlParserFactory.cs" />
     <Compile Include="Factory\PaperFactory.cs" />
     <Compile Include="Helpers\DeviceHelper.cs" />
     <Compile Include="Interfaces\ITrackingService.cs" />
+    <Compile Include="Interfaces\IXmlParser.cs" />
+    <Compile Include="Services\RssService.cs" />
+    <Compile Include="XmlParser\TinTheThaoParser.cs" />
+    <Compile Include="XmlParser\QuanTriMangParser.cs" />
+    <Compile Include="XmlParser\PcWorldParser.cs" />
+    <Compile Include="XmlParser\ZingParser.cs" />
+    <Compile Include="XmlParser\BBCParser.cs" />
+    <Compile Include="XmlParser\VOAParser.cs" />
+    <Compile Include="XmlParser\StandartParser.cs" />
     <Compile Include="Models\Paper\VietBaoPaper.cs" />
+    <Compile Include="Interfaces\ILogService.cs" />
+    <Compile Include="Interfaces\ILocalizationService.cs" />
+    <Compile Include="Interfaces\IImageService.cs" />
     <Compile Include="Services\KeyboardService\KeyboardEventArgs.cs" />
     <Compile Include="Helpers\SettingHelper.cs" />
     <Compile Include="Helpers\Screen.cs" />

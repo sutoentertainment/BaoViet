@@ -1,4 +1,5 @@
 ﻿using BaoViet.Interfaces;
+using BaoVietCore.Factory;
 using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
 using Croft.Core.Extensions;
@@ -13,7 +14,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace BaoViet.ViewModels
 {
-    public class List_Articles_ViewModel : ViewModelBase, INavigable
+    public class List_Articles_ViewModel : ViewModelBase, INavigable, ITrackingAble
     {
         Category _CurrentCategory;
         public Category CurrentCategory
@@ -57,9 +58,11 @@ namespace BaoViet.ViewModels
             IsBusy = true;
             try
             {
-                var result = await CurrentCategory.Owner.GetFeed(CurrentCategory.Source);
-                if (result.Paper == CurrentCategory.Owner.Type)
-                    ListFeed.AddRange(result.Feeds);
+                //var result = await CurrentCategory.Owner.GetFeed(CurrentCategory.Source);
+                var XmlParser = XmlParserFactory.Create(CurrentCategory.Owner.Type);
+                var result = await App.Current.Manager.RssService.GetFeed(XmlParser, CurrentCategory.Source);
+                //if (result.Paper == CurrentCategory.Owner.Type)
+                ListFeed.AddRange(result);
             }
             catch { }
             IsBusy = false;
@@ -85,7 +88,7 @@ namespace BaoViet.ViewModels
         {
             get
             {
-                return "List Rss";
+                return Localytics.LocalyticsScreen.ListArticlePage;
             }
         }
     }

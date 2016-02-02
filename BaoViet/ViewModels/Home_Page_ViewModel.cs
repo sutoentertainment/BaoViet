@@ -23,7 +23,7 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace BaoViet.ViewModels
 {
-    public class Home_Page_ViewModel : ViewModelBase, INavigable
+    public class Home_Page_ViewModel : ViewModelBase, INavigable, ITrackingAble
     {
         public string AppVersion
         {
@@ -99,7 +99,7 @@ namespace BaoViet.ViewModels
         {
             get
             {
-                return "Home";
+                return Localytics.LocalyticsScreen.HomePage;
             }
         }
 
@@ -137,7 +137,7 @@ namespace BaoViet.ViewModels
         {
             var attribute = new Dictionary<string, string>();
             attribute.Add("name", paper.Title);
-            App.Current.Manager.TrackingService.TagEvent("Open Paper", attribute);
+            App.Current.Manager.TrackingService.TagEvent(Localytics.LocalyticsEvent.OpenPaper, attribute);
 
             var vm = ViewModelLocator.Get<List_Categories_ViewModel>();
             vm.CurrentPaper = paper;

@@ -17,29 +17,23 @@ namespace BaoVietCore
 
         public IWebService WebService { get; set; }
 
-        public LocalizationService LocalizationService { get; set; }
+        public ILocalizationService LocalizationService { get; set; }
 
-        public LogService LogService { get; set; }
+        public ILogService LogService { get; set; }
 
         public IAuthenticationService AuthenticationService { get; set; }
 
         public IRateUsService RateUsService { get; set; }
 
         public IDatabase Database { get; set; }
-        public ImageService ImageService { get; set; }
+        public IImageService ImageService { get; set; }
 
         public ITrackingService TrackingService { get; set; }
+        public IRssSource RssService { get; set; }
 
         public Manager()
         {
             Current = this;
-            WebService = new WebService(this);
-            LogService = new LogService(this);
-            Database = new Database(this);
-            AuthenticationService = new AuthenticationService(this);
-            RateUsService = new RateUsService(this);
-            ImageService = new ImageService(this);
-            TrackingService = new LocalyticsAdapterService(this);
         }
         public void Configure()
         {

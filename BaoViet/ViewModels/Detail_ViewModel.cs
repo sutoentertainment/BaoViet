@@ -18,7 +18,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace BaoViet.ViewModels
 {
-    public class Detail_ViewModel : ViewModelBase, INavigable
+    public class Detail_ViewModel : ViewModelBase, INavigable, ITrackingAble
     {
         Uri _CurrentWebPage = null;
         public Uri CurrentWebPage
@@ -125,7 +125,7 @@ namespace BaoViet.ViewModels
         {
             get
             {
-                return "Detail";
+                return Localytics.LocalyticsScreen.DetailPage;
             }
         }
 
@@ -179,6 +179,12 @@ namespace BaoViet.ViewModels
         {
             if (!IsFullScreen && CurrentWebPage == null)
                 return;
+
+            var attribute = new Dictionary<string, string>();
+            attribute.Add("paper name", ViewModelLocator.Get<List_Articles_ViewModel>().CurrentCategory.Owner.Title);
+
+            App.Current.Manager.TrackingService.TagEvent(Localytics.LocalyticsEvent.SaveArticle, attribute);
+
             dataTransferManager = DataTransferManager.GetForCurrentView();
             dataTransferManager.DataRequested += new TypedEventHandler<DataTransferManager, DataRequestedEventArgs>(this.ShareLinkHandler);
             Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI();
@@ -252,7 +258,7 @@ namespace BaoViet.ViewModels
             response.content += "<script>\r\n    function eventListener(evt) {\r\n        if (evt.detail == 1) {\r\n evt.preventDefault(); screenY = evt.clientY;\r\n            window.external.notify(evt.target.src); return false;\r\n        }\r\n    }\r\n\r\n    var gestureHandler = new Array();\r\n    var screenY;\r\n    var links = document.getElementsByTagName('img');\r\n    for (i = 0; i < links.length; i++) {\r\n        links[i].addEventListener('click', eventListener, false);\r\n    };\r\n function getSY(){	return screenY.toString();} </script>";
 
 
-            
+
             await Task.Delay(200);
 
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>

@@ -3,6 +3,14 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
+      "AdDuplexWin10/10.0.1.1": {
+        "compile": {
+          "lib/uap10.0/AdDuplex.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdDuplex.winmd": {}
+        }
+      },
       "Comet/0.2.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -65,6 +73,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -1675,6 +1691,14 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
+      "AdDuplexWin10/10.0.1.1": {
+        "compile": {
+          "lib/uap10.0/AdDuplex.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdDuplex.winmd": {}
+        }
+      },
       "Comet/0.2.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -1737,6 +1761,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -3437,6 +3469,14 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
+      "AdDuplexWin10/10.0.1.1": {
+        "compile": {
+          "lib/uap10.0/AdDuplex.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdDuplex.winmd": {}
+        }
+      },
       "Comet/0.2.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -3499,6 +3539,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -5171,6 +5219,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
+      "AdDuplexWin10/10.0.1.1": {
+        "compile": {
+          "lib/uap10.0/AdDuplex.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdDuplex.winmd": {}
+        }
+      },
       "Comet/0.2.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -5233,6 +5289,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -6938,6 +7002,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
+      "AdDuplexWin10/10.0.1.1": {
+        "compile": {
+          "lib/uap10.0/AdDuplex.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdDuplex.winmd": {}
+        }
+      },
       "Comet/0.2.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -7000,6 +7072,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -8672,6 +8752,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
+      "AdDuplexWin10/10.0.1.1": {
+        "compile": {
+          "lib/uap10.0/AdDuplex.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdDuplex.winmd": {}
+        }
+      },
       "Comet/0.2.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -8734,6 +8822,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -10439,6 +10535,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
+      "AdDuplexWin10/10.0.1.1": {
+        "compile": {
+          "lib/uap10.0/AdDuplex.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdDuplex.winmd": {}
+        }
+      },
       "Comet/0.2.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -10501,6 +10605,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -12174,6 +12286,21 @@
     }
   },
   "libraries": {
+    "AdDuplexWin10/10.0.1.1": {
+      "sha512": "LVNpWq/wGXlPeKugLgCajg8dkJAiPOWidQH6aW4xn+73/TaeX/fnXyOHagS0AlE7DJgsDcK45H2qHr70m3RXJw==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "AdDuplexWin10.nuspec",
+        "lib/uap10.0/AdDuplex.pri",
+        "lib/uap10.0/AdDuplex.winmd",
+        "lib/uap10.0/AdDuplex/InterstitialUserControl.xbf",
+        "lib/uap10.0/AdDuplex/Themes/Generic.xbf",
+        "lib/uap10.0/AdDuplex/Windows 10 SDK.xr.xml",
+        "package/services/metadata/core-properties/5283ef7dfbbb40cab04b89fedbc7592b.psmdcp"
+      ]
+    },
     "Comet/0.2.0": {
       "sha512": "xIargCBt6VZk2nOc1nN7hnt/pa+bAQ3nowo2aZFQXrTP2cfuswkZ3CaJILtCb33f+hTnEOYzsyfG5uGU8iILnQ==",
       "type": "Package",
@@ -12275,6 +12402,17 @@
         "lib/portable-win81+wpa81/LocalyticsComponent.winmd",
         "Localytics.nuspec",
         "package/services/metadata/core-properties/944085edf2d544a0b0619be1b5de0d8a.psmdcp"
+      ]
+    },
+    "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
+      "sha512": "C9GcHjLh8dparM5pVLvriBV5kmBc38tzNpIFq3PfVVGrQgRbUGoTjR0Egzer1c+aMv0LYlBVMfzniUvhJPqgcg==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll",
+        "Microsoft.AdMediator.Universal.AdDuplex.nuspec",
+        "package/services/metadata/core-properties/54d51b84d6d74068ac240144c537da78.psmdcp"
       ]
     },
     "Microsoft.CSharp/4.0.0": {
@@ -15870,9 +16008,11 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "AdDuplexWin10 >= 10.0.1.1",
       "Comet >= 0.2.0",
       "Croft.Core.Common >= 1.1.0",
       "Croft.Core.UWP >= 1.1.0",
+      "Microsoft.AdMediator.Universal.AdDuplex >= 2.1.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "MvvmLightLibs >= 5.2.0"
     ],

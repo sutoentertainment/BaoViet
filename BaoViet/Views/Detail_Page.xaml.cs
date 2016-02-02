@@ -17,6 +17,9 @@ using Windows.UI.Xaml.Navigation;
 using BaoViet.Helpers;
 using Newtonsoft.Json;
 using Windows.Graphics.Display;
+using Microsoft.AdMediator.Core.Models;
+using BaoVietCore.Helpers;
+using System.Diagnostics;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -41,7 +44,70 @@ namespace BaoViet.Views
         {
             this.InitializeComponent();
             App.Current.OnRefreshRequested += App_OnRefreshRequested;
+            this.SizeChanged += Detail_Page_SizeChanged;
+            if (this.RenderSize.Width < 720)
+            {
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 320;
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 50;
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Width"] = 292;
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Height"] = 60;
+            }
+            else
+            {
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 160;
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 600;
+            }
+
+
+
+            AdMediator_05A7C1.AdSdkError += AdMediator_Bottom_AdError;
+            AdMediator_05A7C1.AdMediatorFilled += AdMediator_Bottom_AdFilled;
+            AdMediator_05A7C1.AdMediatorError += AdMediator_Bottom_AdMediatorError;
+            AdMediator_05A7C1.AdSdkEvent += AdMediator_Bottom_AdSdkEvent;
         }
+
+        private void Detail_Page_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (e.NewSize.Width < 720)
+            {
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 320;
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 50;
+
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Width"] = 292;
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Height"] = 60;
+            }
+            else
+            {
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 160;
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 600;
+
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Width"] = 160;
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Height"] = 600;
+            }
+        }
+
+        void AdMediator_Bottom_AdSdkEvent(object sender, Microsoft.AdMediator.Core.Events.AdSdkEventArgs e)
+        {
+            Debug.WriteLine("AdSdk event {0} by {1}", e.EventName, e.Name);
+        }
+
+        void AdMediator_Bottom_AdMediatorError(object sender, Microsoft.AdMediator.Core.Events.AdMediatorFailedEventArgs e)
+        {
+            Debug.WriteLine("AdMediatorError:" + e.Error + " " + e.ErrorCode);
+            // if (e.ErrorCode == AdMediatorErrorCode.NoAdAvailable)
+            // AdMediator will not show an ad for this mediation cycle
+        }
+
+        void AdMediator_Bottom_AdFilled(object sender, Microsoft.AdMediator.Core.Events.AdSdkEventArgs e)
+        {
+            Debug.WriteLine("AdFilled:" + e.Name);
+        }
+
+        void AdMediator_Bottom_AdError(object sender, Microsoft.AdMediator.Core.Events.AdFailedEventArgs e)
+        {
+            Debug.WriteLine("AdSdkError by {0} ErrorCode: {1} ErrorDescription: {2} Error: {3}", e.Name, e.ErrorCode, e.ErrorDescription, e.Error);
+        }
+
 
         ~Detail_Page()
         {
@@ -63,7 +129,7 @@ namespace BaoViet.Views
             webView.DOMContentLoaded += webView_DOMContentLoaded;
             webView.NavigationStarting += webView_NavigationStarting;
             webView.NavigationFailed += WebView_NavigationFailed;
-            
+
             webView.ScriptNotify += WebView_ScriptNotify;
             ViewModel.WebViewControl = webView;
             //webViewContainer.Children.Add(webView);
@@ -86,7 +152,7 @@ namespace BaoViet.Views
             catch { }
 
             ViewModel.ImageLocation = e.Value;
-            
+
             MenuContainerTransform.Y = pointerY;
 
             FlyoutBase flyoutBase = FlyoutBase.GetAttachedFlyout(MenuContainer);

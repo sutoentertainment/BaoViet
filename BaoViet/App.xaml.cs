@@ -150,6 +150,24 @@ namespace BaoViet
 
         private async void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
+            if (e != null)
+            {
+                Exception exception = e.Exception;
+                if (exception is NullReferenceException && exception.ToString().ToUpper().Contains("SOMA"))
+                {
+                    Debug.WriteLine("Handled Smaato null reference exception {0}", exception);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            // APP SPECIFIC HANDLING HERE
+
+            if (Debugger.IsAttached)
+            {
+                // An unhandled exception has occurred; break into the debugger
+                Debugger.Break();
+            }
+
             //TelemetryClient.TrackException(e.Exception);
             Manager.LogService.Log(e.ToString());
             Manager.LogService.Log(e.Message);
@@ -180,6 +198,7 @@ namespace BaoViet
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             Manager.TrackingService.AutoIntegrate();
+            AdDuplex.AdDuplexClient.Initialize("b1169327-404c-4c1f-bc89-45d21f9e9c64");
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {

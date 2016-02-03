@@ -11,7 +11,16 @@ install:
 
     "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\vsixinstaller.exe" /q sqlite-uap-3100200.vsix
 before_build:
-- cmd: nuget restore
+- ps: >-
+
+    nuget restore
+
+
+    Write-Host "Installing Microsoft Universal Ad Client SDK..."
+    $msiPath = "$($env:USERPROFILE)\MicrosoftUniversalAdSDK.msi"
+    (New-Object Net.WebClient).DownloadFile('https://visualstudiogallery.msdn.microsoft.com/401703a0-263e-4949-8f0f-738305d6ef4b/file/146057/9/MicrosoftUniversalAdSDK.msi', $msiPath)
+    cmd /c start /wait msiexec /i $msiPath /quiet
+    Write-Host "Installed" -ForegroundColor green
 
 build:
   verbosity: minimal

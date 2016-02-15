@@ -24,15 +24,21 @@ namespace BaoViet.VisualStateTriggers
             {
                 var InDebugMode = false;
                 var BoughAdRemover = false;
+                var showAd = false;
 #if DEBUG
                 InDebugMode = true;
 #endif
+                BoughAdRemover = App.Current.Manager.IAPService.CheckProduct("Remove_Ads");
 
-                if (BoughAdRemover || InDebugMode)
-
-                        SetActive(!this.ShowAd);
+                if (!BoughAdRemover && !InDebugMode)
+                    showAd = true;
                 else
-                        SetActive(this.ShowAd);
+                    showAd = false;
+
+                if (ShowAd == showAd)
+                    SetActive(true);
+                else
+                    SetActive(false);
 
             });
         }

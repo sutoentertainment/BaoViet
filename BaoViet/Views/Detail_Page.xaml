@@ -10,7 +10,7 @@
                                           Mode=OneWay,
                                           Source={StaticResource Locator}}"
                     NavigationCacheMode="Disabled"
-                    mc:Ignorable="d">
+                    mc:Ignorable="d" xmlns:trigger="using:BaoViet.VisualStateTriggers">
 
     <local:BindablePage.BottomAppBar>
         <CommandBar>
@@ -80,6 +80,15 @@
                         <Setter Target="AdMediator_05A7C1.VerticalAlignment" Value="Bottom" />
                         <Setter Target="WebViewWrapper.Margin" Value="0" />
                         <Setter Target="webViewDetailContainer.Margin" Value="0" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="NoAd">
+                    <VisualState.StateTriggers>
+                        <trigger:ShowAdTrigger ShowAd="False"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="AdMediator_05A7C1.Visibility" Value="Collapsed"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>

@@ -124,6 +124,7 @@ namespace BaoViet
             Manager.ImageService = new ImageService(Manager);
             Manager.TrackingService = new LocalyticsAdapterService(Manager);
             Manager.RssService = new RssService(Manager);
+            Manager.IAPService = new IAPService(Manager);
 
 
             Manager.Database.CreateTable<FeedItem>();
@@ -198,6 +199,7 @@ namespace BaoViet
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             Manager.TrackingService.AutoIntegrate();
+            Manager.IAPService.Init();
             AdDuplex.AdDuplexClient.Initialize("b1169327-404c-4c1f-bc89-45d21f9e9c64");
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)

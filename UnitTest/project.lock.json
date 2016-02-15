@@ -11,14 +11,6 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.1": {
-        "compile": {
-          "lib/portable-net45+win/Croft.Core.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win/Croft.Core.Common.dll": {}
-        }
-      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -1656,17 +1648,6 @@
         "runtime": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
         }
-      },
-      "WinUX.UWP/1.2.0": {
-        "dependencies": {
-          "WinUX.Common": "[1.2.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/WinUX.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/WinUX.UWP.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -1676,14 +1657,6 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "Croft.Core.Common/1.1.1": {
-        "compile": {
-          "lib/portable-net45+win/Croft.Core.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -3413,17 +3386,6 @@
         "runtime": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
         }
-      },
-      "WinUX.UWP/1.2.0": {
-        "dependencies": {
-          "WinUX.Common": "[1.2.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/WinUX.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/WinUX.UWP.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
@@ -3433,14 +3395,6 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "Croft.Core.Common/1.1.1": {
-        "compile": {
-          "lib/portable-net45+win/Croft.Core.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -5142,17 +5096,6 @@
         "runtime": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
         }
-      },
-      "WinUX.UWP/1.2.0": {
-        "dependencies": {
-          "WinUX.Common": "[1.2.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/WinUX.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/WinUX.UWP.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x64": {
@@ -5162,14 +5105,6 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "Croft.Core.Common/1.1.1": {
-        "compile": {
-          "lib/portable-net45+win/Croft.Core.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -6904,17 +6839,6 @@
         "runtime": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
         }
-      },
-      "WinUX.UWP/1.2.0": {
-        "dependencies": {
-          "WinUX.Common": "[1.2.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/WinUX.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/WinUX.UWP.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
@@ -6924,14 +6848,6 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "Croft.Core.Common/1.1.1": {
-        "compile": {
-          "lib/portable-net45+win/Croft.Core.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -8633,17 +8549,6 @@
         "runtime": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
         }
-      },
-      "WinUX.UWP/1.2.0": {
-        "dependencies": {
-          "WinUX.Common": "[1.2.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/WinUX.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/WinUX.UWP.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x86": {
@@ -8653,14 +8558,6 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "Croft.Core.Common/1.1.1": {
-        "compile": {
-          "lib/portable-net45+win/Croft.Core.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -10395,17 +10292,6 @@
         "runtime": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
         }
-      },
-      "WinUX.UWP/1.2.0": {
-        "dependencies": {
-          "WinUX.Common": "[1.2.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/WinUX.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/WinUX.UWP.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
@@ -10415,14 +10301,6 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "Croft.Core.Common/1.1.1": {
-        "compile": {
-          "lib/portable-net45+win/Croft.Core.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -12124,17 +12002,6 @@
         "runtime": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
         }
-      },
-      "WinUX.UWP/1.2.0": {
-        "dependencies": {
-          "WinUX.Common": "[1.2.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/WinUX.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/WinUX.UWP.dll": {}
-        }
       }
     }
   },
@@ -12152,17 +12019,6 @@
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML",
         "package/services/metadata/core-properties/8a82b9e5a63a439481bfa8d4ec335002.psmdcp",
         "package/services/metadata/core-properties/99be0c88b2fd41c8b07c42071005ee47.psmdcp"
-      ]
-    },
-    "Croft.Core.Common/1.1.1": {
-      "sha512": "rTb5EVesNOa5lCYpYuEmzsJMjaHNhBBW75R8Bbo9zymD7YrdZ1Neoy1HRHuFDAUjAEETpBYbBfMRMKF71a1DuA==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "Croft.Core.Common.nuspec",
-        "lib/portable-net45+win/Croft.Core.Common.dll",
-        "package/services/metadata/core-properties/4a99a6030d464eab863bece6d9eac3f3.psmdcp"
       ]
     },
     "HtmlAgilityPack/1.4.9": {
@@ -15826,18 +15682,6 @@
         "lib/portable-net45+win/WinUX.Common.dll",
         "package/services/metadata/core-properties/752450d79a734f2c84742f95044e6921.psmdcp",
         "WinUX.Common.nuspec"
-      ]
-    },
-    "WinUX.UWP/1.2.0": {
-      "sha512": "x2A4OUQN60mdxEB87944X4+EA2NSP9YwBjcd/N18QpYRxlMDAx6L8TLLZ31lzDyWJcfBAoQQOBuMjQB/RArmYg==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "content/Properties/Croft.Core.UWP.rd.xml",
-        "lib/.NETCore50/WinUX.UWP.dll",
-        "package/services/metadata/core-properties/0aab1f9ccfff4542a09a7c6dd7b7e77e.psmdcp",
-        "WinUX.UWP.nuspec"
       ]
     }
   },

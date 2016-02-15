@@ -114,6 +114,8 @@
     <Compile Include="Helpers\DeviceHelper.cs" />
     <Compile Include="Interfaces\ITrackingService.cs" />
     <Compile Include="Interfaces\IXmlParser.cs" />
+    <Compile Include="Services\IAPService.cs" />
+    <Compile Include="Interfaces\IIAPService.cs" />
     <Compile Include="Services\RssService.cs" />
     <Compile Include="XmlParser\TinTheThaoParser.cs" />
     <Compile Include="XmlParser\QuanTriMangParser.cs" />

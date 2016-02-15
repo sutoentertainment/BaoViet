@@ -216,6 +216,37 @@
                                             <TextBlock Text="Đánh giá phần mềm" />
                                         </StackPanel>
                                     </ListViewItem>
+
+                                    <Button Content="Gỡ quảng cáo" Background="Transparent" Padding="12" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                                        <Button.Flyout>
+                                            <Flyout Placement="Full">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="300"/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Với giá $1, bạn sẽ vĩnh viễn không thấy quảng cáo nữa. Đồng thời bạn sẽ được sử dụng những tính năng mới nhất miễn phí trong tương lai" TextWrapping="Wrap" Width="200" TextLineBounds="Full" TextAlignment="Center"/>
+                                                    <Button Content="Mua" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="RemoveAd_Tapped" Background="{StaticResource AppColor}" Grid.Row="1" Width="200" Height="60"/>
+                                                </Grid>
+                                            </Flyout>
+                                        </Button.Flyout>
+                                    </Button>
+
+
+                                    <Button Content="Mua coffee cho mình" Background="Transparent" Padding="12" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                                        <Button.Flyout>
+                                            <Flyout Placement="Full">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="300"/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Nếu bạn thấy thích phần mềm và hào phòng, một cốc coffee $1 sẽ giúp mình tỉnh táo và thêm động lực làm việc." TextWrapping="Wrap" Width="200" TextLineBounds="Full" TextAlignment="Center"/>
+                                                    <Button Content="Mua" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="Donate_Tapped" Background="{StaticResource AppColor}" Grid.Row="1" Width="200" Height="60"/>
+                                                </Grid>
+                                            </Flyout>
+                                        </Button.Flyout>
+                                    </Button>
                                 </StackPanel>
                             </ScrollViewer>
                         </PivotItem>

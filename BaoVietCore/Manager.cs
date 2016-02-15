@@ -13,6 +13,8 @@ namespace BaoVietCore
     {
         public static Manager Current { get; set; }
 
+        public IIAPService IAPService { get; set; }
+
         public IKeyboardService KeyboardService { get; set; }
 
         public IWebService WebService { get; set; }

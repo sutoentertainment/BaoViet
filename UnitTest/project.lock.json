@@ -11,23 +11,12 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.0": {
+      "Croft.Core.Common/1.1.1": {
         "compile": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        }
-      },
-      "Croft.Core.UWP/1.1.0": {
-        "dependencies": {
-          "Croft.Core.Common": "[1.1.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -44,6 +33,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "MarkdownSharp.UWP/1.5.2": {
+        "compile": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -1651,6 +1648,25 @@
         "runtime": {
           "lib/uap10.0/UniversalRateReminder.dll": {}
         }
+      },
+      "WinUX.Common/1.2.0": {
+        "compile": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        }
+      },
+      "WinUX.UWP/1.2.0": {
+        "dependencies": {
+          "WinUX.Common": "[1.2.0, )"
+        },
+        "compile": {
+          "lib/.NETCore50/WinUX.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/.NETCore50/WinUX.UWP.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -1662,23 +1678,12 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.0": {
+      "Croft.Core.Common/1.1.1": {
         "compile": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        }
-      },
-      "Croft.Core.UWP/1.1.0": {
-        "dependencies": {
-          "Croft.Core.Common": "[1.1.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -1695,6 +1700,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "MarkdownSharp.UWP/1.5.2": {
+        "compile": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -3392,6 +3405,25 @@
         "runtime": {
           "lib/uap10.0/UniversalRateReminder.dll": {}
         }
+      },
+      "WinUX.Common/1.2.0": {
+        "compile": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        }
+      },
+      "WinUX.UWP/1.2.0": {
+        "dependencies": {
+          "WinUX.Common": "[1.2.0, )"
+        },
+        "compile": {
+          "lib/.NETCore50/WinUX.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/.NETCore50/WinUX.UWP.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
@@ -3403,23 +3435,12 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.0": {
+      "Croft.Core.Common/1.1.1": {
         "compile": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        }
-      },
-      "Croft.Core.UWP/1.1.0": {
-        "dependencies": {
-          "Croft.Core.Common": "[1.1.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -3436,6 +3457,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "MarkdownSharp.UWP/1.5.2": {
+        "compile": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -5105,6 +5134,25 @@
         "runtime": {
           "lib/uap10.0/UniversalRateReminder.dll": {}
         }
+      },
+      "WinUX.Common/1.2.0": {
+        "compile": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        }
+      },
+      "WinUX.UWP/1.2.0": {
+        "dependencies": {
+          "WinUX.Common": "[1.2.0, )"
+        },
+        "compile": {
+          "lib/.NETCore50/WinUX.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/.NETCore50/WinUX.UWP.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64": {
@@ -5116,23 +5164,12 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.0": {
+      "Croft.Core.Common/1.1.1": {
         "compile": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        }
-      },
-      "Croft.Core.UWP/1.1.0": {
-        "dependencies": {
-          "Croft.Core.Common": "[1.1.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -5149,6 +5186,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "MarkdownSharp.UWP/1.5.2": {
+        "compile": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -6851,6 +6896,25 @@
         "runtime": {
           "lib/uap10.0/UniversalRateReminder.dll": {}
         }
+      },
+      "WinUX.Common/1.2.0": {
+        "compile": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        }
+      },
+      "WinUX.UWP/1.2.0": {
+        "dependencies": {
+          "WinUX.Common": "[1.2.0, )"
+        },
+        "compile": {
+          "lib/.NETCore50/WinUX.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/.NETCore50/WinUX.UWP.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
@@ -6862,23 +6926,12 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.0": {
+      "Croft.Core.Common/1.1.1": {
         "compile": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        }
-      },
-      "Croft.Core.UWP/1.1.0": {
-        "dependencies": {
-          "Croft.Core.Common": "[1.1.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -6895,6 +6948,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "MarkdownSharp.UWP/1.5.2": {
+        "compile": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -8564,6 +8625,25 @@
         "runtime": {
           "lib/uap10.0/UniversalRateReminder.dll": {}
         }
+      },
+      "WinUX.Common/1.2.0": {
+        "compile": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        }
+      },
+      "WinUX.UWP/1.2.0": {
+        "dependencies": {
+          "WinUX.Common": "[1.2.0, )"
+        },
+        "compile": {
+          "lib/.NETCore50/WinUX.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/.NETCore50/WinUX.UWP.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86": {
@@ -8575,23 +8655,12 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.0": {
+      "Croft.Core.Common/1.1.1": {
         "compile": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        }
-      },
-      "Croft.Core.UWP/1.1.0": {
-        "dependencies": {
-          "Croft.Core.Common": "[1.1.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -8608,6 +8677,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "MarkdownSharp.UWP/1.5.2": {
+        "compile": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -10310,6 +10387,25 @@
         "runtime": {
           "lib/uap10.0/UniversalRateReminder.dll": {}
         }
+      },
+      "WinUX.Common/1.2.0": {
+        "compile": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        }
+      },
+      "WinUX.UWP/1.2.0": {
+        "dependencies": {
+          "WinUX.Common": "[1.2.0, )"
+        },
+        "compile": {
+          "lib/.NETCore50/WinUX.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/.NETCore50/WinUX.UWP.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
@@ -10321,23 +10417,12 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.0": {
+      "Croft.Core.Common/1.1.1": {
         "compile": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
+          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        }
-      },
-      "Croft.Core.UWP/1.1.0": {
-        "dependencies": {
-          "Croft.Core.Common": "[1.1.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
+          "lib/portable-net45+win/Croft.Core.Common.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -10354,6 +10439,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "MarkdownSharp.UWP/1.5.2": {
+        "compile": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -12023,6 +12116,25 @@
         "runtime": {
           "lib/uap10.0/UniversalRateReminder.dll": {}
         }
+      },
+      "WinUX.Common/1.2.0": {
+        "compile": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        }
+      },
+      "WinUX.UWP/1.2.0": {
+        "dependencies": {
+          "WinUX.Common": "[1.2.0, )"
+        },
+        "compile": {
+          "lib/.NETCore50/WinUX.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/.NETCore50/WinUX.UWP.dll": {}
+        }
       }
     }
   },
@@ -12042,27 +12154,15 @@
         "package/services/metadata/core-properties/99be0c88b2fd41c8b07c42071005ee47.psmdcp"
       ]
     },
-    "Croft.Core.Common/1.1.0": {
-      "sha512": "nBYY36vn8qFaPsijYd6n8tZN8fugJVp2+pWn4XCnjHxPhEb+RnxwQ6Vw0Zz4riw87yVdA7bIGTlTo6PWSTEIhg==",
+    "Croft.Core.Common/1.1.1": {
+      "sha512": "rTb5EVesNOa5lCYpYuEmzsJMjaHNhBBW75R8Bbo9zymD7YrdZ1Neoy1HRHuFDAUjAEETpBYbBfMRMKF71a1DuA==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
         "_rels/.rels",
         "Croft.Core.Common.nuspec",
-        "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll",
-        "package/services/metadata/core-properties/7f5d113ae0424a1fab7fbc170841a8cc.psmdcp"
-      ]
-    },
-    "Croft.Core.UWP/1.1.0": {
-      "sha512": "fy5ON78ZPdii9kSDBEUfWmGS/56qTnAvyYkL/R4Yp8BffKxf1WxNNHU5lvCL8+bewKRuiR3MX8kF96LyOCeY3w==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "content/Properties/Croft.Core.UWP.rd.xml",
-        "Croft.Core.UWP.nuspec",
-        "lib/.NETCore50/Croft.Core.UWP.dll",
-        "package/services/metadata/core-properties/3d1d77266a3e43ffacfa0634cea5b19c.psmdcp"
+        "lib/portable-net45+win/Croft.Core.Common.dll",
+        "package/services/metadata/core-properties/4a99a6030d464eab863bece6d9eac3f3.psmdcp"
       ]
     },
     "HtmlAgilityPack/1.4.9": {
@@ -12113,6 +12213,18 @@
         "lib/portable-win81+wpa81/LocalyticsComponent.winmd",
         "Localytics.nuspec",
         "package/services/metadata/core-properties/944085edf2d544a0b0619be1b5de0d8a.psmdcp"
+      ]
+    },
+    "MarkdownSharp.UWP/1.5.2": {
+      "sha512": "6TAgMEMPB9VZJK58MOsVx4weynXSCukZF3qcYVv/8VXBFsDDpML+Elk0yeNhAmgMdYJ56N0QL702D5otFce3Rg==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/win81/MarkdownSharp.UWP.dll",
+        "lib/win81/MarkdownSharp.UWP.pdb",
+        "MarkdownSharp.UWP.nuspec",
+        "package/services/metadata/core-properties/0874fa08f4134c5bb24e9521bff5e27f.psmdcp"
       ]
     },
     "Microsoft.CSharp/4.0.0": {
@@ -15703,6 +15815,29 @@
         "lib/uap10.0/UniversalRateReminder/Properties/UniversalRateReminder.rd.xml",
         "package/services/metadata/core-properties/d779faa918d04526a74f7f11ed292e65.psmdcp",
         "UniversalRateReminder.nuspec"
+      ]
+    },
+    "WinUX.Common/1.2.0": {
+      "sha512": "ZgFToPM2Md/xswa40A7UwHZt+fBhiHYY5k/PzTquwiilFYFWgmbDepl1O4x8+l4xE48U1op2TzPIrJk9RlgpFw==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/portable-net45+win/WinUX.Common.dll",
+        "package/services/metadata/core-properties/752450d79a734f2c84742f95044e6921.psmdcp",
+        "WinUX.Common.nuspec"
+      ]
+    },
+    "WinUX.UWP/1.2.0": {
+      "sha512": "x2A4OUQN60mdxEB87944X4+EA2NSP9YwBjcd/N18QpYRxlMDAx6L8TLLZ31lzDyWJcfBAoQQOBuMjQB/RArmYg==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "content/Properties/Croft.Core.UWP.rd.xml",
+        "lib/.NETCore50/WinUX.UWP.dll",
+        "package/services/metadata/core-properties/0aab1f9ccfff4542a09a7c6dd7b7e77e.psmdcp",
+        "WinUX.UWP.nuspec"
       ]
     }
   },

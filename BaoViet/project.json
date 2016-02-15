@@ -1,9 +1,7 @@
 ﻿{
   "dependencies": {
-    "AdDuplexWin10": "10.0.1.1",
-    "Comet": "0.2.0",
-    "Croft.Core.Common": "1.1.0",
-    "Croft.Core.UWP": "1.1.0",
+    "AdDuplexWin10": "10.0.1.3",
+    "Comet": "0.2.0.1",
     "Microsoft.AdMediator.Universal.AdDuplex": "2.1.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "MvvmLightLibs": "5.2.0"

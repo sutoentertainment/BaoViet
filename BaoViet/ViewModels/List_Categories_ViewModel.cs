@@ -84,6 +84,9 @@ namespace BaoViet.ViewModels
         {
             if (e.NavigationMode == NavigationMode.Back)
             {
+                //Clear frame cache
+                App.Current.NavigationService.ClearCache(FrameKey.MainFrame);
+
                 if (CurrentPaper.Categories.Count <= 1)
 
                     await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>

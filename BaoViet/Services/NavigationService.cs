@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace BaoViet.Services
 {
@@ -65,6 +66,13 @@ namespace BaoViet.Services
         {
             Debug.WriteLine(page.ToString());
             FrameDictionary[framekey].Navigate(PageDictionary[page], parameter);
+        }
+
+        internal void ClearCache(FrameKey framekey)
+        {
+            var size = FrameDictionary[framekey].CacheSize;
+            FrameDictionary[framekey].CacheSize = 0;
+            FrameDictionary[framekey].CacheSize = size;
         }
     }
 }

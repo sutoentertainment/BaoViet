@@ -1,7 +1,6 @@
 ﻿using BaoViet.Interfaces;
 using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
-using Croft.Core.Extensions;
 using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
@@ -10,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Navigation;
+using WinUX.Extensions;
 
 namespace BaoViet.ViewModels
 {

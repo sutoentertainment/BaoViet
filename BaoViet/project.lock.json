@@ -3,7 +3,7 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
-      "AdDuplexWin10/10.0.1.1": {
+      "AdDuplexWin10/10.0.1.3": {
         "compile": {
           "lib/uap10.0/AdDuplex.winmd": {}
         },
@@ -11,7 +11,7 @@
           "lib/uap10.0/AdDuplex.winmd": {}
         }
       },
-      "Comet/0.2.0": {
+      "Comet/0.2.0.1": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
           "System.Diagnostics.Debug": "[4.0.10, )",
@@ -40,25 +40,6 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.0": {
-        "compile": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        }
-      },
-      "Croft.Core.UWP/1.1.0": {
-        "dependencies": {
-          "Croft.Core.Common": "[1.1.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        }
-      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -73,6 +54,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "MarkdownSharp.UWP/1.5.2": {
+        "compile": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
         }
       },
       "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
@@ -1688,10 +1677,18 @@
         "runtime": {
           "lib/uap10.0/UniversalRateReminder.dll": {}
         }
+      },
+      "WinUX.Common/1.2.0": {
+        "compile": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
-      "AdDuplexWin10/10.0.1.1": {
+      "AdDuplexWin10/10.0.1.3": {
         "compile": {
           "lib/uap10.0/AdDuplex.winmd": {}
         },
@@ -1699,7 +1696,7 @@
           "lib/uap10.0/AdDuplex.winmd": {}
         }
       },
-      "Comet/0.2.0": {
+      "Comet/0.2.0.1": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
           "System.Diagnostics.Debug": "[4.0.10, )",
@@ -1728,25 +1725,6 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.0": {
-        "compile": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        }
-      },
-      "Croft.Core.UWP/1.1.0": {
-        "dependencies": {
-          "Croft.Core.Common": "[1.1.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        }
-      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -1761,6 +1739,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "MarkdownSharp.UWP/1.5.2": {
+        "compile": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
         }
       },
       "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
@@ -3466,10 +3452,18 @@
         "runtime": {
           "lib/uap10.0/UniversalRateReminder.dll": {}
         }
+      },
+      "WinUX.Common/1.2.0": {
+        "compile": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
-      "AdDuplexWin10/10.0.1.1": {
+      "AdDuplexWin10/10.0.1.3": {
         "compile": {
           "lib/uap10.0/AdDuplex.winmd": {}
         },
@@ -3477,7 +3471,7 @@
           "lib/uap10.0/AdDuplex.winmd": {}
         }
       },
-      "Comet/0.2.0": {
+      "Comet/0.2.0.1": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
           "System.Diagnostics.Debug": "[4.0.10, )",
@@ -3506,25 +3500,6 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.0": {
-        "compile": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        }
-      },
-      "Croft.Core.UWP/1.1.0": {
-        "dependencies": {
-          "Croft.Core.Common": "[1.1.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        }
-      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -3539,6 +3514,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "MarkdownSharp.UWP/1.5.2": {
+        "compile": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
         }
       },
       "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
@@ -5216,10 +5199,18 @@
         "runtime": {
           "lib/uap10.0/UniversalRateReminder.dll": {}
         }
+      },
+      "WinUX.Common/1.2.0": {
+        "compile": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64": {
-      "AdDuplexWin10/10.0.1.1": {
+      "AdDuplexWin10/10.0.1.3": {
         "compile": {
           "lib/uap10.0/AdDuplex.winmd": {}
         },
@@ -5227,7 +5218,7 @@
           "lib/uap10.0/AdDuplex.winmd": {}
         }
       },
-      "Comet/0.2.0": {
+      "Comet/0.2.0.1": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
           "System.Diagnostics.Debug": "[4.0.10, )",
@@ -5256,25 +5247,6 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.0": {
-        "compile": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        }
-      },
-      "Croft.Core.UWP/1.1.0": {
-        "dependencies": {
-          "Croft.Core.Common": "[1.1.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        }
-      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -5289,6 +5261,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "MarkdownSharp.UWP/1.5.2": {
+        "compile": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
         }
       },
       "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
@@ -6999,10 +6979,18 @@
         "runtime": {
           "lib/uap10.0/UniversalRateReminder.dll": {}
         }
+      },
+      "WinUX.Common/1.2.0": {
+        "compile": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
-      "AdDuplexWin10/10.0.1.1": {
+      "AdDuplexWin10/10.0.1.3": {
         "compile": {
           "lib/uap10.0/AdDuplex.winmd": {}
         },
@@ -7010,7 +6998,7 @@
           "lib/uap10.0/AdDuplex.winmd": {}
         }
       },
-      "Comet/0.2.0": {
+      "Comet/0.2.0.1": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
           "System.Diagnostics.Debug": "[4.0.10, )",
@@ -7039,25 +7027,6 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.0": {
-        "compile": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        }
-      },
-      "Croft.Core.UWP/1.1.0": {
-        "dependencies": {
-          "Croft.Core.Common": "[1.1.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        }
-      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -7072,6 +7041,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "MarkdownSharp.UWP/1.5.2": {
+        "compile": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
         }
       },
       "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
@@ -8749,10 +8726,18 @@
         "runtime": {
           "lib/uap10.0/UniversalRateReminder.dll": {}
         }
+      },
+      "WinUX.Common/1.2.0": {
+        "compile": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86": {
-      "AdDuplexWin10/10.0.1.1": {
+      "AdDuplexWin10/10.0.1.3": {
         "compile": {
           "lib/uap10.0/AdDuplex.winmd": {}
         },
@@ -8760,7 +8745,7 @@
           "lib/uap10.0/AdDuplex.winmd": {}
         }
       },
-      "Comet/0.2.0": {
+      "Comet/0.2.0.1": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
           "System.Diagnostics.Debug": "[4.0.10, )",
@@ -8789,25 +8774,6 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.0": {
-        "compile": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        }
-      },
-      "Croft.Core.UWP/1.1.0": {
-        "dependencies": {
-          "Croft.Core.Common": "[1.1.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        }
-      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -8822,6 +8788,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "MarkdownSharp.UWP/1.5.2": {
+        "compile": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
         }
       },
       "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
@@ -10532,10 +10506,18 @@
         "runtime": {
           "lib/uap10.0/UniversalRateReminder.dll": {}
         }
+      },
+      "WinUX.Common/1.2.0": {
+        "compile": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
-      "AdDuplexWin10/10.0.1.1": {
+      "AdDuplexWin10/10.0.1.3": {
         "compile": {
           "lib/uap10.0/AdDuplex.winmd": {}
         },
@@ -10543,7 +10525,7 @@
           "lib/uap10.0/AdDuplex.winmd": {}
         }
       },
-      "Comet/0.2.0": {
+      "Comet/0.2.0.1": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
           "System.Diagnostics.Debug": "[4.0.10, )",
@@ -10572,25 +10554,6 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "Croft.Core.Common/1.1.0": {
-        "compile": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll": {}
-        }
-      },
-      "Croft.Core.UWP/1.1.0": {
-        "dependencies": {
-          "Croft.Core.Common": "[1.1.0, )"
-        },
-        "compile": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        },
-        "runtime": {
-          "lib/.NETCore50/Croft.Core.UWP.dll": {}
-        }
-      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -10605,6 +10568,14 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/LocalyticsComponent.winmd": {}
+        }
+      },
+      "MarkdownSharp.UWP/1.5.2": {
+        "compile": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MarkdownSharp.UWP.dll": {}
         }
       },
       "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
@@ -12282,12 +12253,20 @@
         "runtime": {
           "lib/uap10.0/UniversalRateReminder.dll": {}
         }
+      },
+      "WinUX.Common/1.2.0": {
+        "compile": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win/WinUX.Common.dll": {}
+        }
       }
     }
   },
   "libraries": {
-    "AdDuplexWin10/10.0.1.1": {
-      "sha512": "LVNpWq/wGXlPeKugLgCajg8dkJAiPOWidQH6aW4xn+73/TaeX/fnXyOHagS0AlE7DJgsDcK45H2qHr70m3RXJw==",
+    "AdDuplexWin10/10.0.1.3": {
+      "sha512": "YV5yJWI/REaMKXK7fSsyGuvmsmnnbNpRB6XNeAvwZr0NDyOSKSf5sWhBkM8U8VwRX9IDwkcXaefTMvU7OTbpBg==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -12298,11 +12277,11 @@
         "lib/uap10.0/AdDuplex/InterstitialUserControl.xbf",
         "lib/uap10.0/AdDuplex/Themes/Generic.xbf",
         "lib/uap10.0/AdDuplex/Windows 10 SDK.xr.xml",
-        "package/services/metadata/core-properties/5283ef7dfbbb40cab04b89fedbc7592b.psmdcp"
+        "package/services/metadata/core-properties/24f66cc569a34832bced71dd67bd80a6.psmdcp"
       ]
     },
-    "Comet/0.2.0": {
-      "sha512": "xIargCBt6VZk2nOc1nN7hnt/pa+bAQ3nowo2aZFQXrTP2cfuswkZ3CaJILtCb33f+hTnEOYzsyfG5uGU8iILnQ==",
+    "Comet/0.2.0.1": {
+      "sha512": "cq6JgJVyxu+QQZQ6fm6Rm3AER+aPZx24vNlDt7xzj3hgG0KVemS4Pmb9al3xjReYiBUDkL38bjvbnxMDUZ2rZQ==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -12313,7 +12292,7 @@
         "lib/uap10.0/Comet/Comet.xr.xml",
         "lib/uap10.0/Comet/Properties/Comet.rd.xml",
         "lib/uap10.0/Comet/Themes/Generic.xbf",
-        "package/services/metadata/core-properties/436b0e550ce04179ba434b732fb4a907.psmdcp"
+        "package/services/metadata/core-properties/4ac801990a934ca79a973956fa81ee5d.psmdcp"
       ]
     },
     "CommonServiceLocator/1.3.0": {
@@ -12329,29 +12308,6 @@
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML",
         "package/services/metadata/core-properties/8a82b9e5a63a439481bfa8d4ec335002.psmdcp",
         "package/services/metadata/core-properties/99be0c88b2fd41c8b07c42071005ee47.psmdcp"
-      ]
-    },
-    "Croft.Core.Common/1.1.0": {
-      "sha512": "nBYY36vn8qFaPsijYd6n8tZN8fugJVp2+pWn4XCnjHxPhEb+RnxwQ6Vw0Zz4riw87yVdA7bIGTlTo6PWSTEIhg==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "Croft.Core.Common.nuspec",
-        "lib/portable-net45+dnxcore50+win/Croft.Core.Common.dll",
-        "package/services/metadata/core-properties/7f5d113ae0424a1fab7fbc170841a8cc.psmdcp"
-      ]
-    },
-    "Croft.Core.UWP/1.1.0": {
-      "sha512": "fy5ON78ZPdii9kSDBEUfWmGS/56qTnAvyYkL/R4Yp8BffKxf1WxNNHU5lvCL8+bewKRuiR3MX8kF96LyOCeY3w==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "content/Properties/Croft.Core.UWP.rd.xml",
-        "Croft.Core.UWP.nuspec",
-        "lib/.NETCore50/Croft.Core.UWP.dll",
-        "package/services/metadata/core-properties/3d1d77266a3e43ffacfa0634cea5b19c.psmdcp"
       ]
     },
     "HtmlAgilityPack/1.4.9": {
@@ -12402,6 +12358,18 @@
         "lib/portable-win81+wpa81/LocalyticsComponent.winmd",
         "Localytics.nuspec",
         "package/services/metadata/core-properties/944085edf2d544a0b0619be1b5de0d8a.psmdcp"
+      ]
+    },
+    "MarkdownSharp.UWP/1.5.2": {
+      "sha512": "6TAgMEMPB9VZJK58MOsVx4weynXSCukZF3qcYVv/8VXBFsDDpML+Elk0yeNhAmgMdYJ56N0QL702D5otFce3Rg==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/win81/MarkdownSharp.UWP.dll",
+        "lib/win81/MarkdownSharp.UWP.pdb",
+        "MarkdownSharp.UWP.nuspec",
+        "package/services/metadata/core-properties/0874fa08f4134c5bb24e9521bff5e27f.psmdcp"
       ]
     },
     "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
@@ -16004,14 +15972,23 @@
         "package/services/metadata/core-properties/d779faa918d04526a74f7f11ed292e65.psmdcp",
         "UniversalRateReminder.nuspec"
       ]
+    },
+    "WinUX.Common/1.2.0": {
+      "sha512": "ZgFToPM2Md/xswa40A7UwHZt+fBhiHYY5k/PzTquwiilFYFWgmbDepl1O4x8+l4xE48U1op2TzPIrJk9RlgpFw==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/portable-net45+win/WinUX.Common.dll",
+        "package/services/metadata/core-properties/752450d79a734f2c84742f95044e6921.psmdcp",
+        "WinUX.Common.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "AdDuplexWin10 >= 10.0.1.1",
-      "Comet >= 0.2.0",
-      "Croft.Core.Common >= 1.1.0",
-      "Croft.Core.UWP >= 1.1.0",
+      "AdDuplexWin10 >= 10.0.1.3",
+      "Comet >= 0.2.0.1",
       "Microsoft.AdMediator.Universal.AdDuplex >= 2.1.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "MvvmLightLibs >= 5.2.0"

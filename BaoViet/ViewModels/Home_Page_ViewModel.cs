@@ -159,7 +159,9 @@ namespace BaoViet.ViewModels
         {
             RegisterMessage();
             if (e.NavigationMode == NavigationMode.Back)
+            {
                 return;
+            }
 
             if (e.Parameter != null)
             {

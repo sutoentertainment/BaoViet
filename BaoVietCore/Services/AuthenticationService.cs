@@ -6,6 +6,7 @@ using Windows.Security.Credentials;
 using Windows.Security.Cryptography;
 using System.Threading.Tasks;
 using BaoVietCore.Interfaces;
+using Windows.Security.Credentials.UI;
 
 namespace BaoVietCore.Services
 {
@@ -113,6 +114,25 @@ namespace BaoVietCore.Services
                 vault.Remove(item);
             }
 
+        }
+
+        public async Task<AuthenticationResult> RequestUserConsent()
+        {
+            var result = await UserConsentVerifier.CheckAvailabilityAsync();
+
+            if (result == UserConsentVerifierAvailability.Available)
+            {
+                var verifiedResult = await UserConsentVerifier.RequestVerificationAsync(
+                  "Just checking that you are really you :-)");
+
+                if (verifiedResult == UserConsentVerificationResult.Verified)
+                {
+                    return AuthenticationResult.Success;
+                }
+                return AuthenticationResult.Fail;
+            }
+            else
+                return AuthenticationResult.NotAvailable;
         }
     }
 

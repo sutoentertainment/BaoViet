@@ -8,6 +8,8 @@ namespace BaoVietCore.Interfaces
 
         AuthenticationResult PasswordAuthen(string input);
 
+        Task<AuthenticationResult> RequestUserConsent();
+
         void CreatePassword(string password);
 
         void DeleteAccount();

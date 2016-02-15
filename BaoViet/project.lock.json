@@ -3,6 +3,14 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
+      "AdaptiveTriggerLibrary/1.2.1": {
+        "compile": {
+          "lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
+        }
+      },
       "AdDuplexWin10/10.0.1.3": {
         "compile": {
           "lib/uap10.0/AdDuplex.winmd": {}
@@ -1688,6 +1696,14 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
+      "AdaptiveTriggerLibrary/1.2.1": {
+        "compile": {
+          "runtimes/win10-arm/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
+        },
+        "runtime": {
+          "runtimes/win10-arm/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
+        }
+      },
       "AdDuplexWin10/10.0.1.3": {
         "compile": {
           "lib/uap10.0/AdDuplex.winmd": {}
@@ -3463,6 +3479,14 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
+      "AdaptiveTriggerLibrary/1.2.1": {
+        "compile": {
+          "runtimes/win10-arm/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
+        },
+        "runtime": {
+          "runtimes/win10-arm/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
+        }
+      },
       "AdDuplexWin10/10.0.1.3": {
         "compile": {
           "lib/uap10.0/AdDuplex.winmd": {}
@@ -5210,6 +5234,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
+      "AdaptiveTriggerLibrary/1.2.1": {
+        "compile": {
+          "runtimes/win10-x64/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
+        },
+        "runtime": {
+          "runtimes/win10-x64/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
+        }
+      },
       "AdDuplexWin10/10.0.1.3": {
         "compile": {
           "lib/uap10.0/AdDuplex.winmd": {}
@@ -6990,6 +7022,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
+      "AdaptiveTriggerLibrary/1.2.1": {
+        "compile": {
+          "runtimes/win10-x64/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
+        },
+        "runtime": {
+          "runtimes/win10-x64/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
+        }
+      },
       "AdDuplexWin10/10.0.1.3": {
         "compile": {
           "lib/uap10.0/AdDuplex.winmd": {}
@@ -8737,6 +8777,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
+      "AdaptiveTriggerLibrary/1.2.1": {
+        "compile": {
+          "runtimes/win10-x86/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
+        },
+        "runtime": {
+          "runtimes/win10-x86/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
+        }
+      },
       "AdDuplexWin10/10.0.1.3": {
         "compile": {
           "lib/uap10.0/AdDuplex.winmd": {}
@@ -10517,6 +10565,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
+      "AdaptiveTriggerLibrary/1.2.1": {
+        "compile": {
+          "runtimes/win10-x86/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
+        },
+        "runtime": {
+          "runtimes/win10-x86/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
+        }
+      },
       "AdDuplexWin10/10.0.1.3": {
         "compile": {
           "lib/uap10.0/AdDuplex.winmd": {}
@@ -12265,6 +12321,21 @@
     }
   },
   "libraries": {
+    "AdaptiveTriggerLibrary/1.2.1": {
+      "sha512": "lVRCPM11BGDAKXpsrNRYb717tDWLIowDg9yv7zEvqjO7A7FxJp9lxVm9lLAqKyY/ZOUUFfrdxYDPAb2V5LirkA==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "AdaptiveTriggerLibrary.nuspec",
+        "lib/uap10.0/AdaptiveTriggerLibrary.dll",
+        "lib/uap10.0/AdaptiveTriggerLibrary.xml",
+        "package/services/metadata/core-properties/08873abab63b4275b91fb1ce32553ba8.psmdcp",
+        "runtimes/win10-arm/lib/uap10.0/AdaptiveTriggerLibrary.dll",
+        "runtimes/win10-x64/lib/uap10.0/AdaptiveTriggerLibrary.dll",
+        "runtimes/win10-x86/lib/uap10.0/AdaptiveTriggerLibrary.dll"
+      ]
+    },
     "AdDuplexWin10/10.0.1.3": {
       "sha512": "YV5yJWI/REaMKXK7fSsyGuvmsmnnbNpRB6XNeAvwZr0NDyOSKSf5sWhBkM8U8VwRX9IDwkcXaefTMvU7OTbpBg==",
       "type": "Package",
@@ -15987,6 +16058,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "AdaptiveTriggerLibrary >= 1.2.1",
       "AdDuplexWin10 >= 10.0.1.3",
       "Comet >= 0.2.0.1",
       "Microsoft.AdMediator.Universal.AdDuplex >= 2.1.0",

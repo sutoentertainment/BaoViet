@@ -60,6 +60,11 @@
                         <Setter Target="AdMediator_05A7C1.VerticalAlignment" Value="Top" />
                         <Setter Target="WebViewWrapper.Margin" Value="0,0,160,0" />
                         <Setter Target="webViewDetailContainer.Margin" Value="0,0,160,0" />
+
+                        <Setter Target="webViewDetail.Width" Value="600" />
+                        <Setter Target="webViewDetail.HorizontalAlignment" Value="Center" />
+                        <Setter Target="webView.Width" Value="600" />
+                        <Setter Target="webView.HorizontalAlignment" Value="Center" />
                     </VisualState.Setters>
                 </VisualState>
 
@@ -96,7 +101,7 @@
               Grid.Row="1">
 
             <Grid x:Name="webViewContainer">
-                <WebView x:Name="webView" />
+                <WebView x:Name="webView"/>
                 <Grid x:Name="MenuContainer"
                       Width="0"
                       Height="0"
@@ -119,7 +124,7 @@
               Grid.RowSpan="2"
               Visibility="{Binding IsFullScreen,
                                    Converter={StaticResource BooleanToVisibility}}">
-            <WebView x:Name="webViewDetail" control:WebViewExtensions.SourceBinding="{Binding FullScreenSource, Mode=TwoWay}" />
+            <WebView x:Name="webViewDetail" control:WebViewExtensions.SourceBinding="{Binding FullScreenSource, Mode=TwoWay}"/>
         </Grid>
 
         <ProgressBar Grid.Row="1"

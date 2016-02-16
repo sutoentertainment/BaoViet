@@ -41,8 +41,8 @@
                 <!--  For PC, Xbox, Tablet  -->
                 <VisualState x:Name="TabletState">
                     <VisualState.Setters>
-                        <Setter Target="splitView.DisplayMode" Value="Overlay" />
-                        <Setter Target="splitView.IsPaneOpen" Value="False" />
+                        <!--<Setter Target="splitView.DisplayMode" Value="Overlay" />-->
+                        <!--<Setter Target="splitView.IsPaneOpen" Value="False" />-->
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="720" />
@@ -52,8 +52,8 @@
                 <!--  For Phone, Phablet and small Tablet  -->
                 <VisualState x:Name="PhoneState">
                     <VisualState.Setters>
-                        <Setter Target="splitView.DisplayMode" Value="Overlay" />
-                        <Setter Target="splitView.IsPaneOpen" Value="False" />
+                        <!--<Setter Target="splitView.DisplayMode" Value="Overlay" />-->
+                        <!--<Setter Target="splitView.IsPaneOpen" Value="False" />-->
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />
@@ -92,13 +92,20 @@
 
         <SplitView x:Name="splitView"
                    Grid.Row="1"
-                   CompactPaneLength="0"
                    DisplayMode="Overlay"
                    IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}">
-            <!--  IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}"  -->
+            <!--
+                DisplayMode="Overlay"
+                IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}"
+            -->
 
             <SplitView.Pane>
                 <Grid Background="{StaticResource AppBlackGray}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
                     <ListView x:Name="SideMenu"
                               IsItemClickEnabled="True"
                               ItemClick="SlideMenu_ItemClick"
@@ -116,24 +123,30 @@
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
-
-                        <!--<ListViewItem>
-                            <RadioButton Style="{StaticResource SplitViewRadioButtonStyle}" Content="Trang nhất">
-                                <RadioButton.Tag>
-                                    <FontIcon FontSize="20" Glyph="&#xE154;"/>
-                                </RadioButton.Tag>
-                            </RadioButton>
-                        </ListViewItem>
-                        <ListViewItem Content="Tin tức theo chuyên mục"/>
-
-                        <ListViewItem>
-                        </ListViewItem>
-
-                        <ListViewItem Content="Về phần mềm"/>
-                        <ListViewItem Content="Đóng góp ý kiến"/>
-                        <ListViewItem Content="Đáng giá phần mềm"/>
-                        <ListViewItem Content="Cài đặt"/>-->
                     </ListView>
+
+                    <Grid x:Name="SideMenuContainer"
+                          Grid.Row="1"
+                          Background="{ThemeResource SystemAccentColor}"
+                          RenderTransformOrigin="0.5,1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Grid.RenderTransform>
+                            <TranslateTransform Y="60" />
+                        </Grid.RenderTransform>
+
+                        <Grid Background="#55000000">
+                            <TextBlock Margin="20,0"
+                                       VerticalAlignment="Center"
+                                       Text="Công cụ khác" />
+
+                        </Grid>
+
+                        <ListView Grid.Row="1" />
+                    </Grid>
                 </Grid>
             </SplitView.Pane>
             <SplitView.Content>
@@ -156,7 +169,7 @@
 
                                 <i:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="ItemClick">
-                                        <core:InvokeCommandAction Command="{x:Bind ViewModel.PaperClickedCommand}"/>
+                                        <core:InvokeCommandAction Command="{x:Bind ViewModel.PaperClickedCommand}" />
                                     </core:EventTriggerBehavior>
                                 </i:Interaction.Behaviors>
 
@@ -217,32 +230,66 @@
                                         </StackPanel>
                                     </ListViewItem>
 
-                                    <Button Content="Gỡ quảng cáo" Background="Transparent" Padding="12" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                                    <Button HorizontalAlignment="Stretch"
+                                            HorizontalContentAlignment="Left"
+                                            Background="Transparent"
+                                            Content="Gỡ quảng cáo"
+                                            Padding="12">
                                         <Button.Flyout>
                                             <Flyout Placement="Full">
                                                 <Grid>
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition Height="300"/>
-                                                        <RowDefinition/>
+                                                        <RowDefinition Height="300" />
+                                                        <RowDefinition />
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Với giá $1, bạn sẽ vĩnh viễn không thấy quảng cáo nữa. Đồng thời bạn sẽ được sử dụng những tính năng mới nhất miễn phí trong tương lai" TextWrapping="Wrap" Width="200" TextLineBounds="Full" TextAlignment="Center"/>
-                                                    <Button Content="Mua" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="RemoveAd_Tapped" Background="{StaticResource AppColor}" Grid.Row="1" Width="200" Height="60"/>
+                                                    <TextBlock Width="200"
+                                                               HorizontalAlignment="Center"
+                                                               VerticalAlignment="Center"
+                                                               Text="Với giá $1, bạn sẽ vĩnh viễn không thấy quảng cáo nữa. Đồng thời bạn sẽ được sử dụng những tính năng mới nhất miễn phí trong tương lai"
+                                                               TextAlignment="Center"
+                                                               TextLineBounds="Full"
+                                                               TextWrapping="Wrap" />
+                                                    <Button Grid.Row="1"
+                                                            Width="200"
+                                                            Height="60"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Background="{StaticResource AppColor}"
+                                                            Content="Mua"
+                                                            Tapped="RemoveAd_Tapped" />
                                                 </Grid>
                                             </Flyout>
                                         </Button.Flyout>
                                     </Button>
 
 
-                                    <Button Content="Mua coffee cho mình" Background="Transparent" Padding="12" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                                    <Button HorizontalAlignment="Stretch"
+                                            HorizontalContentAlignment="Left"
+                                            Background="Transparent"
+                                            Content="Mua coffee cho mình"
+                                            Padding="12">
                                         <Button.Flyout>
                                             <Flyout Placement="Full">
                                                 <Grid>
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition Height="300"/>
-                                                        <RowDefinition/>
+                                                        <RowDefinition Height="300" />
+                                                        <RowDefinition />
                                                     </Grid.RowDefinitions>
-                                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Nếu bạn thấy thích phần mềm và hào phòng, một cốc coffee $1 sẽ giúp mình tỉnh táo và thêm động lực làm việc." TextWrapping="Wrap" Width="200" TextLineBounds="Full" TextAlignment="Center"/>
-                                                    <Button Content="Mua" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="Donate_Tapped" Background="{StaticResource AppColor}" Grid.Row="1" Width="200" Height="60"/>
+                                                    <TextBlock Width="200"
+                                                               HorizontalAlignment="Center"
+                                                               VerticalAlignment="Center"
+                                                               Text="Nếu bạn thấy thích phần mềm và hào phòng, một cốc coffee $1 sẽ giúp mình tỉnh táo và thêm động lực làm việc."
+                                                               TextAlignment="Center"
+                                                               TextLineBounds="Full"
+                                                               TextWrapping="Wrap" />
+                                                    <Button Grid.Row="1"
+                                                            Width="200"
+                                                            Height="60"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Background="{StaticResource AppColor}"
+                                                            Content="Mua"
+                                                            Tapped="Donate_Tapped" />
                                                 </Grid>
                                             </Flyout>
                                         </Button.Flyout>

@@ -135,17 +135,17 @@
                         </Grid.RowDefinitions>
 
                         <Grid.RenderTransform>
-                            <TranslateTransform Y="60" />
+                            <TranslateTransform Y="0" x:Name="sideMenuTransform"/>
                         </Grid.RenderTransform>
 
-                        <Grid Background="#55000000">
+                        <Grid Background="#55000000" Tapped="ToggleSideMenu">
                             <TextBlock Margin="20,0"
                                        VerticalAlignment="Center"
                                        Text="Công cụ khác" />
 
                         </Grid>
 
-                        <ListView Grid.Row="1" />
+                        <ListView Grid.Row="1" x:Name="SideMenuListView"/>
                     </Grid>
                 </Grid>
             </SplitView.Pane>

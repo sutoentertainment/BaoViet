@@ -23,6 +23,7 @@ using BaoViet.Interfaces;
 using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
 using BaoVietCore.Helpers;
+using Windows.UI.Xaml.Media.Animation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -48,8 +49,62 @@ namespace BaoViet.Views
             this.InitializeComponent();
             //ViewModel = new Home_Page_ViewModel();
             //this.DataContext = ViewModel;
+
+            this.Loaded += Home_Page_Loaded;
+            this.SizeChanged += Home_Page_SizeChanged;
         }
-        
+
+        private void Home_Page_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            IsSideMenuOpen = false;
+            sideMenuTransform.Y = this.Frame.RenderSize.Height - 40 - 40 - 132;
+        }
+
+        private void Home_Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            sideMenuTransform.Y = this.Frame.RenderSize.Height - 40 - 40 - 132;
+        }
+
+        bool IsSideMenuOpen = false;
+
+        private void ToggleSideMenu(object sender, TappedRoutedEventArgs e)
+        {
+            IsSideMenuOpen = !IsSideMenuOpen;
+            if(IsSideMenuOpen)
+            {
+                DoubleAnimation animation = new DoubleAnimation();
+                animation.To = 0;
+                animation.Duration = TimeSpan.FromMilliseconds(300);
+                QuadraticEase ease = new QuadraticEase();
+                ease.EasingMode = EasingMode.EaseIn;
+                animation.EasingFunction = ease;
+
+                Storyboard storyboard = new Storyboard();
+                Storyboard.SetTarget(animation, sideMenuTransform);
+                Storyboard.SetTargetProperty(animation, "Y");
+                storyboard.Children.Add(animation);
+                storyboard.Begin();
+
+
+            }
+            else
+            {
+                DoubleAnimation animation = new DoubleAnimation();
+                animation.To = this.Frame.RenderSize.Height - 40 - 40 - 132;
+                animation.Duration = TimeSpan.FromMilliseconds(400);
+                BounceEase ease = new BounceEase();
+                ease.Bounces = 4;
+                ease.Bounciness = 4;
+                ease.EasingMode = EasingMode.EaseOut;
+                animation.EasingFunction = ease;
+
+                Storyboard storyboard = new Storyboard();
+                Storyboard.SetTarget(animation, sideMenuTransform);
+                Storyboard.SetTargetProperty(animation, "Y");
+                storyboard.Children.Add(animation);
+                storyboard.Begin();
+            }
+        }
 
         private void LayoutRoot_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
@@ -134,6 +189,8 @@ namespace BaoViet.Views
         {
             App.Current.Manager.IAPService.BuyProduct("Donate");
         }
+
+
 
 
 

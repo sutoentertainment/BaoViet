@@ -10,6 +10,7 @@
                     xmlns:sample="using:BaoViet.SampleData"
                     xmlns:usercontrol="using:BaoViet.UserControls"
                     xmlns:viewModel="using:BaoViet.ViewModels"
+                    xmlns:control="using:BaoViet.Controls"
                     DataContext="{Binding Main,
                                           Mode=OneWay,
                                           Source={StaticResource Locator}}"
@@ -145,7 +146,13 @@
 
                         </Grid>
 
-                        <ListView Grid.Row="1" x:Name="SideMenuListView"/>
+                        <ListView Grid.Row="1" x:Name="SideMenuListView" ItemsSource="{x:Bind ViewModel.ExtraTools}" IsItemClickEnabled="True" ItemClick="SideMenuListView_ItemClick" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <control:MenuItem SymbolIcon="{Binding Icon}"  ButtonLabel="{Binding MenuTitle}" BorderThickness="12,0,0,0"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </Grid>
                 </Grid>
             </SplitView.Pane>

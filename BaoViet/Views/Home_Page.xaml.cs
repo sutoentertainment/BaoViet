@@ -24,6 +24,7 @@ using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
 using BaoVietCore.Helpers;
 using Windows.UI.Xaml.Media.Animation;
+using BaoViet.Models;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -34,7 +35,7 @@ namespace BaoViet.Views
     /// </summary>
     public sealed partial class Home_Page : BindablePage
     {
-        
+
         public Home_Page_ViewModel ViewModel
         {
             get
@@ -47,8 +48,6 @@ namespace BaoViet.Views
         public Home_Page()
         {
             this.InitializeComponent();
-            //ViewModel = new Home_Page_ViewModel();
-            //this.DataContext = ViewModel;
 
             this.Loaded += Home_Page_Loaded;
             this.SizeChanged += Home_Page_SizeChanged;
@@ -70,7 +69,7 @@ namespace BaoViet.Views
         private void ToggleSideMenu(object sender, TappedRoutedEventArgs e)
         {
             IsSideMenuOpen = !IsSideMenuOpen;
-            if(IsSideMenuOpen)
+            if (IsSideMenuOpen)
             {
                 DoubleAnimation animation = new DoubleAnimation();
                 animation.To = 0;
@@ -110,7 +109,7 @@ namespace BaoViet.Views
         {
             //Debug.WriteLine(e.Delta.Translation.X);
             //Debug.WriteLine(e.Cumulative.Translation.X);
-            if(e.Delta.Translation.X >= 4 && e.Cumulative.Translation.X >= 250)
+            if (e.Delta.Translation.X >= 4 && e.Cumulative.Translation.X >= 250)
             {
                 ViewModel.IsPaneOpen = true;
             }
@@ -123,7 +122,7 @@ namespace BaoViet.Views
 
         private void Grid_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
-            if(e.Cumulative.Translation.X >= 100)
+            if (e.Cumulative.Translation.X >= 100)
             {
                 ViewModel.IsPaneOpen = true;
             }
@@ -153,7 +152,7 @@ namespace BaoViet.Views
         private void SlideMenu_ItemClick(object sender, ItemClickEventArgs e)
         {
             ViewModel.IsPaneOpen = false;
-            var menuItem = e.ClickedItem as MenuItem;
+            var menuItem = e.ClickedItem as MenuItemBase;
             switch (menuItem.Type)
             {
                 case MenuItemType.Home:
@@ -181,13 +180,19 @@ namespace BaoViet.Views
 
         private void RemoveAd_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if(!App.Current.Manager.IAPService.CheckProduct("Remove_Ads"))
+            if (!App.Current.Manager.IAPService.CheckProduct("Remove_Ads"))
                 App.Current.Manager.IAPService.BuyProduct("Donate");
         }
 
         private void Donate_Tapped(object sender, TappedRoutedEventArgs e)
         {
             App.Current.Manager.IAPService.BuyProduct("Donate");
+        }
+
+        private void SideMenuListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var context = e.ClickedItem as IMenuItem;
+            context.OnClicked();
         }
 
 

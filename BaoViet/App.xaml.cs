@@ -21,6 +21,7 @@ using BaoViet.ViewModels;
 using Windows.UI.Popups;
 using BaoVietCore.Models;
 using BaoVietCore.Services;
+using GalaSoft.MvvmLight.Threading;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -201,6 +202,7 @@ namespace BaoViet
             Manager.TrackingService.AutoIntegrate();
             Manager.IAPService.Init();
             AdDuplex.AdDuplexClient.Initialize("b1169327-404c-4c1f-bc89-45d21f9e9c64");
+            DispatcherHelper.Initialize();
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {

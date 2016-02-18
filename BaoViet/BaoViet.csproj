@@ -118,6 +118,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\MenuItemBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleData\SampleData_Home_Page.cs" />
     <Compile Include="Services\NavigationService.cs" />
@@ -127,9 +128,14 @@
     <Compile Include="UserControls\FrontPaperCell.xaml.cs">
       <DependentUpon>FrontPaperCell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MenuItem.xaml.cs">
+      <DependentUpon>MenuItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\WebViewExtensions.cs" />
     <Compile Include="ViewModels\Detail_ViewModel.cs" />
     <Compile Include="ViewModels\Home_Page_ViewModel.cs" />
+    <Compile Include="Interfaces\IMenuItem.cs" />
+    <Compile Include="ViewModels\Currrency_ViewModel.cs" />
     <Compile Include="ViewModels\Saved_Articles_ViewModel.cs" />
     <Compile Include="ViewModels\List_Articles_ViewModel.cs" />
     <Compile Include="ViewModels\List_Categories_ViewModel.cs" />
@@ -138,6 +144,9 @@
       <DependentUpon>ContainerMaster.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BindablePage.cs" />
+    <Compile Include="Views\Currency_Page.xaml.cs">
+      <DependentUpon>Currency_Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Detail_Page.xaml.cs">
       <DependentUpon>Detail_Page.xaml</DependentUpon>
     </Compile>
@@ -263,9 +272,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UserControls\MenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ContainerMaster.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Currency_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Detail_Page.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -314,7 +331,6 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="String\" />
     <Folder Include="Themes\" />
   </ItemGroup>

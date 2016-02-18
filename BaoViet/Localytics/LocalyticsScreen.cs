@@ -13,5 +13,6 @@ namespace BaoViet.Localytics
         public const string ListArticlePage = "List Article";
         public const string ListCategoryPage = "List Categories";
         public const string SavedArticlePage = "Saved Article";
+        public const string CurrencyPage = "Currency Rate";
     }
 }

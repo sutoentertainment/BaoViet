@@ -20,6 +20,8 @@ using Windows.UI.Xaml.Navigation;
 using BaoVietCore.Helpers;
 using Windows.UI.Xaml.Controls;
 using Microsoft.Practices.ServiceLocation;
+using BaoViet.Controls;
+using BaoViet.Models;
 
 namespace BaoViet.ViewModels
 {
@@ -86,9 +88,8 @@ namespace BaoViet.ViewModels
 
         public ObservableCollection<IPaper> FrontPagePaper { get; set; }
 
-        public ObservableCollection<MenuItem> ListMenuItem { get; set; }
-
-
+        public ObservableCollection<IMenuItem> ListMenuItem { get; set; }
+        public ObservableCollection<IMenuItem> ExtraTools { get; set; }
         public RelayCommand OpenMenuCommand { get; set; }
 
         public RelayCommand GoToPaperToHidePageCommand { get; set; }
@@ -106,7 +107,9 @@ namespace BaoViet.ViewModels
         public Home_Page_ViewModel()
         {
             FrontPagePaper = new ObservableCollection<IPaper>();
-            ListMenuItem = new ObservableCollection<MenuItem>();
+            ListMenuItem = new ObservableCollection<IMenuItem>();
+            ExtraTools = new ObservableCollection<IMenuItem>();
+
             _IsTransparentTile = SettingHelper.LoadSetting("TransparentTile") == null ? false : (bool)SettingHelper.LoadSetting("TransparentTile");
 
             CreateCommand();
@@ -241,9 +244,11 @@ namespace BaoViet.ViewModels
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Đời sống pháp luật", Type = PaperType.DoiSongPhapLuat, HomePage = "http://www.doisongphapluat.com/", ImageSource = "ms-appx:///Assets/Logo/logo-dspl.png" });
 
 
-            ListMenuItem.Add(new MenuItem() { MenuTitle = "Trang nhất", Glyph = "\xE154", Type = MenuItemType.Home });
-            ListMenuItem.Add(new MenuItem() { MenuTitle = "Đã lưu", Glyph = "\xE082", Type = MenuItemType.Saved });
-            ListMenuItem.Add(new MenuItem() { MenuTitle = "Cài đặt", Glyph = "\xE115", Type = MenuItemType.Setting });
+            ListMenuItem.Add(new MenuItemBase() { MenuTitle = "Trang nhất", Glyph = "\xE154", Type = MenuItemType.Home });
+            ListMenuItem.Add(new MenuItemBase() { MenuTitle = "Đã lưu", Glyph = "\xE082", Type = MenuItemType.Saved });
+            ListMenuItem.Add(new MenuItemBase() { MenuTitle = "Cài đặt", Glyph = "\xE115", Type = MenuItemType.Setting });
+
+            ExtraTools.Add(new CurrencyMenuItem(Symbol.Switch) { MenuTitle = "Tra cứu tỉ giá" });
 
         }
 

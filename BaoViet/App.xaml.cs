@@ -242,7 +242,9 @@ namespace BaoViet
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
-
+                IStateCondition condition = new StateCondition(720);
+                condition.Configurate(rootFrame, Window.Current.Bounds.Width);
+                Manager.DeviceService = new DeviceService(Manager, condition);
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
@@ -256,7 +258,6 @@ namespace BaoViet
             NavigationService = new NavigationService();
             NavigationService.ConfigPage();
             NavigationService.Configure(ViewModels.FrameKey.RootFrame, rootFrame);
-            DeviceHelper.Configurate(rootFrame, 720);
 
             if (rootFrame.Content == null)
             {

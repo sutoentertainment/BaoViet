@@ -77,7 +77,7 @@ namespace BaoViet.ViewModels
 
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-                if(DeviceHelper.GetAppState() == AppState.Mobile)
+                if(App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
                     App.Current.NavigationService.NavigateTo(Pages.List_Articles_Page);
                 else
                     App.Current.NavigationService.NavigateTo(Pages.List_Articles_Page, null, FrameKey.PaneSplitFrame);
@@ -110,7 +110,7 @@ namespace BaoViet.ViewModels
 
                 await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
-                    if (DeviceHelper.GetAppState() == AppState.Mobile)
+                    if (App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
                         App.Current.NavigationService.NavigateTo(Pages.DetailPage);
                     else
                         App.Current.NavigationService.NavigateTo(Pages.DetailPage, null, FrameKey.PaneSplitFrame);

@@ -53,12 +53,20 @@ namespace BaoViet.Views
             this.SizeChanged += Home_Page_SizeChanged;
         }
 
+        double sideMenuMaxY
+        {
+            get
+            {
+                return this.Frame.RenderSize.Height - 40 - 40 - 132;
+            }
+        }
+
         private void Home_Page_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (!IsSideMenuOpen)
-                sideMenuTransform.Y = this.Frame.RenderSize.Height - 40 - 40 - 132;
+                sideMenuTransform.Y = sideMenuMaxY;
 
-            if(e.NewSize.Width > 720)
+            if (e.NewSize.Width > 720)
             {
                 App.Current.NavigationService.Configure(FrameKey.PaneSplitFrame, PaneFrame);
             }
@@ -66,7 +74,7 @@ namespace BaoViet.Views
 
         private void Home_Page_Loaded(object sender, RoutedEventArgs e)
         {
-            sideMenuTransform.Y = this.Frame.RenderSize.Height - 40 - 40 - 132;
+            sideMenuTransform.Y = sideMenuMaxY;
             this.Loaded -= Home_Page_Loaded;
         }
 
@@ -75,7 +83,12 @@ namespace BaoViet.Views
         private void ToggleSideMenu(object sender, TappedRoutedEventArgs e)
         {
             IsSideMenuOpen = !IsSideMenuOpen;
-            if (IsSideMenuOpen)
+            AnimateSideMenu(IsSideMenuOpen);
+        }
+
+        private void AnimateSideMenu(bool isSideMenuOpen)
+        {
+            if (isSideMenuOpen)
             {
                 DoubleAnimation animation = new DoubleAnimation();
                 animation.To = 0;
@@ -95,7 +108,7 @@ namespace BaoViet.Views
             else
             {
                 DoubleAnimation animation = new DoubleAnimation();
-                animation.To = this.Frame.RenderSize.Height - 40 - 40 - 132;
+                animation.To = sideMenuMaxY;
                 animation.Duration = TimeSpan.FromMilliseconds(400);
                 BounceEase ease = new BounceEase();
                 ease.Bounces = 4;
@@ -200,6 +213,31 @@ namespace BaoViet.Views
             ViewModel.IsPaneOpen = false;
             var context = e.ClickedItem as IMenuItem;
             context.OnClicked();
+        }
+
+        private void SideMenu_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        {
+            if (sideMenuTransform.Y >= sideMenuMaxY - 100)
+            {
+                IsSideMenuOpen = false;
+            }
+            else
+            {
+                IsSideMenuOpen = true;
+            }
+            AnimateSideMenu(IsSideMenuOpen);
+        }
+
+        private void SideMenu_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+            if (sideMenuTransform.Y >= 0 && sideMenuTransform.Y <= sideMenuMaxY && IsSideMenuOpen == false)
+                sideMenuTransform.Y += e.Delta.Translation.Y;
+
+        }
+
+        private void SideMenu_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
+        {
+
         }
 
 

@@ -1,4 +1,5 @@
-﻿using BaoVietCore.Interfaces;
+﻿using BaoVietCore.Helpers;
+using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
 using BaoVietCore.Services;
 using System;
@@ -12,26 +13,18 @@ namespace BaoVietCore
     public class Manager
     {
         public static Manager Current { get; set; }
-
         public IIAPService IAPService { get; set; }
-
         public IKeyboardService KeyboardService { get; set; }
-
         public IWebService WebService { get; set; }
-
         public ILocalizationService LocalizationService { get; set; }
-
         public ILogService LogService { get; set; }
-
         public IAuthenticationService AuthenticationService { get; set; }
-
         public IRateUsService RateUsService { get; set; }
-
         public IDatabase Database { get; set; }
         public IImageService ImageService { get; set; }
-
         public ITrackingService TrackingService { get; set; }
         public IRssSource RssService { get; set; }
+        public DeviceService DeviceService { get; set; }
 
         public Manager()
         {

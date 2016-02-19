@@ -33,7 +33,7 @@ namespace BaoViet.Views
             var feed = e.ClickedItem as IFeedItem;
             var detail = ViewModelLocator.Get<Detail_ViewModel>();
             detail.CurrentFeed = feed;
-            if (DeviceHelper.GetAppState() == AppState.Mobile)
+            if (App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
                 App.Current.NavigationService.NavigateTo(Pages.DetailPage);
             else
                 App.Current.NavigationService.NavigateTo(Pages.DetailPage, null, FrameKey.PaneSplitFrame);

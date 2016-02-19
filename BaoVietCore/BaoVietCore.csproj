@@ -111,11 +111,13 @@
     <Compile Include="EventArgs\PinEventArgs.cs" />
     <Compile Include="Factory\XmlParserFactory.cs" />
     <Compile Include="Factory\PaperFactory.cs" />
-    <Compile Include="Helpers\DeviceHelper.cs" />
+    <Compile Include="Helpers\StateCondition.cs" />
+    <Compile Include="Services\DeviceService.cs" />
     <Compile Include="Interfaces\ITrackingService.cs" />
     <Compile Include="Interfaces\IXmlParser.cs" />
     <Compile Include="Services\IAPService.cs" />
     <Compile Include="Interfaces\IIAPService.cs" />
+    <Compile Include="Services\IStateCondition.cs" />
     <Compile Include="Services\RssService.cs" />
     <Compile Include="XmlParser\TinTheThaoParser.cs" />
     <Compile Include="XmlParser\QuanTriMangParser.cs" />

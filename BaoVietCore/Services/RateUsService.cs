@@ -19,7 +19,7 @@ namespace BaoVietCore.Services
         {
             Configurate(LaunchLimit, ResetCountOnNewVersion, RateButtonText, CancelButtonText, Title, Content);
             var result = await RatePopup.CheckRateReminderAsync();
-            if(result == RateReminderResult.Dismissed)
+            if (result == RateReminderResult.Dismissed)
             {
                 await ShowFeedbackPopup();
             }
@@ -31,6 +31,7 @@ namespace BaoVietCore.Services
             FeedbackPopup.EmailSubject = "[Báo Việt] Feedback";
             FeedbackPopup.SendFeedbackButtonText = "gửi phản hồi";
             FeedbackPopup.CancelButtonText = "để lần sau";
+            FeedbackPopup.Title = "gửi phản hồi";
             FeedbackPopup.Content = "Phần mềm còn điểm gì khiến bạn chưa hài lòng? Mọi ý kiến đóng góp của bạn sẽ được nhóm sử dụng để cải thiện phần mềm.";
             await FeedbackPopup.ShowFeedbackDialogAsync();
         }

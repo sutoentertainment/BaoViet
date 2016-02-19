@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaoVietCore.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,9 +24,14 @@ namespace BaoVietCore.Helpers
         Mobile
     }
 
-    public class DeviceHelper
+    public class DeviceService : ServiceBase
     {
-        public static DeviceTypes CurrentDevice()
+        IStateCondition stateCondition;
+        public DeviceService(Manager man, IStateCondition stateCondition) : base(man)
+        {
+            this.stateCondition = stateCondition;
+        }
+        public DeviceTypes CurrentDevice()
         {
             string deviceFamily = AnalyticsInfo.VersionInfo.DeviceFamily;
             switch (deviceFamily)
@@ -40,7 +46,7 @@ namespace BaoVietCore.Helpers
             }
         }
 
-        public static string GetAppVersion()
+        public string GetAppVersion()
         {
             PackageVersion pv = Package.Current.Id.Version;
             Version version = new Version(Package.Current.Id.Version.Major,
@@ -51,27 +57,12 @@ namespace BaoVietCore.Helpers
             return appVersion;
         }
 
-        static double AppWidth = 0;
-        public static double TableThreshold = 720;
-        public static AppState GetAppState()
+        public AppState GetAppState()
         {
-            if (AppWidth >= TableThreshold)
-                return AppState.Tablet;
-            return AppState.Mobile;
+            return stateCondition.GetCurrentState();
         }
 
-        public static void Configurate(Frame rootFrame, double tableThreshold)
-        {
-            TableThreshold = tableThreshold;
-            rootFrame.SizeChanged += RootFrame_SizeChanged;
-        }
-
-        private static void RootFrame_SizeChanged(object sender, Windows.UI.Xaml.SizeChangedEventArgs e)
-        {
-            AppWidth = e.NewSize.Width;
-        }
-
-        public static void LockDisplayOrientations(bool auto = true)
+        public void LockDisplayOrientations(bool auto = true)
         {
             if (auto)
                 DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait | DisplayOrientations.Landscape;

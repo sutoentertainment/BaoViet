@@ -31,7 +31,7 @@ namespace BaoViet.ViewModels
         {
             get
             {
-                return " " + DeviceHelper.GetAppVersion();
+                return " " + App.Current.Manager.DeviceService.GetAppVersion();
             }
         }
 
@@ -115,8 +115,6 @@ namespace BaoViet.ViewModels
             CreateCommand();
 
             LoadData();
-
-
         }
 
         public void CreateCommand()
@@ -148,7 +146,7 @@ namespace BaoViet.ViewModels
 
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-                if(DeviceHelper.GetAppState() == AppState.Mobile)
+                if (App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
                     App.Current.NavigationService.NavigateTo(Pages.List_Categories_Page);
                 else
                 {
@@ -166,6 +164,9 @@ namespace BaoViet.ViewModels
         public void OnNavigatedTo(NavigationEventArgs e)
         {
             RegisterMessage();
+            if (App.Current.Manager.DeviceService.GetAppState() == AppState.Tablet)
+                _IsPaneOpen = true;
+
             if (e.NavigationMode == NavigationMode.Back)
             {
                 return;

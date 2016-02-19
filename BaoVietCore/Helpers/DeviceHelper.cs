@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.Graphics.Display;
 using Windows.System.Profile;
+using Windows.UI.Xaml.Controls;
 
 namespace BaoVietCore.Helpers
 {
@@ -14,6 +15,12 @@ namespace BaoVietCore.Helpers
         Desktop,
         Mobile,
         Other
+    }
+
+    public enum AppState
+    {
+        Tablet,
+        Mobile
     }
 
     public class DeviceHelper
@@ -42,6 +49,26 @@ namespace BaoVietCore.Helpers
                 Package.Current.Id.Version.Build);
             string appVersion = version.Major + "." + version.Minor + "." + version.MinorRevision + "." + version.Build;
             return appVersion;
+        }
+
+        static double AppWidth = 0;
+        public static double TableThreshold = 720;
+        public static AppState GetAppState()
+        {
+            if (AppWidth >= TableThreshold)
+                return AppState.Tablet;
+            return AppState.Mobile;
+        }
+
+        public static void Configurate(Frame rootFrame, double tableThreshold)
+        {
+            TableThreshold = tableThreshold;
+            rootFrame.SizeChanged += RootFrame_SizeChanged;
+        }
+
+        private static void RootFrame_SizeChanged(object sender, Windows.UI.Xaml.SizeChangedEventArgs e)
+        {
+            AppWidth = e.NewSize.Width;
         }
 
         public static void LockDisplayOrientations(bool auto = true)

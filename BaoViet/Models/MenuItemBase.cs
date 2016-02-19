@@ -50,4 +50,28 @@ namespace BaoViet.Models
             App.Current.NavigationService.NavigateTo(Pages.Currency);
         }
     }
+
+    public class OCRMenuItem : MenuItemBase
+    {
+        public OCRMenuItem(Symbol icon) : base(icon)
+        {
+
+        }
+    }
+
+    public class WeatherMenuItem : MenuItemBase
+    {
+        public WeatherMenuItem(Symbol icon) : base(icon)
+        {
+
+        }
+    }
+
+    public class FlashMenuItem : MenuItemBase
+    {
+        public FlashMenuItem(Symbol icon) : base(icon)
+        {
+
+        }
+    }
 }

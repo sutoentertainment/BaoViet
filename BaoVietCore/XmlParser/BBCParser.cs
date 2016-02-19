@@ -35,8 +35,8 @@ namespace BaoVietCore.Models.XmlParser
             foreach (var item in nodes)
             {
                 var feed = new FeedItem();
-                feed.Title = WebUtility.HtmlDecode(item.Descendants().Where(e => e.Name.LocalName == "title").FirstOrDefault().Value);
-                var description = item.Descendants().Where(e => e.Name.LocalName == "summary").FirstOrDefault();
+                feed.Title = WebUtility.HtmlDecode(item.Descendants().FirstOrDefault(e => e.Name.LocalName == "title").Value);
+                var description = item.Descendants().FirstOrDefault(e => e.Name.LocalName == "summary");
 
                 HtmlDocument htmldocs = new HtmlDocument();
                 htmldocs.LoadHtml(description.Value);
@@ -50,7 +50,7 @@ namespace BaoVietCore.Models.XmlParser
                 {
 
                 }
-                feed.Link = item.Descendants().Where(e => e.Name.LocalName == "link").FirstOrDefault().Attribute("href").Value.Trim();
+                feed.Link = item.Descendants().FirstOrDefault(e => e.Name.LocalName == "link").Attribute("href").Value.Trim();
 
                 feeds.Add(feed);
             }

@@ -38,7 +38,7 @@ namespace BaoViet.Views
             {
                 if (navigableViewModel.AllowGoBack())
                 {
-                    if (App.Current.NavigationService.CanGoBack)
+                    if (App.Current.NavigationService.CanGoBack())
                     {
                         App.Current.NavigationService.GoBack();
                         //Prevent out app
@@ -56,7 +56,7 @@ namespace BaoViet.Views
             }
             else
             {
-                if (App.Current.NavigationService.CanGoBack)
+                if (App.Current.NavigationService.CanGoBack())
                 {
                     App.Current.NavigationService.GoBack();
                     //Prevent out app

@@ -50,13 +50,18 @@ namespace BaoViet.Views
             this.InitializeComponent();
 
             this.Loaded += Home_Page_Loaded;
-            //this.SizeChanged += Home_Page_SizeChanged;
+            this.SizeChanged += Home_Page_SizeChanged;
         }
 
         private void Home_Page_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            IsSideMenuOpen = false;
-            sideMenuTransform.Y = this.Frame.RenderSize.Height - 40 - 40 - 132;
+            if (!IsSideMenuOpen)
+                sideMenuTransform.Y = this.Frame.RenderSize.Height - 40 - 40 - 132;
+
+            if(e.NewSize.Width > 720)
+            {
+                App.Current.NavigationService.Configure(FrameKey.PaneSplitFrame, PaneFrame);
+            }
         }
 
         private void Home_Page_Loaded(object sender, RoutedEventArgs e)

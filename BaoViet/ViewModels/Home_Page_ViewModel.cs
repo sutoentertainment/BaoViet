@@ -148,8 +148,13 @@ namespace BaoViet.ViewModels
 
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-                //TODO: Prepare the data model for next page
-                App.Current.NavigationService.NavigateTo(Pages.List_Categories_Page);
+                if(DeviceHelper.GetAppState() == AppState.Mobile)
+                    App.Current.NavigationService.NavigateTo(Pages.List_Categories_Page);
+                else
+                {
+                    App.Current.NavigationService.GoBack(FrameKey.PaneSplitFrame);
+                    App.Current.NavigationService.NavigateTo(Pages.List_Categories_Page, null, FrameKey.PaneSplitFrame);
+                }
             });
         }
 
@@ -174,7 +179,7 @@ namespace BaoViet.ViewModels
                 if (paper != null)
                 {
                     PaperType type = (PaperType)Enum.Parse(typeof(PaperType), paper);
-                    var target = this.FrontPagePaper.Where(p => p.Type == type).FirstOrDefault();
+                    var target = this.FrontPagePaper.FirstOrDefault(p => p.Type == type);
                     OpenPaper(target);
                 }
             }
@@ -249,6 +254,9 @@ namespace BaoViet.ViewModels
             ListMenuItem.Add(new MenuItemBase() { MenuTitle = "Cài đặt", Glyph = "\xE115", Type = MenuItemType.Setting });
 
             ExtraTools.Add(new CurrencyMenuItem(Symbol.Switch) { MenuTitle = "Tra cứu tỉ giá" });
+            ExtraTools.Add(new OCRMenuItem(Symbol.Caption) { MenuTitle = "Chuyển ảnh thành chữ" });
+            ExtraTools.Add(new WeatherMenuItem(Symbol.World) { MenuTitle = "Thời tiết" });
+            ExtraTools.Add(new FlashMenuItem(Symbol.Trim) { MenuTitle = "Flash" });
 
         }
 

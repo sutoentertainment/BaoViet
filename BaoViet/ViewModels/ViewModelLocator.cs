@@ -137,6 +137,7 @@ namespace BaoViet.ViewModels
     {
         MainFrame,
         RootFrame,
-        MenuFrame
+        MenuFrame,
+        PaneSplitFrame
     }
 }

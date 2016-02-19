@@ -44,6 +44,9 @@
                     <VisualState.Setters>
                         <Setter Target="splitView.DisplayMode" Value="Inline" />
                         <Setter Target="splitView.IsPaneOpen" Value="True" />
+                        <Setter Target="PaneSpliter.Visibility" Value="Visible" />
+                        <Setter Target="PaneColumn.Width" Value="2*"/>
+
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="720" />
@@ -53,6 +56,9 @@
                 <!--  For Phone, Phablet and small Tablet  -->
                 <VisualState x:Name="PhoneState">
                     <VisualState.Setters>
+                        <Setter Target="PaneSpliter.Visibility" Value="Collapsed" />
+                        <Setter Target="PaneColumn.Width" Value="Auto"/>
+
                         <!--<Setter Target="splitView.DisplayMode" Value="Overlay" />-->
                         <!--<Setter Target="splitView.IsPaneOpen" Value="False" />-->
                     </VisualState.Setters>
@@ -143,7 +149,7 @@
                             <TextBlock Margin="20,0"
                                        VerticalAlignment="Center"
                                        Text="Công cụ khác" />
-
+                            <!--<SymbolIcon Symbol="Trim" HorizontalAlignment="Right"/>-->
                         </Grid>
 
                         <ListView Grid.Row="1" x:Name="SideMenuListView" ItemsSource="{x:Bind ViewModel.ExtraTools}" IsItemClickEnabled="True" ItemClick="SideMenuListView_ItemClick" SelectionMode="None">
@@ -158,8 +164,13 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Grid Name="LayoutRoot">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto" x:Name="PaneColumn"/>
+                    </Grid.ColumnDefinitions>
+                    
                     <Pivot x:Name="rootPivot"
-                           Margin="0,20,0,0"
+                           Margin="0,0,0,0"
                            Style="{StaticResource PivotNoHeaderStyle}">
                         <PivotItem Margin="0">
                             <!--  ItemTemplate="{StaticResource FrontPaperTemplate}"  -->
@@ -307,12 +318,16 @@
 
                     </Pivot>
 
+                    <Grid Grid.Column="1" x:DeferLoadStrategy="Lazy" x:Name="PaneSpliter" Visibility="Collapsed">
+                        <Border Width="2" VerticalAlignment="Stretch" HorizontalAlignment="Left" Background="{StaticResource AppBlackGray}"/>
+                        <Frame x:Name="PaneFrame" Margin="2,0,0,0"/>
+                    </Grid>
 
-                    <Grid Width="10"
+                    <!--<Grid Width="10"
                           HorizontalAlignment="Left"
                           Background="Transparent"
                           ManipulationCompleted="Grid_ManipulationCompleted"
-                          ManipulationMode="All" />
+                          ManipulationMode="All" />-->
 
 
                     <!--<Border Width="300" Height="300" x:Name="target"  ToolTipService.Placement="Top" ToolTipService.ToolTip="Detail here" Background="Red" VerticalAlignment="Center">

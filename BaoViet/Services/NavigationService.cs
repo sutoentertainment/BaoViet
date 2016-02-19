@@ -15,17 +15,20 @@ namespace BaoViet.Services
 {
     public class NavigationService
     {
-        private Dictionary<Pages, Type> PageDictionary = new Dictionary<Pages, Type>();
-        private Dictionary<FrameKey, Frame> FrameDictionary = new Dictionary<FrameKey, Frame>();
-        private Frame MainFrame;
+        protected Dictionary<Pages, Type> PageDictionary = new Dictionary<Pages, Type>();
+        protected Dictionary<FrameKey, Frame> FrameDictionary = new Dictionary<FrameKey, Frame>();
+        protected Frame MainFrame;
 
 
         public void Configure(FrameKey framekey, Frame frame)
         {
-            FrameDictionary.Add(framekey, frame);
+            if (!FrameDictionary.ContainsKey(framekey))
+                FrameDictionary.Add(framekey, frame);
             if (framekey == FrameKey.MainFrame)
+            {
                 MainFrame = frame;
-            frame.Navigated += MainFrame_Navigated;
+                frame.Navigated += MainFrame_Navigated;
+            }
         }
 
         public void ConfigPage()
@@ -49,27 +52,37 @@ namespace BaoViet.Services
             });
         }
 
-        internal void GoBack()
+        public void GoBack()
         {
             if (MainFrame.CanGoBack)
                 MainFrame.GoBack();
         }
 
-        internal bool CanGoBack
+        public void GoBack(FrameKey framekey)
         {
-            get
-            {
-                return MainFrame.CanGoBack;
-            }
+            if (FrameDictionary.ContainsKey(framekey))
+                while (FrameDictionary[framekey].CanGoBack)
+                    FrameDictionary[framekey].GoBack();
         }
 
-        internal void NavigateTo(Pages page, object parameter = null, FrameKey framekey = FrameKey.MainFrame)
+        public bool CanGoBack()
+        {
+            return MainFrame.CanGoBack;
+        }
+        public bool CanGoBack(FrameKey framekey)
+        {
+            if (FrameDictionary.ContainsKey(framekey))
+                return FrameDictionary[framekey].CanGoBack;
+            return true;
+        }
+
+        public virtual void NavigateTo(Pages page, object parameter = null, FrameKey framekey = FrameKey.MainFrame)
         {
             Debug.WriteLine(page.ToString());
             FrameDictionary[framekey].Navigate(PageDictionary[page], parameter);
         }
 
-        internal void ClearCache(FrameKey framekey)
+        public void ClearCache(FrameKey framekey)
         {
             var size = FrameDictionary[framekey].CacheSize;
             FrameDictionary[framekey].CacheSize = 0;

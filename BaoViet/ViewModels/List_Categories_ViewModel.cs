@@ -1,5 +1,6 @@
 ﻿using BaoViet.Interfaces;
 using BaoViet.Services;
+using BaoVietCore.Helpers;
 using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
 using GalaSoft.MvvmLight;
@@ -76,7 +77,10 @@ namespace BaoViet.ViewModels
 
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-                App.Current.NavigationService.NavigateTo(Pages.List_Articles_Page);
+                if(DeviceHelper.GetAppState() == AppState.Mobile)
+                    App.Current.NavigationService.NavigateTo(Pages.List_Articles_Page);
+                else
+                    App.Current.NavigationService.NavigateTo(Pages.List_Articles_Page, null, FrameKey.PaneSplitFrame);
             });
         }
 
@@ -106,7 +110,10 @@ namespace BaoViet.ViewModels
 
                 await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
-                    App.Current.NavigationService.NavigateTo(Pages.DetailPage);
+                    if (DeviceHelper.GetAppState() == AppState.Mobile)
+                        App.Current.NavigationService.NavigateTo(Pages.DetailPage);
+                    else
+                        App.Current.NavigationService.NavigateTo(Pages.DetailPage, null, FrameKey.PaneSplitFrame);
                 });
             }
             else if (CurrentPaper.Categories.Count == 1)

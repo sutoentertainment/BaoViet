@@ -256,7 +256,7 @@ namespace BaoViet
             NavigationService = new NavigationService();
             NavigationService.ConfigPage();
             NavigationService.Configure(ViewModels.FrameKey.RootFrame, rootFrame);
-
+            DeviceHelper.Configurate(rootFrame, 720);
 
             if (rootFrame.Content == null)
             {

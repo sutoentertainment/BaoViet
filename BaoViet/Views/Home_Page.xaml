@@ -42,8 +42,8 @@
                 <!--  For PC, Xbox, Tablet  -->
                 <VisualState x:Name="TabletState">
                     <VisualState.Setters>
-                        <!--<Setter Target="splitView.DisplayMode" Value="Overlay" />-->
-                        <!--<Setter Target="splitView.IsPaneOpen" Value="False" />-->
+                        <Setter Target="splitView.DisplayMode" Value="Inline" />
+                        <Setter Target="splitView.IsPaneOpen" Value="True" />
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="720" />
@@ -94,7 +94,7 @@
         <SplitView x:Name="splitView"
                    Grid.Row="1"
                    DisplayMode="Overlay"
-                   IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}">
+                   IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}" OpenPaneLength="200">
             <!--
                 DisplayMode="Overlay"
                 IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}"

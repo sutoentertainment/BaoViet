@@ -50,7 +50,7 @@ namespace BaoViet.Views
             this.InitializeComponent();
 
             this.Loaded += Home_Page_Loaded;
-            this.SizeChanged += Home_Page_SizeChanged;
+            //this.SizeChanged += Home_Page_SizeChanged;
         }
 
         private void Home_Page_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -62,6 +62,7 @@ namespace BaoViet.Views
         private void Home_Page_Loaded(object sender, RoutedEventArgs e)
         {
             sideMenuTransform.Y = this.Frame.RenderSize.Height - 40 - 40 - 132;
+            this.Loaded -= Home_Page_Loaded;
         }
 
         bool IsSideMenuOpen = false;
@@ -191,6 +192,7 @@ namespace BaoViet.Views
 
         private void SideMenuListView_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ViewModel.IsPaneOpen = false;
             var context = e.ClickedItem as IMenuItem;
             context.OnClicked();
         }

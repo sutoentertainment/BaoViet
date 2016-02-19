@@ -146,7 +146,7 @@
 
                         </Grid>
 
-                        <ListView Grid.Row="1" x:Name="SideMenuListView" ItemsSource="{x:Bind ViewModel.ExtraTools}" IsItemClickEnabled="True" ItemClick="SideMenuListView_ItemClick" >
+                        <ListView Grid.Row="1" x:Name="SideMenuListView" ItemsSource="{x:Bind ViewModel.ExtraTools}" IsItemClickEnabled="True" ItemClick="SideMenuListView_ItemClick" SelectionMode="None">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <control:MenuItem SymbolIcon="{Binding Icon}"  ButtonLabel="{Binding MenuTitle}" BorderThickness="12,0,0,0"/>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaoViet.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,13 @@ namespace BaoViet.Views
     /// </summary>
     public sealed partial class Currency_Page : BindablePage
     {
+        public Currency_ViewModel ViewModel
+        {
+            get
+            {
+                return this.DataContext as Currency_ViewModel;
+            }
+        }
         public Currency_Page()
         {
             this.InitializeComponent();

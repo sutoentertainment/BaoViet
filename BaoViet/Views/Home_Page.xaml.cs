@@ -217,22 +217,27 @@ namespace BaoViet.Views
 
         private void SideMenu_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
-            if (sideMenuTransform.Y >= sideMenuMaxY - 100)
+            if (!IsSideMenuOpen)
             {
-                IsSideMenuOpen = false;
+                if (sideMenuTransform.Y < sideMenuMaxY - 100)
+                {
+                    IsSideMenuOpen = true;
+                }
             }
             else
             {
-                IsSideMenuOpen = true;
+                if (sideMenuTransform.Y >= 100)
+                {
+                    IsSideMenuOpen = false;
+                }
             }
             AnimateSideMenu(IsSideMenuOpen);
         }
 
         private void SideMenu_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
-            if (sideMenuTransform.Y >= 0 && sideMenuTransform.Y <= sideMenuMaxY && IsSideMenuOpen == false)
+            if (sideMenuTransform.Y >= 0 && sideMenuTransform.Y <= sideMenuMaxY)
                 sideMenuTransform.Y += e.Delta.Translation.Y;
-
         }
 
         private void SideMenu_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)

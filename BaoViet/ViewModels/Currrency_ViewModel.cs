@@ -1,4 +1,5 @@
 ﻿using BaoViet.Interfaces;
+using BaoViet.Models;
 using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
 using GalaSoft.MvvmLight;
@@ -13,7 +14,7 @@ using WinUX.Extensions;
 
 namespace BaoViet.ViewModels
 {
-    public class Currrency_ViewModel : ViewModelBase, INavigable, ITrackingAble
+    public class Currency_ViewModel : ViewModelBase, INavigable, ITrackingAble
     {
 
         public string ScreenName
@@ -24,13 +25,22 @@ namespace BaoViet.ViewModels
             }
         }
 
-        public Currrency_ViewModel()
+        public ObservableCollection<CurrencyInfo> CurrencyInfos { get; set; }
+
+        public Currency_ViewModel()
         {
+            CurrencyInfos = new ObservableCollection<CurrencyInfo>();
+            LoadData();
         }
 
         public void LoadData()
         {
-
+            var info = new CurrencyInfo();
+            info.Code = "USD";
+            info.Buying = "120";
+            info.Transfer = "110";
+            info.Selling = "100";
+            CurrencyInfos.Add(info);
         }
 
         public void OnNavigatedTo(NavigationEventArgs e)

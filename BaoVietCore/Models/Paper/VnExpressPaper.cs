@@ -22,7 +22,7 @@ namespace BaoVietCore.Models
             HomePage = "http://vnexpress.net";
             ImageSource = "ms-appx:///Assets/Logo/logo-vne.png";
 
-
+            Categories = new ObservableCollection<Category>();
             Categories.Add(new Category("Trang chủ", "http://vnexpress.net/rss/tin-moi-nhat.rss"));
             Categories.Add(new Category("Thời sự", "http://vnexpress.net/rss/thoi-su.rss"));
             Categories.Add(new Category("Thế giới", "http://vnexpress.net/rss/the-gioi.rss"));
@@ -46,7 +46,7 @@ namespace BaoVietCore.Models
                 item.Owner = this;
             }
         }
-        
-        
+
+
     }
 }

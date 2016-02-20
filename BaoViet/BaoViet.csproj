@@ -107,6 +107,7 @@
     <Compile Include="Behavior\DragBehavior.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="DataContext\RootDataContext.cs" />
+    <Compile Include="Helpers\TemplateSelector.cs" />
     <Compile Include="Helpers\TileManager.cs" />
     <Compile Include="Helpers\ToastAction.cs" />
     <Compile Include="Helpers\VisualTreeHelperExtensions.cs" />
@@ -119,13 +120,11 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\CurrencyInfo.cs" />
     <Compile Include="Models\MenuItemBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleData\SampleData_Home_Page.cs" />
     <Compile Include="Services\NavigationService.cs" />
-    <Compile Include="Styles\Template.xaml.cs">
-      <DependentUpon>Template.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\FrontPaperCell.xaml.cs">
       <DependentUpon>FrontPaperCell.xaml</DependentUpon>
     </Compile>
@@ -262,10 +261,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\Style.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Template.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -243,6 +243,16 @@
                                     </ListViewItem>
 
                                     <ListViewItem>
+                                        <ToggleSwitch OnContent="Đã khóa xoay màn hình" OffContent="Khóa xoay màn hình" IsOn="{x:Bind ViewModel.LockRotation, Mode=TwoWay}">
+                                            <i:Interaction.Behaviors>
+                                                <core:EventTriggerBehavior EventName="Toggled">
+                                                    <core:InvokeCommandAction Command="{x:Bind ViewModel.LockRotationCommand}"/>
+                                                </core:EventTriggerBehavior>
+                                            </i:Interaction.Behaviors>
+                                        </ToggleSwitch>
+                                    </ListViewItem>
+
+                                    <ListViewItem>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Tác giả:" />
                                             <TextBlock Text=" thang2410199" />

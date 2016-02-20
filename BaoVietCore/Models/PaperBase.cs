@@ -84,8 +84,14 @@ namespace BaoVietCore.Models
             this.Title = "";
             this.ImageSource = "";
             Type = type;
-            if (Manager.Current.DeviceService.CurrentDevice() == DeviceTypes.Mobile)
-                this.CellWidth = ((WindowsSize.Width - 10 * 4) / 3);
+
+            if (!ViewModelBase.IsInDesignModeStatic)
+            {
+                if (Manager.Current.DeviceService.CurrentDevice() == DeviceTypes.Mobile)
+                    this.CellWidth = ((WindowsSize.Width - 10 * 4) / 3);
+                else
+                    this.CellWidth = ((500 - 10 * 4) / 2);
+            }
             else
                 this.CellWidth = ((500 - 10 * 4) / 2);
             Categories = new ObservableCollection<Category>();

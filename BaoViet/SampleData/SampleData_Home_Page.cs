@@ -9,11 +9,18 @@ namespace BaoViet.SampleData
 {
     public class SampleData_Home_Page : Home_Page_ViewModel
     {
-        public Home_Page_ViewModel ViewModel { get; set; }
+        public Home_Page_ViewModel ViewModel
+        {
+            get
+            {
+                return new Home_Page_ViewModel();
+            }
+
+        }
         public SampleData_Home_Page() : base()
         {
-            ViewModel = new Home_Page_ViewModel();
-            ViewModel.IsPaneOpen = false;
+            //ViewModel = new Home_Page_ViewModel();
+            //ViewModel.IsPaneOpen = false;
         }
     }
 

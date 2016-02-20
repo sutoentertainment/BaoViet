@@ -5,9 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="using:BaoViet"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:style="using:BaoViet.Styles"
              RequestedTheme="Dark"
-             mc:Ignorable="d">
+             mc:Ignorable="d"
+             xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+                    xmlns:i="using:Microsoft.Xaml.Interactivity"
+             xmlns:action="using:BaoViet.Actions">
 
     <Application.Resources>
 
@@ -16,7 +18,6 @@
 
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/Style.xaml" />
-                <style:Template />
                 <!--<ResourceDictionary Source="Styles/Template.xaml"/>-->
             </ResourceDictionary.MergedDictionaries>
 
@@ -30,6 +31,53 @@
             <converter:BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
             <converter:BooleanToVisibilityInvertConverter x:Key="BooleanToVisibilityInvert" />
             <converter:NullToEnableConverter x:Key="NullToEnable" />
+
+
+            <DataTemplate x:Key="FrontPaperTemplate">
+                <StackPanel x:Name="cellContainer"
+                    Width="{Binding CellWidth, Mode=OneTime}"
+                    Margin="4,12,4,12" Background="Transparent">
+                    <i:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Holding">
+                            <action:OpenFlyoutAction />
+                        </core:EventTriggerBehavior>
+                        <core:EventTriggerBehavior EventName="RightTapped">
+                            <!--<core:InvokeCommandAction Command="{Binding ShowMenuCommand, Mode=OneTime}" CommandParameter="{Binding ElementName=cellContainer}" />-->
+                            <action:OpenFlyoutAction />
+                        </core:EventTriggerBehavior>
+                    </i:Interaction.Behaviors>
+
+                    <FlyoutBase.AttachedFlyout>
+                        <MenuFlyout Placement="Bottom">
+                            <MenuFlyoutItem Command="{Binding PinCommand, Mode=OneTime}" Text="Gắn lên start menu" />
+                        </MenuFlyout>
+                    </FlyoutBase.AttachedFlyout>
+
+                    <Ellipse Width="60"
+                     Height="60"
+                     ContinuumNavigationTransitionInfo.IsExitElement="True">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding ImageSource, Mode=OneWay}" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <TextBlock HorizontalAlignment="Center"
+                       FontSize="14"
+                       Text="{Binding Title,
+                                      Mode=OneTime}" />
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="CategoryTemplate">
+                <StackPanel Margin="4,12,4,12">
+                    <TextBlock HorizontalAlignment="Center"
+                       ContinuumNavigationTransitionInfo.IsExitElement="True"
+                       FontSize="18"
+                       OpticalMarginAlignment="TrimSideBearings"
+                       Text="{Binding Title}"
+                       TextLineBounds="Tight" />
+                </StackPanel>
+            </DataTemplate>
         </ResourceDictionary>
 
     </Application.Resources>

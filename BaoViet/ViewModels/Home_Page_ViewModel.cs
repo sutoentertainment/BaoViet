@@ -86,6 +86,19 @@ namespace BaoViet.ViewModels
             }
         }
 
+        private bool _LockRotation = false;
+        public bool LockRotation
+        {
+            get
+            {
+                return _LockRotation;
+            }
+            set
+            {
+                Set(ref _LockRotation, value);
+            }
+        }
+
         public ObservableCollection<IPaper> FrontPagePaper { get; set; }
 
         public ObservableCollection<IMenuItem> ListMenuItem { get; set; }
@@ -95,7 +108,7 @@ namespace BaoViet.ViewModels
         public RelayCommand GoToPaperToHidePageCommand { get; set; }
 
         public RelayCommand<ItemClickEventArgs> PaperClickedCommand { get; set; }
-
+        public RelayCommand LockRotationCommand { get; set; }
         public string ScreenName
         {
             get
@@ -110,11 +123,26 @@ namespace BaoViet.ViewModels
             ListMenuItem = new ObservableCollection<IMenuItem>();
             ExtraTools = new ObservableCollection<IMenuItem>();
 
-            _IsTransparentTile = SettingHelper.LoadSetting("TransparentTile") == null ? false : (bool)SettingHelper.LoadSetting("TransparentTile");
-
             CreateCommand();
 
             LoadData();
+
+            ListMenuItem.Add(new MenuItemBase() { MenuTitle = "Trang nhất", Glyph = "\xE154", Type = MenuItemType.Home });
+            ListMenuItem.Add(new MenuItemBase() { MenuTitle = "Đã lưu", Glyph = "\xE082", Type = MenuItemType.Saved });
+            ListMenuItem.Add(new MenuItemBase() { MenuTitle = "Cài đặt", Glyph = "\xE115", Type = MenuItemType.Setting });
+
+            ExtraTools.Add(new CurrencyMenuItem(Symbol.Switch) { MenuTitle = "Tra cứu tỉ giá" });
+            ExtraTools.Add(new OCRMenuItem(Symbol.Caption) { MenuTitle = "Chuyển ảnh thành chữ" });
+            ExtraTools.Add(new WeatherMenuItem(Symbol.World) { MenuTitle = "Thời tiết" });
+            ExtraTools.Add(new FlashMenuItem(Symbol.Trim) { MenuTitle = "Flash" });
+
+            if (!IsInDesignMode)
+            {
+                _IsTransparentTile = SettingHelper.LoadSetting("TransparentTile") == null ? false : (bool)SettingHelper.LoadSetting("TransparentTile");
+                _LockRotation = SettingHelper.LoadSetting("LockRotation") == null ? false : (bool)SettingHelper.LoadSetting("LockRotation");
+                LockRotationAction();
+            }
+
         }
 
         public void CreateCommand()
@@ -125,6 +153,12 @@ namespace BaoViet.ViewModels
             GoToPaperToHidePageCommand = new RelayCommand(GoToPaperToHidePage);
 
             PaperClickedCommand = new RelayCommand<ItemClickEventArgs>(PaperClicked);
+            LockRotationCommand = new RelayCommand(LockRotationAction);
+        }
+
+        private void LockRotationAction()
+        {
+            App.Current.Manager.DeviceService.LockDisplayOrientations(LockRotation);
         }
 
         private void PaperClicked(ItemClickEventArgs e)
@@ -248,17 +282,6 @@ namespace BaoViet.ViewModels
 
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Petro Times", Type = PaperType.PetroTimes, HomePage = "http://petrotimes.vn", ImageSource = "ms-appx:///Assets/Logo/logo-petro.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Đời sống pháp luật", Type = PaperType.DoiSongPhapLuat, HomePage = "http://www.doisongphapluat.com/", ImageSource = "ms-appx:///Assets/Logo/logo-dspl.png" });
-
-
-            ListMenuItem.Add(new MenuItemBase() { MenuTitle = "Trang nhất", Glyph = "\xE154", Type = MenuItemType.Home });
-            ListMenuItem.Add(new MenuItemBase() { MenuTitle = "Đã lưu", Glyph = "\xE082", Type = MenuItemType.Saved });
-            ListMenuItem.Add(new MenuItemBase() { MenuTitle = "Cài đặt", Glyph = "\xE115", Type = MenuItemType.Setting });
-
-            ExtraTools.Add(new CurrencyMenuItem(Symbol.Switch) { MenuTitle = "Tra cứu tỉ giá" });
-            ExtraTools.Add(new OCRMenuItem(Symbol.Caption) { MenuTitle = "Chuyển ảnh thành chữ" });
-            ExtraTools.Add(new WeatherMenuItem(Symbol.World) { MenuTitle = "Thời tiết" });
-            ExtraTools.Add(new FlashMenuItem(Symbol.Trim) { MenuTitle = "Flash" });
-
         }
 
         private void GoToPaperToHidePage()

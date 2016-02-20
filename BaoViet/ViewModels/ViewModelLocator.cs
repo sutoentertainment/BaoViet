@@ -51,7 +51,7 @@ namespace BaoViet.ViewModels
             SimpleIoc.Default.Register<List_Articles_ViewModel>();
             SimpleIoc.Default.Register<List_Categories_ViewModel>();
             SimpleIoc.Default.Register<Saved_Articles_ViewModel>();
-            SimpleIoc.Default.Register<Currrency_ViewModel>();
+            SimpleIoc.Default.Register<Currency_ViewModel>();
             //SimpleIoc.Default.Register<PromotionViewModel>();
             //SimpleIoc.Default.Register<WalletViewModel>();
             //SimpleIoc.Default.Register<SettingViewModel>();
@@ -102,11 +102,11 @@ namespace BaoViet.ViewModels
             }
         }
 
-        public Currrency_ViewModel Currrency
+        public Currency_ViewModel Currrency
         {
             get
             {
-                return Get<Currrency_ViewModel>();
+                return Get<Currency_ViewModel>();
             }
         }
 

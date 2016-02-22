@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace BaoViet.SampleData
 {
-    public class SampleData_Home_Page : Home_Page_ViewModel
+    public class SampleData_Home_Page : Home_ViewModel
     {
-        public Home_Page_ViewModel ViewModel
+        public Home_ViewModel ViewModel
         {
             get
             {
-                return new Home_Page_ViewModel();
+                return new Home_ViewModel();
             }
 
         }

@@ -127,7 +127,6 @@ namespace BaoViet
             Manager.RssService = new RssService(Manager);
             Manager.IAPService = new IAPService(Manager);
 
-
             Manager.Database.CreateTable<FeedItem>();
             RootDataContext = new RootDataContext();
             TileManager = new TileManager();
@@ -327,6 +326,7 @@ namespace BaoViet
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
+            Manager.CameraService.Dispose(true);
             deferral.Complete();
         }
 

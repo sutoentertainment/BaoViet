@@ -40,6 +40,7 @@ namespace BaoViet.Services
             PageDictionary.Add(Pages.List_Articles_Page, typeof(List_Articles_Page));
             PageDictionary.Add(Pages.Saved_Articles_Page, typeof(Saved_Articles_Page));
             PageDictionary.Add(Pages.Currency, typeof(Currency_Page));
+            PageDictionary.Add(Pages.Flash, typeof(Flash_Page));
         }
 
         private async void MainFrame_Navigated(object sender, Windows.UI.Xaml.Navigation.NavigationEventArgs e)

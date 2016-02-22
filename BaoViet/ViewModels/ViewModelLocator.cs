@@ -46,12 +46,13 @@ namespace BaoViet.ViewModels
             ////}
 
             //SimpleIoc.Default.Register<IntroViewModel>();
-            SimpleIoc.Default.Register<Home_Page_ViewModel>();
+            SimpleIoc.Default.Register<Home_ViewModel>();
             SimpleIoc.Default.Register<Detail_ViewModel>();
             SimpleIoc.Default.Register<List_Articles_ViewModel>();
             SimpleIoc.Default.Register<List_Categories_ViewModel>();
             SimpleIoc.Default.Register<Saved_Articles_ViewModel>();
             SimpleIoc.Default.Register<Currency_ViewModel>();
+            SimpleIoc.Default.Register<Camera_ViewModel>();
             //SimpleIoc.Default.Register<PromotionViewModel>();
             //SimpleIoc.Default.Register<WalletViewModel>();
             //SimpleIoc.Default.Register<SettingViewModel>();
@@ -62,11 +63,19 @@ namespace BaoViet.ViewModels
             return SimpleIoc.Default.GetInstance<T>();
         }
 
-        public Home_Page_ViewModel Main
+        public Camera_ViewModel Camera
         {
             get
             {
-                return Get<Home_Page_ViewModel>();
+                return Get<Camera_ViewModel>();
+            }
+        }
+
+        public Home_ViewModel Main
+        {
+            get
+            {
+                return Get<Home_ViewModel>();
             }
         }
 
@@ -131,6 +140,7 @@ namespace BaoViet.ViewModels
         Container,
         Saved_Articles_Page,
         Currency,
+        Flash,
     }
 
     public enum FrameKey

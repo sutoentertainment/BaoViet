@@ -71,7 +71,12 @@ namespace BaoViet.Models
     {
         public FlashMenuItem(Symbol icon) : base(icon)
         {
+            
+        }
 
+        public override void OnClicked()
+        {
+            App.Current.NavigationService.NavigateTo(Pages.Flash);
         }
     }
 }

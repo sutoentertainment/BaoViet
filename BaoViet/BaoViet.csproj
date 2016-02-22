@@ -132,6 +132,7 @@
       <DependentUpon>MenuItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\WebViewExtensions.cs" />
+    <Compile Include="ViewModels\Camera_ViewModel.cs" />
     <Compile Include="ViewModels\Detail_ViewModel.cs" />
     <Compile Include="ViewModels\Home_Page_ViewModel.cs" />
     <Compile Include="Interfaces\IMenuItem.cs" />
@@ -149,6 +150,9 @@
     </Compile>
     <Compile Include="Views\Detail_Page.xaml.cs">
       <DependentUpon>Detail_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flash_Page.xaml.cs">
+      <DependentUpon>Flash_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Home_Page.xaml.cs">
       <DependentUpon>Home_Page.xaml</DependentUpon>
@@ -283,6 +287,10 @@
     <Page Include="Views\Detail_Page.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flash_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Home_Page.xaml">
       <Generator>MSBuild:Compile</Generator>

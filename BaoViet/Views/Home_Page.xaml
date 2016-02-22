@@ -119,11 +119,10 @@
                               ItemClick="SlideMenu_ItemClick"
                               ItemContainerStyle="{StaticResource ListViewStandartItemStyle}"
                               ItemsSource="{x:Bind ViewModel.ListMenuItem}"
-                              SelectionChanged="SideMenu_SelectionChanged"
                               SelectionMode="None">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Width="240" Orientation="Horizontal">
+                                <StackPanel Width="200" Orientation="Horizontal">
                                     <FontIcon Margin="12,0"
                                               FontSize="20"
                                               Glyph="{Binding Glyph}" />
@@ -245,9 +244,12 @@
                                     <ListViewItem>
                                         <ToggleSwitch OnContent="Đã khóa xoay màn hình" OffContent="Khóa xoay màn hình" IsOn="{x:Bind ViewModel.LockRotation, Mode=TwoWay}">
                                             <i:Interaction.Behaviors>
-                                                <core:EventTriggerBehavior EventName="Toggled">
+                                                <core:DataTriggerBehavior Binding="{Binding LockRotation}" ComparisonCondition="Equal" Value="True">
                                                     <core:InvokeCommandAction Command="{x:Bind ViewModel.LockRotationCommand}"/>
-                                                </core:EventTriggerBehavior>
+                                                </core:DataTriggerBehavior>
+                                                <core:DataTriggerBehavior Binding="{Binding LockRotation}" ComparisonCondition="Equal" Value="False">
+                                                    <core:InvokeCommandAction Command="{x:Bind ViewModel.LockRotationCommand}"/>
+                                                </core:DataTriggerBehavior>
                                             </i:Interaction.Behaviors>
                                         </ToggleSwitch>
                                     </ListViewItem>

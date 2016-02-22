@@ -34,7 +34,7 @@ namespace BaoViet.Controls
                 typeof(Symbol),                   // The type of the DependencyProperty
                 typeof(MenuItem), // The type of the owner of the DependencyProperty
                 new PropertyMetadata(           // OnBlinkChanged will be called when Blink changes
-                    false                      // The default value of the DependencyProperty
+                      Symbol.Accept                    // The default value of the DependencyProperty
                 ));
 
         public string ButtonLabel

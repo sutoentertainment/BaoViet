@@ -18,5 +18,10 @@ namespace BaoVietCore.Services
         {
             Manager = manager;
         }
+
+        public ServiceBase()
+        {
+
+        }
     }
 }

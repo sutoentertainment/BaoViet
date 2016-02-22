@@ -93,7 +93,7 @@ namespace BaoVietCore.Models
                     this.CellWidth = ((500 - 10 * 4) / 2);
             }
             else
-                this.CellWidth = ((500 - 10 * 4) / 2);
+                this.CellWidth = ((300 - 10 * 4) / 2);
             Categories = new ObservableCollection<Category>();
 
             PinCommand = new RelayCommand(PinToStart);

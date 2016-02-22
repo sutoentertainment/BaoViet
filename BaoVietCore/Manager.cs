@@ -25,6 +25,7 @@ namespace BaoVietCore
         public ITrackingService TrackingService { get; set; }
         public IRssSource RssService { get; set; }
         public DeviceService DeviceService { get; set; }
+        public ICameraService CameraService { get; set; }
 
         public Manager()
         {

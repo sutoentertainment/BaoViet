@@ -33,6 +33,12 @@ namespace BaoViet.Views
         public Currency_Page()
         {
             this.InitializeComponent();
+            ViewModel.IsBusy = true;
+        }
+
+        private void WebView_DOMContentLoaded(WebView sender, WebViewDOMContentLoadedEventArgs args)
+        {
+            ViewModel.IsBusy = false;
         }
     }
 }

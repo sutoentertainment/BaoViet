@@ -25,7 +25,7 @@ using BaoViet.Models;
 
 namespace BaoViet.ViewModels
 {
-    public class Home_Page_ViewModel : ViewModelBase, INavigable, ITrackingAble
+    public class Home_ViewModel : ViewModelBase, INavigable, ITrackingAble
     {
         public string AppVersion
         {
@@ -117,7 +117,7 @@ namespace BaoViet.ViewModels
             }
         }
 
-        public Home_Page_ViewModel()
+        public Home_ViewModel()
         {
             FrontPagePaper = new ObservableCollection<IPaper>();
             ListMenuItem = new ObservableCollection<IMenuItem>();
@@ -138,7 +138,6 @@ namespace BaoViet.ViewModels
 
             if (!IsInDesignMode)
             {
-                _IsTransparentTile = SettingHelper.LoadSetting("TransparentTile") == null ? false : (bool)SettingHelper.LoadSetting("TransparentTile");
                 _LockRotation = SettingHelper.LoadSetting("LockRotation") == null ? false : (bool)SettingHelper.LoadSetting("LockRotation");
                 LockRotationAction();
             }
@@ -159,6 +158,7 @@ namespace BaoViet.ViewModels
         private void LockRotationAction()
         {
             App.Current.Manager.DeviceService.LockDisplayOrientations(LockRotation);
+            SettingHelper.SaveSetting("LockRotation", LockRotation);
         }
 
         private void PaperClicked(ItemClickEventArgs e)
@@ -220,7 +220,7 @@ namespace BaoViet.ViewModels
             }
         }
 
-        ~Home_Page_ViewModel()
+        ~Home_ViewModel()
         {
 
         }

@@ -36,11 +36,11 @@ namespace BaoViet.Views
     public sealed partial class Home_Page : BindablePage
     {
 
-        public Home_Page_ViewModel ViewModel
+        public Home_ViewModel ViewModel
         {
             get
             {
-                return this.DataContext as Home_Page_ViewModel;
+                return this.DataContext as Home_ViewModel;
             }
         }
         GestureRecognizer gestureRecognizer = new Windows.UI.Input.GestureRecognizer();
@@ -157,20 +157,10 @@ namespace BaoViet.Views
             await App.Current.TileManager.CreateSecondaryTileAsync("TransparentTile", "ms-appx:///Assets/Square150x150LogoTrans.png", "Báo Việt", "?page=main", "ms-appx:///Assets/Wide310x150LogoTrans.png");
         }
 
-        private void SideMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ViewModel.IsPaneOpen = false;
-            if (SideMenu.SelectedIndex == 0)
-                rootPivot.SelectedIndex = 0;
-            if (SideMenu.SelectedIndex == 1)
-                App.Current.NavigationService.NavigateTo(Pages.Saved_Articles_Page);
-            if (SideMenu.SelectedIndex == 2)
-                rootPivot.SelectedIndex = 1;
-        }
-
         private void SlideMenu_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ViewModel.IsPaneOpen = false;
+            if (App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
+                ViewModel.IsPaneOpen = false;
             var menuItem = e.ClickedItem as MenuItemBase;
             switch (menuItem.Type)
             {
@@ -210,7 +200,8 @@ namespace BaoViet.Views
 
         private void SideMenuListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ViewModel.IsPaneOpen = false;
+            if(App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
+                ViewModel.IsPaneOpen = false;
             var context = e.ClickedItem as IMenuItem;
             context.OnClicked();
         }

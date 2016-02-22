@@ -26,6 +26,18 @@ namespace BaoViet.ViewModels
         }
 
         public ObservableCollection<CurrencyInfo> CurrencyInfos { get; set; }
+        bool _IsBusy = false;
+        public bool IsBusy
+        {
+            get
+            {
+                return _IsBusy;
+            }
+            set
+            {
+                Set(ref _IsBusy, value);
+            }
+        }
 
         public Currency_ViewModel()
         {
@@ -35,12 +47,6 @@ namespace BaoViet.ViewModels
 
         public void LoadData()
         {
-            var info = new CurrencyInfo();
-            info.Code = "USD";
-            info.Buying = "120";
-            info.Transfer = "110";
-            info.Selling = "100";
-            CurrencyInfos.Add(info);
         }
 
         public void OnNavigatedTo(NavigationEventArgs e)

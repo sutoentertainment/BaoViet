@@ -31,8 +31,12 @@ namespace BaoViet.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             App.Current.Manager.CameraService = new BasicCameraService(App.Current.Manager);
-            await App.Current.Manager.CameraService.InitialAsync(hiddenCaptureElement, null, true);
-            await App.Current.Manager.CameraService.StartPreviewAsync();
+            await App.Current.Manager.CameraService.PrepareInitAsync();
+            if (App.Current.Manager.CameraService.IsCameraAvailable)
+            {
+                await App.Current.Manager.CameraService.InitialAsync(hiddenCaptureElement, null, true);
+                await App.Current.Manager.CameraService.StartPreviewAsync();
+            }
             App.Current.OnAppResumed += Current_OnAppResumed;
             base.OnNavigatedTo(e);
         }

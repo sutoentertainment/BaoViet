@@ -38,6 +38,14 @@ namespace BaoVietCore.Services
         public List<DeviceInformation> AudioDeviceList { get; private set; }
         private bool isFocusing = false;
 
+        public bool IsCameraAvailable
+        {
+            get
+            {
+                return CameraDeviceList?.Count > 0;
+            }
+        }
+
         public BasicCameraService(Manager man) : base(man)
         {
 
@@ -52,6 +60,7 @@ namespace BaoVietCore.Services
         {
             Dispose(false);
         }
+
         /// <summary>
         /// To save time for camera opening, call this before <see cref="InitialAsync"/> at any point in life cycle of application
         /// </summary>
@@ -531,7 +540,7 @@ namespace BaoVietCore.Services
                     this.mediaCapture = null;
                 }
 
-                if(lowlag != null)
+                if (lowlag != null)
                 {
                     await lowlag.FinishAsync();
                     lowlag = null;

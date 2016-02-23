@@ -200,7 +200,7 @@ namespace BaoViet.Views
 
         private void SideMenuListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if(App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
+            if (App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
                 ViewModel.IsPaneOpen = false;
             var context = e.ClickedItem as IMenuItem;
             context.OnClicked();
@@ -234,6 +234,17 @@ namespace BaoViet.Views
         private void SideMenu_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
         {
 
+        }
+
+        private void PaneFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            ViewModel.PaneFrameCanGoBack = PaneFrame.CanGoBack;
+        }
+
+        private void RoundButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (PaneFrame.CanGoBack)
+                PaneFrame.GoBack();
         }
 
 

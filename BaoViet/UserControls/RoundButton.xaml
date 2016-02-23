@@ -1,0 +1,155 @@
+﻿<UserControl x:Class="BaoViet.Controls.RoundButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Name="root"
+             d:DesignHeight="50"
+             d:DesignWidth="50"
+             mc:Ignorable="d"
+             xmlns:i="using:Microsoft.Xaml.Interactivity"
+             xmlns:core="using:Microsoft.Xaml.Interactions.Core">
+
+    <Grid Background="Transparent">
+        <i:Interaction.Behaviors>
+            <core:EventTriggerBehavior EventName="Loaded">
+                <core:GoToStateAction StateName="ButtonReleased" UseTransitions="False"/>
+            </core:EventTriggerBehavior>
+
+            <core:EventTriggerBehavior EventName="PointerCaptureLost">
+                <core:GoToStateAction StateName="ButtonReleased" UseTransitions="True"/>
+            </core:EventTriggerBehavior>
+
+            <core:EventTriggerBehavior EventName="PointerReleased">
+                <core:GoToStateAction StateName="ButtonReleased" UseTransitions="True"/>
+            </core:EventTriggerBehavior>
+
+            <core:EventTriggerBehavior EventName="PointerExited">
+                <core:GoToStateAction StateName="ButtonReleased" UseTransitions="True"/>
+            </core:EventTriggerBehavior>
+
+            <core:EventTriggerBehavior EventName="PointerCanceled">
+                <core:GoToStateAction StateName="ButtonReleased" UseTransitions="True"/>
+            </core:EventTriggerBehavior>
+
+            <core:EventTriggerBehavior EventName="PointerPressed">
+                <core:GoToStateAction StateName="ButtonPressed" UseTransitions="True"/>
+            </core:EventTriggerBehavior>
+
+            <core:EventTriggerBehavior EventName="PointerEntered">
+                <core:GoToStateAction StateName="ButtonHover" UseTransitions="True"/>
+            </core:EventTriggerBehavior>
+        </i:Interaction.Behaviors>
+        
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="ButtonAnimations">
+
+                <VisualState x:Name="ButtonPressed">
+                    <Storyboard>
+                        <ColorAnimation Duration="00:00:00.2"
+                                        From="#444444"
+                                        Storyboard.TargetName="ui_buttonEllipse"
+                                        Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)"
+                                        To="#666666">
+                            <ColorAnimation.EasingFunction>
+                                <QuinticEase EasingMode="EaseOut" />
+                            </ColorAnimation.EasingFunction>
+                        </ColorAnimation>
+
+                        <DoubleAnimation Duration="00:00:00.2"
+                                         Storyboard.TargetName="ui_iconScaleTrans"
+                                         Storyboard.TargetProperty="ScaleX"
+                                         To="1.2">
+                            <DoubleAnimation.EasingFunction>
+                                <QuinticEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                        <DoubleAnimation Duration="00:00:00.2"
+                                         Storyboard.TargetName="ui_iconScaleTrans"
+                                         Storyboard.TargetProperty="ScaleY"
+                                         To="1.2">
+                            <DoubleAnimation.EasingFunction>
+                                <QuinticEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </VisualState>
+
+                <!--  We make these slow so the user has more time to see if after they move their finger  -->
+                <VisualState x:Name="ButtonReleased">
+                    <Storyboard>
+                        <ColorAnimation Duration="00:00:00.3"
+                                        From="#666666"
+                                        Storyboard.TargetName="ui_buttonEllipse"
+                                        Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)"
+                                        To="#444444">
+                            <ColorAnimation.EasingFunction>
+                                <QuinticEase EasingMode="EaseOut" />
+                            </ColorAnimation.EasingFunction>
+                        </ColorAnimation>
+
+                        <DoubleAnimation Duration="00:00:00.3"
+                                         Storyboard.TargetName="ui_iconScaleTrans"
+                                         Storyboard.TargetProperty="ScaleX"
+                                         To="1.0">
+                            <DoubleAnimation.EasingFunction>
+                                <QuinticEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                        <DoubleAnimation Duration="00:00:00.3"
+                                         Storyboard.TargetName="ui_iconScaleTrans"
+                                         Storyboard.TargetProperty="ScaleY"
+                                         To="1.0">
+                            <DoubleAnimation.EasingFunction>
+                                <QuinticEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </VisualState>
+
+                <VisualState x:Name="ButtonHover">
+                    <VisualState.Setters>
+                        <Setter Target="ui_buttonEllipse.Opacity" Value="0.6"></Setter>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
+        <StackPanel Orientation="Vertical" x:Name="_Container">
+            <Grid RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <ScaleTransform x:Name="ui_iconScaleTrans" />
+                </Grid.RenderTransform>
+
+                <Ellipse x:Name="ui_buttonEllipse"
+                     Width="30"
+                     Height="30"
+                     Fill="Gray" />
+
+                <Viewbox Width="16" Margin="{Binding Padding, ElementName=root}" HorizontalAlignment="Center"
+                     VerticalAlignment="Center">
+                    <SymbolIcon Symbol="{Binding SymbolIcon, ElementName=root}" x:Name="ui_symbolTextBlock"/>
+                </Viewbox>
+
+                <Viewbox Width="16"
+                     Height="16"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center">
+                    <FontIcon x:Name="ui_fontIcon"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                          Foreground="#989898"/>
+                </Viewbox>
+            </Grid>
+            <!--<TextBlock
+                   Margin="{Binding BorderThickness,
+                                    ElementName=root}"
+                   HorizontalAlignment="Left"
+                   FontSize="{Binding FontSize,
+                                      ElementName=root}"
+                   Text="{Binding ButtonLabel,
+                                  ElementName=root}" />-->
+        </StackPanel>
+    </Grid>
+</UserControl>

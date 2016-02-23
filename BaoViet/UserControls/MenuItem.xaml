@@ -9,10 +9,7 @@
              mc:Ignorable="d">
 
     <Grid Background="Transparent">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" x:Name="_Container">
 
         <Viewbox Width="16" Margin="{Binding Padding, ElementName=root}">
             <SymbolIcon Symbol="{Binding SymbolIcon, ElementName=root}" />
@@ -26,5 +23,6 @@
                                       ElementName=root}"
                    Text="{Binding ButtonLabel,
                                   ElementName=root}" />
+        </StackPanel>
     </Grid>
 </UserControl>

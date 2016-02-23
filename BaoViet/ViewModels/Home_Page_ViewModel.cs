@@ -86,6 +86,19 @@ namespace BaoViet.ViewModels
             }
         }
 
+        private bool _PaneFrameCanGoBack = false;
+        public bool PaneFrameCanGoBack
+        {
+            get
+            {
+                return _PaneFrameCanGoBack;
+            }
+            set
+            {
+                Set(ref _PaneFrameCanGoBack, value);
+            }
+        }
+
         private bool _LockRotation = false;
         public bool LockRotation
         {

@@ -50,9 +50,9 @@ namespace BaoVietCore.Models.XmlParser
                 {
 
                 }
-                feed.Link = item.Descendants().FirstOrDefault(e => e.Name == "link").Value.Trim();
-
-                feeds.Add(feed);
+                feed.Link = item.Descendants().FirstOrDefault(e => e.Name == "link")?.Value.Trim();
+                if (!string.IsNullOrEmpty(feed.Link))
+                    feeds.Add(feed);
             }
 
             return feeds;

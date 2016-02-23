@@ -351,7 +351,10 @@
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Stretch"
                                 Background="{StaticResource AppBlackGray}" />
-                        <Frame x:Name="PaneFrame" Margin="2,0,0,0" />
+                        <Frame x:Name="PaneFrame" Margin="2,0,0,0" Navigated="PaneFrame_Navigated" SourcePageType="local:Tutorial_Page">
+                        </Frame>
+
+                        <control:RoundButton Margin="12,-35,0,0" SymbolIcon="Back" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="{Binding PaneFrameCanGoBack, Converter={StaticResource BooleanToVisibility}}" Tapped="RoundButton_Tapped"/>
                     </Grid>
 
                     <!--<Grid Width="10"

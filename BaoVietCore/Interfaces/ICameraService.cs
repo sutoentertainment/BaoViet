@@ -14,6 +14,7 @@ namespace BaoVietCore.Interfaces
     {
         List<DeviceInformation> AudioDeviceList { get; }
         List<DeviceInformation> CameraDeviceList { get; }
+        bool IsCameraAvailable { get; }
         bool IsBackCamera { get; set; }
         Task Dispose(bool threadSafe);
         Task DisposeLowLagAsync();

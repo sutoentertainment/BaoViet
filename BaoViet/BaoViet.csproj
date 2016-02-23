@@ -128,6 +128,9 @@
     <Compile Include="UserControls\FrontPaperCell.xaml.cs">
       <DependentUpon>FrontPaperCell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\RoundButton.xaml.cs">
+      <DependentUpon>RoundButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MenuItem.xaml.cs">
       <DependentUpon>MenuItem.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,9 @@
     </Compile>
     <Compile Include="Views\Setting_Page.xaml.cs">
       <DependentUpon>Setting_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tutorial_Page.xaml.cs">
+      <DependentUpon>Tutorial_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="VisualStateTriggers\BatteryTrigger.cs" />
     <Compile Include="VisualStateTriggers\DeviceFamilyTrigger.cs" />
@@ -272,6 +278,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UserControls\RoundButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\MenuItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -315,6 +325,10 @@
     <Page Include="Views\Setting_Page.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Tutorial_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

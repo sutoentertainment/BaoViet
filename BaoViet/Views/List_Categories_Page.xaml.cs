@@ -38,5 +38,12 @@ namespace BaoViet.Views
             this.InitializeComponent();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.NavigationMode != NavigationMode.Back)
+                VisualStateManager.GoToState(this, "HeaderLoaded", true);
+            base.OnNavigatedTo(e);
+        }
+
     }
 }

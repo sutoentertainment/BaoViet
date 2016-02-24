@@ -5,12 +5,14 @@ using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Threading;
 using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -54,6 +56,7 @@ namespace BaoViet.ViewModels
             }
         }
 
+
         public List_Categories_ViewModel()
         {
             CategoryClickedCommand = new RelayCommand<ItemClickEventArgs>(CategoryClicked);
@@ -77,7 +80,7 @@ namespace BaoViet.ViewModels
 
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-                if(App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
+                if (App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
                     App.Current.NavigationService.NavigateTo(Pages.List_Articles_Page);
                 else
                     App.Current.NavigationService.NavigateTo(Pages.List_Articles_Page, null, FrameKey.PaneSplitFrame);
@@ -93,14 +96,14 @@ namespace BaoViet.ViewModels
 
                 if (CurrentPaper.Categories.Count <= 1)
 
-                    await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                    await DispatcherHelper.RunAsync(() =>
                     {
                         App.Current.NavigationService.GoBack();
                     });
                 return;
             }
-            HeaderLoaded = true;
-            //VisualStateManager.GoToState(this, "HeaderLoaded", true);
+
+
             if (CurrentPaper.Categories.Count == 0)
             {
                 var feed = new FeedItem();
@@ -108,7 +111,7 @@ namespace BaoViet.ViewModels
                 var detail = ViewModelLocator.Get<Detail_ViewModel>();
                 detail.CurrentFeed = feed;
 
-                await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                await DispatcherHelper.RunAsync(() =>
                 {
                     if (App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
                         App.Current.NavigationService.NavigateTo(Pages.DetailPage);

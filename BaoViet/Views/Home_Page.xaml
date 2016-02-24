@@ -15,7 +15,6 @@
                                           Mode=OneWay,
                                           Source={StaticResource Locator}}"
                     NavigationCacheMode="Required"
-                    d:DataContext="{Binding Source={StaticResource sample_data}}"
                     mc:Ignorable="d">
 
     <!--  xmlns:usercontrol="using:BaoViet.UserControls"  -->
@@ -31,10 +30,6 @@
             </NavigationThemeTransition>
         </TransitionCollection>
     </Page.Transitions>-->
-
-    <Page.Resources>
-        <sample:SampleData_Home_Page x:Key="sample_data" />
-    </Page.Resources>
 
     <Grid Background="{StaticResource AppColorBackground}">
         <VisualStateManager.VisualStateGroups>
@@ -118,7 +113,7 @@
                               IsItemClickEnabled="True"
                               ItemClick="SlideMenu_ItemClick"
                               ItemContainerStyle="{StaticResource ListViewStandartItemStyle}"
-                              ItemsSource="{x:Bind ViewModel.ListMenuItem}"
+                              ItemsSource="{Binding ListMenuItem}"
                               SelectionMode="None">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -161,7 +156,7 @@
                                   Grid.Row="1"
                                   IsItemClickEnabled="True"
                                   ItemClick="SideMenuListView_ItemClick"
-                                  ItemsSource="{x:Bind ViewModel.ExtraTools}"
+                                  ItemsSource="{Binding ExtraTools}"
                                   SelectionMode="None">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
@@ -193,7 +188,7 @@
                                       IsItemClickEnabled="True"
                                       ItemContainerStyle="{StaticResource GridViewItemStyle}"
                                       ItemTemplate="{StaticResource FrontPaperTemplate}"
-                                      ItemsSource="{x:Bind ViewModel.FrontPagePaper}"
+                                      ItemsSource="{Binding FrontPagePaper}"
                                       ScrollViewer.VerticalScrollBarVisibility="Hidden"
                                       SelectionMode="None">
 

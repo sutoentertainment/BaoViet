@@ -5,6 +5,7 @@
     "Comet": "0.2.0.1",
     "Microsoft.AdMediator.Universal.AdDuplex": "2.1.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
+    "Microsoft.Xaml.Behaviors.Uwp.Managed": "1.1.0",
     "MvvmLightLibs": "5.2.0"
   },
   "frameworks": {

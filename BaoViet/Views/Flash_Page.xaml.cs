@@ -30,7 +30,7 @@ namespace BaoViet.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            App.Current.Manager.CameraService = new BasicCameraService(App.Current.Manager);
+
             await App.Current.Manager.CameraService.PrepareInitAsync();
             if (App.Current.Manager.CameraService.IsCameraAvailable)
             {
@@ -44,11 +44,14 @@ namespace BaoViet.Views
         private async void Current_OnAppResumed()
         {
             await App.Current.Manager.CameraService.InitialAsync(hiddenCaptureElement, null, true);
+            await App.Current.Manager.CameraService.StartPreviewAsync();
+            App.Current.Manager.CameraService.SetFlashStatus(flashEnabled);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             App.Current.OnAppResumed -= Current_OnAppResumed;
+            base.OnNavigatedFrom(e);
         }
 
         bool flashEnabled = false;

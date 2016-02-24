@@ -1,0 +1,35 @@
+﻿<local:BindablePage
+    x:Class="BaoViet.Views.Gold_Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helper="using:BaoViet.Helpers"
+    xmlns:local="using:BaoViet.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <StackPanel Margin="12">
+            <TextBlock
+                Foreground="{StaticResource AppColor}"
+                FontSize="48"
+                Text="Giá vàng" />
+            <Border
+                Height="1"
+                Margin="0,10"
+                Background="#666" />
+        </StackPanel>
+
+        <ProgressBar Grid.Row="1"
+                     Width="200"
+                     Margin="20,70,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     Background="Transparent"
+                     x:Name="Loader"/>
+
+
+        <WebView Margin="12,70,12,12" Source="http://www.tygia.com/api.php?column=1&amp;title=0&amp;chart=0&amp;gold=1&amp;rate=0&amp;expand=2&amp;color=284C84&amp;nganhang=VIETCOM&amp;fontsize=80&amp;change=0" DOMContentLoaded="WebView_DOMContentLoaded" />
+    </Grid>
+</local:BindablePage>

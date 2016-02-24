@@ -1,6 +1,4 @@
 ﻿using BaoViet.ViewModels;
-using BaoVietCore.Models;
-using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,31 +21,17 @@ namespace BaoViet.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class List_Categories_Page : BindablePage
+    public sealed partial class Gold_Page : BindablePage
     {
-        public List_Categories_ViewModel ViewModel
-        {
-            get
-            {
-                return this.DataContext as List_Categories_ViewModel;
-            }
-        }
-
-        public List_Categories_Page()
+        public Gold_Page()
         {
             this.InitializeComponent();
-            this.Loaded += List_Categories_Page_Loaded;
+            Loader.IsIndeterminate = true;
         }
 
-        private void List_Categories_Page_Loaded(object sender, RoutedEventArgs e)
+        private void WebView_DOMContentLoaded(WebView sender, WebViewDOMContentLoadedEventArgs args)
         {
-            ViewModel.HeaderLoaded = true;
+            Loader.IsIndeterminate = false;
         }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-        }
-
     }
 }

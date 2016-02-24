@@ -117,6 +117,6 @@
                                                Mode=OneWay}" />
 
 
-        <WebView Margin="12,70,12,12" Source="http://www.tygia.com/api.php?column=1&amp;title=0&amp;chart=0&amp;gold=1&amp;rate=0&amp;expand=2&amp;color=284C84&amp;nganhang=VIETCOM&amp;fontsize=80&amp;change=0" DOMContentLoaded="WebView_DOMContentLoaded" />
+        <WebView Margin="12,70,12,12" Source="http://www.tygia.com/api.php?column=1&amp;title=0&amp;chart=0&amp;gold=0&amp;rate=1&amp;expand=1&amp;color=aa1111&amp;nganhang=VIETCOM&amp;fontsize=80&amp;ngay=" DOMContentLoaded="WebView_DOMContentLoaded" />
     </Grid>
 </local:BindablePage>

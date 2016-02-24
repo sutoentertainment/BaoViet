@@ -6,13 +6,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{Binding Camera, Mode=OneWay, Source={StaticResource Locator}}">
+    DataContext="{Binding Camera, Mode=OneWay, Source={StaticResource Locator}}"
+    xmlns:control="using:BaoViet.Controls">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{StaticResource AppColorBackground}">
         <CaptureElement x:Name="hiddenCaptureElement" HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         RenderTransformOrigin="0.5, 0.5"
-                        Stretch="UniformToFill" Width="300" Height="450"/>
-        <Button Content="Toggle Flash" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="Button_Tapped"/>
+                        Stretch="UniformToFill" Width="300" Height="450" Visibility="Collapsed"/>
+
+        <control:RoundButton FontIconGlyph="&#xE754;" FontSize="16" Padding="20,0,20,0" Foreground="White" Width="100" Height="100" Tapped="Button_Tapped"/>
     </Grid>
 </local:BindablePage>

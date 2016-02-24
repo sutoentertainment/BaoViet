@@ -27,8 +27,8 @@ namespace BaoViet.Views
                     App.Current.Manager.TrackingService.TagScreen((navigableViewModel as ITrackingAble).ScreenName);
                 }
                 navigableViewModel.OnNavigatedTo(e);
-                SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
             }
+            SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
         }
 
         public void OnBackRequested(object sender, BackRequestedEventArgs e)

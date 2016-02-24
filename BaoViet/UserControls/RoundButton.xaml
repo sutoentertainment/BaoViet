@@ -122,24 +122,23 @@
                 </Grid.RenderTransform>
 
                 <Ellipse x:Name="ui_buttonEllipse"
-                     Width="30"
-                     Height="30"
+                     Width="{Binding Width, ElementName=root}"
+                     Height="{Binding Height, ElementName=root}"
                      Fill="Gray" />
 
-                <Viewbox Width="16" Margin="{Binding Padding, ElementName=root}" HorizontalAlignment="Center"
+                <Viewbox Margin="{Binding Padding, ElementName=root}" HorizontalAlignment="Center"
                      VerticalAlignment="Center">
                     <SymbolIcon Symbol="{Binding SymbolIcon, ElementName=root}" x:Name="ui_symbolTextBlock"/>
                 </Viewbox>
 
-                <Viewbox Width="16"
-                     Height="16"
+                <Viewbox  Margin="{Binding Padding, ElementName=root}"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center">
                     <FontIcon x:Name="ui_fontIcon"
                           HorizontalAlignment="Center"
                           VerticalAlignment="Center"
-                          FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                          Foreground="#989898"/>
+                          FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="{Binding FontSize,
+                                      ElementName=root}" Foreground="{Binding Foreground, ElementName=root}"/>
                 </Viewbox>
             </Grid>
             <!--<TextBlock

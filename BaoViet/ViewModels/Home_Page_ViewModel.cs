@@ -91,6 +91,8 @@ namespace BaoViet.ViewModels
         {
             get
             {
+                if (IsInDesignModeStatic)
+                    return true;
                 return _PaneFrameCanGoBack;
             }
             set
@@ -140,21 +142,30 @@ namespace BaoViet.ViewModels
 
             LoadData();
 
+            CreateSideMenu();
+
+            
+
+            if (!IsInDesignMode)
+            {
+                var setting_lock = SettingHelper.LoadSetting("LockRotation");
+                _LockRotation = setting_lock == null ? false : (bool)setting_lock;
+                LockRotationAction();
+            }
+
+        }
+
+        private void CreateSideMenu()
+        {
             ListMenuItem.Add(new MenuItemBase() { MenuTitle = "Trang nhất", Glyph = "\xE154", Type = MenuItemType.Home });
             ListMenuItem.Add(new MenuItemBase() { MenuTitle = "Đã lưu", Glyph = "\xE082", Type = MenuItemType.Saved });
             ListMenuItem.Add(new MenuItemBase() { MenuTitle = "Cài đặt", Glyph = "\xE115", Type = MenuItemType.Setting });
 
             ExtraTools.Add(new CurrencyMenuItem(Symbol.Switch) { MenuTitle = "Tra cứu tỉ giá" });
-            ExtraTools.Add(new OCRMenuItem(Symbol.Caption) { MenuTitle = "Chuyển ảnh thành chữ" });
-            ExtraTools.Add(new WeatherMenuItem(Symbol.World) { MenuTitle = "Thời tiết" });
+            ExtraTools.Add(new GoldMenuItem(Symbol.Tag) { MenuTitle = "Giá vàng" });
+            //ExtraTools.Add(new OCRMenuItem(Symbol.Caption) { MenuTitle = "Chuyển ảnh thành chữ" });
+            //ExtraTools.Add(new WeatherMenuItem(Symbol.World) { MenuTitle = "Thời tiết" });
             ExtraTools.Add(new FlashMenuItem(Symbol.Trim) { MenuTitle = "Flash" });
-
-            if (!IsInDesignMode)
-            {
-                _LockRotation = SettingHelper.LoadSetting("LockRotation") == null ? false : (bool)SettingHelper.LoadSetting("LockRotation");
-                LockRotationAction();
-            }
-
         }
 
         public void CreateCommand()

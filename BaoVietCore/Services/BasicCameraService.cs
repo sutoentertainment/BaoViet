@@ -118,7 +118,7 @@ namespace BaoVietCore.Services
         /// <param name="isBackCamera"></param>
         protected virtual MediaEncodingProfile CreateProfile()
         {
-            activeProfile = MediaEncodingProfile.CreateMp4(VideoEncodingQuality.Vga);
+            var _activeProfile = MediaEncodingProfile.CreateMp4(VideoEncodingQuality.Vga);
             int MFVideoRotation;
             Guid MFVideoRotationGuid = new Guid("C380465D-2271-428C-9B83-ECEA3B4A85C1"); // MF_MT_VIDEO_ROTATION in Mfapi.h
 
@@ -132,18 +132,18 @@ namespace BaoVietCore.Services
                 MFVideoRotation = ConvertVideoRotationToMFRotation(VideoRotation.Clockwise270Degrees);
             }
 
-            activeProfile.Video.FrameRate.Denominator = 1;
-            activeProfile.Video.FrameRate.Numerator = 30;
-            activeProfile.Video.ProfileId = H264ProfileIds.Baseline;
+            _activeProfile.Video.FrameRate.Denominator = 1;
+            _activeProfile.Video.FrameRate.Numerator = 30;
+            _activeProfile.Video.ProfileId = H264ProfileIds.Baseline;
             if (Manager.DeviceService.CurrentDevice() == DeviceTypes.Mobile)
-                activeProfile.Video.Properties.Add(MFVideoRotationGuid, PropertyValue.CreateInt32(MFVideoRotation));
+                _activeProfile.Video.Properties.Add(MFVideoRotationGuid, PropertyValue.CreateInt32(MFVideoRotation));
 
-            activeProfile.Video.Bitrate = 1048576 * 2;
-            activeProfile.Video.Width = 1024;
-            activeProfile.Video.Height = 768;
-            activeProfile.Audio.Bitrate = 128000;
+            _activeProfile.Video.Bitrate = 1048576 * 2;
+            _activeProfile.Video.Width = 1024;
+            _activeProfile.Video.Height = 768;
+            _activeProfile.Audio.Bitrate = 128000;
 
-            return activeProfile;
+            return _activeProfile;
         }
 
         int ConvertVideoRotationToMFRotation(VideoRotation rotation)
@@ -517,32 +517,31 @@ namespace BaoVietCore.Services
             {
                 if (isRecording)
                 {
-                    await StopRecordingAsync();
+                    //try
+                    //{
+                    //    await StopRecordingAsync();
+                    //}
                 }
                 if (isPreviewing)
                 {
-                    await StopPreviewAsync();
+                    //try
+                    //{
+                    //    await StopPreviewAsync();
+                    //}
                 }
                 if (this.captureElement != null)
                 {
                     this.captureElement.Source = null;
                     this.captureElement = null;
                 }
-                if (this.mediaCapture != null)
-                {
-                    mediaCapture.CameraStreamStateChanged -= MediaCapture_CameraStreamStateChanged;
-                    mediaCapture.Failed -= MediaCapture_Failed;
-                    mediaCapture.FocusChanged -= MediaCapture_FocusChanged;
-                    mediaCapture.PhotoConfirmationCaptured -= MediaCapture_PhotoConfirmationCaptured;
-                    mediaCapture.RecordLimitationExceeded -= MediaCapture_RecordLimitationExceeded;
-                    mediaCapture.ThermalStatusChanged -= MediaCapture_ThermalStatusChanged;
-                    mediaCapture.Dispose();
-                    this.mediaCapture = null;
-                }
+
 
                 if (lowlag != null)
                 {
-                    await lowlag.FinishAsync();
+                    //try
+                    //{
+                    //    await lowlag.FinishAsync();
+                    //}
                     lowlag = null;
                 }
             }
@@ -550,6 +549,19 @@ namespace BaoVietCore.Services
             {
                 //Clear unmanaged resource here
             }
+
+            if (this.mediaCapture != null)
+            {
+                mediaCapture.CameraStreamStateChanged -= MediaCapture_CameraStreamStateChanged;
+                mediaCapture.Failed -= MediaCapture_Failed;
+                mediaCapture.FocusChanged -= MediaCapture_FocusChanged;
+                mediaCapture.PhotoConfirmationCaptured -= MediaCapture_PhotoConfirmationCaptured;
+                mediaCapture.RecordLimitationExceeded -= MediaCapture_RecordLimitationExceeded;
+                mediaCapture.ThermalStatusChanged -= MediaCapture_ThermalStatusChanged;
+                mediaCapture.Dispose();
+                this.mediaCapture = null;
+            }
+
             //Hack to prevent green screen
             GC.Collect();
         }

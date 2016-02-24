@@ -126,6 +126,7 @@ namespace BaoViet
             Manager.TrackingService = new LocalyticsAdapterService(Manager);
             Manager.RssService = new RssService(Manager);
             Manager.IAPService = new IAPService(Manager);
+            Manager.CameraService = new BasicCameraService(Manager);
 
             Manager.Database.CreateTable<FeedItem>();
             RootDataContext = new RootDataContext();

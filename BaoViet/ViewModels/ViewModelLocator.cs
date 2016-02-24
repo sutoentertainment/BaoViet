@@ -141,6 +141,7 @@ namespace BaoViet.ViewModels
         Saved_Articles_Page,
         Currency,
         Flash,
+        Gold,
     }
 
     public enum FrameKey

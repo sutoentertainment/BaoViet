@@ -148,6 +148,9 @@
       <DependentUpon>ContainerMaster.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BindablePage.cs" />
+    <Compile Include="Views\Gold_Page.xaml.cs">
+      <DependentUpon>Gold_Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Currency_Page.xaml.cs">
       <DependentUpon>Currency_Page.xaml</DependentUpon>
     </Compile>
@@ -287,6 +290,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ContainerMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Gold_Page.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -11,35 +11,27 @@ namespace BaoVietCore.Models.XmlParser
     /// <summary>
     /// Class for xml parsing based on DanTri feed format, widely used by other papers.
     /// </summary>
-    internal class ZingParser : IXmlParser
+    internal class VietnamPlusParser : IXmlParser
     {
         private string xml;
 
-        public ZingParser()
+        public VietnamPlusParser()
         {
 
         }
 
-        public ZingParser(string xml)
+        public VietnamPlusParser(string xml)
         {
             this.xml = xml;
         }
 
         public IEnumerable<IFeedItem> GetFeed()
         {
-            XDocument docs;
-            var feeds = new List<IFeedItem>();
-            try
-            {
-                docs = XDocument.Parse(xml, LoadOptions.None);
-            }
-            catch
-            {
-                return feeds;
-            }
+            XDocument docs = XDocument.Parse(xml, LoadOptions.None);
 
             var nodes = docs.Descendants().Where(n => n.Name == "item");
 
+            var feeds = new List<IFeedItem>();
             foreach (var item in nodes)
             {
                 var feed = new FeedItem();
@@ -52,7 +44,7 @@ namespace BaoVietCore.Models.XmlParser
                 feed.Description = WebUtility.HtmlDecode(htmldocs.DocumentNode.InnerText);
                 try
                 {
-                    var sub = item.Descendants().FirstOrDefault(e => e.Name == "enclosure");
+                    var sub = item.Descendants().Where(e => e.Name.LocalName == "content").FirstOrDefault();
                     feed.Thumbnail = sub.Attribute("url").Value;
                 }
                 catch

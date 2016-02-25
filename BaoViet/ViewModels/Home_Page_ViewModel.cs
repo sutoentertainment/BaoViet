@@ -148,9 +148,7 @@ namespace BaoViet.ViewModels
             if (!IsInDesignMode)
             {
                 _LockRotation = App.Current.Manager.SettingsService.GetValueLocal<bool>(SettingKey.LockRotation);
-                LockRotationAction();
             }
-
         }
 
         private void CreateSideMenu()
@@ -228,6 +226,7 @@ namespace BaoViet.ViewModels
                 return;
             }
 
+            LockRotationAction();
             if (e.Parameter != null)
             {
                 string uri = e.Parameter.ToString();

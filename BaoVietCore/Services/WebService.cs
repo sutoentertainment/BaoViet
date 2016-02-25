@@ -19,7 +19,7 @@ namespace BaoVietCore.Services
         HttpClient Client;
         internal CancellationTokenSource CancelToken;
 
-        public WebService(Manager man) : base (man)
+        public WebService(Manager man) : base(man)
         {
             Client = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate });
             CancelToken = new CancellationTokenSource();
@@ -53,7 +53,7 @@ namespace BaoVietCore.Services
                 CancelToken = new CancellationTokenSource();
                 return new HttpResponseMessage(HttpStatusCode.PreconditionFailed);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.WriteLine("Exception " + e.Message);
                 return new HttpResponseMessage(HttpStatusCode.RequestTimeout);

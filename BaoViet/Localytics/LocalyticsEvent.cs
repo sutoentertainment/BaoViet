@@ -13,5 +13,6 @@ namespace BaoViet.Localytics
         public const string OpenPaper = "Open paper";
         public const string OpenCategory = "Open category";
         public const string SaveArticle = "Save article";
+        public const string Crash = "Crash";
     }
 }

@@ -27,11 +27,19 @@ namespace BaoVietCore.Models.XmlParser
 
         public IEnumerable<IFeedItem> GetFeed()
         {
-            XDocument docs = XDocument.Parse(xml, LoadOptions.None);
+            XDocument docs;
+            var feeds = new List<IFeedItem>();
+            try
+            {
+                docs = XDocument.Parse(xml, LoadOptions.None);
+            }
+            catch
+            {
+                return feeds;
+            }
 
             var nodes = docs.Descendants().Where(n => n.Name == "item");
 
-            var feeds = new List<IFeedItem>();
             foreach (var item in nodes)
             {
                 var feed = new FeedItem();

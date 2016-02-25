@@ -2,6 +2,7 @@
 using BaoVietCore.Models;
 using BaoVietCore.Models.Paper;
 using BaoVietCore.Models.XmlParser;
+using BaoVietCore.XmlParser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace BaoVietCore.Factory
                 case PaperType.VnExpress:
                 case PaperType.DânTrí:
                 case PaperType.TinhTế:
-                case PaperType.VietnamPlus:
+
                 case PaperType.TienPhong:
                 case PaperType.WinphoneViet:
                 case PaperType.SốHóa:
@@ -48,6 +49,9 @@ namespace BaoVietCore.Factory
                 case PaperType.VietBao:
                 case PaperType.TuổiTre:
                     parser = new StandartParser();
+                    break;
+                case PaperType.VietnamPlus:
+                    parser = new VietnamPlusParser();
                     break;
                 case PaperType.Zing:
                     parser = new ZingParser();

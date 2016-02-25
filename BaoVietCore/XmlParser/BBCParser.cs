@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using HtmlAgilityPack;
 using System.Net;
+using BaoVietCore.XmlParser;
+using BaoVietCore.Models;
 
-namespace BaoVietCore.Models.XmlParser
+namespace BaoVietCore.XmlParser
 {
     /// <summary>
     /// Class for xml parsing based on DanTri feed format, widely used by other papers.

@@ -127,10 +127,6 @@
       <Project>{59a5bc0f-6fda-4495-bdd5-a2f9849dc14d}</Project>
       <Name>BaoVietCore</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BaoViet\BaoViet.csproj">
-      <Project>{ee5c028b-9d2a-4f13-bff4-11656ecf990f}</Project>
-      <Name>BaoViet</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

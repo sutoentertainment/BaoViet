@@ -24,6 +24,8 @@ using BaoVietCore.Services;
 using GalaSoft.MvvmLight.Threading;
 using Microsoft.HockeyApp;
 using BaoVietCore.Interfaces;
+using System.Collections.Generic;
+using BaoViet.Localytics;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -217,6 +219,10 @@ namespace BaoViet
             {
                 Manager.LogService.Log(last_log);
                 await Manager.LogService.WriteLog();
+
+                Dictionary<string, string> attribute = new Dictionary<string, string>();
+                attribute.Add("message", last_log);
+                Manager.TrackingService.TagEvent(LocalyticsEvent.Crash, attribute);
                 Manager.LogService.LogText = "";
                 Manager.SettingsService.RemoveValueLocal("last-log");
             }

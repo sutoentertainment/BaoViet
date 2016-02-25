@@ -122,6 +122,8 @@
     <Compile Include="Interfaces\ISettingsService.cs" />
     <Compile Include="Interfaces\IStateCondition.cs" />
     <Compile Include="Services\RssService.cs" />
+    <Compile Include="XmlParser\ParserBase.cs" />
+    <Compile Include="XmlParser\VietnamPlusParser.cs" />
     <Compile Include="XmlParser\TinTheThaoParser.cs" />
     <Compile Include="XmlParser\QuanTriMangParser.cs" />
     <Compile Include="XmlParser\PcWorldParser.cs" />

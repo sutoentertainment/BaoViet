@@ -3,57 +3,12 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
-      "AdaptiveTriggerLibrary/1.2.1": {
-        "compile": {
-          "lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
-        }
-      },
-      "AdDuplexWin10/10.0.1.3": {
-        "compile": {
-          "lib/uap10.0/AdDuplex.winmd": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AdDuplex.winmd": {}
-        }
-      },
-      "Comet/0.2.0.1": {
-        "dependencies": {
-          "System.Collections": "[4.0.10, )",
-          "System.Diagnostics.Debug": "[4.0.10, )",
-          "System.Diagnostics.Tools": "[4.0.0, )",
-          "System.ObjectModel": "[4.0.10, )",
-          "System.Runtime": "[4.0.20, )",
-          "System.Runtime.Extensions": "[4.0.10, )",
-          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
-          "System.Runtime.WindowsRuntime": "[4.0.10, )",
-          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
-          "System.Threading": "[4.0.10, )",
-          "System.Threading.Tasks": "[4.0.10, )"
-        },
-        "compile": {
-          "lib/uap10.0/Comet.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Comet.dll": {}
-        }
-      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "HockeySDK.UWP/3.1.1-build36794": {
-        "compile": {
-          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -78,14 +33,6 @@
         },
         "runtime": {
           "lib/win81/MarkdownSharp.UWP.dll": {}
-        }
-      },
-      "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
-        "compile": {
-          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -284,16 +231,6 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.1.0": {
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
       "mort8088.XML.XmlHelper/1.0.2": {
@@ -1714,57 +1651,12 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
-      "AdaptiveTriggerLibrary/1.2.1": {
-        "compile": {
-          "runtimes/win10-arm/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
-        },
-        "runtime": {
-          "runtimes/win10-arm/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
-        }
-      },
-      "AdDuplexWin10/10.0.1.3": {
-        "compile": {
-          "lib/uap10.0/AdDuplex.winmd": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AdDuplex.winmd": {}
-        }
-      },
-      "Comet/0.2.0.1": {
-        "dependencies": {
-          "System.Collections": "[4.0.10, )",
-          "System.Diagnostics.Debug": "[4.0.10, )",
-          "System.Diagnostics.Tools": "[4.0.0, )",
-          "System.ObjectModel": "[4.0.10, )",
-          "System.Runtime": "[4.0.20, )",
-          "System.Runtime.Extensions": "[4.0.10, )",
-          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
-          "System.Runtime.WindowsRuntime": "[4.0.10, )",
-          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
-          "System.Threading": "[4.0.10, )",
-          "System.Threading.Tasks": "[4.0.10, )"
-        },
-        "compile": {
-          "lib/uap10.0/Comet.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Comet.dll": {}
-        }
-      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "HockeySDK.UWP/3.1.1-build36794": {
-        "compile": {
-          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -1789,14 +1681,6 @@
         },
         "runtime": {
           "lib/win81/MarkdownSharp.UWP.dll": {}
-        }
-      },
-      "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
-        "compile": {
-          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -2038,16 +1922,6 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.1.0": {
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
       "mort8088.XML.XmlHelper/1.0.2": {
@@ -3515,57 +3389,12 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
-      "AdaptiveTriggerLibrary/1.2.1": {
-        "compile": {
-          "runtimes/win10-arm/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
-        },
-        "runtime": {
-          "runtimes/win10-arm/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
-        }
-      },
-      "AdDuplexWin10/10.0.1.3": {
-        "compile": {
-          "lib/uap10.0/AdDuplex.winmd": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AdDuplex.winmd": {}
-        }
-      },
-      "Comet/0.2.0.1": {
-        "dependencies": {
-          "System.Collections": "[4.0.10, )",
-          "System.Diagnostics.Debug": "[4.0.10, )",
-          "System.Diagnostics.Tools": "[4.0.0, )",
-          "System.ObjectModel": "[4.0.10, )",
-          "System.Runtime": "[4.0.20, )",
-          "System.Runtime.Extensions": "[4.0.10, )",
-          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
-          "System.Runtime.WindowsRuntime": "[4.0.10, )",
-          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
-          "System.Threading": "[4.0.10, )",
-          "System.Threading.Tasks": "[4.0.10, )"
-        },
-        "compile": {
-          "lib/uap10.0/Comet.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Comet.dll": {}
-        }
-      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "HockeySDK.UWP/3.1.1-build36794": {
-        "compile": {
-          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -3590,14 +3419,6 @@
         },
         "runtime": {
           "lib/win81/MarkdownSharp.UWP.dll": {}
-        }
-      },
-      "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
-        "compile": {
-          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -3825,16 +3646,6 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.1.0": {
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
       "mort8088.XML.XmlHelper/1.0.2": {
@@ -5288,57 +5099,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
-      "AdaptiveTriggerLibrary/1.2.1": {
-        "compile": {
-          "runtimes/win10-x64/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
-        },
-        "runtime": {
-          "runtimes/win10-x64/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
-        }
-      },
-      "AdDuplexWin10/10.0.1.3": {
-        "compile": {
-          "lib/uap10.0/AdDuplex.winmd": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AdDuplex.winmd": {}
-        }
-      },
-      "Comet/0.2.0.1": {
-        "dependencies": {
-          "System.Collections": "[4.0.10, )",
-          "System.Diagnostics.Debug": "[4.0.10, )",
-          "System.Diagnostics.Tools": "[4.0.0, )",
-          "System.ObjectModel": "[4.0.10, )",
-          "System.Runtime": "[4.0.20, )",
-          "System.Runtime.Extensions": "[4.0.10, )",
-          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
-          "System.Runtime.WindowsRuntime": "[4.0.10, )",
-          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
-          "System.Threading": "[4.0.10, )",
-          "System.Threading.Tasks": "[4.0.10, )"
-        },
-        "compile": {
-          "lib/uap10.0/Comet.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Comet.dll": {}
-        }
-      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "HockeySDK.UWP/3.1.1-build36794": {
-        "compile": {
-          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -5363,14 +5129,6 @@
         },
         "runtime": {
           "lib/win81/MarkdownSharp.UWP.dll": {}
-        }
-      },
-      "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
-        "compile": {
-          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -5617,16 +5375,6 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.1.0": {
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
       "mort8088.XML.XmlHelper/1.0.2": {
@@ -7094,57 +6842,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
-      "AdaptiveTriggerLibrary/1.2.1": {
-        "compile": {
-          "runtimes/win10-x64/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
-        },
-        "runtime": {
-          "runtimes/win10-x64/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
-        }
-      },
-      "AdDuplexWin10/10.0.1.3": {
-        "compile": {
-          "lib/uap10.0/AdDuplex.winmd": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AdDuplex.winmd": {}
-        }
-      },
-      "Comet/0.2.0.1": {
-        "dependencies": {
-          "System.Collections": "[4.0.10, )",
-          "System.Diagnostics.Debug": "[4.0.10, )",
-          "System.Diagnostics.Tools": "[4.0.0, )",
-          "System.ObjectModel": "[4.0.10, )",
-          "System.Runtime": "[4.0.20, )",
-          "System.Runtime.Extensions": "[4.0.10, )",
-          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
-          "System.Runtime.WindowsRuntime": "[4.0.10, )",
-          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
-          "System.Threading": "[4.0.10, )",
-          "System.Threading.Tasks": "[4.0.10, )"
-        },
-        "compile": {
-          "lib/uap10.0/Comet.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Comet.dll": {}
-        }
-      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "HockeySDK.UWP/3.1.1-build36794": {
-        "compile": {
-          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -7169,14 +6872,6 @@
         },
         "runtime": {
           "lib/win81/MarkdownSharp.UWP.dll": {}
-        }
-      },
-      "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
-        "compile": {
-          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -7404,16 +7099,6 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.1.0": {
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
       "mort8088.XML.XmlHelper/1.0.2": {
@@ -8867,57 +8552,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
-      "AdaptiveTriggerLibrary/1.2.1": {
-        "compile": {
-          "runtimes/win10-x86/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
-        },
-        "runtime": {
-          "runtimes/win10-x86/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
-        }
-      },
-      "AdDuplexWin10/10.0.1.3": {
-        "compile": {
-          "lib/uap10.0/AdDuplex.winmd": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AdDuplex.winmd": {}
-        }
-      },
-      "Comet/0.2.0.1": {
-        "dependencies": {
-          "System.Collections": "[4.0.10, )",
-          "System.Diagnostics.Debug": "[4.0.10, )",
-          "System.Diagnostics.Tools": "[4.0.0, )",
-          "System.ObjectModel": "[4.0.10, )",
-          "System.Runtime": "[4.0.20, )",
-          "System.Runtime.Extensions": "[4.0.10, )",
-          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
-          "System.Runtime.WindowsRuntime": "[4.0.10, )",
-          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
-          "System.Threading": "[4.0.10, )",
-          "System.Threading.Tasks": "[4.0.10, )"
-        },
-        "compile": {
-          "lib/uap10.0/Comet.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Comet.dll": {}
-        }
-      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "HockeySDK.UWP/3.1.1-build36794": {
-        "compile": {
-          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -8942,14 +8582,6 @@
         },
         "runtime": {
           "lib/win81/MarkdownSharp.UWP.dll": {}
-        }
-      },
-      "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
-        "compile": {
-          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -9196,16 +8828,6 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.1.0": {
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
       "mort8088.XML.XmlHelper/1.0.2": {
@@ -10673,57 +10295,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
-      "AdaptiveTriggerLibrary/1.2.1": {
-        "compile": {
-          "runtimes/win10-x86/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
-        },
-        "runtime": {
-          "runtimes/win10-x86/lib/uap10.0/AdaptiveTriggerLibrary.dll": {}
-        }
-      },
-      "AdDuplexWin10/10.0.1.3": {
-        "compile": {
-          "lib/uap10.0/AdDuplex.winmd": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AdDuplex.winmd": {}
-        }
-      },
-      "Comet/0.2.0.1": {
-        "dependencies": {
-          "System.Collections": "[4.0.10, )",
-          "System.Diagnostics.Debug": "[4.0.10, )",
-          "System.Diagnostics.Tools": "[4.0.0, )",
-          "System.ObjectModel": "[4.0.10, )",
-          "System.Runtime": "[4.0.20, )",
-          "System.Runtime.Extensions": "[4.0.10, )",
-          "System.Runtime.InteropServices.WindowsRuntime": "[4.0.0, )",
-          "System.Runtime.WindowsRuntime": "[4.0.10, )",
-          "System.Runtime.WindowsRuntime.UI.Xaml": "[4.0.0, )",
-          "System.Threading": "[4.0.10, )",
-          "System.Threading.Tasks": "[4.0.10, )"
-        },
-        "compile": {
-          "lib/uap10.0/Comet.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Comet.dll": {}
-        }
-      },
       "CommonServiceLocator/1.3.0": {
         "compile": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "HockeySDK.UWP/3.1.1-build36794": {
-        "compile": {
-          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -10748,14 +10325,6 @@
         },
         "runtime": {
           "lib/win81/MarkdownSharp.UWP.dll": {}
-        }
-      },
-      "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
-        "compile": {
-          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -10983,16 +10552,6 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.1.0": {
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
       "mort8088.XML.XmlHelper/1.0.2": {
@@ -12447,51 +12006,6 @@
     }
   },
   "libraries": {
-    "AdaptiveTriggerLibrary/1.2.1": {
-      "sha512": "lVRCPM11BGDAKXpsrNRYb717tDWLIowDg9yv7zEvqjO7A7FxJp9lxVm9lLAqKyY/ZOUUFfrdxYDPAb2V5LirkA==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "AdaptiveTriggerLibrary.nuspec",
-        "lib/uap10.0/AdaptiveTriggerLibrary.dll",
-        "lib/uap10.0/AdaptiveTriggerLibrary.xml",
-        "package/services/metadata/core-properties/08873abab63b4275b91fb1ce32553ba8.psmdcp",
-        "runtimes/win10-arm/lib/uap10.0/AdaptiveTriggerLibrary.dll",
-        "runtimes/win10-x64/lib/uap10.0/AdaptiveTriggerLibrary.dll",
-        "runtimes/win10-x86/lib/uap10.0/AdaptiveTriggerLibrary.dll"
-      ]
-    },
-    "AdDuplexWin10/10.0.1.3": {
-      "sha512": "YV5yJWI/REaMKXK7fSsyGuvmsmnnbNpRB6XNeAvwZr0NDyOSKSf5sWhBkM8U8VwRX9IDwkcXaefTMvU7OTbpBg==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "AdDuplexWin10.nuspec",
-        "lib/uap10.0/AdDuplex.pri",
-        "lib/uap10.0/AdDuplex.winmd",
-        "lib/uap10.0/AdDuplex/InterstitialUserControl.xbf",
-        "lib/uap10.0/AdDuplex/Themes/Generic.xbf",
-        "lib/uap10.0/AdDuplex/Windows 10 SDK.xr.xml",
-        "package/services/metadata/core-properties/24f66cc569a34832bced71dd67bd80a6.psmdcp"
-      ]
-    },
-    "Comet/0.2.0.1": {
-      "sha512": "cq6JgJVyxu+QQZQ6fm6Rm3AER+aPZx24vNlDt7xzj3hgG0KVemS4Pmb9al3xjReYiBUDkL38bjvbnxMDUZ2rZQ==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "Comet.nuspec",
-        "lib/uap10.0/Comet.dll",
-        "lib/uap10.0/Comet.pri",
-        "lib/uap10.0/Comet/Comet.xr.xml",
-        "lib/uap10.0/Comet/Properties/Comet.rd.xml",
-        "lib/uap10.0/Comet/Themes/Generic.xbf",
-        "package/services/metadata/core-properties/4ac801990a934ca79a973956fa81ee5d.psmdcp"
-      ]
-    },
     "CommonServiceLocator/1.3.0": {
       "sha512": "fbjO0SNwbOFPdwVfyqv+B7gIJ2CVBOFPKqn1mDDECK7KER8jFaOdcvroFYoAHa0ktPbxi5s+15qOLnA96f8GSA==",
       "type": "Package",
@@ -12505,21 +12019,6 @@
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML",
         "package/services/metadata/core-properties/8a82b9e5a63a439481bfa8d4ec335002.psmdcp",
         "package/services/metadata/core-properties/99be0c88b2fd41c8b07c42071005ee47.psmdcp"
-      ]
-    },
-    "HockeySDK.UWP/3.1.1-build36794": {
-      "sha512": "349sdyW5uE8PTXZKHFqR8AkbCcWdA9Bj37n2Q8sSc63JgiFQJIfIdEyR811Fg5VOqysgBhEhMwX+UmsDWxjcgQ==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "HockeySDK.UWP.nuspec",
-        "lib/uap10.0/Microsoft.HockeyApp.Kit.dll",
-        "lib/uap10.0/Microsoft.HockeyApp.Kit.dll.CodeAnalysisLog.xml",
-        "lib/uap10.0/Microsoft.HockeyApp.Kit.dll.lastcodeanalysissucceeded",
-        "lib/uap10.0/Microsoft.HockeyApp.Kit.pri",
-        "lib/uap10.0/Microsoft.HockeyApp.Kit/Properties/Microsoft.HockeyApp.Kit.rd.xml",
-        "package/services/metadata/core-properties/2c13ba713b6c40efa43b48695288dc09.psmdcp"
       ]
     },
     "HtmlAgilityPack/1.4.9": {
@@ -12582,17 +12081,6 @@
         "lib/win81/MarkdownSharp.UWP.pdb",
         "MarkdownSharp.UWP.nuspec",
         "package/services/metadata/core-properties/0874fa08f4134c5bb24e9521bff5e27f.psmdcp"
-      ]
-    },
-    "Microsoft.AdMediator.Universal.AdDuplex/2.1.0": {
-      "sha512": "C9GcHjLh8dparM5pVLvriBV5kmBc38tzNpIFq3PfVVGrQgRbUGoTjR0Egzer1c+aMv0LYlBVMfzniUvhJPqgcg==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/uap10.0/Microsoft.AdMediator.Universal.AdDuplex.dll",
-        "Microsoft.AdMediator.Universal.AdDuplex.nuspec",
-        "package/services/metadata/core-properties/54d51b84d6d74068ac240144c537da78.psmdcp"
       ]
     },
     "Microsoft.CSharp/4.0.0": {
@@ -13246,24 +12734,6 @@
         "ref/net46/Microsoft.Win32.Primitives.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._"
-      ]
-    },
-    "Microsoft.Xaml.Behaviors.Uwp.Managed/1.1.0": {
-      "sha512": "Qxe4fblviCn2oFf7C4ahCsZHC0GzRa7Tz5z+L1QUHUljY3Oj/TMoT1O0jJ+ru6RcJ9qS8yFw/jIvstg2dxxpGA==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/uap10.0/Design/Microsoft.Xaml.Interactions.Design.dll",
-        "lib/uap10.0/Design/Microsoft.Xaml.Interactivity.Design.dll",
-        "lib/uap10.0/Microsoft.Xaml.Interactions.dll",
-        "lib/uap10.0/Microsoft.Xaml.Interactions.pri",
-        "lib/uap10.0/Microsoft.Xaml.Interactions.xml",
-        "lib/uap10.0/Microsoft.Xaml.Interactivity.dll",
-        "lib/uap10.0/Microsoft.Xaml.Interactivity.pri",
-        "lib/uap10.0/Microsoft.Xaml.Interactivity.xml",
-        "Microsoft.Xaml.Behaviors.Uwp.Managed.nuspec",
-        "package/services/metadata/core-properties/aa8a385ed5b94b29a44c3a4ace39232c.psmdcp"
       ]
     },
     "mort8088.XML.XmlHelper/1.0.2": {

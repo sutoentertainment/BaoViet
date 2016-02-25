@@ -8,7 +8,7 @@ platform:
 install:
 - ps: >-
 
-    $vsixPath = "$($env:USERPROFILE)\sqlite-wp81-winrt-3081002.vsix"
+    $vsixPath = "$($env:USERPROFILE)\sqlite-uwp-3110000.vsix"
 
 
 

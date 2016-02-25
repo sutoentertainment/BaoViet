@@ -6,10 +6,15 @@ platform:
 - x64
 - ARM
 install:
-- cmd: >-
-    appveyor DownloadFile https://visualstudiogallery.msdn.microsoft.com/4913e7d5-96c9-4dde-a1a1-69820d615936/file/161586/11/sqlite-uwp-3110000.vsix
+- ps: >-
+$vsixPath = "$($env:USERPROFILE)\sqlite-wp81-winrt-3081002.vsix"
 
-    "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\vsixinstaller.exe" /q sqlite-uap-3110000.vsix
+(New-Object Net.WebClient).DownloadFile('https://visualstudiogallery.msdn.microsoft.com/4913e7d5-96c9-4dde-a1a1-69820d615936/file/161586/11/sqlite-uwp-3110000.vsix', $vsixPath)
+
+"`"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\vsixinstaller.exe`" /q /a $vsixPath" | out-file ".\install-vsix.cmd" -Encoding ASCII
+
+& .\install-vsix.cmd
+
 before_build:
 - ps: >-
 

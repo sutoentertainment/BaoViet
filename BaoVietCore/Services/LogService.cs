@@ -10,9 +10,9 @@ namespace BaoVietCore.Services
 {
     public class LogService : ServiceBase, ILogService
     {
-        public string LogText = "";
+        public string LogText { get; set; } = "";
 
-        public LogService(Manager man) : base (man)
+        public LogService(Manager man) : base(man)
         {
 
         }

@@ -53,7 +53,7 @@
                     <VisualState.Setters>
                         <Setter Target="PaneSpliter.Visibility" Value="Collapsed" />
                         <Setter Target="PaneColumn.Width" Value="Auto" />
-
+                        <!--<Setter Target="AppName.Visibility" Value="Collapsed"/>-->
                         <!--<Setter Target="splitView.DisplayMode" Value="Overlay" />-->
                         <!--<Setter Target="splitView.IsPaneOpen" Value="False" />-->
                     </VisualState.Setters>
@@ -69,7 +69,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Background="{StaticResource AppColorLight}">
             <Button Width="40"
                     Height="40"
                     VerticalAlignment="Center"
@@ -81,15 +81,15 @@
                           VerticalAlignment="Bottom"
                           FontFamily="Segoe UI Symbol"
                           FontSize="32"
-                          Foreground="{StaticResource AppColor}"
+                          Foreground="White"
                           Glyph="{Binding HambugerIcon,
                                           Mode=OneWay}" />
             </Button>
 
-            <TextBlock x:Name="AppName"
+            <TextBlock x:Name="TitleBar"
                        VerticalAlignment="Center"
                        FontSize="18"
-                       Text="Báo Việt" />
+                       Text="Trang nhất" />
         </StackPanel>
 
         <SplitView x:Name="splitView"
@@ -178,7 +178,8 @@
 
                     <Pivot x:Name="rootPivot"
                            Margin="0,0,0,0"
-                           Style="{StaticResource PivotNoHeaderStyle}">
+                           Style="{StaticResource PivotNoHeaderStyle}" SelectionChanged="rootPivot_SelectionChanged">
+
                         <PivotItem Margin="0">
                             <!--  ItemTemplate="{StaticResource FrontPaperTemplate}"  -->
                             <GridView x:Name="FrontPage_ListView"
@@ -349,7 +350,7 @@
                         <Frame x:Name="PaneFrame" Margin="2,0,0,0" Navigated="PaneFrame_Navigated" SourcePageType="local:Tutorial_Page">
                         </Frame>
 
-                        <control:RoundButton Width="30" Height="30" Margin="12,-35,0,0" SymbolIcon="Back" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="{Binding PaneFrameCanGoBack, Converter={StaticResource BooleanToVisibility}}" Tapped="RoundButton_Tapped"/>
+                        <control:RoundButton Width="30" Height="30" Margin="16,-35,0,0" SymbolIcon="Back" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="{Binding PaneFrameCanGoBack, Converter={StaticResource BooleanToVisibility}}" Padding="8" Tapped="RoundButton_Tapped"/>
                     </Grid>
 
                     <!--<Grid Width="10"

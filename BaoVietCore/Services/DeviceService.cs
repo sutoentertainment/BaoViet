@@ -62,12 +62,12 @@ namespace BaoVietCore.Helpers
             return stateCondition.GetCurrentState();
         }
 
-        public void LockDisplayOrientations(bool auto = true)
+        public void LockDisplayOrientations(bool displayLock = true)
         {
-            if (auto)
-                DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait | DisplayOrientations.Landscape;
-            else
+            if (displayLock)
                 DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
+            else
+                DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait | DisplayOrientations.Landscape;
         }
     }
 }

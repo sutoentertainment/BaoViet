@@ -26,6 +26,7 @@ namespace BaoVietCore
         public IRssSource RssService { get; set; }
         public DeviceService DeviceService { get; set; }
         public ICameraService CameraService { get; set; }
+        public ISettingsService SettingsService { get; set; }
 
         public Manager()
         {

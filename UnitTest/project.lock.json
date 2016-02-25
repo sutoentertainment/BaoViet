@@ -48,6 +48,14 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
+      "HockeySDK.UWP/3.1.1-build36794": {
+        "compile": {
+          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -1749,6 +1757,14 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "HockeySDK.UWP/3.1.1-build36794": {
+        "compile": {
+          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -3544,6 +3560,14 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
+      "HockeySDK.UWP/3.1.1-build36794": {
+        "compile": {
+          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -5307,6 +5331,14 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "HockeySDK.UWP/3.1.1-build36794": {
+        "compile": {
+          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -7107,6 +7139,14 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
+      "HockeySDK.UWP/3.1.1-build36794": {
+        "compile": {
+          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -8870,6 +8910,14 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "HockeySDK.UWP/3.1.1-build36794": {
+        "compile": {
+          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -10670,6 +10718,14 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
+      "HockeySDK.UWP/3.1.1-build36794": {
+        "compile": {
+          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.HockeyApp.Kit.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -12449,6 +12505,21 @@
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML",
         "package/services/metadata/core-properties/8a82b9e5a63a439481bfa8d4ec335002.psmdcp",
         "package/services/metadata/core-properties/99be0c88b2fd41c8b07c42071005ee47.psmdcp"
+      ]
+    },
+    "HockeySDK.UWP/3.1.1-build36794": {
+      "sha512": "349sdyW5uE8PTXZKHFqR8AkbCcWdA9Bj37n2Q8sSc63JgiFQJIfIdEyR811Fg5VOqysgBhEhMwX+UmsDWxjcgQ==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "HockeySDK.UWP.nuspec",
+        "lib/uap10.0/Microsoft.HockeyApp.Kit.dll",
+        "lib/uap10.0/Microsoft.HockeyApp.Kit.dll.CodeAnalysisLog.xml",
+        "lib/uap10.0/Microsoft.HockeyApp.Kit.dll.lastcodeanalysissucceeded",
+        "lib/uap10.0/Microsoft.HockeyApp.Kit.pri",
+        "lib/uap10.0/Microsoft.HockeyApp.Kit/Properties/Microsoft.HockeyApp.Kit.rd.xml",
+        "package/services/metadata/core-properties/2c13ba713b6c40efa43b48695288dc09.psmdcp"
       ]
     },
     "HtmlAgilityPack/1.4.9": {

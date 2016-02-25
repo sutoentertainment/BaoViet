@@ -1,4 +1,4 @@
-﻿<Application x:Class="BaoViet.App"
+﻿<local:ApplicationBase x:Class="BaoViet.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:converter="using:BaoViet.Converters"
@@ -11,7 +11,7 @@
                     xmlns:i="using:Microsoft.Xaml.Interactivity"
              xmlns:action="using:BaoViet.Actions">
 
-    <Application.Resources>
+    <local:ApplicationBase.Resources>
 
         <ResourceDictionary>
 
@@ -80,5 +80,5 @@
             </DataTemplate>
         </ResourceDictionary>
 
-    </Application.Resources>
-</Application>
+    </local:ApplicationBase.Resources>
+</local:ApplicationBase>

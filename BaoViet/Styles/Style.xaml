@@ -3,7 +3,9 @@
     <SolidColorBrush x:Key="AppColor"
                      Opacity="1"
                      Color="#e92a2a" />
+    <SolidColorBrush x:Key="AppColorLight" Color="#f04a4a"/>
     <SolidColorBrush x:Key="AppColorBackground" Color="#272727" />
+    <SolidColorBrush x:Key="AppBlackBackground" Color="#0c0c0c" />
     <SolidColorBrush x:Key="AppBlackGray" Color="#3D3D3D" />
 
     <x:Double x:Key="ScreenWidth">300</x:Double>

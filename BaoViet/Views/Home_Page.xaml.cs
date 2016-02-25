@@ -16,7 +16,6 @@ using BaoViet.Helpers;
 using BaoViet.ViewModels;
 using Windows.UI.Input;
 using System.Diagnostics;
-using ThHelper;
 using Windows.ApplicationModel.Store;
 using Microsoft.Practices.ServiceLocation;
 using BaoViet.Interfaces;
@@ -48,7 +47,6 @@ namespace BaoViet.Views
         public Home_Page()
         {
             this.InitializeComponent();
-
             this.Loaded += Home_Page_Loaded;
             this.SizeChanged += Home_Page_SizeChanged;
         }
@@ -245,6 +243,19 @@ namespace BaoViet.Views
         {
             if (PaneFrame.CanGoBack)
                 PaneFrame.GoBack();
+        }
+
+        private void rootPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (rootPivot.SelectedIndex)
+            {
+                case 0:
+                    TitleBar.Text = "Trang nhất";
+                    break;
+                case 1:
+                    TitleBar.Text = "Cài đặt";
+                    break;
+            }
         }
 
 

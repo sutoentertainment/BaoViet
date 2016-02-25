@@ -22,6 +22,7 @@ using Windows.UI.Popups;
 using BaoVietCore.Models;
 using BaoVietCore.Services;
 using GalaSoft.MvvmLight.Threading;
+using Microsoft.HockeyApp;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -30,7 +31,7 @@ namespace BaoViet
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application, IApp
+    partial class App : ApplicationBase
     {
 
         public bool CustomBackPressed = false;
@@ -39,82 +40,30 @@ namespace BaoViet
         /// </summary>
         //public static Microsoft.ApplicationInsights.TelemetryClient TelemetryClient;
 
-        /// <summary>
-        /// React to network status changed
-        /// </summary>
-        public NetworkStatusChangedEventHandler networkStatusCallback { get; set; }
 
-        new public static App Current { get; set; }
-        public Manager Manager { get; set; }
-
+        public static App Current { get; set; }
         public Frame MasterFrame { get; set; }
         public RootDataContext RootDataContext { get; set; }
-
         public TileManager TileManager { get; set; }
         public NavigationService NavigationService { get; internal set; }
 
-        public delegate void OnToastActivatedEventHandler(string text, double milisecs);
 
-        public event OnToastActivatedEventHandler OnToastRise;
-
-        public delegate void OnToastTappedEventHandler(ToastAction action);
-
-        public event OnToastTappedEventHandler OnToastTapped;
-
-        public delegate void OnProtocolActivatedEventHandler(string param);
-
-        public event OnProtocolActivatedEventHandler OnProtocolActivated;
-
-        public delegate void OnBackRequestedEventHandler();
-
-        public event OnBackRequestedEventHandler OnBackRequested;
-
-        public delegate void OnRefreshRequestedEventHandler();
-
-        public event OnRefreshRequestedEventHandler OnRefreshRequested;
-
-        public delegate void OnAppResumeEventHandler();
-
-        public event OnAppResumeEventHandler OnAppResumed;
-
-        public void InvokeOnBackRequested()
-        {
-            if (OnBackRequested != null)
-                OnBackRequested.Invoke();
-        }
-
-        internal void InvokeOnRefreshRequested()
-        {
-            if (OnRefreshRequested != null)
-                OnRefreshRequested.Invoke();
-        }
-
-
-        public void InvokeOnToastRise(string text, double milisec)
-        {
-            if (OnToastRise != null)
-                OnToastRise.Invoke(text, milisec);
-        }
-
-        public void InvokeOnToastTapped(ToastAction action)
-        {
-            if (OnToastTapped != null)
-                OnToastTapped.Invoke(action);
-        }
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
-        public App()
+        public App() : base()
         {
             //TelemetryClient = new Microsoft.ApplicationInsights.TelemetryClient();
 
             this.InitializeComponent();
-            this.Suspending += OnSuspending;
-            this.Resuming += App_Resuming;
-            this.UnhandledException += App_UnhandledException;
+            Suspending += OnSuspending;
+            Resuming += App_Resuming;
+            UnhandledException += App_UnhandledException;
             Current = this;
+
+            HockeyClient.Current.Configure("c393580460234e8887897e0c6caef3d5");
             Manager = new Manager();
 
             Manager.WebService = new WebService(Manager);
@@ -127,6 +76,7 @@ namespace BaoViet
             Manager.RssService = new RssService(Manager);
             Manager.IAPService = new IAPService(Manager);
             Manager.CameraService = new BasicCameraService(Manager);
+            Manager.SettingsService = new SettingsService(Manager);
 
             Manager.Database.CreateTable<FeedItem>();
             RootDataContext = new RootDataContext();
@@ -150,7 +100,7 @@ namespace BaoViet
             }
         }
 
-        private async void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        private void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             if (e != null)
             {
@@ -176,19 +126,10 @@ namespace BaoViet
             Manager.LogService.Log(e.Exception.ToString());
             Manager.LogService.Log(e.Exception.StackTrace);
             Manager.LogService.Log(e.Exception.Message);
-            await Manager.LogService.WriteLog();
-        }
 
-        public void OnToastActivated_Invoke(string text, double milisecs)
-        {
-            if (OnToastRise != null)
-                OnToastRise.Invoke(text, milisecs);
-        }
-
-        public void App_Resuming(object sender, object e)
-        {
-            if (OnAppResumed != null)
-                OnAppResumed.Invoke();
+            //Because we dont have time to write the log down, we need to wait to the next time user open app to write it.
+            //await Manager.LogService.WriteLog();
+            Manager.SettingsService.SetValueLocal("last-log", Manager.LogService.LogText);
         }
 
 
@@ -270,6 +211,14 @@ namespace BaoViet
             }
             // Ensure the current window is active
             Window.Current.Activate();
+            var last_log = Manager.SettingsService.GetValueLocal<string>("last-log");
+            if (!string.IsNullOrEmpty(last_log))
+            {
+                Manager.LogService.Log(last_log);
+                await Manager.LogService.WriteLog();
+                Manager.LogService.LogText = "";
+                Manager.SettingsService.RemoveValueLocal("last-log");
+            }
             await Manager.RateUsService.ShowRatePopup(5, true, "đánh giá 5 sao", "để lần sau", "Gửi đánh giá", "Xin hãy dành chút thời gian ủng hộ phần mềm, đây là động lục giúp nhóm pháp triển phầm mềm để phục vụ bạn tốt hơn.");
         }
 
@@ -293,18 +242,7 @@ namespace BaoViet
         /// 
         /// </summary>
         /// <param name="args"></param>
-        protected override void OnActivated(IActivatedEventArgs e)
-        {
-            if (e.Kind == ActivationKind.Protocol)
-            {
-                var protocolArgs = e as ProtocolActivatedEventArgs;
-                var uri = protocolArgs.Uri;
 
-                if (OnProtocolActivated != null)
-                    OnProtocolActivated.Invoke(uri.ToString());
-            }
-            base.OnActivated(e);
-        }
 
         /// <summary>
         /// Invoked when Navigation to a certain page fails

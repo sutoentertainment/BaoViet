@@ -119,6 +119,7 @@
     <Compile Include="Services\IAPService.cs" />
     <Compile Include="Interfaces\IIAPService.cs" />
     <Compile Include="Interfaces\ICameraService.cs" />
+    <Compile Include="Services\ISettingsService.cs" />
     <Compile Include="Services\IStateCondition.cs" />
     <Compile Include="Services\RssService.cs" />
     <Compile Include="XmlParser\TinTheThaoParser.cs" />
@@ -133,7 +134,7 @@
     <Compile Include="Interfaces\ILocalizationService.cs" />
     <Compile Include="Interfaces\IImageService.cs" />
     <Compile Include="Services\KeyboardService\KeyboardEventArgs.cs" />
-    <Compile Include="Helpers\SettingHelper.cs" />
+    <Compile Include="Interfaces\SettingsService.cs" />
     <Compile Include="Helpers\Screen.cs" />
     <Compile Include="Helpers\SmartWeakEvent.cs" />
     <Compile Include="Helpers\TimeToTextHelper.cs" />

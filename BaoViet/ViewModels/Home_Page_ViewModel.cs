@@ -12,7 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using ThHelper;
 using GalaSoft.MvvmLight.Messaging;
 using BaoVietCore.CustomEventArgs;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -144,12 +143,11 @@ namespace BaoViet.ViewModels
 
             CreateSideMenu();
 
-            
+
 
             if (!IsInDesignMode)
             {
-                var setting_lock = SettingHelper.LoadSetting("LockRotation");
-                _LockRotation = setting_lock == null ? false : (bool)setting_lock;
+                _LockRotation = App.Current.Manager.SettingsService.GetValueLocal<bool>(SettingKey.LockRotation);
                 LockRotationAction();
             }
 
@@ -182,7 +180,7 @@ namespace BaoViet.ViewModels
         private void LockRotationAction()
         {
             App.Current.Manager.DeviceService.LockDisplayOrientations(LockRotation);
-            SettingHelper.SaveSetting("LockRotation", LockRotation);
+            App.Current.Manager.SettingsService.SetValueLocal(SettingKey.LockRotation, LockRotation);
         }
 
         private void PaperClicked(ItemClickEventArgs e)

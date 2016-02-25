@@ -119,8 +119,8 @@
     <Compile Include="Services\IAPService.cs" />
     <Compile Include="Interfaces\IIAPService.cs" />
     <Compile Include="Interfaces\ICameraService.cs" />
-    <Compile Include="Services\ISettingsService.cs" />
-    <Compile Include="Services\IStateCondition.cs" />
+    <Compile Include="Interfaces\ISettingsService.cs" />
+    <Compile Include="Interfaces\IStateCondition.cs" />
     <Compile Include="Services\RssService.cs" />
     <Compile Include="XmlParser\TinTheThaoParser.cs" />
     <Compile Include="XmlParser\QuanTriMangParser.cs" />
@@ -134,7 +134,7 @@
     <Compile Include="Interfaces\ILocalizationService.cs" />
     <Compile Include="Interfaces\IImageService.cs" />
     <Compile Include="Services\KeyboardService\KeyboardEventArgs.cs" />
-    <Compile Include="Interfaces\SettingsService.cs" />
+    <Compile Include="Services\SettingsService.cs" />
     <Compile Include="Helpers\Screen.cs" />
     <Compile Include="Helpers\SmartWeakEvent.cs" />
     <Compile Include="Helpers\TimeToTextHelper.cs" />
@@ -217,8 +217,8 @@
     <SDKReference Include="Microsoft.VCLibs.120, Version=14.0">
       <Name>Microsoft Visual C++ 2013 Runtime Package for Windows Universal</Name>
     </SDKReference>
-    <SDKReference Include="SQLite.UAP.2015, Version=3.10.2">
-      <Name>SQLite for Universal App Platform %28SQLite.UAP.2015, Version=3.10.2%29</Name>
+    <SDKReference Include="SQLite.UWP.2015, Version=3.11.0">
+      <Name>SQLite for Universal Windows Platform</Name>
     </SDKReference>
   </ItemGroup>
   <ItemGroup />

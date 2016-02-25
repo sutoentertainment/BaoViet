@@ -13,6 +13,7 @@ using GalaSoft.MvvmLight.Messaging;
 using BaoVietCore.CustomEventArgs;
 using Windows.UI.Xaml.Controls.Primitives;
 using GalaSoft.MvvmLight;
+using BaoVietCore.Services;
 
 namespace BaoVietCore.Models
 {

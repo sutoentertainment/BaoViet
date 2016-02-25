@@ -23,6 +23,7 @@ using BaoVietCore.Models;
 using BaoVietCore.Services;
 using GalaSoft.MvvmLight.Threading;
 using Microsoft.HockeyApp;
+using BaoVietCore.Interfaces;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 

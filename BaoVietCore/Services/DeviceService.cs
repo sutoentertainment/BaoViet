@@ -1,4 +1,4 @@
-﻿using BaoVietCore.Services;
+﻿using BaoVietCore.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,21 +9,8 @@ using Windows.Graphics.Display;
 using Windows.System.Profile;
 using Windows.UI.Xaml.Controls;
 
-namespace BaoVietCore.Helpers
+namespace BaoVietCore.Services
 {
-    public enum DeviceTypes
-    {
-        Desktop,
-        Mobile,
-        Other
-    }
-
-    public enum AppState
-    {
-        Tablet,
-        Mobile
-    }
-
     public class DeviceService : ServiceBase
     {
         IStateCondition stateCondition;

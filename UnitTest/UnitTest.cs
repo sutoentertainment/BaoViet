@@ -32,23 +32,15 @@ namespace UnitTest
         {
         }
 
-        [TestMethod]
-        public void DatabaseInsert()
-        {
-            var number_of_feed_before = Manager.Database.GetItems<FeedItem>().Count();
-            var feed = new FeedItem();
-            Manager.Database.AddItem(feed);
-            var number_of_feed_after = Manager.Database.GetItems<FeedItem>().Count();
-
-            Assert.AreEqual(number_of_feed_before + 1, number_of_feed_after);
-        }
 
         [TestMethod]
-        public void DatabaseDelete()
+        public void DatabaseAddDelete()
         {
             var feed = new FeedItem();
             Manager.Database.AddItem(feed);
             var number_of_feed_before = Manager.Database.GetItems<FeedItem>().Count();
+
+            Assert.AreEqual(number_of_feed_before + 1, number_of_feed_before);
 
             Manager.Database.Delete(feed);
             var number_of_feed_after = Manager.Database.GetItems<FeedItem>().Count();

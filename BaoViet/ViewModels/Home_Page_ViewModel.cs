@@ -204,7 +204,7 @@ namespace BaoViet.ViewModels
                     App.Current.NavigationService.NavigateTo(Pages.List_Categories_Page);
                 else
                 {
-                    App.Current.NavigationService.GoBack(FrameKey.PaneSplitFrame);
+                    App.Current.NavigationService.GoBack(FrameKey.PaneSplitFrame, true);
                     App.Current.NavigationService.NavigateTo(Pages.List_Categories_Page, null, FrameKey.PaneSplitFrame);
                 }
             });
@@ -323,6 +323,15 @@ namespace BaoViet.ViewModels
 
         public bool AllowGoBack()
         {
+            if (App.Current.Manager.DeviceService.GetAppState() == AppState.Tablet)
+            {
+                if (App.Current.NavigationService.FrameAvailable(FrameKey.PaneSplitFrame))
+                    if (App.Current.NavigationService.CanGoBack(FrameKey.PaneSplitFrame))
+                    {
+                        App.Current.NavigationService.GoBack(FrameKey.PaneSplitFrame);
+                        return false;
+                    }
+            }
             return true;
         }
     }

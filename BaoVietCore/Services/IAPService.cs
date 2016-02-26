@@ -28,7 +28,7 @@ namespace BaoVietCore.Services
 
             // The next line is commented out for production/release.       
             //licenseInformation = CurrentAppSimulator.LicenseInformation;
-            
+
         }
 
         public bool CheckProduct(string name)
@@ -53,8 +53,10 @@ namespace BaoVietCore.Services
 
         public async Task<bool> BuyProduct(string name)
         {
-            var result = await CurrentAppSimulator.RequestProductPurchaseAsync(name, true);
-            return true;
+            var result = await CurrentApp.RequestProductPurchaseAsync(name);
+            if (result.Status == ProductPurchaseStatus.Succeeded)
+                return true;
+            return false;
         }
     }
 

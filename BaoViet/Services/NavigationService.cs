@@ -31,6 +31,13 @@ namespace BaoViet.Services
             }
         }
 
+        public Frame GetFrame(FrameKey framekey)
+        {
+            if (FrameDictionary.ContainsKey(framekey))
+                return FrameDictionary[framekey];
+            return null;
+        }
+
         public void ConfigPage()
         {
             PageDictionary.Add(Pages.Container, typeof(ContainerMaster));
@@ -62,10 +69,13 @@ namespace BaoViet.Services
                 MainFrame.GoBack();
         }
 
-        public void GoBack(FrameKey framekey)
+        public void GoBack(FrameKey framekey, bool recursive = false)
         {
             if (FrameDictionary.ContainsKey(framekey))
-                while (FrameDictionary[framekey].CanGoBack)
+                if (recursive)
+                    while (FrameDictionary[framekey].CanGoBack)
+                        FrameDictionary[framekey].GoBack();
+                else
                     FrameDictionary[framekey].GoBack();
         }
 
@@ -78,6 +88,11 @@ namespace BaoViet.Services
             if (FrameDictionary.ContainsKey(framekey))
                 return FrameDictionary[framekey].CanGoBack;
             return true;
+        }
+
+        public bool FrameAvailable(FrameKey framekey)
+        {
+            return FrameDictionary.ContainsKey(framekey);
         }
 
         public virtual void NavigateTo(Pages page, object parameter = null, FrameKey framekey = FrameKey.MainFrame)

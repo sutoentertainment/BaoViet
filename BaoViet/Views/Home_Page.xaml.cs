@@ -188,7 +188,7 @@ namespace BaoViet.Views
         private void RemoveAd_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (!App.Current.Manager.IAPService.CheckProduct("Remove_Ads"))
-                App.Current.Manager.IAPService.BuyProduct("Donate");
+                App.Current.Manager.IAPService.BuyProduct("Remove_Ads");
         }
 
         private void Donate_Tapped(object sender, TappedRoutedEventArgs e)

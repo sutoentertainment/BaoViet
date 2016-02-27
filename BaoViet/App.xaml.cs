@@ -44,7 +44,7 @@ namespace BaoViet
         //public static Microsoft.ApplicationInsights.TelemetryClient TelemetryClient;
 
 
-        public static App Current { get; set; }
+        public new static App Current { get; set; }
         public Frame MasterFrame { get; set; }
         public RootDataContext RootDataContext { get; set; }
         public TileManager TileManager { get; set; }

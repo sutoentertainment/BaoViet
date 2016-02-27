@@ -1,0 +1,17 @@
+<FileList TargetPlatform="UAP"
+  FrameworkIdentity-Debug = "Name = Microsoft.VCLibs.120.00.Debug.Universal, MinVersion = 12.0.30501.0, Publisher = 'CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US'"
+  FrameworkIdentity-Retail = "Name = Microsoft.VCLibs.120.00.Universal, MinVersion = 12.0.30501.0, Publisher = 'CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US'"
+  MinVSVersion = "14.0"
+  TargetPlatformMinVersion="10.0.0.0"
+  TargetPlatformVersion="10.0.0.0"
+  DisplayName = "Microsoft Visual C++ 2013 Runtime Package for Windows Universal"
+  AppliesTo = "WindowsAppContainer + (Managed | Javascript | Native)"
+  AppX-Debug-x86 = ".\AppX\Debug\x86\Microsoft.VCLibs.x86.Debug.12.00.Universal.appx"
+  AppX-Debug-x64 = ".\AppX\Debug\x64\Microsoft.VCLibs.x64.Debug.12.00.Universal.appx"
+  AppX-Debug-ARM = ".\AppX\Debug\ARM\Microsoft.VCLibs.ARM.Debug.12.00.Universal.appx"
+  AppX-Retail-x86 = ".\AppX\Retail\x86\Microsoft.VCLibs.x86.12.00.Universal.appx"
+  AppX-Retail-x64 = ".\AppX\Retail\x64\Microsoft.VCLibs.x64.12.00.Universal.appx"
+  AppX-Retail-ARM = ".\AppX\Retail\ARM\Microsoft.VCLibs.ARM.12.00.Universal.appx"
+  SupportsMultipleVersions="Error"
+  SupportedArchitectures="x86;x64;ARM">
+</FileList>

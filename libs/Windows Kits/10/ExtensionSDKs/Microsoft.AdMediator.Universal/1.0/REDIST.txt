@@ -1,0 +1,6 @@
+The following is a list of files available for redistribution under the terms
+of the Microsoft Advertising SDK for Windows 10 license agreement:
+
+Microsoft.AdMediator.Core.dll
+Microsoft.AdMediator.Universal.dll
+Microsoft.AdMediator.Universal.MicrosoftAdvertising.dll

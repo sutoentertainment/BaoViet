@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="AdMediator.ExtensionSDKUniversal..C0BF20A8-D01F-46BD-9541-DB6487C45AED" Version="2.0.5" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>Microsoft Ad Mediator for Windows 10</DisplayName>
+    <Description xml:space="preserve">Ad mediation aims to maximize your ad monetization by making sure you are always showing a live ad. This extension enables you to plug and play 3rd party ad network solutions into your project. When submitted in Dev Center you will be able to create the mediation logic to be used for your app.</Description>
+  </Metadata>
+  <Installation Scope="Global" AllUsers="true" InstalledByMsi="true">
+    <InstallationTarget Id="Microsoft.ExtensionSDK" TargetPlatformIdentifier="UAP" TargetPlatformVersion="v10.0" SdkName="Microsoft.AdMediatorUniversal" SdkVersion="1.0" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    <Dependency Id="Microsoft.VCLibs" DisplayName="Microsoft Visual C++ Libs" Version="12.0" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.ExtensionSDK" d:Source="File" Path="SDKManifest.xml" />
+  </Assets>
+</PackageManifest>

@@ -1,0 +1,23 @@
+﻿<FileList 
+  TargetPlatform="UAP"
+  MinVSVersion = "14.0"
+  TargetPlatformMinVersion="10.0.0.0"
+  TargetPlatformVersion="10.0.10240.0"
+  SDKType="External"
+  DisplayName = "Microsoft Advertising Universal SDK"
+  ProductFamilyName = "Microsoft.AdMediator" 
+  AppliesTo = "WindowsAppContainer + (CSharp | Managed | VB | VisualC | WindowsXAML)"
+  SupportsMultipleVersions = "Error"
+  SupportedArchitectures="x86;x64;ARM"
+  DependsOn = "Microsoft.Advertising.Xaml, Version=10.0" 
+  MoreInfo="http://go.microsoft.com/fwlink/?LinkId=510792">
+  <File Reference = "Microsoft.AdMediator.Universal.dll" >
+    <ContainsControls>True</ContainsControls>
+    <ToolboxItems BlendCategory="AdMediator Universal" VSCategory="AdMediator Universal" >
+      <Item Type="Microsoft.AdMediator.Universal.AdMediatorControl" />
+    </ToolboxItems>
+  </File>
+  <File Reference = "Microsoft.AdMediator.Core.dll" />
+  <File Reference = "Microsoft.AdMediator.Universal.Design.dll" />
+  <File Reference = "Microsoft.AdMediator.Universal.MicrosoftAdvertising.dll" />
+</FileList>

@@ -23,7 +23,7 @@ namespace BaoVietCore.Services
             {
                 ret = JsonConvert.DeserializeObject<T>(value as string);
             }
-            catch (Exception e)
+            catch
             {
                 RemoveValueRoaming(key);
                 return default(T);
@@ -51,7 +51,7 @@ namespace BaoVietCore.Services
             {
                 ret = JsonConvert.DeserializeObject<T>(value as string);
             }
-            catch (Exception e)
+            catch
             {
                 RemoveValueLocal(key);
                 return default(T);

@@ -11,7 +11,7 @@ if (($env:BuildPlatform) -eq "x86")
     $targetDir = Get-Item -Path (".\BaoViet\AppPackages\BaoViet_" + $buildVersion + "_Test")
     Write-Host "targetDir: $targetDir"
 
-    $outputFile = $pwd.Path + "\" + $buildVersion + ".zip"
+    $outputFile = $pwd.Path + "\" + "BaoViet" + ".zip"
     Write-Host ($outputFile)
 
     Add-Type -Assembly System.IO.Compression.FileSystem

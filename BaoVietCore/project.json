@@ -1,5 +1,6 @@
 ﻿{
   "dependencies": {
+    "Crittercism": "3.0.1",
     "HtmlAgilityPack": "1.4.9",
     "Localytics": "3.1.0",
     "MarkdownSharp.UWP": "1.5.2",

@@ -11,6 +11,17 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
+      "Crittercism/3.0.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "[6.0.8, )"
+        },
+        "compile": {
+          "lib/netcore451/CrittercismSDK.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/CrittercismSDK.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -1657,6 +1668,17 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "Crittercism/3.0.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "[6.0.8, )"
+        },
+        "compile": {
+          "lib/netcore451/CrittercismSDK.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/CrittercismSDK.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -3397,6 +3419,17 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
+      "Crittercism/3.0.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "[6.0.8, )"
+        },
+        "compile": {
+          "lib/netcore451/CrittercismSDK.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/CrittercismSDK.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -5105,6 +5138,17 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "Crittercism/3.0.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "[6.0.8, )"
+        },
+        "compile": {
+          "lib/netcore451/CrittercismSDK.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/CrittercismSDK.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -6850,6 +6894,17 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
+      "Crittercism/3.0.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "[6.0.8, )"
+        },
+        "compile": {
+          "lib/netcore451/CrittercismSDK.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/CrittercismSDK.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -8558,6 +8613,17 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "Crittercism/3.0.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "[6.0.8, )"
+        },
+        "compile": {
+          "lib/netcore451/CrittercismSDK.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/CrittercismSDK.dll": {}
         }
       },
       "HtmlAgilityPack/1.4.9": {
@@ -10303,6 +10369,17 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
+      "Crittercism/3.0.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "[6.0.8, )"
+        },
+        "compile": {
+          "lib/netcore451/CrittercismSDK.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/CrittercismSDK.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -12019,6 +12096,21 @@
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML",
         "package/services/metadata/core-properties/8a82b9e5a63a439481bfa8d4ec335002.psmdcp",
         "package/services/metadata/core-properties/99be0c88b2fd41c8b07c42071005ee47.psmdcp"
+      ]
+    },
+    "Crittercism/3.0.1": {
+      "sha512": "DjoUr2AjTp77giksepckbj0mG+qtXQNSYqQWNelFwjpum4kT0SVdxZzSPZwFgZ4BdNt5xrvtJzCejER1FQRuHg==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "Crittercism.nuspec",
+        "lib/net40/CrittercismSDK.dll",
+        "lib/netcore451/CrittercismSDK.dll",
+        "lib/windowsphone8/CrittercismSDK.dll",
+        "lib/wpa81/CrittercismSDK.dll",
+        "package/services/metadata/core-properties/529dc6c2804d44858949dbeba238a597.psmdcp",
+        "README.txt"
       ]
     },
     "HtmlAgilityPack/1.4.9": {
@@ -15687,6 +15779,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "Crittercism >= 3.0.1",
       "HtmlAgilityPack >= 1.4.9",
       "Localytics >= 3.1.0",
       "MarkdownSharp.UWP >= 1.5.2",

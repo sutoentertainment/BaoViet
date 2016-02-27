@@ -12,10 +12,10 @@ namespace BaoViet.ViewModels
             return true;
         }
 
-        public async void OnNavigatedFrom(NavigationEventArgs e)
+        public void OnNavigatedFrom(NavigationEventArgs e)
         {
-            
-            await App.Current.Manager.CameraService.Dispose(true);
+
+            App.Current.Manager.CameraService.Dispose(true);
         }
 
         public void OnNavigatedTo(NavigationEventArgs e)
@@ -24,7 +24,7 @@ namespace BaoViet.ViewModels
 
         public void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
-            
+
         }
     }
 }

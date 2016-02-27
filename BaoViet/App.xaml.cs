@@ -143,10 +143,6 @@ namespace BaoViet
         /// <param name="e">Details about the launch request and process.</param>
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
-            Manager.TrackingService.AutoIntegrate();
-            Manager.IAPService.Init();
-            AdDuplex.AdDuplexClient.Initialize("b1169327-404c-4c1f-bc89-45d21f9e9c64");
-            DispatcherHelper.Initialize();
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
@@ -154,36 +150,41 @@ namespace BaoViet
             }
 #endif
 
-
-            var titleBar = ApplicationView.GetForCurrentView().TitleBar;
-            //CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
-
-            //ApplicationView.GetForCurrentView().Title = "Báo Việt 10";
-            titleBar.BackgroundColor = titleBar.ButtonBackgroundColor = (Application.Current.Resources["AppColor"] as SolidColorBrush).Color;
-            titleBar.ForegroundColor = titleBar.ButtonForegroundColor = Colors.White;
-
-            //TODO: Setup status bar for phone
-            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
-            {
-                StatusBar bar = Windows.UI.ViewManagement.StatusBar.GetForCurrentView();
-                await bar.HideAsync();
-            }
-
-
-            //Application.Current.Resources["ScreenWidth"] = ScreenSize.Width = Device.;
-            Application.Current.Resources["WindowsWidth"] = WindowsSize.Width = Window.Current.Bounds.Width;
-            //Screen.Width = Window.Current.Bounds.Width;
-            Window.Current.SizeChanged += Current_SizeChanged;
-            //Window.Current.Bounds.Heigh
-            //ApplicationView.GetForCurrentView().VisibleBounds.Width;
-
             Frame rootFrame = Window.Current.Content as Frame;
             // Register to network changed event
-            NetworkStatusChange();
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
             if (rootFrame == null)
             {
+                Manager.TrackingService.AutoIntegrate();
+                Manager.IAPService.Init();
+                AdDuplex.AdDuplexClient.Initialize("b1169327-404c-4c1f-bc89-45d21f9e9c64");
+                DispatcherHelper.Initialize();
+
+                var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+                //CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+
+                //ApplicationView.GetForCurrentView().Title = "Báo Việt 10";
+                titleBar.BackgroundColor = titleBar.ButtonBackgroundColor = (Application.Current.Resources["AppColor"] as SolidColorBrush).Color;
+                titleBar.ForegroundColor = titleBar.ButtonForegroundColor = Colors.White;
+
+                //TODO: Setup status bar for phone
+                if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+                {
+                    StatusBar bar = Windows.UI.ViewManagement.StatusBar.GetForCurrentView();
+                    await bar.HideAsync();
+                }
+
+
+                //Application.Current.Resources["ScreenWidth"] = ScreenSize.Width = Device.;
+                Application.Current.Resources["WindowsWidth"] = WindowsSize.Width = Window.Current.Bounds.Width;
+                //Screen.Width = Window.Current.Bounds.Width;
+                Window.Current.SizeChanged += Current_SizeChanged;
+                //Window.Current.Bounds.Heigh
+                //ApplicationView.GetForCurrentView().VisibleBounds.Width;
+
+                NetworkStatusChange();
+
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
                 IStateCondition condition = new StateCondition(720);
@@ -196,37 +197,44 @@ namespace BaoViet
                     //TODO: Load state from previously suspended application
                 }
 
+                if (e.PreviousExecutionState == ApplicationExecutionState.Suspended)
+                {
+
+                }
+
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
             }
-            NavigationService = new NavigationService();
-            NavigationService.ConfigPage();
-            NavigationService.Configure(ViewModels.FrameKey.RootFrame, rootFrame);
 
             if (rootFrame.Content == null)
             {
+                NavigationService = new NavigationService();
+                NavigationService.ConfigPage();
+                NavigationService.Configure(ViewModels.FrameKey.RootFrame, rootFrame);
+
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
                 Manager.Configure();
 
                 NavigationService.NavigateTo(Pages.Container, e.Arguments, ViewModels.FrameKey.RootFrame);
+
+                var last_log = Manager.SettingsService.GetValueLocal<string>("last-log");
+                if (!string.IsNullOrEmpty(last_log))
+                {
+                    Manager.LogService.Log(last_log);
+                    await Manager.LogService.WriteLog();
+
+                    Dictionary<string, string> attribute = new Dictionary<string, string>();
+                    attribute.Add("message", last_log);
+                    Manager.TrackingService.TagEvent(LocalyticsEvent.Crash, attribute);
+                    Manager.LogService.LogText = "";
+                    Manager.SettingsService.RemoveValueLocal("last-log");
+                }
+                await Manager.RateUsService.ShowRatePopup(5, true, "đánh giá 5 sao", "để lần sau", "Gửi đánh giá", "Xin hãy dành chút thời gian ủng hộ phần mềm, đây là động lục giúp nhóm pháp triển phầm mềm để phục vụ bạn tốt hơn.");
             }
             // Ensure the current window is active
             Window.Current.Activate();
-            var last_log = Manager.SettingsService.GetValueLocal<string>("last-log");
-            if (!string.IsNullOrEmpty(last_log))
-            {
-                Manager.LogService.Log(last_log);
-                await Manager.LogService.WriteLog();
-
-                Dictionary<string, string> attribute = new Dictionary<string, string>();
-                attribute.Add("message", last_log);
-                Manager.TrackingService.TagEvent(LocalyticsEvent.Crash, attribute);
-                Manager.LogService.LogText = "";
-                Manager.SettingsService.RemoveValueLocal("last-log");
-            }
-            await Manager.RateUsService.ShowRatePopup(5, true, "đánh giá 5 sao", "để lần sau", "Gửi đánh giá", "Xin hãy dành chút thời gian ủng hộ phần mềm, đây là động lục giúp nhóm pháp triển phầm mềm để phục vụ bạn tốt hơn.");
         }
 
         private void Current_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)

@@ -30,7 +30,7 @@ namespace BaoViet.VisualStateTriggers
                 var batteryReport = Windows.Devices.Power.Battery.AggregateBattery.GetReport();
                 var percentage = (batteryReport.RemainingCapacityInMilliwattHours.Value /
                                   (double)batteryReport.FullChargeCapacityInMilliwattHours.Value);
-                
+
                 switch (batteryReport.Status)
                 {
                     case BatteryStatus.Charging:

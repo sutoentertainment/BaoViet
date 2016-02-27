@@ -73,7 +73,7 @@ namespace BaoVietCore.Services
         public async Task InitialAsync(CaptureElement captureElement, MediaEncodingProfile profile = null, bool BackCamera = false)
         {
             if (initialized)
-                await Dispose(true);
+                Dispose(true);
             initialized = true;
 
             this.captureElement = captureElement;
@@ -504,13 +504,13 @@ namespace BaoVietCore.Services
             }
         }
 
-        public async void Dispose()
+        public void Dispose()
         {
-            await Dispose(true);
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 
-        public async Task Dispose(bool threadSafe)
+        public void Dispose(bool threadSafe)
         {
             //Called at run time by user, use to clear managed resource
             if (threadSafe)

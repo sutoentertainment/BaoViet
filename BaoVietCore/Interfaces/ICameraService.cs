@@ -16,7 +16,7 @@ namespace BaoVietCore.Interfaces
         List<DeviceInformation> CameraDeviceList { get; }
         bool IsCameraAvailable { get; }
         bool IsBackCamera { get; set; }
-        Task Dispose(bool threadSafe);
+        void Dispose(bool threadSafe);
         Task DisposeLowLagAsync();
         void FocusOnTap(TappedRoutedEventArgs e);
         Task InitialAsync(CaptureElement captureElement, MediaEncodingProfile profile = null, bool BackCamera = false);

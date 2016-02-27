@@ -9,4 +9,5 @@ The most popular reading app for Vietnamese newspaper now open source. UWP versi
 
 | Platform | Status |
 | -------- | ------ |
-| Managed | ![Build status](https://ci.appveyor.com/api/projects/status/2sjmotjlcdlaqva0/branch/master?svg=true) |
+| Managed | ![Build status](https://ci.appveyor.com/api/projects/status/9jeai2xu488dy7ct?svg=true) |
+| VSTS | ![Build status](https://thang2410199.visualstudio.com/DefaultCollection/_apis/public/build/definitions/ad352d0c-86ac-4499-89dc-bfc0e9648333/1/badge)|

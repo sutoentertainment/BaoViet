@@ -47,4 +47,5 @@ before_build:
     Write-Host "Installed" -ForegroundColor green
 
 build:
+  parallel: true
   verbosity: minimal

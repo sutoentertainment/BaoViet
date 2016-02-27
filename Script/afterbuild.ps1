@@ -8,7 +8,7 @@ if (($env:BuildPlatform) -eq "x86")
 
     Write-Host "Using build number $buildVersion"
 
-    $targetDir = Get-Item -Path (".\AppPackages\BaoViet_" + $buildVersion + "_Test")
+    $targetDir = Get-Item -Path (".\BaoViet\AppPackages\BaoViet_" + $buildVersion + "_Test")
     Write-Host "targetDir: $targetDir"
 
     $outputFile = $pwd.Path + "\" + $buildVersion + ".zip"

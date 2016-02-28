@@ -71,7 +71,7 @@ namespace BaoViet.Models
     {
         public FlashMenuItem(Symbol icon) : base(icon)
         {
-            
+
         }
 
         public override void OnClicked()
@@ -90,6 +90,19 @@ namespace BaoViet.Models
         public override void OnClicked()
         {
             App.Current.NavigationService.NavigateTo(Pages.Gold);
+        }
+    }
+
+    public class MarkDownMenuItem : MenuItemBase
+    {
+        public MarkDownMenuItem(Symbol icon) : base(icon)
+        {
+
+        }
+
+        public override void OnClicked()
+        {
+            App.Current.NavigationService.NavigateTo(Pages.MarkDown);
         }
     }
 }

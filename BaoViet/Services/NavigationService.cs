@@ -49,6 +49,7 @@ namespace BaoViet.Services
             PageDictionary.Add(Pages.Currency, typeof(Currency_Page));
             PageDictionary.Add(Pages.Flash, typeof(Flash_Page));
             PageDictionary.Add(Pages.Gold, typeof(Gold_Page));
+            PageDictionary.Add(Pages.MarkDown, typeof(MarkDown_Page));
             //PageDictionary.Add(Pages.Weather, typeof(Weather_Page));
             //PageDictionary.Add(Pages.OCR, typeof(OCR_Page));
         }

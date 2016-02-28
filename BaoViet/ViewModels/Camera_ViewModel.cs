@@ -7,6 +7,18 @@ namespace BaoViet.ViewModels
 {
     public class Camera_ViewModel : ViewModelBase, INavigable
     {
+        bool _LightOn = false;
+        public bool LightOn
+        {
+            get
+            {
+                return _LightOn;
+            }
+            set
+            {
+                Set(ref _LightOn, value);
+            }
+        }
         public bool AllowGoBack()
         {
             return true;

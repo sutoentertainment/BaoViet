@@ -80,6 +80,8 @@ namespace BaoViet
             Manager.IAPService = new IAPService(Manager);
             Manager.CameraService = new BasicCameraService(Manager);
             Manager.SettingsService = new SettingsService(Manager);
+            Manager.KeyboardService = new KeyboardService(Manager);
+            Manager.MarkDownService = new MarkDownService(Manager);
 
             Manager.Database.CreateTable<FeedItem>();
             RootDataContext = new RootDataContext();
@@ -215,7 +217,7 @@ namespace BaoViet
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                Manager.Configure();
+                Manager.KeyboardService.Init();
 
                 NavigationService.NavigateTo(Pages.Container, e.Arguments, ViewModels.FrameKey.RootFrame);
 

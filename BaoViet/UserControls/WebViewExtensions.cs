@@ -14,7 +14,7 @@ namespace BaoViet.UserControls
 
         #region Fields 
         /// <summary> 
-        /// IsLooping attached property for FlipView 
+        /// Binding source of webview via specific user agent
         /// </summary> 
         public static readonly DependencyProperty SourceBindingProperty =
             DependencyProperty.RegisterAttached(
@@ -22,6 +22,16 @@ namespace BaoViet.UserControls
                 typeof(string),
                 typeof(WebViewExtensions),
                 new PropertyMetadata("", new PropertyChangedCallback(OnSourceBindingChanged)));
+
+        /// <summary> 
+        /// Binding content webview to string
+        /// </summary> 
+        public static readonly DependencyProperty StringContentProperty =
+            DependencyProperty.RegisterAttached(
+                "StringContent",
+                typeof(string),
+                typeof(WebViewExtensions),
+                new PropertyMetadata("", new PropertyChangedCallback(OnStringContentChanged)));
         #endregion
 
         #region Methods 
@@ -30,9 +40,9 @@ namespace BaoViet.UserControls
         /// </summary> 
         /// <param name="obj">the flipView</param> 
         /// <returns>true if the list loops</returns> 
-        public static bool GetSourceBinding(WebView obj)
+        public static string GetSourceBinding(WebView obj)
         {
-            return (bool)obj.GetValue(SourceBindingProperty);
+            return (string)obj.GetValue(SourceBindingProperty);
         }
 
         /// <summary> 
@@ -40,9 +50,29 @@ namespace BaoViet.UserControls
         /// </summary> 
         /// <param name="obj">the FlipView</param> 
         /// <param name="value">true if the list loops</param> 
-        public static void SetSourceBinding(WebView obj, bool value)
+        public static void SetSourceBinding(WebView obj, string value)
         {
             obj.SetValue(SourceBindingProperty, value);
+        }
+
+        /// <summary> 
+        /// Gets a value indicating whether this is a looping FlipView 
+        /// </summary> 
+        /// <param name="obj">the flipView</param> 
+        /// <returns>true if the list loops</returns> 
+        public static string GetStringContent(WebView obj)
+        {
+            return (string)obj.GetValue(StringContentProperty);
+        }
+
+        /// <summary> 
+        /// Sets a value indicating whether the FlipView loops 
+        /// </summary> 
+        /// <param name="obj">the FlipView</param> 
+        /// <param name="value">true if the list loops</param> 
+        public static void SetStringContent(WebView obj, string value)
+        {
+            obj.SetValue(StringContentProperty, value);
         }
         #endregion
 
@@ -63,6 +93,18 @@ namespace BaoViet.UserControls
                 httpRequestMessage.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; XBLWP7; ZuneWP7)");
                 web_view.NavigateWithHttpRequestMessage(httpRequestMessage);
             }
+        }
+
+
+        private static void OnStringContentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var web_view = d as WebView;
+
+            if (!string.IsNullOrEmpty(e.NewValue.ToString()))
+            {
+                web_view.NavigateToString(e.NewValue.ToString());
+            }
+
         }
         #endregion
     }

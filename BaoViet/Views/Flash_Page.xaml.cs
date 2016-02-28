@@ -1,4 +1,5 @@
-﻿using BaoVietCore.Services;
+﻿using BaoViet.ViewModels;
+using BaoVietCore.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +24,13 @@ namespace BaoViet.Views
     /// </summary>
     public sealed partial class Flash_Page : BindablePage
     {
+        public Camera_ViewModel ViewModel
+        {
+            get
+            {
+                return this.DataContext as Camera_ViewModel;
+            }
+        }
         public Flash_Page()
         {
             this.InitializeComponent();
@@ -51,6 +59,7 @@ namespace BaoViet.Views
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             App.Current.OnAppResumed -= Current_OnAppResumed;
+            flashEnabled = ViewModel.LightOn = false;
             base.OnNavigatedFrom(e);
         }
 
@@ -58,6 +67,7 @@ namespace BaoViet.Views
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)
         {
             flashEnabled = !flashEnabled;
+            ViewModel.LightOn = !ViewModel.LightOn;
             App.Current.Manager.CameraService.SetFlashStatus(flashEnabled);
         }
     }

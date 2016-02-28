@@ -13,9 +13,17 @@ namespace BaoVietCore.Services
 {
     public class KeyboardService : ServiceBase, IKeyboardService
     {
+        bool initialized = false;
         public KeyboardService(Manager manager) : base(manager)
         {
-            Window.Current.CoreWindow.Dispatcher.AcceleratorKeyActivated += CoreDispatcher_AcceleratorKeyActivated;
+
+        }
+
+        public void Init()
+        {
+            if (!initialized)
+                Window.Current.CoreWindow.Dispatcher.AcceleratorKeyActivated += CoreDispatcher_AcceleratorKeyActivated;
+            initialized = true;
         }
 
         private void CoreDispatcher_AcceleratorKeyActivated(CoreDispatcher sender, AcceleratorKeyEventArgs e)

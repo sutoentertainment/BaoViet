@@ -112,7 +112,10 @@
     <Compile Include="Factory\XmlParserFactory.cs" />
     <Compile Include="Factory\PaperFactory.cs" />
     <Compile Include="Helpers\StateCondition.cs" />
+    <Compile Include="Interfaces\IMarkDownParser.cs" />
+    <Compile Include="Interfaces\ICrittercismService.cs" />
     <Compile Include="Services\BasicCameraService.cs" />
+    <Compile Include="Services\CrittercismService.cs" />
     <Compile Include="Services\DeviceService.cs" />
     <Compile Include="Interfaces\ITrackingService.cs" />
     <Compile Include="Interfaces\IXmlParser.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Interfaces\ICameraService.cs" />
     <Compile Include="Interfaces\ISettingsService.cs" />
     <Compile Include="Interfaces\IStateCondition.cs" />
+    <Compile Include="Services\MarkDownService.cs" />
     <Compile Include="Services\RssService.cs" />
     <Compile Include="XmlParser\ParserBase.cs" />
     <Compile Include="XmlParser\VietnamPlusParser.cs" />
@@ -223,14 +227,13 @@
       <Name>SQLite for Universal Windows Platform</Name>
     </SDKReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
-  <PropertyGroup>    
-	 <SDKReferenceDirectoryRoot>$(SolutionDir)libs\;$(SDKReferenceDirectoryRoot)</SDKReferenceDirectoryRoot>  
-  </PropertyGroup>  
+  <PropertyGroup>
+    <SDKReferenceDirectoryRoot>$(SolutionDir)libs\;$(SDKReferenceDirectoryRoot)</SDKReferenceDirectoryRoot>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

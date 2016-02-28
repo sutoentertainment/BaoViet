@@ -185,17 +185,6 @@ namespace BaoViet.Views
             await Windows.System.Launcher.LaunchUriAsync(mailto);
         }
 
-        private void RemoveAd_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            if (!App.Current.Manager.IAPService.CheckProduct("Remove_Ads"))
-                App.Current.Manager.IAPService.BuyProduct("Remove_Ads");
-        }
-
-        private void Donate_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            App.Current.Manager.IAPService.BuyProduct("Donate");
-        }
-
         private void SideMenuListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)

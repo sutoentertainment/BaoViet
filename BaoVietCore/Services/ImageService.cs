@@ -59,7 +59,7 @@ namespace BaoVietCore.Services
             }
 
             // Write the file.
-            StorageFile file = await savedPicturesFolder.CreateFileAsync($"Ảnh tải về từ Báo Việt {DateTime.Now.ToString("MM-dd-yy H.mm.ss")}.jpg");
+            StorageFile file = await savedPicturesFolder.CreateFileAsync($"Ảnh tải về từ Báo Việt {DateTime.Now.ToString("MM-dd-yy H.mm.ss")}.jpg", CreationCollisionOption.GenerateUniqueName);
             using (var fileStream = await file.OpenStreamForWriteAsync())
             {
                 await imgStream.CopyToAsync(fileStream);

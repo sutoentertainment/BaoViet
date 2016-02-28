@@ -18,7 +18,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>BaoViet_StoreKey.pfx</PackageCertificateKeyFile>
-    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <PackageCertificateThumbprint>EE7085F550F62336562ECC1982BA20973EA583A1</PackageCertificateThumbprint>
     <AppxBundle>Never</AppxBundle>
@@ -137,6 +137,7 @@
     </Compile>
     <Compile Include="UserControls\WebViewExtensions.cs" />
     <Compile Include="ViewModels\Camera_ViewModel.cs" />
+    <Compile Include="ViewModels\MarkDown_ViewModel.cs" />
     <Compile Include="ViewModels\Detail_ViewModel.cs" />
     <Compile Include="ViewModels\Home_Page_ViewModel.cs" />
     <Compile Include="Interfaces\IMenuItem.cs" />
@@ -169,6 +170,9 @@
     </Compile>
     <Compile Include="Views\List_Categories_Page.xaml.cs">
       <DependentUpon>List_Categories_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MarkDown_Page.xaml.cs">
+      <DependentUpon>MarkDown_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PaperToHide_Page.xaml.cs">
       <DependentUpon>PaperToHide_Page.xaml</DependentUpon>
@@ -322,6 +326,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\MarkDown_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PaperToHide_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -367,9 +375,9 @@
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
-  <PropertyGroup>    
-	 <SDKReferenceDirectoryRoot>$(SolutionDir)libs\;$(SDKReferenceDirectoryRoot)</SDKReferenceDirectoryRoot>  
-  </PropertyGroup>  
+  <PropertyGroup>
+    <SDKReferenceDirectoryRoot>$(SolutionDir)libs\;$(SDKReferenceDirectoryRoot)</SDKReferenceDirectoryRoot>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

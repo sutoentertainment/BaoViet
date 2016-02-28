@@ -8,5 +8,7 @@ namespace BaoVietCore.Interfaces
     {
         event EventHandler<KeyboardEventArgs> KeyDown;
         event EventHandler<KeyboardEventArgs> RefreshRequest;
+
+        void Init();
     }
 }

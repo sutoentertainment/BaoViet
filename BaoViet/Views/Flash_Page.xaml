@@ -15,6 +15,10 @@
                         RenderTransformOrigin="0.5, 0.5"
                         Stretch="UniformToFill" Width="300" Height="450" Visibility="Collapsed"/>
 
+        <Grid x:Name="LightContainer" Visibility="{Binding LightOn, Converter={StaticResource BooleanToVisibility}}">
+            <Ellipse Fill="White" Width="260" Height="260" Opacity="0.6"></Ellipse>
+            <Ellipse Fill="White" Width="160" Height="160" Opacity="0.9"></Ellipse>
+        </Grid>
         <control:RoundButton FontIconGlyph="&#xE754;" FontSize="16" Padding="20,0,20,0" Foreground="White" Width="100" Height="100" Tapped="Button_Tapped"/>
     </Grid>
 </local:BindablePage>

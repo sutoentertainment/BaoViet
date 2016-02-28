@@ -27,6 +27,7 @@ namespace BaoVietCore
         public DeviceService DeviceService { get; set; }
         public ICameraService CameraService { get; set; }
         public ISettingsService SettingsService { get; set; }
+        public IMarkDownParser MarkDownService { get; set; }
 
         public Manager()
         {
@@ -34,7 +35,7 @@ namespace BaoVietCore
         }
         public void Configure()
         {
-            KeyboardService = new KeyboardService(this);
+            //KeyboardService = new KeyboardService(this);
             //LocalizationService = new LocalizationService(this);
         }
     }

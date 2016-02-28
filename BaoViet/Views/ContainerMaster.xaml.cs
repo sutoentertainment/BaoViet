@@ -61,7 +61,7 @@ namespace BaoViet.Views
 
         private void KeyboardService_KeyDown(object sender, KeyboardEventArgs e)
         {
-            if (e.VirtualKey == Windows.System.VirtualKey.Back)
+            if (e.VirtualKey == Windows.System.VirtualKey.Back && e.AltKey == true)
             {
                 //TODO: Raise backNavigation();
                 //App.InvokeOnBackRequested();

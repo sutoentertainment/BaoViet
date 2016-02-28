@@ -21,11 +21,24 @@ using Windows.UI.Xaml.Controls;
 using Microsoft.Practices.ServiceLocation;
 using BaoViet.Controls;
 using BaoViet.Models;
+using Windows.UI.Popups;
 
 namespace BaoViet.ViewModels
 {
     public class Home_ViewModel : ViewModelBase, INavigable, ITrackingAble
     {
+        bool _PrepareIAP = false;
+        public bool PrepareIAP
+        {
+            get
+            {
+                return _PrepareIAP;
+            }
+            set
+            {
+                Set(ref _PrepareIAP, value);
+            }
+        }
         public string AppVersion
         {
             get
@@ -123,6 +136,8 @@ namespace BaoViet.ViewModels
 
         public RelayCommand<ItemClickEventArgs> PaperClickedCommand { get; set; }
         public RelayCommand LockRotationCommand { get; set; }
+        public RelayCommand RemoveAdCommand { get; set; }
+        public RelayCommand DonateCommand { get; private set; }
         public string ScreenName
         {
             get
@@ -130,6 +145,7 @@ namespace BaoViet.ViewModels
                 return Localytics.LocalyticsScreen.HomePage;
             }
         }
+
 
         public Home_ViewModel()
         {
@@ -159,6 +175,7 @@ namespace BaoViet.ViewModels
 
             ExtraTools.Add(new CurrencyMenuItem(Symbol.Switch) { MenuTitle = "Tra cứu tỉ giá" });
             ExtraTools.Add(new GoldMenuItem(Symbol.Tag) { MenuTitle = "Giá vàng" });
+            ExtraTools.Add(new MarkDownMenuItem(Symbol.Edit) { MenuTitle = "Markdown" });
             //ExtraTools.Add(new OCRMenuItem(Symbol.Caption) { MenuTitle = "Chuyển ảnh thành chữ" });
             //ExtraTools.Add(new WeatherMenuItem(Symbol.World) { MenuTitle = "Thời tiết" });
             ExtraTools.Add(new FlashMenuItem(Symbol.Trim) { MenuTitle = "Flash" });
@@ -168,11 +185,38 @@ namespace BaoViet.ViewModels
         {
 
             OpenMenuCommand = new RelayCommand(OpenMenu);
-
             GoToPaperToHidePageCommand = new RelayCommand(GoToPaperToHidePage);
-
             PaperClickedCommand = new RelayCommand<ItemClickEventArgs>(PaperClicked);
             LockRotationCommand = new RelayCommand(LockRotationAction);
+            RemoveAdCommand = new RelayCommand(RemoveAd);
+            DonateCommand = new RelayCommand(Donate);
+        }
+
+        private async void Donate()
+        {
+            PrepareIAP = true;
+            var result = await App.Current.Manager.IAPService.BuyProduct("Donate");
+            if (result)
+            {
+                MessageDialog mess = new MessageDialog("Rất cám ơn bạn đã ủng hộ phần mềm");
+                await mess.ShowAsync();
+            }
+            PrepareIAP = false;
+        }
+
+        private async void RemoveAd()
+        {
+            PrepareIAP = true;
+            if (!App.Current.Manager.IAPService.CheckProduct("Remove_Ads"))
+            {
+                var result = await App.Current.Manager.IAPService.BuyProduct("Remove_Ads");
+                if (result)
+                {
+                    MessageDialog mess = new MessageDialog("Rất cám ơn bạn đã ủng hộ phần mềm, quảng cáo đã được loại bỏ khi bạn đọc báo");
+                    await mess.ShowAsync();
+                }
+            }
+            PrepareIAP = false;
         }
 
         private void LockRotationAction()

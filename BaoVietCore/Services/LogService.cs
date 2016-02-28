@@ -33,7 +33,7 @@ namespace BaoVietCore.Services
         {
             // Create sample file; replace if exists.
             StorageFolder folder = Windows.Storage.ApplicationData.Current.TemporaryFolder;
-            StorageFile logfile = await folder.CreateFileAsync(string.Format("{0}.txt", filename), CreationCollisionOption.OpenIfExists);
+            StorageFile logfile = await folder.CreateFileAsync(string.Format("{0}.txt", filename), CreationCollisionOption.GenerateUniqueName);
             await Windows.Storage.FileIO.WriteTextAsync(logfile, LogText);
 
         }

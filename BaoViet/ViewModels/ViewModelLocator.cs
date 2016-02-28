@@ -53,6 +53,7 @@ namespace BaoViet.ViewModels
             SimpleIoc.Default.Register<Saved_Articles_ViewModel>();
             SimpleIoc.Default.Register<Currency_ViewModel>();
             SimpleIoc.Default.Register<Camera_ViewModel>();
+            SimpleIoc.Default.Register<MarkDown_ViewModel>();
             //SimpleIoc.Default.Register<PromotionViewModel>();
             //SimpleIoc.Default.Register<WalletViewModel>();
             //SimpleIoc.Default.Register<SettingViewModel>();
@@ -68,6 +69,14 @@ namespace BaoViet.ViewModels
             get
             {
                 return Get<Camera_ViewModel>();
+            }
+        }
+
+        public MarkDown_ViewModel MarkDown
+        {
+            get
+            {
+                return Get<MarkDown_ViewModel>();
             }
         }
 
@@ -142,6 +151,7 @@ namespace BaoViet.ViewModels
         Currency,
         Flash,
         Gold,
+        MarkDown,
     }
 
     public enum FrameKey

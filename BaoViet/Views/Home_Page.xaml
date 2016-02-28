@@ -294,8 +294,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center"
                                                             Background="{StaticResource AppColor}"
-                                                            Content="Mua"
-                                                            Tapped="RemoveAd_Tapped" />
+                                                            Content="Mua" Command="{x:Bind ViewModel.RemoveAdCommand}"/>
+                                                    <ProgressRing VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2" IsActive="{Binding PrepareIAP, Converter={StaticResource BooleanToVisibility}}" Width="36" Height="36"/>
                                                 </Grid>
                                             </Flyout>
                                         </Button.Flyout>
@@ -328,7 +328,8 @@
                                                             VerticalAlignment="Center"
                                                             Background="{StaticResource AppColor}"
                                                             Content="Mua"
-                                                            Tapped="Donate_Tapped" />
+                                                            Command="{x:Bind ViewModel.DonateCommand}" />
+                                                    <ProgressRing VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2" IsActive="{Binding PrepareIAP, Converter={StaticResource BooleanToVisibility}}" Width="36" Height="36"/>
                                                 </Grid>
                                             </Flyout>
                                         </Button.Flyout>

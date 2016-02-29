@@ -150,16 +150,16 @@
       <DependentUpon>ContainerMaster.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BindablePage.cs" />
-    <Compile Include="Views\Gold_Page.xaml.cs">
+    <Compile Include="Views\Tools\Gold_Page.xaml.cs">
       <DependentUpon>Gold_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Currency_Page.xaml.cs">
+    <Compile Include="Views\Tools\Currency_Page.xaml.cs">
       <DependentUpon>Currency_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Detail_Page.xaml.cs">
       <DependentUpon>Detail_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Flash_Page.xaml.cs">
+    <Compile Include="Views\Tools\Flash_Page.xaml.cs">
       <DependentUpon>Flash_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Home_Page.xaml.cs">
@@ -171,7 +171,7 @@
     <Compile Include="Views\List_Categories_Page.xaml.cs">
       <DependentUpon>List_Categories_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MarkDown_Page.xaml.cs">
+    <Compile Include="Views\Tools\MarkDown_Page.xaml.cs">
       <DependentUpon>MarkDown_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PaperToHide_Page.xaml.cs">
@@ -298,11 +298,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Gold_Page.xaml">
+    <Page Include="Views\Tools\Gold_Page.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Currency_Page.xaml">
+    <Page Include="Views\Tools\Currency_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -310,7 +310,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Flash_Page.xaml">
+    <Page Include="Views\Tools\Flash_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -326,7 +326,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MarkDown_Page.xaml">
+    <Page Include="Views\Tools\MarkDown_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

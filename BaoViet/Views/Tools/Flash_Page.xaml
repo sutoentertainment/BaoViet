@@ -1,0 +1,88 @@
+﻿<local:BindablePage
+    x:Class="BaoViet.Views.Flash_Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BaoViet.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding Camera, Mode=OneWay, Source={StaticResource Locator}}"
+    xmlns:control="using:BaoViet.Controls"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:media="using:Microsoft.Xaml.Interactions.Media">
+
+    <Grid Background="{StaticResource AppColorBackground}">
+        <Grid.Resources>
+            <Storyboard x:Key="FlashOpen">
+                <DoubleAnimation Duration="0:0:0.5"
+                                                     Storyboard.TargetName="flashTransform"
+                                                     Storyboard.TargetProperty="ScaleY"
+                                                     To="1"
+                                                     d:IsOptimized="True">
+                    <DoubleAnimation.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn" />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+
+                <DoubleAnimation Duration="0:0:0.5"
+                                                     Storyboard.TargetName="flashTransform"
+                                                     Storyboard.TargetProperty="ScaleX"
+                                                     To="1"
+                                                     d:IsOptimized="True">
+                    <DoubleAnimation.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn" />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+
+            <Storyboard x:Key="FlashClose">
+                <DoubleAnimation Duration="0:0:1"
+                                                     Storyboard.TargetName="flashTransform"
+                                                     Storyboard.TargetProperty="ScaleY"
+                                                     To="0.3"
+                                                     d:IsOptimized="True">
+                    <DoubleAnimation.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut" />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+
+                <DoubleAnimation Duration="0:0:1"
+                                                     Storyboard.TargetName="flashTransform"
+                                                     Storyboard.TargetProperty="ScaleX"
+                                                     To="0.3"
+                                                     d:IsOptimized="True">
+                    <DoubleAnimation.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut" />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+        </Grid.Resources>
+
+        <CaptureElement x:Name="hiddenCaptureElement" HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        RenderTransformOrigin="0.5, 0.5"
+                        Stretch="UniformToFill" Width="300" Height="450" Visibility="Collapsed"/>
+
+        <Grid x:Name="LightContainer" RenderTransformOrigin="0.5,0.5">
+            <i:Interaction.Behaviors>
+                <core:DataTriggerBehavior Binding="{Binding LightOn}" ComparisonCondition="Equal" Value="True">
+                    <media:ControlStoryboardAction ControlStoryboardOption="Play" Storyboard="{StaticResource FlashOpen}"/>
+                    <!--<media:ControlStoryboardAction ControlStoryboardOption="Stop" Storyboard="{StaticResource FlashClose}"/>-->
+                </core:DataTriggerBehavior>
+                <core:DataTriggerBehavior Binding="{Binding LightOn}" ComparisonCondition="Equal" Value="False">
+                    <!--<media:ControlStoryboardAction ControlStoryboardOption="Stop" Storyboard="{StaticResource FlashOpen}"/>-->
+                    <media:ControlStoryboardAction ControlStoryboardOption="Play" Storyboard="{StaticResource FlashClose}"/>
+                </core:DataTriggerBehavior>
+            </i:Interaction.Behaviors>
+            
+            <Grid.RenderTransform>
+                <ScaleTransform ScaleX="0.1" ScaleY="0.1" x:Name="flashTransform"/>
+            </Grid.RenderTransform>
+            
+            <Ellipse Fill="White" Width="260" Height="260" Opacity="0.6"></Ellipse>
+            <Ellipse Fill="White" Width="160" Height="160" Opacity="0.9"></Ellipse>
+        </Grid>
+        <control:RoundButton FontIconGlyph="&#xE754;" FontSize="16" Padding="20,0,20,0" Foreground="White" Width="100" Height="100" Tapped="Button_Tapped"/>
+    </Grid>
+</local:BindablePage>

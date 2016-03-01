@@ -21,7 +21,7 @@ namespace BaoViet.Interfaces
         void InvokeOnBackRequested();
         void InvokeOnToastRise(string text, double milisec);
         void InvokeOnToastTapped(ToastAction action);
-        void OnToastActivated_Invoke(string text, double milisecs);
+        void InvokeToast(string text, double milisecs);
     }
     public delegate void OnToastActivatedEventHandler(string text, double milisecs);
     public delegate void OnToastTappedEventHandler(ToastAction action);

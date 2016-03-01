@@ -28,10 +28,26 @@ namespace BaoVietCore
         public ICameraService CameraService { get; set; }
         public ISettingsService SettingsService { get; set; }
         public IMarkDownParser MarkDownService { get; set; }
+        public StorageService StorageService { get; set; }
 
         public Manager()
         {
             Current = this;
+
+            StorageService = new StorageService(this);
+            WebService = new WebService(this);
+            Database = new Database(this);
+            AuthenticationService = new AuthenticationService(this);
+            RateUsService = new RateUsService(this);
+            ImageService = new ImageService(this);
+            TrackingService = new LocalyticsAdapterService(this);
+            RssService = new RssService(this);
+            IAPService = new IAPService(this);
+            CameraService = new BasicCameraService(this);
+            SettingsService = new SettingsService(this);
+            KeyboardService = new KeyboardService(this);
+            MarkDownService = new MarkDownService(this);
+            LogService = new LogService(this, StorageService);
         }
         public void Configure()
         {

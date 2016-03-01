@@ -69,19 +69,6 @@ namespace BaoViet
             HockeyClient.Current.Configure("c393580460234e8887897e0c6caef3d5");
             Manager = new Manager();
 
-            Manager.WebService = new WebService(Manager);
-            Manager.LogService = new LogService(Manager);
-            Manager.Database = new Database(Manager);
-            Manager.AuthenticationService = new AuthenticationService(Manager);
-            Manager.RateUsService = new RateUsService(Manager);
-            Manager.ImageService = new ImageService(Manager);
-            Manager.TrackingService = new LocalyticsAdapterService(Manager);
-            Manager.RssService = new RssService(Manager);
-            Manager.IAPService = new IAPService(Manager);
-            Manager.CameraService = new BasicCameraService(Manager);
-            Manager.SettingsService = new SettingsService(Manager);
-            Manager.KeyboardService = new KeyboardService(Manager);
-            Manager.MarkDownService = new MarkDownService(Manager);
 
             Manager.Database.CreateTable<FeedItem>();
             RootDataContext = new RootDataContext();
@@ -211,7 +198,7 @@ namespace BaoViet
             if (rootFrame.Content == null)
             {
                 NavigationService = new NavigationService();
-                NavigationService.ConfigPage();
+                ConfigPage(NavigationService);
                 NavigationService.Configure(ViewModels.FrameKey.RootFrame, rootFrame);
 
                 // When the navigation stack isn't restored navigate to the first page,
@@ -233,10 +220,26 @@ namespace BaoViet
                     Manager.LogService.LogText = "";
                     Manager.SettingsService.RemoveValueLocal("last-log");
                 }
-                await Manager.RateUsService.ShowRatePopup(5, true, "đánh giá 5 sao", "để lần sau", "Gửi đánh giá", "Xin hãy dành chút thời gian ủng hộ phần mềm, đây là động lục giúp nhóm pháp triển phầm mềm để phục vụ bạn tốt hơn.");
+                await Manager.RateUsService.ShowRatePopup(5, true, "đánh giá 5 sao", "để lần sau", "Gửi đánh giá", "Bạn đang sử dụng sản phẩm miễn phí, giá gốc có thể là 2$\r\nXin hãy dành chút thời gian ủng hộ phần mềm, đây là động lục giúp nhóm pháp triển phầm mềm để phục vụ bạn tốt hơn.\r\nTrong quá trình sử dụng, có điều gì chưa tốt xin bạn vui lòng gửi thư cho mình qua phần Cài Đặt.");
             }
             // Ensure the current window is active
             Window.Current.Activate();
+        }
+
+        public void ConfigPage(NavigationService service)
+        {
+            service.ConfigurePage(Pages.Container, typeof(ContainerMaster));
+            service.ConfigurePage(Pages.HomePage, typeof(Home_Page));
+            service.ConfigurePage(Pages.DetailPage, typeof(Detail_Page));
+            service.ConfigurePage(Pages.List_Categories_Page, typeof(List_Categories_Page));
+            service.ConfigurePage(Pages.List_Articles_Page, typeof(List_Articles_Page));
+            service.ConfigurePage(Pages.Saved_Articles_Page, typeof(Saved_Articles_Page));
+            service.ConfigurePage(Pages.Currency, typeof(Currency_Page));
+            service.ConfigurePage(Pages.Flash, typeof(Flash_Page));
+            service.ConfigurePage(Pages.Gold, typeof(Gold_Page));
+            service.ConfigurePage(Pages.MarkDown, typeof(MarkDown_Page));
+            //service.ConfigurePage(Pages.Weather, typeof(Weather_Page));
+            //service.ConfigurePage(Pages.OCR, typeof(OCR_Page));
         }
 
         private void Current_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)

@@ -69,10 +69,32 @@ namespace BaoViet.ViewModels
         }
 
         public RelayCommand PreviewCommand { get; set; }
+        public RelayCommand SaveCommand { get; set; }
 
         public MarkDown_ViewModel()
         {
             PreviewCommand = new RelayCommand(Preview);
+            SaveCommand = new RelayCommand(Save);
+        }
+
+        private async void Save()
+        {
+            var file = await App.Current.Manager.StorageService.PickFileToSave("document", ".markdown",
+                new KeyValuePair<string, string>(".md", "Markdown document"),
+                new KeyValuePair<string, string>(".txt", "Plain text"));
+
+            if (file != null)
+            {
+                try
+                {
+                    await App.Current.Manager.StorageService.WriteStringToFile(file, SourceInput);
+                    App.Current.InvokeToast("lưu thành công", 2000);
+                }
+                catch
+                {
+                    App.Current.InvokeToast("lỗi khi lưu file", 2000);
+                }
+            }
         }
 
         private void Preview()

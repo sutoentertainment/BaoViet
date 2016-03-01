@@ -11,10 +11,11 @@ namespace BaoVietCore.Services
     public class LogService : ServiceBase, ILogService
     {
         public string LogText { get; set; } = "";
+        StorageService storageService;
 
-        public LogService(Manager man) : base(man)
+        public LogService(Manager man, StorageService _storageService) : base(man)
         {
-
+            storageService = _storageService;
         }
 
         public void Log(string text, params string[] textM)
@@ -29,13 +30,10 @@ namespace BaoVietCore.Services
             }
         }
 
-        public async Task WriteLog(string filename = "log")
+        public async Task WriteLog(string filename = "log.txt")
         {
-            // Create sample file; replace if exists.
-            StorageFolder folder = Windows.Storage.ApplicationData.Current.TemporaryFolder;
-            StorageFile logfile = await folder.CreateFileAsync(string.Format("{0}.txt", filename), CreationCollisionOption.GenerateUniqueName);
-            await Windows.Storage.FileIO.WriteTextAsync(logfile, LogText);
-
+            var logfile = await storageService.CreateFile(ApplicationData.Current.TemporaryFolder, filename, CreationCollisionOption.GenerateUniqueName);
+            await storageService.WriteStringToFile(logfile, LogText);
         }
     }
 }

@@ -21,13 +21,6 @@ namespace UnitTest
         public BaoVietTest()
         {
             Manager = new Manager();
-            Manager.WebService = new WebService(Manager);
-            Manager.LogService = new LogService(Manager);
-            Manager.Database = new Database(Manager);
-            Manager.AuthenticationService = new AuthenticationService(Manager);
-            Manager.RateUsService = new RateUsService(Manager);
-            Manager.ImageService = new ImageService(Manager);
-            Manager.TrackingService = new LocalyticsAdapterService(Manager);
             IStateCondition condiction = new StateCondition(720);
             Manager.Current.DeviceService = new DeviceService(Manager, condiction);
             Manager.Database.CreateTable<FeedItem>();

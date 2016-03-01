@@ -66,7 +66,7 @@ namespace BaoViet
                 OnToastTapped.Invoke(action);
         }
 
-        public void OnToastActivated_Invoke(string text, double milisecs)
+        public void InvokeToast(string text, double milisecs)
         {
             if (OnToastRise != null)
                 OnToastRise.Invoke(text, milisecs);

@@ -31,27 +31,18 @@ namespace BaoViet.Services
             }
         }
 
+
+        internal void ConfigurePage(Pages key, Type type)
+        {
+            if (!PageDictionary.ContainsKey(key))
+                PageDictionary.Add(key, type);
+        }
+
         public Frame GetFrame(FrameKey framekey)
         {
             if (FrameDictionary.ContainsKey(framekey))
                 return FrameDictionary[framekey];
             return null;
-        }
-
-        public void ConfigPage()
-        {
-            PageDictionary.Add(Pages.Container, typeof(ContainerMaster));
-            PageDictionary.Add(Pages.HomePage, typeof(Home_Page));
-            PageDictionary.Add(Pages.DetailPage, typeof(Detail_Page));
-            PageDictionary.Add(Pages.List_Categories_Page, typeof(List_Categories_Page));
-            PageDictionary.Add(Pages.List_Articles_Page, typeof(List_Articles_Page));
-            PageDictionary.Add(Pages.Saved_Articles_Page, typeof(Saved_Articles_Page));
-            PageDictionary.Add(Pages.Currency, typeof(Currency_Page));
-            PageDictionary.Add(Pages.Flash, typeof(Flash_Page));
-            PageDictionary.Add(Pages.Gold, typeof(Gold_Page));
-            PageDictionary.Add(Pages.MarkDown, typeof(MarkDown_Page));
-            //PageDictionary.Add(Pages.Weather, typeof(Weather_Page));
-            //PageDictionary.Add(Pages.OCR, typeof(OCR_Page));
         }
 
         private async void MainFrame_Navigated(object sender, Windows.UI.Xaml.Navigation.NavigationEventArgs e)

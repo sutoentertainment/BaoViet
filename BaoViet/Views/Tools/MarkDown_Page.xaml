@@ -272,7 +272,7 @@
     <local:BindablePage.BottomAppBar>
         <CommandBar>
             <CommandBar.PrimaryCommands>
-                <AppBarButton Icon="Save" Label="lưu" />
+                <AppBarButton Icon="Save" Label="lưu" Command="{x:Bind ViewModel.SaveCommand}"/>
                 <AppBarButton x:Name="previewButton"
                               Command="{x:Bind ViewModel.PreviewCommand}"
                               Icon="View"

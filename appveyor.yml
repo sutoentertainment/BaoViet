@@ -3,10 +3,17 @@ configuration:
 - Release
 platform:
 - ARM
-install:
+
+before_build:
 - ps: >-
 
-	Write-Host "Build Platform: '$env:build'"
+    nuget restore
+
+
+
+    Write-Host "Build Platform: '$env:build'"
+
+
 
     $vsixPath = "$($env:USERPROFILE)\sqlite-uwp-3110000.vsix"
 
@@ -21,9 +28,11 @@ install:
 
 
     & .\install-vsix.cmd
-	
-	
-	Write-Host "Installing Microsoft Universal Ad Client SDK..."
+
+
+
+    Write-Host "Installing Microsoft Universal Ad Client SDK..."
+
 
 
     $msiPath = "$($env:USERPROFILE)\MicrosoftUniversalAdSDK.msi"
@@ -39,11 +48,6 @@ install:
 
 
     Write-Host "Installed" -ForegroundColor green
-
-before_build:
-- ps: >-
-
-    nuget restore
 
 build:
   parallel: true

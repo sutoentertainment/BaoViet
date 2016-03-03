@@ -2,6 +2,7 @@
 using BaoViet.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace BaoViet.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             CurrentPage = this;
+            App.Current.NavigationService.Configure(FrameKey.CurrentFrame, this.Frame);
             base.OnNavigatedTo(e);
 
             var navigableViewModel = this.DataContext as INavigable;
@@ -33,14 +35,15 @@ namespace BaoViet.Views
 
         public void OnBackRequested(object sender, BackRequestedEventArgs e)
         {
+            Debug.WriteLine("On Back request");
             var navigableViewModel = this.DataContext as INavigable;
             if (navigableViewModel != null)
             {
                 if (navigableViewModel.AllowGoBack())
                 {
-                    if (App.Current.NavigationService.CanGoBack())
+                    if (this.Frame.CanGoBack)
                     {
-                        App.Current.NavigationService.GoBack();
+                        this.Frame.GoBack();
                         //Prevent out app
                         if (e != null)
                             e.Handled = true;

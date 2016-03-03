@@ -26,6 +26,14 @@ namespace UnitTest
             Manager.Database.CreateTable<FeedItem>();
             Assert.IsTrue(true);
         }
+        [TestMethod]
+        public void TestYaml()
+        {
+            var content = Manager.Current.WebService.GetString("https://sandbox-market.tapp.fi/api/1/product-categories/");
+            content.Wait();
+            Debug.WriteLine(content.Result);
+            return;
+        }
 
         [TestMethod]
         public void TestRssSource()

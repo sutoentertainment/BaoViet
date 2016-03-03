@@ -187,6 +187,7 @@
       <DependentUpon>Tutorial_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="VisualStateTriggers\BatteryTrigger.cs" />
+    <Compile Include="VisualStateTriggers\BooleanDataTrigger.cs" />
     <Compile Include="VisualStateTriggers\DeviceFamilyTrigger.cs" />
     <Compile Include="VisualStateTriggers\ShowAdTrigger.cs" />
     <Compile Include="VisualStateTriggers\NetworkConnectionTrigger.cs" />

@@ -12,37 +12,6 @@
                     NavigationCacheMode="Disabled"
                     mc:Ignorable="d" xmlns:trigger="using:BaoViet.VisualStateTriggers">
 
-    <local:BindablePage.BottomAppBar>
-        <CommandBar>
-            <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="OpenExternal"
-                              Command="{Binding OpenExternalCommand}"
-                              Label="mở bằng trình duyệt ngoài" />
-            </CommandBar.SecondaryCommands>
-            <AppBarButton x:Name="BackButton"
-                          Command="{Binding OpenWebCommand}"
-                          Icon="Globe"
-                          Label="open web"
-                          ToolTipService.Placement="Mouse"
-                          ToolTipService.PlacementTarget="{x:Bind BackButton}"
-                          ToolTipService.ToolTip="open web" />
-            <!--<AppBarButton x:Name="RefreshButton"
-                              Command="{Binding RefreshCommand}"
-                              Icon="Refresh"
-                              Label="refresh"
-                              ToolTipService.Placement="Mouse"
-                              ToolTipService.PlacementTarget="{x:Bind RefreshButton}"
-                              ToolTipService.ToolTip="refresh" />-->
-            <AppBarButton x:Name="ShareButton"
-                          Command="{Binding ShareCommand}"
-                          Icon="Send"
-                          Label="share"
-                          ToolTipService.Placement="Mouse"
-                          ToolTipService.PlacementTarget="{x:Bind ShareButton}"
-                          ToolTipService.ToolTip="share" />
-        </CommandBar>
-    </local:BindablePage.BottomAppBar>
-
     <Grid Background="White">
 
         <VisualStateManager.VisualStateGroups>
@@ -154,5 +123,34 @@
                                      Id="AdMediator-Id-5F57EE92-A2DE-485F-B837-AB462586ACD6" />
 
         <!--<ProgressBar VerticalAlignment="Bottom" IsIndeterminate="{x:Bind Model.IsBusy, Mode=OneWay}"/>-->
+
+        <CommandBar Grid.Row="1" VerticalAlignment="Bottom">
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="OpenExternal"
+                              Command="{Binding OpenExternalCommand}"
+                              Label="mở bằng trình duyệt ngoài" />
+            </CommandBar.SecondaryCommands>
+            <AppBarButton x:Name="BackButton"
+                          Command="{Binding OpenWebCommand}"
+                          Icon="Globe"
+                          Label="open web"
+                          ToolTipService.Placement="Mouse"
+                          ToolTipService.PlacementTarget="{x:Bind BackButton}"
+                          ToolTipService.ToolTip="open web" />
+            <!--<AppBarButton x:Name="RefreshButton"
+                              Command="{Binding RefreshCommand}"
+                              Icon="Refresh"
+                              Label="refresh"
+                              ToolTipService.Placement="Mouse"
+                              ToolTipService.PlacementTarget="{x:Bind RefreshButton}"
+                              ToolTipService.ToolTip="refresh" />-->
+            <AppBarButton x:Name="ShareButton"
+                          Command="{Binding ShareCommand}"
+                          Icon="Send"
+                          Label="share"
+                          ToolTipService.Placement="Mouse"
+                          ToolTipService.PlacementTarget="{x:Bind ShareButton}"
+                          ToolTipService.ToolTip="share" />
+        </CommandBar>
     </Grid>
 </local:BindablePage>

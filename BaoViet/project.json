@@ -1,13 +1,14 @@
 ﻿{
   "dependencies": {
     "AdaptiveTriggerLibrary": "1.2.1",
-    "AdDuplexWin10": "10.0.1.3",
+    "AdDuplexWin10": "10.0.1.4",
     "Comet": "0.2.0.1",
     "HockeySDK.UWP": "3.1.1-build36794",
     "Microsoft.AdMediator.Universal.AdDuplex": "2.1.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "Microsoft.Xaml.Behaviors.Uwp.Managed": "1.1.0",
-    "MvvmLightLibs": "5.2.0"
+    "MvvmLightLibs": "5.2.0",
+    "WindowsStateTriggers": "1.1.0"
   },
   "frameworks": {
     "uap10.0": {}

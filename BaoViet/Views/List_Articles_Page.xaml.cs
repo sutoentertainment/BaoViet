@@ -6,6 +6,7 @@ using Windows.UI.Xaml.Controls;
 using BaoVietCore.Models;
 using BaoVietCore.Interfaces;
 using BaoVietCore.Helpers;
+using BaoViet.Services;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,10 +34,7 @@ namespace BaoViet.Views
             var feed = e.ClickedItem as IFeedItem;
             var detail = ViewModelLocator.Get<Detail_ViewModel>();
             detail.CurrentFeed = feed;
-            if (App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
-                App.Current.NavigationService.NavigateTo(Pages.DetailPage);
-            else
-                App.Current.NavigationService.NavigateTo(Pages.DetailPage, null, FrameKey.PaneSplitFrame);
+            App.Current.NavigationService.NavigateTo(Pages.DetailPage, null, FrameKey.CurrentFrame);
         }
 
         //TODO: move to view model

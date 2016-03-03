@@ -45,7 +45,7 @@ namespace BaoViet.Views
             ViewModel = App.Current.RootDataContext;
             this.DataContext = ViewModel;
 
-            App.Current.NavigationService.Configure(ViewModels.FrameKey.MainFrame, MasterFrame);
+            App.Current.NavigationService.Configure(FrameKey.MainFrame, MasterFrame);
 
             App.Current.OnToastRise += App_OnToastActivated;
             //SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
@@ -61,7 +61,7 @@ namespace BaoViet.Views
 
         private void KeyboardService_KeyDown(object sender, KeyboardEventArgs e)
         {
-            if (e.VirtualKey == Windows.System.VirtualKey.Back && e.AltKey == true)
+            if (e.VirtualKey == Windows.System.VirtualKey.Left && e.AltKey == true)
             {
                 //TODO: Raise backNavigation();
                 //App.InvokeOnBackRequested();

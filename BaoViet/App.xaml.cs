@@ -199,14 +199,14 @@ namespace BaoViet
             {
                 NavigationService = new NavigationService();
                 ConfigPage(NavigationService);
-                NavigationService.Configure(ViewModels.FrameKey.RootFrame, rootFrame);
+                NavigationService.Configure(FrameKey.RootFrame, rootFrame);
 
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
                 Manager.KeyboardService.Init();
 
-                NavigationService.NavigateTo(Pages.Container, e.Arguments, ViewModels.FrameKey.RootFrame);
+                NavigationService.NavigateTo(Pages.Container, e.Arguments, FrameKey.RootFrame);
 
                 var last_log = Manager.SettingsService.GetValueLocal<string>("last-log");
                 if (!string.IsNullOrEmpty(last_log))

@@ -154,11 +154,4 @@ namespace BaoViet.ViewModels
         MarkDown,
     }
 
-    public enum FrameKey
-    {
-        MainFrame,
-        RootFrame,
-        MenuFrame,
-        PaneSplitFrame
-    }
 }

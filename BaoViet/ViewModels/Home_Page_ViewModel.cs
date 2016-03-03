@@ -22,6 +22,7 @@ using Microsoft.Practices.ServiceLocation;
 using BaoViet.Controls;
 using BaoViet.Models;
 using Windows.UI.Popups;
+using BaoViet.Services;
 
 namespace BaoViet.ViewModels
 {
@@ -248,7 +249,7 @@ namespace BaoViet.ViewModels
                     App.Current.NavigationService.NavigateTo(Pages.List_Categories_Page);
                 else
                 {
-                    App.Current.NavigationService.GoBack(FrameKey.PaneSplitFrame, true);
+                    //App.Current.NavigationService.GoBack(FrameKey.PaneSplitFrame, true);
                     App.Current.NavigationService.NavigateTo(Pages.List_Categories_Page, null, FrameKey.PaneSplitFrame);
                 }
             });

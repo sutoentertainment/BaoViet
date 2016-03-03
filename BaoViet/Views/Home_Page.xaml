@@ -15,7 +15,14 @@
                                           Mode=OneWay,
                                           Source={StaticResource Locator}}"
                     NavigationCacheMode="Required"
-                    mc:Ignorable="d">
+                    mc:Ignorable="d"
+                    xmlns:windowsTrigger="using:WindowsStateTriggers"
+                    xmlns:logicalModifiers="using:AdaptiveTriggerLibrary.ConditionModifiers.LogicalModifiers"
+    xmlns:logicalTriggers="using:AdaptiveTriggerLibrary.Triggers.LogicalTriggers"
+    xmlns:hardwareInterfaceTriggers="using:AdaptiveTriggerLibrary.Triggers.HardwareInterfaceTriggers"
+    xmlns:userInterfaceTriggers="using:AdaptiveTriggerLibrary.Triggers.UserInterfaceTriggers"
+    xmlns:comparableModifiers="using:AdaptiveTriggerLibrary.ConditionModifiers.ComparableModifiers"
+                    xmlns:trigger="using:BaoViet.VisualStateTriggers">
 
     <!--  xmlns:usercontrol="using:BaoViet.UserControls"  -->
 
@@ -31,6 +38,16 @@
         </TransitionCollection>
     </Page.Transitions>-->
 
+    <Page.Resources>
+        <logicalModifiers:OrModifier x:Key="OrModifier"/>
+        <logicalModifiers:AndModifier x:Key="AndModifier"/>
+        <comparableModifiers:LessThanModifier x:Key="LessThanModifier"/>
+        <comparableModifiers:EqualToModifier x:Key="EqualToModifier"/>
+        <comparableModifiers:NotEqualToModifier x:Key="NotEqualToModifier"/>
+        <comparableModifiers:GreaterThanEqualToModifier x:Key="GreaterThanEqualToModifier"/>
+        <comparableModifiers:LessThanEqualToModifier x:Key="LessThanEqualToModifier"/>
+    </Page.Resources>
+
     <Grid Background="{StaticResource AppColorBackground}">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -41,24 +58,49 @@
                         <Setter Target="splitView.IsPaneOpen" Value="True" />
                         <Setter Target="PaneSpliter.Visibility" Value="Visible" />
                         <Setter Target="PaneColumn.Width" Value="*" />
-
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="720" />
+                        <AdaptiveTrigger MinWindowWidth="1200"/>
                     </VisualState.StateTriggers>
+                </VisualState>
+
+                <VisualState x:Name="TabletStateWithDetail">
+                    <VisualState.Setters>
+                        <Setter Target="splitView.DisplayMode" Value="Overlay" />
+                        <Setter Target="splitView.IsPaneOpen" Value="False" />
+                        <Setter Target="PaneSpliter.Visibility" Value="Visible" />
+                        <Setter Target="PaneMainContent.Visibility" Value="Collapsed"/>
+                        <Setter Target="PaneBackButton.Visibility" Value="Collapsed"/>
+                        <Setter Target="PaneColumn.Width" Value="*" />
+                        <Setter Target="PaneMainColumn.Width" Value="Auto" />
+                    </VisualState.Setters>
+
+                    <!--<VisualState.StateTriggers>
+                        <windowsTrigger:CompositeStateTrigger Operator="And">
+                            <windowsTrigger:AdaptiveTrigger MinWindowWidth="0"/>
+                            <StateTrigger IsActive="{x:Bind ViewModel.PaneFrameCanGoBack, Mode=OneWay}"/>
+                        </windowsTrigger:CompositeStateTrigger>
+                    </VisualState.StateTriggers>-->
                 </VisualState>
 
                 <!--  For Phone, Phablet and small Tablet  -->
                 <VisualState x:Name="PhoneState">
                     <VisualState.Setters>
                         <Setter Target="PaneSpliter.Visibility" Value="Collapsed" />
+                        <Setter Target="PaneMainContent.Visibility" Value="Visible"/>
                         <Setter Target="PaneColumn.Width" Value="Auto" />
+                        <Setter Target="PaneMainColumn.Width" Value="*" />
                         <!--<Setter Target="AppName.Visibility" Value="Collapsed"/>-->
                         <!--<Setter Target="splitView.DisplayMode" Value="Overlay" />-->
                         <!--<Setter Target="splitView.IsPaneOpen" Value="False" />-->
                     </VisualState.Setters>
+
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                        <!--<windowsTrigger:CompositeStateTrigger Operator="And">
+                            <windowsTrigger:AdaptiveTrigger MinWindowWidth="0"/>
+                            <windowsTrigger:IsFalseStateTrigger Value="{Binding PaneFrameCanGoBack}"/>
+                        </windowsTrigger:CompositeStateTrigger>-->
                     </VisualState.StateTriggers>
                 </VisualState>
             </VisualStateGroup>
@@ -172,11 +214,12 @@
             <SplitView.Content>
                 <Grid Name="LayoutRoot">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition x:Name="PaneMainColumn" Width="*" />
                         <ColumnDefinition x:Name="PaneColumn" Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <Pivot x:Name="rootPivot"
+                    <Grid x:Name="PaneMainContent">
+                        <Pivot x:Name="rootPivot"
                            Margin="0,0,0,0"
                            Style="{StaticResource PivotNoHeaderStyle}" SelectionChanged="rootPivot_SelectionChanged">
 
@@ -339,6 +382,7 @@
                         </PivotItem>
 
                     </Pivot>
+                    </Grid>
 
                     <Grid x:Name="PaneSpliter"
                           Grid.Column="1"
@@ -351,7 +395,7 @@
                         <Frame x:Name="PaneFrame" Margin="2,0,0,0" Navigated="PaneFrame_Navigated" SourcePageType="local:Tutorial_Page">
                         </Frame>
 
-                        <control:RoundButton Width="30" Height="30" Margin="16,-35,0,0" SymbolIcon="Back" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="{Binding PaneFrameCanGoBack, Converter={StaticResource BooleanToVisibility}}" Padding="8" Tapped="RoundButton_Tapped"/>
+                        <control:RoundButton Width="30" Height="30" Margin="16,-35,0,0" SymbolIcon="Back" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="{Binding PaneFrameCanGoBack, Converter={StaticResource BooleanToVisibility}}" Padding="8" Tapped="RoundButton_Tapped" x:Name="PaneBackButton"/>
                     </Grid>
 
                     <!--<Grid Width="10"

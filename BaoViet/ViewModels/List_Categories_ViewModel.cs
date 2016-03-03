@@ -80,10 +80,7 @@ namespace BaoViet.ViewModels
 
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-                if (App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
-                    App.Current.NavigationService.NavigateTo(Pages.List_Articles_Page);
-                else
-                    App.Current.NavigationService.NavigateTo(Pages.List_Articles_Page, null, FrameKey.PaneSplitFrame);
+                App.Current.NavigationService.NavigateTo(Pages.List_Articles_Page, null, FrameKey.CurrentFrame);
             });
         }
 
@@ -113,10 +110,7 @@ namespace BaoViet.ViewModels
 
                 await DispatcherHelper.RunAsync(() =>
                 {
-                    if (App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
-                        App.Current.NavigationService.NavigateTo(Pages.DetailPage);
-                    else
-                        App.Current.NavigationService.NavigateTo(Pages.DetailPage, null, FrameKey.PaneSplitFrame);
+                    App.Current.NavigationService.NavigateTo(Pages.DetailPage, null, FrameKey.CurrentFrame);
                 });
             }
             else if (CurrentPaper.Categories.Count == 1)

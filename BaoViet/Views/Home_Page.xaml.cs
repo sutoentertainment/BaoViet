@@ -24,6 +24,7 @@ using BaoVietCore.Models;
 using BaoVietCore.Helpers;
 using Windows.UI.Xaml.Media.Animation;
 using BaoViet.Models;
+using BaoViet.Services;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -67,6 +68,24 @@ namespace BaoViet.Views
             if (e.NewSize.Width > 720)
             {
                 App.Current.NavigationService.Configure(FrameKey.PaneSplitFrame, PaneFrame);
+            }
+
+            //SetState(e.NewSize.Width);
+        }
+
+        private void SetState(double width)
+        {
+            if (width <= 720 && !ViewModel.PaneFrameCanGoBack)
+            {
+                VisualStateManager.GoToState(this, "PhoneState", true);
+            }
+            else if (width <= 720 && ViewModel.PaneFrameCanGoBack)
+            {
+                VisualStateManager.GoToState(this, "TabletStateWithDetail", true);
+            }
+            else if (width > 720)
+            {
+                VisualStateManager.GoToState(this, "TabletState", true);
             }
         }
 
@@ -226,6 +245,10 @@ namespace BaoViet.Views
         private void PaneFrame_Navigated(object sender, NavigationEventArgs e)
         {
             ViewModel.PaneFrameCanGoBack = PaneFrame.CanGoBack;
+            if (!ViewModel.PaneFrameCanGoBack)
+            {
+                //SetState(this.Frame.RenderSize.Width);
+            }
         }
 
         private void RoundButton_Tapped(object sender, TappedRoutedEventArgs e)

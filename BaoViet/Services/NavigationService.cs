@@ -24,6 +24,9 @@ namespace BaoViet.Services
         {
             if (!FrameDictionary.ContainsKey(framekey))
                 FrameDictionary.Add(framekey, frame);
+            else
+                FrameDictionary[framekey] = frame;
+
             if (framekey == FrameKey.MainFrame)
             {
                 MainFrame = frame;
@@ -36,6 +39,8 @@ namespace BaoViet.Services
         {
             if (!PageDictionary.ContainsKey(key))
                 PageDictionary.Add(key, type);
+            else
+                PageDictionary[key] = type;
         }
 
         public Frame GetFrame(FrameKey framekey)
@@ -99,5 +104,15 @@ namespace BaoViet.Services
             FrameDictionary[framekey].CacheSize = 0;
             FrameDictionary[framekey].CacheSize = size;
         }
+    }
+
+
+    public enum FrameKey
+    {
+        MainFrame,
+        RootFrame,
+        MenuFrame,
+        PaneSplitFrame,
+        CurrentFrame,
     }
 }

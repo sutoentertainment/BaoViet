@@ -176,7 +176,7 @@ namespace BaoViet
 
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
-                IStateCondition condition = new StateCondition(720);
+                IStateCondition condition = new StateCondition(1200);
                 condition.Configurate(rootFrame, Window.Current.Bounds.Width);
                 Manager.DeviceService = new DeviceService(Manager, condition);
                 rootFrame.NavigationFailed += OnNavigationFailed;

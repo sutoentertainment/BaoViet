@@ -6,6 +6,7 @@ namespace BaoVietCore.Interfaces
 {
     public interface IStateCondition
     {
+        double TableThreshold { get; }
         AppState GetCurrentState();
         void Configurate(Frame rootFrame, double width);
     }

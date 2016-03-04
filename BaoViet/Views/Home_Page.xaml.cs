@@ -65,7 +65,7 @@ namespace BaoViet.Views
             if (!IsSideMenuOpen)
                 sideMenuTransform.Y = sideMenuMaxY;
 
-            if (e.NewSize.Width > 720)
+            if (App.Current.Manager.DeviceService.GetAppState() == BaoVietCore.Interfaces.AppState.Tablet)
             {
                 App.Current.NavigationService.Configure(FrameKey.PaneSplitFrame, PaneFrame);
             }
@@ -75,15 +75,15 @@ namespace BaoViet.Views
 
         private void SetState(double width)
         {
-            if (width <= 720 && !ViewModel.PaneFrameCanGoBack)
+            if (width <= App.Current.Manager.DeviceService.GetStateDefination().TableThreshold && !ViewModel.PaneFrameCanGoBack)
             {
                 VisualStateManager.GoToState(this, "PhoneState", true);
             }
-            else if (width <= 720 && ViewModel.PaneFrameCanGoBack)
+            else if (width <= App.Current.Manager.DeviceService.GetStateDefination().TableThreshold && ViewModel.PaneFrameCanGoBack)
             {
                 VisualStateManager.GoToState(this, "TabletStateWithDetail", true);
             }
-            else if (width > 720)
+            else if (width > App.Current.Manager.DeviceService.GetStateDefination().TableThreshold)
             {
                 VisualStateManager.GoToState(this, "TabletState", true);
             }

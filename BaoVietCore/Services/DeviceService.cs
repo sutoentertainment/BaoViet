@@ -56,5 +56,10 @@ namespace BaoVietCore.Services
             else
                 DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait | DisplayOrientations.Landscape;
         }
+
+        public IStateCondition GetStateDefination()
+        {
+            return stateCondition;
+        }
     }
 }

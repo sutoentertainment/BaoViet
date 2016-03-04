@@ -15,6 +15,7 @@ namespace BaoViet.Views
     public class BindablePage : Page
     {
         public static BindablePage CurrentPage { get; set; }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             CurrentPage = this;
@@ -30,7 +31,8 @@ namespace BaoViet.Views
                 }
                 navigableViewModel.OnNavigatedTo(e);
             }
-            SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+            if (this.Frame.Tag?.ToString() != "BackSupressed")
+                SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
         }
 
         public void OnBackRequested(object sender, BackRequestedEventArgs e)
@@ -77,8 +79,9 @@ namespace BaoViet.Views
             if (navigableViewModel != null)
             {
                 navigableViewModel.OnNavigatedFrom(e);
-                SystemNavigationManager.GetForCurrentView().BackRequested -= OnBackRequested;
             }
+            if (this.Frame.Tag?.ToString() != "BackSupressed")
+                SystemNavigationManager.GetForCurrentView().BackRequested -= OnBackRequested;
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)

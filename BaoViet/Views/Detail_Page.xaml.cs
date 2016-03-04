@@ -45,7 +45,7 @@ namespace BaoViet.Views
             this.InitializeComponent();
             App.Current.OnRefreshRequested += App_OnRefreshRequested;
             this.SizeChanged += Detail_Page_SizeChanged;
-            if (this.RenderSize.Width < 720)
+            if (App.Current.Manager.DeviceService.GetAppState() == BaoVietCore.Interfaces.AppState.Mobile)
             {
                 AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 320;
                 AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 50;
@@ -68,7 +68,7 @@ namespace BaoViet.Views
 
         private void Detail_Page_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (e.NewSize.Width < 720)
+            if (App.Current.Manager.DeviceService.GetAppState() == BaoVietCore.Interfaces.AppState.Mobile)
             {
                 AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 320;
                 AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 50;

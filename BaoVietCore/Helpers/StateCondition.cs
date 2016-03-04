@@ -11,11 +11,11 @@ namespace BaoVietCore.Helpers
     public class StateCondition : IStateCondition
     {
         private double appWidth;
-        private double tableThreshold;
+        public double TableThreshold { get; private set; }
 
         public StateCondition(double tableThreshold)
         {
-            this.tableThreshold = tableThreshold;
+            this.TableThreshold = tableThreshold;
         }
 
         public void Configurate(Frame rootFrame, double currentWidth = 0)
@@ -31,7 +31,7 @@ namespace BaoVietCore.Helpers
 
         public AppState GetCurrentState()
         {
-            if (appWidth >= tableThreshold)
+            if (appWidth >= TableThreshold)
                 return AppState.Tablet;
             return AppState.Mobile;
         }

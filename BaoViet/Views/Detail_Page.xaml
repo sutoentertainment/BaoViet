@@ -15,7 +15,7 @@
     <Grid Background="White">
 
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
+            <VisualStateGroup x:Name="layoutStateGroup">
                 <!--  For PC, Xbox, Tablet  -->
                 <VisualState x:Name="TabletState">
                     <VisualState.StateTriggers>
@@ -27,8 +27,8 @@
                         <Setter Target="AdMediator_05A7C1.Height" Value="600" />
                         <Setter Target="AdMediator_05A7C1.HorizontalAlignment" Value="Right" />
                         <Setter Target="AdMediator_05A7C1.VerticalAlignment" Value="Top" />
-                        <Setter Target="WebViewWrapper.Margin" Value="0,0,160,0" />
-                        <Setter Target="webViewDetailContainer.Margin" Value="0,0,160,0" />
+                        <!--<Setter Target="WebViewWrapper.Margin" Value="0,0,160,0" />
+                        <Setter Target="webViewDetailContainer.Margin" Value="0,0,160,0" />-->
 
                         <Setter Target="webViewDetail.Width" Value="600" />
                         <Setter Target="webViewDetail.HorizontalAlignment" Value="Center" />
@@ -51,7 +51,9 @@
                         <Setter Target="webViewDetailContainer.Margin" Value="0" />
                     </VisualState.Setters>
                 </VisualState>
+            </VisualStateGroup>
 
+            <VisualStateGroup x:Name="adStateGroup">
                 <VisualState x:Name="NoAd">
                     <VisualState.StateTriggers>
                         <trigger:ShowAdTrigger ShowAd="False"/>
@@ -63,17 +65,22 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
-            <RowDefinition Height="48" />
+            <RowDefinition Height="0" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Grid Background="{StaticResource AppColorBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto" x:Name="AdColumn"/>
+        </Grid.ColumnDefinitions>
+
+        <!--<Grid Background="{StaticResource AppColorBackground}">
             <TextBlock x:Name="title_tb"
                        Margin="12,0"
                        VerticalAlignment="Center"
                        FontSize="18"
                        Text="{Binding CurrentFeed.Title}" />
-        </Grid>
+        </Grid>-->
 
         <Grid x:Name="WebViewWrapper"
               Grid.Row="1">
@@ -120,7 +127,7 @@
                                      Height="80"
                                      HorizontalAlignment="Center"
                                      VerticalAlignment="Bottom"
-                                     Id="AdMediator-Id-5F57EE92-A2DE-485F-B837-AB462586ACD6" />
+                                     Id="AdMediator-Id-5F57EE92-A2DE-485F-B837-AB462586ACD6" Grid.Column="1"/>
 
         <!--<ProgressBar VerticalAlignment="Bottom" IsIndeterminate="{x:Bind Model.IsBusy, Mode=OneWay}"/>-->
 

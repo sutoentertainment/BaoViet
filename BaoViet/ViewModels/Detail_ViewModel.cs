@@ -8,6 +8,7 @@ using GalaSoft.MvvmLight.Command;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -253,12 +254,12 @@ namespace BaoViet.ViewModels
             var response_content = await App.Current.Manager.WebService.GetString(address);
             var response = JsonConvert.DeserializeObject<ReadabilityResponse>(response_content);
 
-            response.content += @"<style>body{margin:0px 10px 200px 10px !important;}</style>";
+            response.content += @"<style>body { margin: 0px; } div#body_container{margin:0px 10px 200px 10px !important;} div#header_container{ background: #272727; height: 48px; position: relative;} div#header_container a {color: white; text-decoration: none; margin: 10px; position: absolute; font-size: 18;}</style>";
 
             response.content += "<script>\r\n    function eventListener(evt) {\r\n        if (evt.detail == 1) {\r\n evt.preventDefault(); screenY = evt.clientY;\r\n            window.external.notify(evt.target.src); return false;\r\n        }\r\n    }\r\n\r\n    var gestureHandler = new Array();\r\n    var screenY;\r\n    var links = document.getElementsByTagName('img');\r\n    for (i = 0; i < links.length; i++) {\r\n        links[i].addEventListener('click', eventListener, false);\r\n    };\r\n function getSY(){	return screenY.toString();} </script>";
 
-
-
+            response.content = @"<div id='header_container'><a href='" + CurrentFeed.Link + "'>" + CurrentWebTitle + "</a></div>" + "<div id='body_container'>" + response.content + "</div>";
+            Debug.WriteLine(response.content);
             await Task.Delay(200);
 
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>

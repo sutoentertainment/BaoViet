@@ -392,7 +392,7 @@
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Stretch"
                                 Background="{StaticResource AppBlackGray}" />
-                        <Frame x:Name="PaneFrame" Margin="2,0,0,0" Navigated="PaneFrame_Navigated" SourcePageType="local:Tutorial_Page">
+                        <Frame x:Name="PaneFrame" Margin="2,0,0,0" Navigated="PaneFrame_Navigated" SourcePageType="local:Tutorial_Page" Tag="BackSupressed">
                         </Frame>
 
                         <control:RoundButton Width="30" Height="30" Margin="16,-35,0,0" SymbolIcon="Back" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="{Binding PaneFrameCanGoBack, Converter={StaticResource BooleanToVisibility}}" Padding="8" Tapped="RoundButton_Tapped" x:Name="PaneBackButton"/>

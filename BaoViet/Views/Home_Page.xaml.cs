@@ -103,7 +103,14 @@ namespace BaoViet.Views
                 if (CurrentState != "TabletState")
                 {
                     CurrentState = "TabletState";
-                    VisualStateManager.GoToState(this, "TabletState", true);
+                    try
+                    {
+                        VisualStateManager.GoToState(this, "TabletState", true);
+                    }
+                    catch
+                    {
+
+                    }
                     Debug.WriteLine("TabletState");
                 }
             }

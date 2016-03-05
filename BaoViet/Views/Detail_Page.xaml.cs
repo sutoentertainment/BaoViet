@@ -73,16 +73,16 @@ namespace BaoViet.Views
                 AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 320;
                 AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 50;
 
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Width"] = 292;
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Height"] = 60;
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Width"] = 480;// 292;
+                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Height"] = 80;// 60;
             }
             else
             {
                 AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 160;
                 AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 600;
 
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Width"] = 160;
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Height"] = 600;
+                //AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Width"] = 160;
+                //AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Height"] = 600;
             }
         }
 
@@ -208,6 +208,11 @@ namespace BaoViet.Views
             GC.WaitForPendingFinalizers();
             //GC.Collect();
             base.OnNavigatedFrom(e);
+        }
+
+        private void testAdduplex_AdCovered(object sender, AdDuplex.Banners.Core.AdCoveredEventArgs e)
+        {
+
         }
     }
 }

@@ -340,7 +340,7 @@
                                                         <TextBlock Width="200"
                                                                HorizontalAlignment="Center"
                                                                VerticalAlignment="Center"
-                                                               Text="Với giá $1, bạn sẽ vĩnh viễn không thấy quảng cáo nữa. Đồng thời bạn sẽ được sử dụng những tính năng mới nhất miễn phí trong tương lai"
+                                                               Text="Trong giai đoạn khuyến mãi từ 2/3 đến 9/3/2015 miễn phí. Với giá $1, bạn sẽ vĩnh viễn không thấy quảng cáo nữa. Đồng thời bạn sẽ được sử dụng những tính năng mới nhất miễn phí trong tương lai."
                                                                TextAlignment="Center"
                                                                TextLineBounds="Full"
                                                                TextWrapping="Wrap" />

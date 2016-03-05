@@ -30,7 +30,7 @@ namespace BaoViet.VisualStateTriggers
 #endif
                 BoughAdRemover = App.Current.Manager.IAPService.CheckProduct("Remove_Ads");
 
-                if (!BoughAdRemover && !InDebugMode)
+                if (!BoughAdRemover || InDebugMode)
                     showAd = true;
                 else
                     showAd = false;

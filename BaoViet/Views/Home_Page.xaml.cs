@@ -25,6 +25,7 @@ using BaoVietCore.Helpers;
 using Windows.UI.Xaml.Media.Animation;
 using BaoViet.Models;
 using BaoViet.Services;
+using Windows.UI.Core;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -70,22 +71,41 @@ namespace BaoViet.Views
                 App.Current.NavigationService.Configure(FrameKey.PaneSplitFrame, PaneFrame);
             }
 
-            //SetState(e.NewSize.Width);
+            SetState(e.NewSize.Width);
         }
 
+        string CurrentState = "";
         private void SetState(double width)
         {
             if (width <= App.Current.Manager.DeviceService.GetStateDefination().TableThreshold && !ViewModel.PaneFrameCanGoBack)
             {
-                VisualStateManager.GoToState(this, "PhoneState", true);
+                if (CurrentState != "PhoneState")
+                {
+                    CurrentState = "PhoneState";
+                    VisualStateManager.GoToState(this, "PhoneState", true);
+                    Debug.WriteLine("PhoneState");
+                    return;
+                }
             }
             else if (width <= App.Current.Manager.DeviceService.GetStateDefination().TableThreshold && ViewModel.PaneFrameCanGoBack)
             {
-                VisualStateManager.GoToState(this, "TabletStateWithDetail", true);
+                if (CurrentState != "TabletStateWithDetail")
+                {
+                    CurrentState = "TabletStateWithDetail";
+                    VisualStateManager.GoToState(this, "TabletStateWithDetail", true);
+                    Debug.WriteLine("TabletStateWithDetail");
+                    UpdateBackButtonVisibility();
+                    return;
+                }
             }
             else if (width > App.Current.Manager.DeviceService.GetStateDefination().TableThreshold)
             {
-                VisualStateManager.GoToState(this, "TabletState", true);
+                if (CurrentState != "TabletState")
+                {
+                    CurrentState = "TabletState";
+                    VisualStateManager.GoToState(this, "TabletState", true);
+                    Debug.WriteLine("TabletState");
+                }
             }
         }
 
@@ -247,8 +267,20 @@ namespace BaoViet.Views
             ViewModel.PaneFrameCanGoBack = PaneFrame.CanGoBack;
             if (!ViewModel.PaneFrameCanGoBack)
             {
-                //SetState(this.Frame.RenderSize.Width);
+                SetState(Window.Current.Bounds.Width);
             }
+            UpdateBackButtonVisibility();
+        }
+
+        private void UpdateBackButtonVisibility()
+        {
+            if (CurrentState == "TabletStateWithDetail")
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                App.Current.NavigationService.GetFrame(FrameKey.PaneSplitFrame).CanGoBack ?
+                AppViewBackButtonVisibility.Visible :
+                AppViewBackButtonVisibility.Collapsed;
+            else
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
 
         private void RoundButton_Tapped(object sender, TappedRoutedEventArgs e)

@@ -50,19 +50,28 @@
 
     <Grid Background="{StaticResource AppColorBackground}">
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
+            <VisualStateGroup x:Name="layout">
                 <!--  For PC, Xbox, Tablet  -->
                 <VisualState x:Name="TabletState">
                     <VisualState.Setters>
                         <Setter Target="splitView.DisplayMode" Value="Inline" />
                         <Setter Target="splitView.IsPaneOpen" Value="True" />
                         <Setter Target="PaneSpliter.Visibility" Value="Visible" />
+                        <Setter Target="PaneMainContent.Visibility" Value="Visible"/>
+                        <Setter Target="PaneBackButtonContainer.Visibility" Value="Visible"/>
                         <Setter Target="PaneColumn.Width" Value="*" />
+                        <Setter Target="PaneMainColumn.Width" Value="*" />
+                        <Setter Target="HeaderContainer.Height" Value="Auto"/>
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="1200"/>
+
+                        <!--<windowsTrigger:AdaptiveTrigger MinWindowWidth="1200"/>-->
+
                     </VisualState.StateTriggers>
                 </VisualState>
+            <!--</VisualStateGroup>
+            <VisualStateGroup x:Name="mini">-->
 
                 <VisualState x:Name="TabletStateWithDetail">
                     <VisualState.Setters>
@@ -70,14 +79,15 @@
                         <Setter Target="splitView.IsPaneOpen" Value="False" />
                         <Setter Target="PaneSpliter.Visibility" Value="Visible" />
                         <Setter Target="PaneMainContent.Visibility" Value="Collapsed"/>
-                        <Setter Target="PaneBackButton.Visibility" Value="Collapsed"/>
+                        <Setter Target="PaneBackButtonContainer.Visibility" Value="Collapsed"/>
                         <Setter Target="PaneColumn.Width" Value="*" />
                         <Setter Target="PaneMainColumn.Width" Value="Auto" />
+                        <Setter Target="HeaderContainer.Height" Value="0"/>
                     </VisualState.Setters>
 
                     <!--<VisualState.StateTriggers>
                         <windowsTrigger:CompositeStateTrigger Operator="And">
-                            <windowsTrigger:AdaptiveTrigger MinWindowWidth="0"/>
+                            <windowsTrigger:AdaptiveTrigger MinWindowWidth="0" />
                             <StateTrigger IsActive="{x:Bind ViewModel.PaneFrameCanGoBack, Mode=OneWay}"/>
                         </windowsTrigger:CompositeStateTrigger>
                     </VisualState.StateTriggers>-->
@@ -90,28 +100,31 @@
                         <Setter Target="PaneMainContent.Visibility" Value="Visible"/>
                         <Setter Target="PaneColumn.Width" Value="Auto" />
                         <Setter Target="PaneMainColumn.Width" Value="*" />
+                        <Setter Target="HeaderContainer.Height" Value="Auto"/>
                         <!--<Setter Target="AppName.Visibility" Value="Collapsed"/>-->
                         <!--<Setter Target="splitView.DisplayMode" Value="Overlay" />-->
                         <!--<Setter Target="splitView.IsPaneOpen" Value="False" />-->
                     </VisualState.Setters>
 
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0"/>
-                        <!--<windowsTrigger:CompositeStateTrigger Operator="And">
+                    <!--<VisualState.StateTriggers>
+                        -->
+                    <!--<AdaptiveTrigger MinWindowWidth="0"/>-->
+                    <!--
+                        <windowsTrigger:CompositeStateTrigger Operator="And">
                             <windowsTrigger:AdaptiveTrigger MinWindowWidth="0"/>
                             <windowsTrigger:IsFalseStateTrigger Value="{Binding PaneFrameCanGoBack}"/>
-                        </windowsTrigger:CompositeStateTrigger>-->
-                    </VisualState.StateTriggers>
+                        </windowsTrigger:CompositeStateTrigger>
+                    </VisualState.StateTriggers>-->
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" x:Name="HeaderRow"/>
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Background="{StaticResource AppColorLight}">
+        <StackPanel Orientation="Horizontal" Background="{StaticResource AppColorLight}" x:Name="HeaderContainer">
             <Button Width="40"
                     Height="40"
                     VerticalAlignment="Center"
@@ -223,9 +236,9 @@
                            Margin="0,0,0,0"
                            Style="{StaticResource PivotNoHeaderStyle}" SelectionChanged="rootPivot_SelectionChanged">
 
-                        <PivotItem Margin="0">
-                            <!--  ItemTemplate="{StaticResource FrontPaperTemplate}"  -->
-                            <GridView x:Name="FrontPage_ListView"
+                            <PivotItem Margin="0">
+                                <!--  ItemTemplate="{StaticResource FrontPaperTemplate}"  -->
+                                <GridView x:Name="FrontPage_ListView"
                                       HorizontalAlignment="Center"
                                       HorizontalContentAlignment="Center"
                                       ContinuumNavigationTransitionInfo.ExitElementContainer="True"
@@ -236,13 +249,13 @@
                                       ScrollViewer.VerticalScrollBarVisibility="Hidden"
                                       SelectionMode="None">
 
-                                <i:Interaction.Behaviors>
-                                    <core:EventTriggerBehavior EventName="ItemClick">
-                                        <core:InvokeCommandAction Command="{x:Bind ViewModel.PaperClickedCommand}" />
-                                    </core:EventTriggerBehavior>
-                                </i:Interaction.Behaviors>
+                                    <i:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="ItemClick">
+                                            <core:InvokeCommandAction Command="{x:Bind ViewModel.PaperClickedCommand}" />
+                                        </core:EventTriggerBehavior>
+                                    </i:Interaction.Behaviors>
 
-                                <!--<GridView.ItemTemplate ContinuumNavigationTransitionInfo.IsExitElement="True">
+                                    <!--<GridView.ItemTemplate ContinuumNavigationTransitionInfo.IsExitElement="True">
                                     <DataTemplate x:DataType="model:Paper">
                                         <StackPanel Margin="4,12,4,12" Width="{x:Bind CellWidth}">
                                             <Ellipse Height="60" Width="60">
@@ -255,116 +268,116 @@
                                         </StackPanel>
                                     </DataTemplate>
                                 </GridView.ItemTemplate>-->
-                            </GridView>
-                        </PivotItem>
-                        <!--<PivotItem Margin="0" Background="Crimson"></PivotItem>-->
-                        <PivotItem Margin="0">
+                                </GridView>
+                            </PivotItem>
+                            <!--<PivotItem Margin="0" Background="Crimson"></PivotItem>-->
+                            <PivotItem Margin="0">
 
-                            <ScrollViewer VerticalScrollBarVisibility="Hidden">
-                                <StackPanel>
+                                <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                                    <StackPanel>
 
-                                    <!--<Button HorizontalContentAlignment="Left" Content="Ẩn một số báo" Margin="12" Command="{x:Bind ViewModel.GoToPaperToHidePageCommand}" Padding="8">
+                                        <!--<Button HorizontalContentAlignment="Left" Content="Ẩn một số báo" Margin="12" Command="{x:Bind ViewModel.GoToPaperToHidePageCommand}" Padding="8">
 
                                     </Button>-->
 
 
-                                    <ListViewItem>
+                                        <ListViewItem>
 
-                                        <Button Click="ToggleSwitch_Toggled" Content="Tạo Tile trong suốt" />
-                                    </ListViewItem>
+                                            <Button Click="ToggleSwitch_Toggled" Content="Tạo Tile trong suốt" />
+                                        </ListViewItem>
 
-                                    <ListViewItem>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Phiên bản:" />
-                                            <TextBlock x:Name="version_tb" Text="{x:Bind ViewModel.AppVersion}" />
-                                        </StackPanel>
-                                    </ListViewItem>
+                                        <ListViewItem>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Phiên bản:" />
+                                                <TextBlock x:Name="version_tb" Text="{x:Bind ViewModel.AppVersion}" />
+                                            </StackPanel>
+                                        </ListViewItem>
 
-                                    <ListViewItem>
-                                        <ToggleSwitch OnContent="Đã khóa xoay màn hình" OffContent="Khóa xoay màn hình" IsOn="{x:Bind ViewModel.LockRotation, Mode=TwoWay}">
-                                            <i:Interaction.Behaviors>
-                                                <core:DataTriggerBehavior Binding="{Binding LockRotation}" ComparisonCondition="Equal" Value="True">
-                                                    <core:InvokeCommandAction Command="{x:Bind ViewModel.LockRotationCommand}"/>
-                                                </core:DataTriggerBehavior>
-                                                <core:DataTriggerBehavior Binding="{Binding LockRotation}" ComparisonCondition="Equal" Value="False">
-                                                    <core:InvokeCommandAction Command="{x:Bind ViewModel.LockRotationCommand}"/>
-                                                </core:DataTriggerBehavior>
-                                            </i:Interaction.Behaviors>
-                                        </ToggleSwitch>
-                                    </ListViewItem>
+                                        <ListViewItem>
+                                            <ToggleSwitch OnContent="Đã khóa xoay màn hình" OffContent="Khóa xoay màn hình" IsOn="{x:Bind ViewModel.LockRotation, Mode=TwoWay}">
+                                                <i:Interaction.Behaviors>
+                                                    <core:DataTriggerBehavior Binding="{Binding LockRotation}" ComparisonCondition="Equal" Value="True">
+                                                        <core:InvokeCommandAction Command="{x:Bind ViewModel.LockRotationCommand}"/>
+                                                    </core:DataTriggerBehavior>
+                                                    <core:DataTriggerBehavior Binding="{Binding LockRotation}" ComparisonCondition="Equal" Value="False">
+                                                        <core:InvokeCommandAction Command="{x:Bind ViewModel.LockRotationCommand}"/>
+                                                    </core:DataTriggerBehavior>
+                                                </i:Interaction.Behaviors>
+                                            </ToggleSwitch>
+                                        </ListViewItem>
 
-                                    <ListViewItem>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Tác giả:" />
-                                            <TextBlock Text=" thang2410199" />
-                                        </StackPanel>
-                                    </ListViewItem>
+                                        <ListViewItem>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Tác giả:" />
+                                                <TextBlock Text=" thang2410199" />
+                                            </StackPanel>
+                                        </ListViewItem>
 
-                                    <ListViewItem Tapped="Suggest_Tapped">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Đóng góp ý kiến" />
-                                        </StackPanel>
-                                    </ListViewItem>
+                                        <ListViewItem Tapped="Suggest_Tapped">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Đóng góp ý kiến" />
+                                            </StackPanel>
+                                        </ListViewItem>
 
-                                    <ListViewItem Tapped="RateUs_Tapped">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Đánh giá phần mềm" />
-                                        </StackPanel>
-                                    </ListViewItem>
+                                        <ListViewItem Tapped="RateUs_Tapped">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Đánh giá phần mềm" />
+                                            </StackPanel>
+                                        </ListViewItem>
 
-                                    <Button HorizontalAlignment="Stretch"
+                                        <Button HorizontalAlignment="Stretch"
                                             HorizontalContentAlignment="Left"
                                             Background="Transparent"
                                             Content="Gỡ quảng cáo"
                                             Padding="12">
-                                        <Button.Flyout>
-                                            <Flyout Placement="Full">
-                                                <Grid>
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition Height="300" />
-                                                        <RowDefinition />
-                                                    </Grid.RowDefinitions>
-                                                    <TextBlock Width="200"
+                                            <Button.Flyout>
+                                                <Flyout Placement="Full">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="300" />
+                                                            <RowDefinition />
+                                                        </Grid.RowDefinitions>
+                                                        <TextBlock Width="200"
                                                                HorizontalAlignment="Center"
                                                                VerticalAlignment="Center"
                                                                Text="Với giá $1, bạn sẽ vĩnh viễn không thấy quảng cáo nữa. Đồng thời bạn sẽ được sử dụng những tính năng mới nhất miễn phí trong tương lai"
                                                                TextAlignment="Center"
                                                                TextLineBounds="Full"
                                                                TextWrapping="Wrap" />
-                                                    <Button Grid.Row="1"
+                                                        <Button Grid.Row="1"
                                                             Width="200"
                                                             Height="60"
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center"
                                                             Background="{StaticResource AppColor}"
                                                             Content="Mua" Command="{x:Bind ViewModel.RemoveAdCommand}"/>
-                                                    <ProgressRing VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2" IsActive="{Binding PrepareIAP, Converter={StaticResource BooleanToVisibility}}" Width="36" Height="36"/>
-                                                </Grid>
-                                            </Flyout>
-                                        </Button.Flyout>
-                                    </Button>
+                                                        <ProgressRing VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2" IsActive="{Binding PrepareIAP, Converter={StaticResource BooleanToVisibility}}" Width="36" Height="36"/>
+                                                    </Grid>
+                                                </Flyout>
+                                            </Button.Flyout>
+                                        </Button>
 
 
-                                    <Button HorizontalAlignment="Stretch"
+                                        <Button HorizontalAlignment="Stretch"
                                             HorizontalContentAlignment="Left"
                                             Background="Transparent"
                                             Content="Mua coffee cho mình"
                                             Padding="12">
-                                        <Button.Flyout>
-                                            <Flyout Placement="Full">
-                                                <Grid>
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition Height="300" />
-                                                        <RowDefinition />
-                                                    </Grid.RowDefinitions>
-                                                    <TextBlock Width="200"
+                                            <Button.Flyout>
+                                                <Flyout Placement="Full">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="300" />
+                                                            <RowDefinition />
+                                                        </Grid.RowDefinitions>
+                                                        <TextBlock Width="200"
                                                                HorizontalAlignment="Center"
                                                                VerticalAlignment="Center"
                                                                Text="Nếu bạn thấy thích phần mềm và hào phòng, một cốc coffee $1 sẽ giúp mình tỉnh táo và thêm động lực làm việc."
                                                                TextAlignment="Center"
                                                                TextLineBounds="Full"
                                                                TextWrapping="Wrap" />
-                                                    <Button Grid.Row="1"
+                                                        <Button Grid.Row="1"
                                                             Width="200"
                                                             Height="60"
                                                             HorizontalAlignment="Center"
@@ -372,16 +385,16 @@
                                                             Background="{StaticResource AppColor}"
                                                             Content="Mua"
                                                             Command="{x:Bind ViewModel.DonateCommand}" />
-                                                    <ProgressRing VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2" IsActive="{Binding PrepareIAP, Converter={StaticResource BooleanToVisibility}}" Width="36" Height="36"/>
-                                                </Grid>
-                                            </Flyout>
-                                        </Button.Flyout>
-                                    </Button>
-                                </StackPanel>
-                            </ScrollViewer>
-                        </PivotItem>
+                                                        <ProgressRing VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2" IsActive="{Binding PrepareIAP, Converter={StaticResource BooleanToVisibility}}" Width="36" Height="36"/>
+                                                    </Grid>
+                                                </Flyout>
+                                            </Button.Flyout>
+                                        </Button>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </PivotItem>
 
-                    </Pivot>
+                        </Pivot>
                     </Grid>
 
                     <Grid x:Name="PaneSpliter"
@@ -395,7 +408,9 @@
                         <Frame x:Name="PaneFrame" Margin="2,0,0,0" Navigated="PaneFrame_Navigated" SourcePageType="local:Tutorial_Page" Tag="BackSupressed">
                         </Frame>
 
-                        <control:RoundButton Width="30" Height="30" Margin="16,-35,0,0" SymbolIcon="Back" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="{Binding PaneFrameCanGoBack, Converter={StaticResource BooleanToVisibility}}" Padding="8" Tapped="RoundButton_Tapped" x:Name="PaneBackButton"/>
+                        <Grid Width="30" Height="30" Margin="16,-35,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="PaneBackButtonContainer">
+                            <control:RoundButton  SymbolIcon="Back"  Visibility="{Binding PaneFrameCanGoBack, Converter={StaticResource BooleanToVisibility}}" Padding="8" Tapped="RoundButton_Tapped" x:Name="PaneBackButton"/>
+                        </Grid>
                     </Grid>
 
                     <!--<Grid Width="10"

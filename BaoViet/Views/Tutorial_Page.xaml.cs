@@ -25,6 +25,7 @@ namespace BaoViet.Views
         public Tutorial_Page()
         {
             this.InitializeComponent();
+            tutorialTextBlock.Text = "M\u1ED9t s\u1ED1 ph\u00EDm t\u1EAFt c\u01A1 b\u1EA3n:\r\n\r\nF5: refresh\r\nAlt + Left: back\r\n\r\nVu\u1ED1t tin t\u1EEB ph\u1EA3i qua tr\u00E1i \u0111\u1EC3 l\u01B0u tin.";
         }
     }
 }

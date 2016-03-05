@@ -48,7 +48,7 @@ namespace BaoViet.Views
 
                 App.Current.Manager.TrackingService.TagEvent(Localytics.LocalyticsEvent.SaveArticle, attribute);
                 App.Current.Manager.Database.AddItem(model);
-                App.Current.InvokeOnToastRise("Đã lưu", 1000);
+                App.Current.InvokeToast("Đã lưu", 1000);
             }
         }
     }

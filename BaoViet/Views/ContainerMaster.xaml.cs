@@ -56,7 +56,7 @@ namespace BaoViet.Views
 
         private void ImageService_OnDownloadComplete(object sender, EventArgs e)
         {
-            App.Current.InvokeOnToastRise("Ảnh đã lưu vào 'Saved Pictures' trong bộ nhớ máy", 4000);
+            App.Current.InvokeToast("Ảnh đã lưu vào 'Saved Pictures' trong bộ nhớ máy", 4000);
         }
 
         private void KeyboardService_KeyDown(object sender, KeyboardEventArgs e)
@@ -77,7 +77,7 @@ namespace BaoViet.Views
 
         private void ToastTapped(object sender, TappedRoutedEventArgs e)
         {
-            App.Current.InvokeOnToastRise("Sync complete", 2500);
+            App.Current.InvokeToast("Sync complete", 2500);
 
             TileManager tileManager = new TileManager();
         }
@@ -157,7 +157,7 @@ namespace BaoViet.Views
             storyboard.Completed += StartTimer;
             storyboard.Begin();
 
-
+            ViewModel.IsToastActivated = true;
         }
 
         List<DispatcherTimerExt> Timers = new List<DispatcherTimerExt>();
@@ -166,11 +166,11 @@ namespace BaoViet.Views
         {
             //Start hiding timer
             DispatcherTimerExt NotificationTimer = new DispatcherTimerExt();
-            NotificationTimer.Timer.Interval = TimeSpan.FromMilliseconds(pmilisecs);
+            NotificationTimer.Interval = TimeSpan.FromMilliseconds(pmilisecs);
             NotificationTimer.Timer.Tick += NotificationTimer_Tick;
-            NotificationTimer.Timer.Start();
             NotificationContainer.DataContext = NotificationTimer;
             Timers.Add(NotificationTimer);
+            NotificationTimer.Start();
         }
 
         private void NotificationTimer_Tick(object sender, object e)
@@ -218,6 +218,7 @@ namespace BaoViet.Views
                     Timers.Clear();
                 }
             }
+            ViewModel.IsToastActivated = false;
 
         }
 

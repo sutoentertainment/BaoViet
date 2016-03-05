@@ -166,6 +166,13 @@ namespace BaoViet.ViewModels
             {
                 _LockRotation = App.Current.Manager.SettingsService.GetValueLocal<bool>(SettingKey.LockRotation);
             }
+
+            timer.Timer.Tick += Back_Timer_Tick;
+        }
+
+        private void Back_Timer_Tick(object sender, object e)
+        {
+            timer.Stop();
         }
 
         private void CreateSideMenu()
@@ -365,17 +372,29 @@ namespace BaoViet.ViewModels
         {
 
         }
-
+        DispatcherTimerExt timer = new DispatcherTimerExt();
         public bool AllowGoBack()
         {
-            if (App.Current.Manager.DeviceService.GetAppState() == AppState.Tablet)
+            //if (App.Current.Manager.DeviceService.GetAppState() == AppState.Tablet)
+            //{
+            if (App.Current.NavigationService.FrameAvailable(FrameKey.PaneSplitFrame))
+                if (App.Current.NavigationService.CanGoBack(FrameKey.PaneSplitFrame))
+                {
+                    App.Current.NavigationService.GoBack(FrameKey.PaneSplitFrame);
+                    return false;
+                }
+            //}
+
+            if (timer.IsEnabled)
             {
-                if (App.Current.NavigationService.FrameAvailable(FrameKey.PaneSplitFrame))
-                    if (App.Current.NavigationService.CanGoBack(FrameKey.PaneSplitFrame))
-                    {
-                        App.Current.NavigationService.GoBack(FrameKey.PaneSplitFrame);
-                        return false;
-                    }
+                return true;
+            }
+            else
+            {
+                App.Current.InvokeToast("Ấn back một lần nữa để thoát", 2000);
+                timer.Interval = TimeSpan.FromMilliseconds(2000);
+                timer.Start();
+                return false;
             }
             return true;
         }

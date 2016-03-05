@@ -65,7 +65,7 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0" />
+            <RowDefinition Height="48" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
@@ -74,13 +74,13 @@
             <ColumnDefinition Width="Auto" x:Name="AdColumn"/>
         </Grid.ColumnDefinitions>
 
-        <!--<Grid Background="{StaticResource AppColorBackground}">
+        <Grid Background="{StaticResource AppColorBackground}">
             <TextBlock x:Name="title_tb"
                        Margin="12,0"
                        VerticalAlignment="Center"
                        FontSize="18"
                        Text="{Binding CurrentFeed.Title}" />
-        </Grid>-->
+        </Grid>
 
         <Grid x:Name="WebViewWrapper"
               Grid.Row="1">
@@ -131,7 +131,7 @@
 
         <!--<ProgressBar VerticalAlignment="Bottom" IsIndeterminate="{x:Bind Model.IsBusy, Mode=OneWay}"/>-->
 
-        <CommandBar Grid.Row="1" VerticalAlignment="Bottom">
+        <CommandBar Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom">
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="OpenExternal"
                               Command="{Binding OpenExternalCommand}"

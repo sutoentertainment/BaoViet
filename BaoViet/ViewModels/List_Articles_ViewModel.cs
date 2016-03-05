@@ -54,7 +54,14 @@ namespace BaoViet.ViewModels
             if (e.NavigationMode == NavigationMode.Back)
                 return;
 
+            await LoadFeed();
+            App.Current.OnRefreshRequested += Current_OnRefreshRequested;
+        }
+
+        private async Task LoadFeed()
+        {
             ListFeed.Clear();
+            await Task.Delay(100);
             IsBusy = true;
             try
             {
@@ -68,10 +75,19 @@ namespace BaoViet.ViewModels
             IsBusy = false;
         }
 
+        private async void Current_OnRefreshRequested()
+        {
+            await LoadFeed();
+        }
+
         public void OnNavigatedFrom(NavigationEventArgs e)
         {
             if (e.NavigationMode == NavigationMode.Back)
+            {
                 App.Current.Manager.WebService.CancelCurrentRequests();
+            }
+            App.Current.OnRefreshRequested -= Current_OnRefreshRequested;
+
         }
 
         public void OnNavigatingFrom(NavigatingCancelEventArgs e)

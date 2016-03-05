@@ -53,13 +53,6 @@ namespace BaoViet
                 OnRefreshRequested.Invoke();
         }
 
-
-        public void InvokeOnToastRise(string text, double milisec)
-        {
-            if (OnToastRise != null)
-                OnToastRise.Invoke(text, milisec);
-        }
-
         public void InvokeOnToastTapped(ToastAction action)
         {
             if (OnToastTapped != null)

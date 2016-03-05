@@ -263,7 +263,7 @@
 
             <SplitView.Pane>
                 <Grid>
-                    <WebView x:Name="PreviewWebView" control:WebViewExtensions.StringContent="{Binding PreviewMarkDown}" />
+                    <WebView x:Name="PreviewWebView" control:WebViewExtensions.StringContent="{Binding PreviewMarkDown}" DefaultBackgroundColor="Beige"/>
                 </Grid>
             </SplitView.Pane>
         </SplitView>

@@ -1,4 +1,5 @@
-﻿using BaoViet.Views;
+﻿using BaoViet.Services;
+using BaoViet.Views;
 using BaoVietCore.Models;
 using GalaSoft.MvvmLight.Command;
 using System;
@@ -15,6 +16,7 @@ namespace BaoViet.DataContext
     public class RootDataContext : BaseModel
     {
         public RelayCommand<NavigationEventArgs> OnNavigatedCommand { get; set; }
+        public bool IsToastActivated { get; internal set; }
 
         public RootDataContext()
         {
@@ -27,7 +29,7 @@ namespace BaoViet.DataContext
             // Register a handler for BackRequested events and set the
             // visibility of the Back button
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
-                App.Current.MasterFrame.CanGoBack ?
+                App.Current.NavigationService.GetFrame(FrameKey.RootFrame).CanGoBack ?
                 AppViewBackButtonVisibility.Visible :
                 AppViewBackButtonVisibility.Collapsed;
 

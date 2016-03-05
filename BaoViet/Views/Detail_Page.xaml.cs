@@ -161,7 +161,7 @@ namespace BaoViet.Views
 
         private void WebView_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
         {
-            App.Current.InvokeOnToastRise("Lỗi khi tải trang, hãy thử refresh lại trang web bằng nút F5", 4000);
+            App.Current.InvokeToast("Lỗi khi tải trang, hãy thử refresh lại trang web bằng nút F5", 4000);
         }
 
         private void webView_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs e)

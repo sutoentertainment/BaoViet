@@ -12,6 +12,7 @@ using Windows.Media.Capture;
 using Windows.Media.Devices;
 using Windows.Media.MediaProperties;
 using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
@@ -23,6 +24,7 @@ namespace BaoVietCore.Services
         MediaCapture mediaCapture;
         private MediaEncodingProfile activeProfile;
         private bool isRecording = false;
+        private bool isPaused = false;
         private bool prepareRecording = false;
         private bool prepareStopRecording = false;
         private bool isPreviewing = false;
@@ -87,6 +89,7 @@ namespace BaoVietCore.Services
             IsBackCamera = BackCamera;
             captureInitSettings = InitCaptureSettings(IsBackCamera);
             await mediaCapture.InitializeAsync(captureInitSettings);
+            mediaCapture.VideoDeviceController.DesiredOptimization = MediaCaptureOptimization.LatencyThenQuality;
             mediaCapture.CameraStreamStateChanged += MediaCapture_CameraStreamStateChanged;
             mediaCapture.Failed += MediaCapture_Failed;
             mediaCapture.FocusChanged += MediaCapture_FocusChanged;
@@ -335,10 +338,14 @@ namespace BaoVietCore.Services
         public async Task PauseRecordingAsync(MediaCapturePauseBehavior b)
         {
             await mediaCapture.PauseRecordAsync(b);
+            isPaused = true;
+            isRecording = false;
         }
         public async Task ResumeRecordingAsync()
         {
             await mediaCapture.ResumeRecordAsync();
+            isPaused = false;
+            isRecording = true;
         }
         public async Task StopRecordingAsync()
         {
@@ -356,24 +363,50 @@ namespace BaoVietCore.Services
         public async Task StartLowLagRecordingAsync()
         {
             await lowlag.StartAsync();
+            isRecording = true;
         }
         public async Task StopLowLagRecordingAsync()
         {
             await lowlag.StopAsync();
+            isRecording = false;
         }
 
         public async Task PauseLowLagAsync(MediaCapturePauseBehavior b)
         {
             await lowlag.PauseAsync(b);
+            isPaused = true;
+            isRecording = false;
         }
         public async Task ResumeLowLagAsync()
         {
             await lowlag.ResumeAsync();
+            isPaused = false;
+            isRecording = true;
         }
         public async Task DisposeLowLagAsync()
         {
             await lowlag.FinishAsync();
         }
+
+        public async Task StartStreamRecordingAsync(InMemoryRandomAccessStream buffer)
+        {
+            await mediaCapture.StartRecordToStreamAsync(activeProfile, buffer);
+            isRecording = true;
+        }
+
+        public async Task StopStreamRecordAsync()
+        {
+            await mediaCapture.StopRecordAsync();
+            isRecording = false;
+        }
+
+        //public async Task StartRecordToCustomSinkAsync()
+        //{
+        //    mediaCapture
+        //    await mediaCapture.StartRecordToCustomSinkAsync(activeProfile, );
+        //    isRecording = true;
+        //}
+
         public void SetFlashStatus(bool flashStatus)
         {
             if (prepareRecording || prepareStopRecording || isRecording)

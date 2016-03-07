@@ -5,6 +5,7 @@ using Windows.Devices.Enumeration;
 using Windows.Media.Devices;
 using Windows.Media.MediaProperties;
 using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
@@ -36,5 +37,7 @@ namespace BaoVietCore.Interfaces
         Task StopLowLagRecordingAsync();
         Task StopPreviewAsync();
         Task StopRecordingAsync();
+        Task StartStreamRecordingAsync(InMemoryRandomAccessStream buffer);
+        Task StopStreamRecordAsync();
     }
 }

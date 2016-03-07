@@ -46,5 +46,6 @@ namespace BaoVietCore.Models
         PetroTimes,
         DoiSongPhapLuat,
         Kenh14,
+        Custom
     }
 }

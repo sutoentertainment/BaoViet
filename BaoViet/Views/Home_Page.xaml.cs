@@ -57,7 +57,7 @@ namespace BaoViet.Views
         {
             get
             {
-                return this.Frame.RenderSize.Height - 40 - 40 - 132;
+                return this.Frame.RenderSize.Height - 48 - 40 - 132;
             }
         }
 

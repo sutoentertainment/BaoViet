@@ -23,6 +23,8 @@ using BaoViet.Controls;
 using BaoViet.Models;
 using Windows.UI.Popups;
 using BaoViet.Services;
+using BaoViet.IAP;
+using WinUX.Extensions;
 
 namespace BaoViet.ViewModels
 {
@@ -178,7 +180,7 @@ namespace BaoViet.ViewModels
             if (!IsInDesignMode)
             {
                 _LockRotation = App.Current.Manager.SettingsService.GetValueLocal<bool>(SettingKey.LockRotation);
-                IsShowingAd = !App.Current.Manager.IAPService.CheckProduct("Remove_Ads");
+                IsShowingAd = !App.Current.Manager.IAPService.CheckProduct(IAPItem.ADS_REMOVAL_ID);
             }
 
             timer.Timer.Tick += Back_Timer_Tick;
@@ -217,7 +219,7 @@ namespace BaoViet.ViewModels
         private async void Donate()
         {
             PrepareIAP = true;
-            var result = await App.Current.Manager.IAPService.BuyProduct("Donate");
+            var result = await App.Current.Manager.IAPService.BuyProduct(IAPItem.DONATE_ID);
             if (result)
             {
                 MessageDialog mess = new MessageDialog("Rất cám ơn bạn đã ủng hộ phần mềm");
@@ -231,9 +233,9 @@ namespace BaoViet.ViewModels
         private async void RemoveAd()
         {
             PrepareIAP = true;
-            if (!App.Current.Manager.IAPService.CheckProduct("Remove_Ads"))
+            if (!App.Current.Manager.IAPService.CheckProduct(IAPItem.ADS_REMOVAL_ID))
             {
-                var result = await App.Current.Manager.IAPService.BuyProduct("Remove_Ads");
+                var result = await App.Current.Manager.IAPService.BuyProduct(IAPItem.ADS_REMOVAL_ID);
                 if (result)
                 {
                     MessageDialog mess = new MessageDialog("Rất cám ơn bạn đã ủng hộ phần mềm, quảng cáo đã được loại bỏ khi bạn đọc báo");
@@ -371,6 +373,19 @@ namespace BaoViet.ViewModels
 
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Petro Times", Type = PaperType.PetroTimes, HomePage = "http://petrotimes.vn", ImageSource = "ms-appx:///Assets/Logo/logo-petro.png" });
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Đời sống pháp luật", Type = PaperType.DoiSongPhapLuat, HomePage = "http://www.doisongphapluat.com/", ImageSource = "ms-appx:///Assets/Logo/logo-dspl.png" });
+
+            //Add custom data inputed by user:
+            if(!IsInDesignMode)
+            {
+                var customPapers = App.Current.Manager.Database.GetItems<CustomPaper>();
+                FrontPagePaper.AddRange(customPapers);
+            }
+            else
+            {
+                var paper = new CustomPaper(PaperType.Custom);
+                paper.Title = "Custom paper";
+                FrontPagePaper.Insert(0, paper);
+            }
         }
 
         private void GoToPaperToHidePage()

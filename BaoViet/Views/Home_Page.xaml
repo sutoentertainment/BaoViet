@@ -81,7 +81,7 @@
                         <Setter Target="PaneMainContent.Visibility" Value="Collapsed"/>
                         <Setter Target="PaneBackButtonContainer.Visibility" Value="Collapsed"/>
                         <Setter Target="PaneColumn.Width" Value="*" />
-                        <Setter Target="PaneMainColumn.Width" Value="Auto" />
+                        <Setter Target="PaneMainColumn.Width" Value="0" />
                         <Setter Target="HeaderContainer.Height" Value="0"/>
                     </VisualState.Setters>
 
@@ -187,7 +187,7 @@
                           Background="{ThemeResource SystemAccentColor}"
                           RenderTransformOrigin="0.5,1">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="40" />
+                            <RowDefinition Height="48" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
 
@@ -423,6 +423,16 @@
                     <!--<Border Width="300" Height="300" x:Name="target"  ToolTipService.Placement="Top" ToolTipService.ToolTip="Detail here" Background="Red" VerticalAlignment="Center">
 
                     </Border>-->
+
+                    <CommandBar VerticalAlignment="Bottom">
+                        <CommandBar.PrimaryCommands>
+                            <AppBarButton Icon="Add" Label="thêm nguồn tin"/>
+                        </CommandBar.PrimaryCommands>
+
+                        <CommandBar.SecondaryCommands>
+
+                        </CommandBar.SecondaryCommands>
+                    </CommandBar>
 
                 </Grid>
 

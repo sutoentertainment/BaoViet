@@ -48,6 +48,7 @@ namespace BaoVietCore.Factory
                 case PaperType.DatViet:
                 case PaperType.VietBao:
                 case PaperType.TuổiTre:
+                case PaperType.Custom:
                     parser = new StandartParser();
                     break;
                 case PaperType.VietnamPlus:

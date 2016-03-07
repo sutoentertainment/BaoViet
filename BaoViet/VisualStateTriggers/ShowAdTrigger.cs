@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaoViet.IAP;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,7 @@ namespace BaoViet.VisualStateTriggers
 #if DEBUG
                 InDebugMode = true;
 #endif
-                BoughAdRemover = App.Current.Manager.IAPService.CheckProduct("Remove_Ads");
+                BoughAdRemover = App.Current.Manager.IAPService.CheckProduct(IAPItem.ADS_REMOVAL_ID);
 
                 if (!BoughAdRemover || InDebugMode)
                     showAd = true;

@@ -19,6 +19,7 @@ namespace BaoVietCore.Models
 {
     public abstract class PaperBase : ObservableObject, IPaper
     {
+        [SQLite.Net.Attributes.Ignore]
         public virtual ObservableCollection<Category> Categories
         {
             get; set;
@@ -43,7 +44,7 @@ namespace BaoVietCore.Models
         {
             get; set;
         }
-
+        [SQLite.Net.Attributes.Ignore]
         public virtual Thickness Margin
         {
             get; set;
@@ -71,13 +72,13 @@ namespace BaoVietCore.Models
                 return this.Type.ToString();
             }
         }
-
+        [SQLite.Net.Attributes.Ignore]
         public RelayCommand PinCommand
         {
             get; set;
         }
 
-
+        [SQLite.Net.Attributes.Ignore]
         public IXmlParser Parser { get; set; }
 
         public PaperBase(PaperType type)

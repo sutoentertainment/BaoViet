@@ -71,6 +71,7 @@ namespace BaoViet
 
 
             Manager.Database.CreateTable<FeedItem>();
+            Manager.Database.CreateTable<CustomPaper>();
             RootDataContext = new RootDataContext();
             TileManager = new TileManager();
         }

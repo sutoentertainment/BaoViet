@@ -112,6 +112,7 @@
     <Compile Include="Helpers\TileManager.cs" />
     <Compile Include="Helpers\ToastAction.cs" />
     <Compile Include="Helpers\VisualTreeHelperExtensions.cs" />
+    <Compile Include="IAP\IAPItem.cs" />
     <Compile Include="Interfaces\IApp.cs" />
     <Compile Include="Interfaces\INavigable.cs" />
     <Compile Include="Interfaces\ITrackingAble.cs" />

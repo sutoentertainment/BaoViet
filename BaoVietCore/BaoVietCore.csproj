@@ -114,6 +114,7 @@
     <Compile Include="Helpers\StateCondition.cs" />
     <Compile Include="Interfaces\IMarkDownParser.cs" />
     <Compile Include="Interfaces\ICrittercismService.cs" />
+    <Compile Include="Models\CustomPaper.cs" />
     <Compile Include="Services\BasicCameraService.cs" />
     <Compile Include="Services\CrittercismService.cs" />
     <Compile Include="Services\DeviceService.cs" />

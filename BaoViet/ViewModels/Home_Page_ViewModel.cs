@@ -28,6 +28,19 @@ namespace BaoViet.ViewModels
 {
     public class Home_ViewModel : ViewModelBase, INavigable, ITrackingAble
     {
+        bool _IsShowingAd = true;
+        public bool IsShowingAd
+        {
+            get
+            {
+                return _IsShowingAd;
+            }
+            set
+            {
+                Set(ref _IsShowingAd, value);
+            }
+        }
+
         bool _PrepareIAP = false;
         public bool PrepareIAP
         {
@@ -165,6 +178,7 @@ namespace BaoViet.ViewModels
             if (!IsInDesignMode)
             {
                 _LockRotation = App.Current.Manager.SettingsService.GetValueLocal<bool>(SettingKey.LockRotation);
+                IsShowingAd = !App.Current.Manager.IAPService.CheckProduct("Remove_Ads");
             }
 
             timer.Timer.Tick += Back_Timer_Tick;
@@ -208,6 +222,8 @@ namespace BaoViet.ViewModels
             {
                 MessageDialog mess = new MessageDialog("Rất cám ơn bạn đã ủng hộ phần mềm");
                 await mess.ShowAsync();
+                // Remove this item in setting.
+                IsShowingAd = false;
             }
             PrepareIAP = false;
         }

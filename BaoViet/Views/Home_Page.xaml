@@ -329,7 +329,7 @@
                                             HorizontalContentAlignment="Left"
                                             Background="Transparent"
                                             Content="Gỡ quảng cáo"
-                                            Padding="12">
+                                            Padding="12" Visibility="{Binding IsShowingAd, Converter={StaticResource BooleanToVisibility}}">
                                             <Button.Flyout>
                                                 <Flyout Placement="Full">
                                                     <Grid>

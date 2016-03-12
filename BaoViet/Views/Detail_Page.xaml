@@ -20,15 +20,10 @@
                 <!--  For PC, Xbox, Tablet  -->
                 <VisualState x:Name="TabletState">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="1200" />
+                        <AdaptiveTrigger MinWindowWidth="720" />
                     </VisualState.StateTriggers>
 
                     <VisualState.Setters>
-                        <Setter Target="AdMediator_05A7C1.Width" Value="160" />
-                        <Setter Target="AdMediator_05A7C1.Height" Value="600" />
-                        <Setter Target="AdMediator_05A7C1.HorizontalAlignment" Value="Right" />
-                        <Setter Target="AdMediator_05A7C1.VerticalAlignment" Value="Top" />
-                        <Setter Target="AdMediator_05A7C1.(Grid.Column)" Value="1" />
                         <!--<Setter Target="WebViewWrapper.Margin" Value="0,0,160,0" />
                         <Setter Target="webViewDetailContainer.Margin" Value="0,0,160,0" />-->
 
@@ -45,11 +40,6 @@
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="AdMediator_05A7C1.(Grid.Column)" Value="0" />
-                        <Setter Target="AdMediator_05A7C1.Width" Value="480" />
-                        <Setter Target="AdMediator_05A7C1.Height" Value="80" />
-                        <Setter Target="AdMediator_05A7C1.HorizontalAlignment" Value="Center" />
-                        <Setter Target="AdMediator_05A7C1.VerticalAlignment" Value="Bottom" />
                         <Setter Target="WebViewWrapper.Margin" Value="0" />
                         <Setter Target="webViewDetailContainer.Margin" Value="0" />
                     </VisualState.Setters>
@@ -72,12 +62,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="Auto" x:Name="AdColumn"/>
-        </Grid.ColumnDefinitions>
-
-        <Grid Background="{StaticResource AppColorBackground}" Grid.ColumnSpan="2">
+        <Grid Background="{StaticResource AppColorBackground}">
             <TextBlock x:Name="title_tb"
                        Margin="12,0"
                        VerticalAlignment="Center"
@@ -86,7 +71,7 @@
         </Grid>
 
         <Grid x:Name="WebViewWrapper"
-              Grid.Row="1">
+              Grid.Row="1" Margin="0,0,0,48">
 
             <Grid x:Name="webViewContainer">
                 <WebView x:Name="webView"/>
@@ -111,7 +96,7 @@
         <Grid x:Name="webViewDetailContainer"
               Grid.RowSpan="2"
               Visibility="{Binding IsFullScreen,
-                                   Converter={StaticResource BooleanToVisibility}}">
+                                   Converter={StaticResource BooleanToVisibility}}" Margin="0,0,0,48">
             <WebView x:Name="webViewDetail" control:WebViewExtensions.SourceBinding="{Binding FullScreenSource, Mode=TwoWay}"/>
         </Grid>
 
@@ -126,7 +111,7 @@
 
         <!--<ProgressBar VerticalAlignment="Bottom" IsIndeterminate="{x:Bind Model.IsBusy, Mode=OneWay}"/>-->
 
-        <CommandBar Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom">
+        <CommandBar Grid.Row="1" VerticalAlignment="Bottom">
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="OpenExternal"
                               Command="{Binding OpenExternalCommand}"
@@ -159,9 +144,9 @@
                                      Grid.Row="1"
                                      Width="480"
                                      Height="80"
-                                     Margin="0,0,0,60"
+                                     Margin="0,0,0,48"
                                      HorizontalAlignment="Center"
                                      VerticalAlignment="Bottom"
-                                     Id="AdMediator-Id-5F57EE92-A2DE-485F-B837-AB462586ACD6" Grid.Column="1"/>
+                                     Id="AdMediator-Id-5F57EE92-A2DE-485F-B837-AB462586ACD6"/>
     </Grid>
 </local:BindablePage>

@@ -38,16 +38,6 @@
         </TransitionCollection>
     </Page.Transitions>-->
 
-    <Page.Resources>
-        <logicalModifiers:OrModifier x:Key="OrModifier"/>
-        <logicalModifiers:AndModifier x:Key="AndModifier"/>
-        <comparableModifiers:LessThanModifier x:Key="LessThanModifier"/>
-        <comparableModifiers:EqualToModifier x:Key="EqualToModifier"/>
-        <comparableModifiers:NotEqualToModifier x:Key="NotEqualToModifier"/>
-        <comparableModifiers:GreaterThanEqualToModifier x:Key="GreaterThanEqualToModifier"/>
-        <comparableModifiers:LessThanEqualToModifier x:Key="LessThanEqualToModifier"/>
-    </Page.Resources>
-
     <Grid Background="{StaticResource AppColorBackground}">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="layout">
@@ -233,7 +223,7 @@
 
                     <Grid x:Name="PaneMainContent">
                         <Pivot x:Name="rootPivot"
-                           Margin="0,0,0,0"
+                           Margin="0,0,0,48"
                            Style="{StaticResource PivotNoHeaderStyle}" SelectionChanged="rootPivot_SelectionChanged">
 
                             <PivotItem Margin="0">

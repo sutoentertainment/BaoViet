@@ -221,7 +221,6 @@ namespace BaoViet
                     Manager.LogService.LogText = "";
                     Manager.SettingsService.RemoveValueLocal("last-log");
                 }
-                await Manager.RateUsService.ShowRatePopup(5, true, "đánh giá 5 sao", "để lần sau", "Gửi đánh giá", "Bạn đang sử dụng sản phẩm miễn phí, giá gốc có thể là 2$\r\nXin hãy dành chút thời gian ủng hộ phần mềm, đây là động lục giúp nhóm pháp triển phầm mềm để phục vụ bạn tốt hơn.\r\nTrong quá trình sử dụng, có điều gì chưa tốt xin bạn vui lòng gửi thư cho mình qua phần Cài Đặt.");
             }
             // Ensure the current window is active
             Window.Current.Activate();

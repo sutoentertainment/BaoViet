@@ -45,18 +45,11 @@ namespace BaoViet.Views
             this.InitializeComponent();
             App.Current.OnRefreshRequested += App_OnRefreshRequested;
             this.SizeChanged += Detail_Page_SizeChanged;
-            if (App.Current.Manager.DeviceService.GetAppState() == BaoVietCore.Interfaces.AppState.Mobile)
-            {
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 320;
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 50;
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Width"] = 292;
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Height"] = 60;
-            }
-            else
-            {
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 160;
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 600;
-            }
+
+            AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 480;
+            AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 80;
+            AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Width"] = 480;
+            AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Height"] = 80;
 
 
 
@@ -68,22 +61,22 @@ namespace BaoViet.Views
 
         private void Detail_Page_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (App.Current.Manager.DeviceService.GetAppState() == BaoVietCore.Interfaces.AppState.Mobile)
-            {
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 320;
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 50;
+            //if (App.Current.Manager.DeviceService.GetAppState() == BaoVietCore.Interfaces.AppState.Mobile)
+            //{
+            //    AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 480;
+            //    AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 80;
 
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Width"] = 480;// 292;
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Height"] = 80;// 60;
-            }
-            else
-            {
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 160;
-                AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 600;
+            //    AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Width"] = 480;// 292;
+            //    AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Height"] = 80;// 60;
+            //}
+            //else
+            //{
+            //    AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Width"] = 160;
+            //    AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.MicrosoftAdvertising]["Height"] = 600;
 
-                //AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Width"] = 160;
-                //AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Height"] = 600;
-            }
+            //    AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Width"] = 0;
+            //    AdMediator_05A7C1.AdSdkOptionalParameters[AdSdkNames.AdDuplex]["Height"] = 0;
+            //}
         }
 
         void AdMediator_Bottom_AdSdkEvent(object sender, Microsoft.AdMediator.Core.Events.AdSdkEventArgs e)

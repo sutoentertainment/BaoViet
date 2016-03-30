@@ -147,6 +147,9 @@
     <Compile Include="ViewModels\List_Articles_ViewModel.cs" />
     <Compile Include="ViewModels\List_Categories_ViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="Views\AddPaper_Page.xaml.cs">
+      <DependentUpon>AddPaper_Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ContainerMaster.xaml.cs">
       <DependentUpon>ContainerMaster.xaml</DependentUpon>
     </Compile>
@@ -293,6 +296,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\MenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddPaper_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

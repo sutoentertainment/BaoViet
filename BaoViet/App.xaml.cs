@@ -238,6 +238,8 @@ namespace BaoViet
             service.ConfigurePage(Pages.Flash, typeof(Flash_Page));
             service.ConfigurePage(Pages.Gold, typeof(Gold_Page));
             service.ConfigurePage(Pages.MarkDown, typeof(MarkDown_Page));
+            service.ConfigurePage(Pages.AddPaper, typeof(AddPaper_Page));
+
             //service.ConfigurePage(Pages.Weather, typeof(Weather_Page));
             //service.ConfigurePage(Pages.OCR, typeof(OCR_Page));
         }

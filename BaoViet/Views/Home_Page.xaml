@@ -221,6 +221,11 @@
                         <ColumnDefinition x:Name="PaneColumn" Width="Auto" />
                     </Grid.ColumnDefinitions>
 
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
                     <Grid x:Name="PaneMainContent">
                         <Pivot x:Name="rootPivot"
                            Margin="0,0,0,48"
@@ -414,9 +419,9 @@
 
                     </Border>-->
 
-                    <CommandBar VerticalAlignment="Bottom">
+                    <CommandBar VerticalAlignment="Bottom" Grid.Row="1">
                         <CommandBar.PrimaryCommands>
-                            <AppBarButton Icon="Add" Label="thêm nguồn tin"/>
+                            <AppBarButton Icon="Add" Label="thêm nguồn tin" Click="{x:Bind ViewModel.OnAddClicked}"/>
                         </CommandBar.PrimaryCommands>
 
                         <CommandBar.SecondaryCommands>

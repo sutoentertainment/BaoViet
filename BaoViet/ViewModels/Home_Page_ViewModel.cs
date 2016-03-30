@@ -375,7 +375,7 @@ namespace BaoViet.ViewModels
             //FrontPagePaper.Add(new VnExpressPaper() { Title = "Đời sống pháp luật", Type = PaperType.DoiSongPhapLuat, HomePage = "http://www.doisongphapluat.com/", ImageSource = "ms-appx:///Assets/Logo/logo-dspl.png" });
 
             //Add custom data inputed by user:
-            if(!IsInDesignMode)
+            if (!IsInDesignMode)
             {
                 var customPapers = App.Current.Manager.Database.GetItems<CustomPaper>();
                 FrontPagePaper.AddRange(customPapers);
@@ -398,6 +398,10 @@ namespace BaoViet.ViewModels
             IsPaneOpen = !IsPaneOpen;
         }
 
+        public void OnAddClicked()
+        {
+            App.Current.NavigationService.NavigateTo(Pages.AddPaper);
+        }
 
         public void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
@@ -427,7 +431,6 @@ namespace BaoViet.ViewModels
                 timer.Start();
                 return false;
             }
-            return true;
         }
     }
 }

@@ -19,7 +19,9 @@ namespace BaoViet.VisualStateTriggers
             Windows.Devices.Power.Battery.AggregateBattery.ReportUpdated
                 += async (sender, args) => await UpdateStatus();
 
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             UpdateStatus();
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
 
 

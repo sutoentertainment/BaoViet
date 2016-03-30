@@ -152,6 +152,7 @@ namespace BaoViet.ViewModels
         Flash,
         Gold,
         MarkDown,
+        AddPaper,
     }
 
 }

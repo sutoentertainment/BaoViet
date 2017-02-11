@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Navigation;
-using WinUX.Extensions;
+using WinUX;
 
 namespace BaoViet.ViewModels
 {

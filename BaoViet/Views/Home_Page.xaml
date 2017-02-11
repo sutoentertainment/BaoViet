@@ -1,28 +1,27 @@
-﻿<local:BindablePage x:Class="BaoViet.Views.Home_Page"
-                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:control="using:BaoViet.Controls"
-                    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
-                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                    xmlns:i="using:Microsoft.Xaml.Interactivity"
-                    xmlns:local="using:BaoViet.Views"
-                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                    xmlns:model="using:BaoVietCore.Models"
-                    xmlns:sample="using:BaoViet.SampleData"
-                    xmlns:usercontrol="using:BaoViet.UserControls"
-                    xmlns:viewModel="using:BaoViet.ViewModels"
-                    DataContext="{Binding Main,
-                                          Mode=OneWay,
-                                          Source={StaticResource Locator}}"
-                    NavigationCacheMode="Required"
-                    mc:Ignorable="d"
-                    xmlns:windowsTrigger="using:WindowsStateTriggers"
-                    xmlns:logicalModifiers="using:AdaptiveTriggerLibrary.ConditionModifiers.LogicalModifiers"
-    xmlns:logicalTriggers="using:AdaptiveTriggerLibrary.Triggers.LogicalTriggers"
-    xmlns:hardwareInterfaceTriggers="using:AdaptiveTriggerLibrary.Triggers.HardwareInterfaceTriggers"
-    xmlns:userInterfaceTriggers="using:AdaptiveTriggerLibrary.Triggers.UserInterfaceTriggers"
+﻿<local:BindablePage
+    x:Class="BaoViet.Views.Home_Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:comparableModifiers="using:AdaptiveTriggerLibrary.ConditionModifiers.ComparableModifiers"
-                    xmlns:trigger="using:BaoViet.VisualStateTriggers">
+    xmlns:control="using:BaoViet.Controls"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hardwareInterfaceTriggers="using:AdaptiveTriggerLibrary.Triggers.HardwareInterfaceTriggers"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:local="using:BaoViet.Views"
+    xmlns:logicalModifiers="using:AdaptiveTriggerLibrary.ConditionModifiers.LogicalModifiers"
+    xmlns:logicalTriggers="using:AdaptiveTriggerLibrary.Triggers.LogicalTriggers"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="using:BaoVietCore.Models"
+    xmlns:sample="using:BaoViet.SampleData"
+    xmlns:trigger="using:BaoViet.VisualStateTriggers"
+    xmlns:userInterfaceTriggers="using:AdaptiveTriggerLibrary.Triggers.UserInterfaceTriggers"
+    xmlns:usercontrol="using:BaoViet.UserControls"
+    xmlns:viewModel="using:BaoViet.ViewModels"
+    xmlns:windowsTrigger="using:WindowsStateTriggers"
+    DataContext="{Binding Main, Mode=OneWay, Source={StaticResource Locator}}"
+    NavigationCacheMode="Required"
+    mc:Ignorable="d">
 
     <!--  xmlns:usercontrol="using:BaoViet.UserControls"  -->
 
@@ -39,109 +38,45 @@
     </Page.Transitions>-->
 
     <Grid Background="{StaticResource AppColorBackground}">
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="layout">
-                <!--  For PC, Xbox, Tablet  -->
-                <VisualState x:Name="TabletState">
-                    <VisualState.Setters>
-                        <Setter Target="splitView.DisplayMode" Value="Inline" />
-                        <Setter Target="splitView.IsPaneOpen" Value="True" />
-                        <Setter Target="PaneSpliter.Visibility" Value="Visible" />
-                        <Setter Target="PaneMainContent.Visibility" Value="Visible"/>
-                        <Setter Target="PaneBackButtonContainer.Visibility" Value="Visible"/>
-                        <Setter Target="PaneColumn.Width" Value="*" />
-                        <Setter Target="PaneMainColumn.Width" Value="*" />
-                        <Setter Target="HeaderContainer.Height" Value="Auto"/>
-                    </VisualState.Setters>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="1200"/>
-
-                        <!--<windowsTrigger:AdaptiveTrigger MinWindowWidth="1200"/>-->
-
-                    </VisualState.StateTriggers>
-                </VisualState>
-            <!--</VisualStateGroup>
-            <VisualStateGroup x:Name="mini">-->
-
-                <VisualState x:Name="TabletStateWithDetail">
-                    <VisualState.Setters>
-                        <Setter Target="splitView.DisplayMode" Value="Overlay" />
-                        <Setter Target="splitView.IsPaneOpen" Value="False" />
-                        <Setter Target="PaneSpliter.Visibility" Value="Visible" />
-                        <Setter Target="PaneMainContent.Visibility" Value="Collapsed"/>
-                        <Setter Target="PaneBackButtonContainer.Visibility" Value="Collapsed"/>
-                        <Setter Target="PaneColumn.Width" Value="*" />
-                        <Setter Target="PaneMainColumn.Width" Value="0" />
-                        <Setter Target="HeaderContainer.Height" Value="0"/>
-                    </VisualState.Setters>
-
-                    <!--<VisualState.StateTriggers>
-                        <windowsTrigger:CompositeStateTrigger Operator="And">
-                            <windowsTrigger:AdaptiveTrigger MinWindowWidth="0" />
-                            <StateTrigger IsActive="{x:Bind ViewModel.PaneFrameCanGoBack, Mode=OneWay}"/>
-                        </windowsTrigger:CompositeStateTrigger>
-                    </VisualState.StateTriggers>-->
-                </VisualState>
-
-                <!--  For Phone, Phablet and small Tablet  -->
-                <VisualState x:Name="PhoneState">
-                    <VisualState.Setters>
-                        <Setter Target="PaneSpliter.Visibility" Value="Collapsed" />
-                        <Setter Target="PaneMainContent.Visibility" Value="Visible"/>
-                        <Setter Target="PaneColumn.Width" Value="Auto" />
-                        <Setter Target="PaneMainColumn.Width" Value="*" />
-                        <Setter Target="HeaderContainer.Height" Value="Auto"/>
-                        <!--<Setter Target="AppName.Visibility" Value="Collapsed"/>-->
-                        <!--<Setter Target="splitView.DisplayMode" Value="Overlay" />-->
-                        <!--<Setter Target="splitView.IsPaneOpen" Value="False" />-->
-                    </VisualState.Setters>
-
-                    <!--<VisualState.StateTriggers>
-                        -->
-                    <!--<AdaptiveTrigger MinWindowWidth="0"/>-->
-                    <!--
-                        <windowsTrigger:CompositeStateTrigger Operator="And">
-                            <windowsTrigger:AdaptiveTrigger MinWindowWidth="0"/>
-                            <windowsTrigger:IsFalseStateTrigger Value="{Binding PaneFrameCanGoBack}"/>
-                        </windowsTrigger:CompositeStateTrigger>
-                    </VisualState.StateTriggers>-->
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" x:Name="HeaderRow"/>
+            <RowDefinition x:Name="HeaderRow" Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Background="{StaticResource AppColorLight}" x:Name="HeaderContainer">
-            <Button Width="40"
-                    Height="40"
-                    VerticalAlignment="Center"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    Command="{x:Bind ViewModel.OpenMenuCommand}">
-                <FontIcon x:Name="HambugerButton"
-                          Margin="0,-8,0,0"
-                          VerticalAlignment="Bottom"
-                          FontFamily="Segoe UI Symbol"
-                          FontSize="32"
-                          Foreground="White"
-                          Glyph="{Binding HambugerIcon,
-                                          Mode=OneWay}" />
+        <StackPanel
+            x:Name="HeaderContainer"
+            Background="{StaticResource AppColorLight}"
+            Orientation="Horizontal">
+            <Button
+                Width="40"
+                Height="40"
+                VerticalAlignment="Center"
+                Background="Transparent"
+                BorderThickness="0"
+                Command="{x:Bind ViewModel.OpenMenuCommand}">
+                <FontIcon
+                    x:Name="HambugerButton"
+                    Margin="0,-8,0,0"
+                    VerticalAlignment="Bottom"
+                    FontFamily="Segoe UI Symbol"
+                    FontSize="32"
+                    Foreground="White"
+                    Glyph="{Binding HambugerIcon, Mode=OneWay}" />
             </Button>
 
-            <TextBlock x:Name="TitleBar"
-                       VerticalAlignment="Center"
-                       FontSize="18"
-                       Text="Trang nhất" />
+            <TextBlock
+                x:Name="TitleBar"
+                VerticalAlignment="Center"
+                FontSize="18"
+                Text="Trang nhất" />
         </StackPanel>
 
-        <SplitView x:Name="splitView"
-                   Grid.Row="1"
-                   DisplayMode="Overlay"
-                   IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}"
-                   OpenPaneLength="200">
+        <SplitView
+            x:Name="splitView"
+            Grid.Row="1"
+            DisplayMode="Overlay"
+            IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}"
+            OpenPaneLength="200">
             <!--
                 DisplayMode="Overlay"
                 IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}"
@@ -154,28 +89,31 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <ListView x:Name="SideMenu"
-                              IsItemClickEnabled="True"
-                              ItemClick="SlideMenu_ItemClick"
-                              ItemContainerStyle="{StaticResource ListViewStandartItemStyle}"
-                              ItemsSource="{Binding ListMenuItem}"
-                              SelectionMode="None">
+                    <ListView
+                        x:Name="SideMenu"
+                        IsItemClickEnabled="True"
+                        ItemClick="SlideMenu_ItemClick"
+                        ItemContainerStyle="{StaticResource ListViewStandartItemStyle}"
+                        ItemsSource="{Binding ListMenuItem}"
+                        SelectionMode="None">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Width="200" Orientation="Horizontal">
-                                    <FontIcon Margin="12,0"
-                                              FontSize="20"
-                                              Glyph="{Binding Glyph}" />
+                                    <FontIcon
+                                        Margin="12,0"
+                                        FontSize="20"
+                                        Glyph="{Binding Glyph}" />
                                     <TextBlock Text="{Binding MenuTitle}" />
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
 
-                    <Grid x:Name="SideMenuContainer"
-                          Grid.Row="1"
-                          Background="{ThemeResource SystemAccentColor}"
-                          RenderTransformOrigin="0.5,1">
+                    <Grid
+                        x:Name="SideMenuContainer"
+                        Grid.Row="1"
+                        Background="{ThemeResource SystemAccentColor}"
+                        RenderTransformOrigin="0.5,1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="48" />
                             <RowDefinition />
@@ -185,29 +123,33 @@
                             <TranslateTransform x:Name="sideMenuTransform" Y="0" />
                         </Grid.RenderTransform>
 
-                        <Grid Background="#55000000"
-                              ManipulationMode="TranslateY"
-                              ManipulationStarted="SideMenu_ManipulationStarted"
-                              ManipulationCompleted="SideMenu_ManipulationCompleted"
-                              ManipulationDelta="SideMenu_ManipulationDelta"
-                              Tapped="ToggleSideMenu">
-                            <TextBlock Margin="20,0"
-                                       VerticalAlignment="Center"
-                                       Text="Công cụ khác" />
+                        <Grid
+                            Background="#55000000"
+                            ManipulationCompleted="SideMenu_ManipulationCompleted"
+                            ManipulationDelta="SideMenu_ManipulationDelta"
+                            ManipulationMode="TranslateY"
+                            ManipulationStarted="SideMenu_ManipulationStarted"
+                            Tapped="ToggleSideMenu">
+                            <TextBlock
+                                Margin="20,0"
+                                VerticalAlignment="Center"
+                                Text="Công cụ khác" />
                             <!--<SymbolIcon Symbol="Tag" HorizontalAlignment="Right"/>-->
                         </Grid>
 
-                        <ListView x:Name="SideMenuListView"
-                                  Grid.Row="1"
-                                  IsItemClickEnabled="True"
-                                  ItemClick="SideMenuListView_ItemClick"
-                                  ItemsSource="{Binding ExtraTools}"
-                                  SelectionMode="None">
+                        <ListView
+                            x:Name="SideMenuListView"
+                            Grid.Row="1"
+                            IsItemClickEnabled="True"
+                            ItemClick="SideMenuListView_ItemClick"
+                            ItemsSource="{Binding ExtraTools}"
+                            SelectionMode="None">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <control:MenuItem BorderThickness="12,0,0,0"
-                                                      ButtonLabel="{Binding MenuTitle}"
-                                                      SymbolIcon="{Binding Icon}" />
+                                    <control:MenuItem
+                                        BorderThickness="12,0,0,0"
+                                        ButtonLabel="{Binding MenuTitle}"
+                                        SymbolIcon="{Binding Icon}" />
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
@@ -222,27 +164,30 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <Grid x:Name="PaneMainContent">
-                        <Pivot x:Name="rootPivot"
-                           Margin="0,0,0,48"
-                           Style="{StaticResource PivotNoHeaderStyle}" SelectionChanged="rootPivot_SelectionChanged">
+                        <Pivot
+                            x:Name="rootPivot"
+                            Margin="0,0,0,0"
+                            SelectionChanged="rootPivot_SelectionChanged"
+                            Style="{StaticResource PivotNoHeaderStyle}">
 
                             <PivotItem Margin="0">
                                 <!--  ItemTemplate="{StaticResource FrontPaperTemplate}"  -->
-                                <GridView x:Name="FrontPage_ListView"
-                                      HorizontalAlignment="Center"
-                                      HorizontalContentAlignment="Center"
-                                      ContinuumNavigationTransitionInfo.ExitElementContainer="True"
-                                      IsItemClickEnabled="True"
-                                      ItemContainerStyle="{StaticResource GridViewItemStyle}"
-                                      ItemTemplate="{StaticResource FrontPaperTemplate}"
-                                      ItemsSource="{Binding FrontPagePaper}"
-                                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                                      SelectionMode="None">
+                                <GridView
+                                    x:Name="FrontPage_ListView"
+                                    HorizontalAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    ContinuumNavigationTransitionInfo.ExitElementContainer="True"
+                                    IsItemClickEnabled="True"
+                                    ItemContainerStyle="{StaticResource GridViewItemStyle}"
+                                    ItemTemplate="{StaticResource FrontPaperTemplate}"
+                                    ItemsSource="{Binding FrontPagePaper}"
+                                    ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                    SelectionMode="None">
 
                                     <i:Interaction.Behaviors>
                                         <core:EventTriggerBehavior EventName="ItemClick">
@@ -289,13 +234,22 @@
                                         </ListViewItem>
 
                                         <ListViewItem>
-                                            <ToggleSwitch OnContent="Đã khóa xoay màn hình" OffContent="Khóa xoay màn hình" IsOn="{x:Bind ViewModel.LockRotation, Mode=TwoWay}">
+                                            <ToggleSwitch
+                                                IsOn="{x:Bind ViewModel.LockRotation, Mode=TwoWay}"
+                                                OffContent="Khóa xoay màn hình"
+                                                OnContent="Đã khóa xoay màn hình">
                                                 <i:Interaction.Behaviors>
-                                                    <core:DataTriggerBehavior Binding="{Binding LockRotation}" ComparisonCondition="Equal" Value="True">
-                                                        <core:InvokeCommandAction Command="{x:Bind ViewModel.LockRotationCommand}"/>
+                                                    <core:DataTriggerBehavior
+                                                        Binding="{Binding LockRotation}"
+                                                        ComparisonCondition="Equal"
+                                                        Value="True">
+                                                        <core:InvokeCommandAction Command="{x:Bind ViewModel.LockRotationCommand}" />
                                                     </core:DataTriggerBehavior>
-                                                    <core:DataTriggerBehavior Binding="{Binding LockRotation}" ComparisonCondition="Equal" Value="False">
-                                                        <core:InvokeCommandAction Command="{x:Bind ViewModel.LockRotationCommand}"/>
+                                                    <core:DataTriggerBehavior
+                                                        Binding="{Binding LockRotation}"
+                                                        ComparisonCondition="Equal"
+                                                        Value="False">
+                                                        <core:InvokeCommandAction Command="{x:Bind ViewModel.LockRotationCommand}" />
                                                     </core:DataTriggerBehavior>
                                                 </i:Interaction.Behaviors>
                                             </ToggleSwitch>
@@ -320,11 +274,13 @@
                                             </StackPanel>
                                         </ListViewItem>
 
-                                        <Button HorizontalAlignment="Stretch"
+                                        <Button
+                                            Padding="12"
+                                            HorizontalAlignment="Stretch"
                                             HorizontalContentAlignment="Left"
                                             Background="Transparent"
                                             Content="Gỡ quảng cáo"
-                                            Padding="12" Visibility="{Binding IsShowingAd, Converter={StaticResource BooleanToVisibility}}">
+                                            Visibility="{Binding IsShowingAd, Converter={StaticResource BooleanToVisibility}}">
                                             <Button.Flyout>
                                                 <Flyout Placement="Full">
                                                     <Grid>
@@ -332,32 +288,42 @@
                                                             <RowDefinition Height="300" />
                                                             <RowDefinition />
                                                         </Grid.RowDefinitions>
-                                                        <TextBlock Width="200"
-                                                               HorizontalAlignment="Center"
-                                                               VerticalAlignment="Center"
-                                                               Text="Trong giai đoạn khuyến mãi từ 2/3 đến 9/3/2015 miễn phí. Với giá $1, bạn sẽ vĩnh viễn không thấy quảng cáo nữa. Đồng thời bạn sẽ được sử dụng những tính năng mới nhất miễn phí trong tương lai."
-                                                               TextAlignment="Center"
-                                                               TextLineBounds="Full"
-                                                               TextWrapping="Wrap" />
-                                                        <Button Grid.Row="1"
+                                                        <TextBlock
+                                                            Width="200"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Text="Trong giai đoạn khuyến mãi từ 2/3 đến 9/3/2015 miễn phí. Với giá $1, bạn sẽ vĩnh viễn không thấy quảng cáo nữa. Đồng thời bạn sẽ được sử dụng những tính năng mới nhất miễn phí trong tương lai."
+                                                            TextAlignment="Center"
+                                                            TextLineBounds="Full"
+                                                            TextWrapping="Wrap" />
+                                                        <Button
+                                                            Grid.Row="1"
                                                             Width="200"
                                                             Height="60"
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center"
                                                             Background="{StaticResource AppColor}"
-                                                            Content="Mua" Command="{x:Bind ViewModel.RemoveAdCommand}"/>
-                                                        <ProgressRing VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2" IsActive="{Binding PrepareIAP, Converter={StaticResource BooleanToVisibility}}" Width="36" Height="36"/>
+                                                            Command="{x:Bind ViewModel.RemoveAdCommand}"
+                                                            Content="Mua" />
+                                                        <ProgressRing
+                                                            Grid.RowSpan="2"
+                                                            Width="36"
+                                                            Height="36"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            IsActive="{Binding PrepareIAP, Converter={StaticResource BooleanToVisibility}}" />
                                                     </Grid>
                                                 </Flyout>
                                             </Button.Flyout>
                                         </Button>
 
 
-                                        <Button HorizontalAlignment="Stretch"
+                                        <Button
+                                            Padding="12"
+                                            HorizontalAlignment="Stretch"
                                             HorizontalContentAlignment="Left"
                                             Background="Transparent"
-                                            Content="Mua coffee cho mình"
-                                            Padding="12">
+                                            Content="Mua coffee cho mình">
                                             <Button.Flyout>
                                                 <Flyout Placement="Full">
                                                     <Grid>
@@ -365,22 +331,30 @@
                                                             <RowDefinition Height="300" />
                                                             <RowDefinition />
                                                         </Grid.RowDefinitions>
-                                                        <TextBlock Width="200"
-                                                               HorizontalAlignment="Center"
-                                                               VerticalAlignment="Center"
-                                                               Text="Nếu bạn thấy thích phần mềm và hào phòng, một cốc coffee $1 sẽ giúp mình tỉnh táo và thêm động lực làm việc."
-                                                               TextAlignment="Center"
-                                                               TextLineBounds="Full"
-                                                               TextWrapping="Wrap" />
-                                                        <Button Grid.Row="1"
+                                                        <TextBlock
+                                                            Width="200"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Text="Nếu bạn thấy thích phần mềm và hào phòng, một cốc coffee $1 sẽ giúp mình tỉnh táo và thêm động lực làm việc."
+                                                            TextAlignment="Center"
+                                                            TextLineBounds="Full"
+                                                            TextWrapping="Wrap" />
+                                                        <Button
+                                                            Grid.Row="1"
                                                             Width="200"
                                                             Height="60"
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center"
                                                             Background="{StaticResource AppColor}"
-                                                            Content="Mua"
-                                                            Command="{x:Bind ViewModel.DonateCommand}" />
-                                                        <ProgressRing VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2" IsActive="{Binding PrepareIAP, Converter={StaticResource BooleanToVisibility}}" Width="36" Height="36"/>
+                                                            Command="{x:Bind ViewModel.DonateCommand}"
+                                                            Content="Mua" />
+                                                        <ProgressRing
+                                                            Grid.RowSpan="2"
+                                                            Width="36"
+                                                            Height="36"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            IsActive="{Binding PrepareIAP, Converter={StaticResource BooleanToVisibility}}" />
                                                     </Grid>
                                                 </Flyout>
                                             </Button.Flyout>
@@ -392,19 +366,36 @@
                         </Pivot>
                     </Grid>
 
-                    <Grid x:Name="PaneSpliter"
-                          Grid.Column="1"
-                          Visibility="Collapsed"
-                          x:DeferLoadStrategy="Lazy">
-                        <Border Width="2"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Stretch"
-                                Background="{StaticResource AppBlackGray}" />
-                        <Frame x:Name="PaneFrame" Margin="2,0,0,0" Navigated="PaneFrame_Navigated" SourcePageType="local:Tutorial_Page" Tag="BackSupressed">
-                        </Frame>
+                    <Grid
+                        x:Name="PaneSpliter"
+                        Grid.Column="1"
+                        x:DeferLoadStrategy="Lazy"
+                        Visibility="Collapsed">
+                        <Border
+                            Width="2"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Stretch"
+                            Background="{StaticResource AppBlackGray}" />
+                        <Frame
+                            x:Name="PaneFrame"
+                            Margin="2,0,0,0"
+                            Navigated="PaneFrame_Navigated"
+                            SourcePageType="local:Tutorial_Page"
+                            Tag="BackSupressed" />
 
-                        <Grid Width="30" Height="30" Margin="16,-35,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="PaneBackButtonContainer">
-                            <control:RoundButton  SymbolIcon="Back"  Visibility="{Binding PaneFrameCanGoBack, Converter={StaticResource BooleanToVisibility}}" Padding="8" Tapped="RoundButton_Tapped" x:Name="PaneBackButton"/>
+                        <Grid
+                            x:Name="PaneBackButtonContainer"
+                            Width="30"
+                            Height="30"
+                            Margin="16,-35,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                            <control:RoundButton
+                                x:Name="PaneBackButton"
+                                Padding="8"
+                                SymbolIcon="Back"
+                                Tapped="RoundButton_Tapped"
+                                Visibility="{Binding PaneFrameCanGoBack, Converter={StaticResource BooleanToVisibility}}" />
                         </Grid>
                     </Grid>
 
@@ -419,14 +410,15 @@
 
                     </Border>-->
 
-                    <CommandBar VerticalAlignment="Bottom" Grid.Row="1">
+                    <CommandBar Grid.Row="1" VerticalAlignment="Bottom">
                         <CommandBar.PrimaryCommands>
-                            <AppBarButton Icon="Add" Label="thêm nguồn tin" Click="{x:Bind ViewModel.OnAddClicked}"/>
+                            <AppBarButton
+                                Click="{x:Bind ViewModel.OnAddClicked}"
+                                Icon="Add"
+                                Label="thêm nguồn tin" />
                         </CommandBar.PrimaryCommands>
 
-                        <CommandBar.SecondaryCommands>
-
-                        </CommandBar.SecondaryCommands>
+                        <CommandBar.SecondaryCommands />
                     </CommandBar>
 
                 </Grid>
@@ -434,7 +426,75 @@
 
             </SplitView.Content>
         </SplitView>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="layout">
+                <!--  For PC, Xbox, Tablet  -->
+                <VisualState x:Name="TabletState">
+                    <VisualState.Setters>
+                        <Setter Target="splitView.DisplayMode" Value="Inline" />
+                        <Setter Target="splitView.IsPaneOpen" Value="True" />
+                        <Setter Target="PaneSpliter.Visibility" Value="Visible" />
+                        <Setter Target="PaneMainContent.Visibility" Value="Visible" />
+                        <Setter Target="PaneBackButtonContainer.Visibility" Value="Visible" />
+                        <Setter Target="PaneColumn.Width" Value="*" />
+                        <Setter Target="PaneMainColumn.Width" Value="*" />
+                        <Setter Target="HeaderContainer.Height" Value="Auto" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1200" />
 
+                        <!--<windowsTrigger:AdaptiveTrigger MinWindowWidth="1200"/>-->
+
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <!--</VisualStateGroup>
+            <VisualStateGroup x:Name="mini">-->
+
+                <VisualState x:Name="TabletStateWithDetail">
+                    <VisualState.Setters>
+                        <Setter Target="splitView.DisplayMode" Value="Overlay" />
+                        <Setter Target="splitView.IsPaneOpen" Value="False" />
+                        <Setter Target="PaneSpliter.Visibility" Value="Visible" />
+                        <Setter Target="PaneMainContent.Visibility" Value="Collapsed" />
+                        <Setter Target="PaneBackButtonContainer.Visibility" Value="Collapsed" />
+                        <Setter Target="PaneColumn.Width" Value="*" />
+                        <Setter Target="PaneMainColumn.Width" Value="0" />
+                        <Setter Target="HeaderContainer.Height" Value="0" />
+                    </VisualState.Setters>
+
+                    <!--<VisualState.StateTriggers>
+                        <windowsTrigger:CompositeStateTrigger Operator="And">
+                            <windowsTrigger:AdaptiveTrigger MinWindowWidth="0" />
+                            <StateTrigger IsActive="{x:Bind ViewModel.PaneFrameCanGoBack, Mode=OneWay}"/>
+                        </windowsTrigger:CompositeStateTrigger>
+                    </VisualState.StateTriggers>-->
+                </VisualState>
+
+                <!--  For Phone, Phablet and small Tablet  -->
+                <VisualState x:Name="PhoneState">
+                    <VisualState.Setters>
+                        <Setter Target="PaneSpliter.Visibility" Value="Collapsed" />
+                        <Setter Target="PaneMainContent.Visibility" Value="Visible" />
+                        <Setter Target="PaneColumn.Width" Value="Auto" />
+                        <Setter Target="PaneMainColumn.Width" Value="*" />
+                        <Setter Target="HeaderContainer.Height" Value="Auto" />
+                        <!--<Setter Target="AppName.Visibility" Value="Collapsed"/>-->
+                        <!--<Setter Target="splitView.DisplayMode" Value="Overlay" />-->
+                        <!--<Setter Target="splitView.IsPaneOpen" Value="False" />-->
+                    </VisualState.Setters>
+
+                    <!--<VisualState.StateTriggers>
+                    -->
+                    <!--<AdaptiveTrigger MinWindowWidth="0"/>-->
+                    <!--
+                        <windowsTrigger:CompositeStateTrigger Operator="And">
+                            <windowsTrigger:AdaptiveTrigger MinWindowWidth="0"/>
+                            <windowsTrigger:IsFalseStateTrigger Value="{Binding PaneFrameCanGoBack}"/>
+                        </windowsTrigger:CompositeStateTrigger>
+                    </VisualState.StateTriggers>-->
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 
     <!--<Page.BottomAppBar>

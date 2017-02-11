@@ -11,6 +11,11 @@ namespace BaoVietCore.Models
     [Table("CustomPapers")]
     public class CustomPaper : PaperBase, ISQLItem
     {
+        public CustomPaper()
+        {
+
+        }
+
         public CustomPaper(PaperType type) : base(type)
         {
             ImageSource = "ms-appx:///Assets/Square150x150Logo.scale-200.png";

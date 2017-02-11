@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Navigation;
-using WinUX.Extensions;
+using WinUX;
 
 namespace BaoViet.ViewModels
 {
@@ -33,7 +33,7 @@ namespace BaoViet.ViewModels
         public void LoadData()
         {
             ListFeed.Clear();
-            ListFeed.AddRange(App.Current.Manager.Database.GetItems<FeedItem>());
+            ListFeed.AddRange(App.Current.Manager.Database.GetFeedItem());
         }
 
         public void OnNavigatedTo(NavigationEventArgs e)

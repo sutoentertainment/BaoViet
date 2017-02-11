@@ -112,7 +112,7 @@ namespace BaoViet.Views
             ViewModel.RefreshCommand.Execute(null);
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.NavigationMode == NavigationMode.Back)
                 return;
@@ -127,7 +127,7 @@ namespace BaoViet.Views
             ViewModel.WebViewControl = webView;
             //webViewContainer.Children.Add(webView);
 
-            await ViewModel.LoadPageUsingReadability();
+            ViewModel.LoadPageUsingReadability();
             base.OnNavigatedTo(e);
         }
 

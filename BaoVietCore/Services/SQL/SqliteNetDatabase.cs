@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
+using BaoVietCore.Models;
 
 namespace BaoVietCore.Services
 {
-    public class Database : ServiceBase, IDatabase
+    public class SqliteNetDatabaseBase : ServiceBase
     {
         public const string DATABASENAME = "BaoViet.sqlite";
 
@@ -20,16 +21,17 @@ namespace BaoVietCore.Services
             return new SQLiteConnection(
                 new SQLitePlatformWinRT(),
                 Path.Combine(ApplicationData.Current.LocalFolder.Path, DATABASENAME))
-            {  TraceListener = new DebugTraceListener()};
+            { TraceListener = new DebugTraceListener() };
         }
 
-        public Database(Manager man) : base(man)
+        public SqliteNetDatabaseBase(Manager man) : base(man)
         {
         }
 
         public void CreateTable<T>()
         {
-            using (var Db = DbConnection(DATABASENAME)){
+            using (var Db = DbConnection(DATABASENAME))
+            {
                 // Database stuff.
                 // Create the table if it does not exist 
                 var c = Db.CreateTable<T>();
@@ -41,8 +43,9 @@ namespace BaoVietCore.Services
         {
             using (var Db = DbConnection(DATABASENAME))
             {
-                if(ordered)
-                    return (from p in Db.Table<T>() orderby p.Date_Created
+                if (ordered)
+                    return (from p in Db.Table<T>()
+                            orderby p.Date_Created
                             select p).ToList();
                 else
                     return (from p in Db.Table<T>()
@@ -51,6 +54,14 @@ namespace BaoVietCore.Services
         }
 
         public void AddItem<T>(T item) where T : ISQLItem
+        {
+            using (var Db = DbConnection(DATABASENAME))
+            {
+                Db.Insert(item, typeof(T));
+            }
+        }
+
+        public void InsertOrReplace<T>(T item) where T : ISQLItem
         {
             using (var Db = DbConnection(DATABASENAME))
             {
@@ -85,6 +96,49 @@ namespace BaoVietCore.Services
         public void OpenConnection()
         {
             //Db = DbConnection(DATABASENAME);
+        }
+    }
+
+    public class SqliteNetDatabase : SqliteNetDatabaseBase, IDatabase
+    {
+        public SqliteNetDatabase(Manager man) : base(man)
+        {
+        }
+
+        public void Configurate()
+        {
+            this.CreateTable<FeedItem>();
+            this.CreateTable<CustomPaper>();
+        }
+
+        public IEnumerable<CustomPaper> GetCustomPaper()
+        {
+            return this.GetItems<CustomPaper>();
+        }
+
+        public IEnumerable<FeedItem> GetFeedItem()
+        {
+            return this.GetItems<FeedItem>();
+        }
+
+        public void AddFeedItem(FeedItem model)
+        {
+            this.AddItem<FeedItem>(model);
+        }
+
+        public void DeleteFeed(FeedItem feed)
+        {
+            this.Delete<FeedItem>(feed);
+        }
+
+        public void DeletePaper(CustomPaper p)
+        {
+            this.Delete<CustomPaper>(p);
+        }
+
+        public void AddPaper(CustomPaper p)
+        {
+            this.AddItem<CustomPaper>(p);
         }
     }
 }

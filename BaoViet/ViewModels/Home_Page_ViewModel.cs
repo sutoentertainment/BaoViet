@@ -24,7 +24,7 @@ using BaoViet.Models;
 using Windows.UI.Popups;
 using BaoViet.Services;
 using BaoViet.IAP;
-using WinUX.Extensions;
+using WinUX;
 
 namespace BaoViet.ViewModels
 {
@@ -377,7 +377,7 @@ namespace BaoViet.ViewModels
             //Add custom data inputed by user:
             if (!IsInDesignMode)
             {
-                var customPapers = App.Current.Manager.Database.GetItems<CustomPaper>();
+                var customPapers = App.Current.Manager.Database.GetCustomPaper();
                 FrontPagePaper.AddRange(customPapers);
             }
             else

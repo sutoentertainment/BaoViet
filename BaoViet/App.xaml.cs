@@ -26,6 +26,8 @@ using Microsoft.HockeyApp;
 using BaoVietCore.Interfaces;
 using System.Collections.Generic;
 using BaoViet.Localytics;
+using BaoViet.Services.EntityFramework;
+using System.Linq;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -68,10 +70,34 @@ namespace BaoViet
 
             HockeyClient.Current.Configure("c393580460234e8887897e0c6caef3d5");
             Manager = new Manager();
+            Manager.Database.Configurate();
+            // Migration to entity framework
+            List<FeedItem> oldFeeds = new List<FeedItem>();
+            List<CustomPaper> oldPapers = new List<CustomPaper>();
+            if (Manager.Database.GetFeedItem().Count() > 0)
+            {
+                oldFeeds.AddRange(Manager.Database.GetFeedItem());
+                oldFeeds.ForEach(f => { Manager.Database.DeleteFeed(f); });
+            }
+            if (Manager.Database.GetCustomPaper().Count() > 0)
+            {
+                oldPapers.AddRange(Manager.Database.GetCustomPaper());
+                oldPapers.ForEach(p => { Manager.Database.DeletePaper(p); });
+            }
+            Manager.Database = new EntityFrameworkContext();
+            Manager.Database.Configurate();
+            //(Manager.Database as EntityFrameworkContext).Feeds.RemoveRange(ee.Feeds);
+            //(Manager.Database as EntityFrameworkContext).Papers.RemoveRange(ee.Papers);
+            //(Manager.Database as EntityFrameworkContext).SaveChanges();
+            try
+            {
+                oldFeeds.ForEach(f => { Manager.Database.AddFeedItem(f); });
+                oldPapers.ForEach(p => { Manager.Database.AddPaper(p); });
+            }
+            catch
+            {
 
-
-            Manager.Database.CreateTable<FeedItem>();
-            Manager.Database.CreateTable<CustomPaper>();
+            }
             RootDataContext = new RootDataContext();
             TileManager = new TileManager();
         }

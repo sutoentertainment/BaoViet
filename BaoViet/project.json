@@ -1,13 +1,15 @@
 ﻿{
   "dependencies": {
     "AdaptiveTriggerLibrary": "1.2.1",
-    "AdDuplexWin10": "10.0.1.4",
-    "Comet": "0.2.0.1",
-    "HockeySDK.UWP": "3.1.1-build36794",
+    "AdDuplexWin10": "10.1.0.3",
+    "Comet": "0.2.0.2",
+    "HockeySDK.UWP": "4.1.6",
     "Microsoft.AdMediator.Universal.AdDuplex": "2.1.0",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
-    "Microsoft.Xaml.Behaviors.Uwp.Managed": "1.1.0",
-    "MvvmLightLibs": "5.2.0",
+    "Microsoft.EntityFrameworkCore.Sqlite": "1.1.0",
+    "Microsoft.EntityFrameworkCore.Tools": "1.1.0-preview4-final",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+    "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.0",
+    "MvvmLightLibs": "5.4.0-alpha",
     "WindowsStateTriggers": "1.1.0"
   },
   "frameworks": {

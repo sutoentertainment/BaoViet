@@ -23,7 +23,7 @@ namespace UnitTest
             Manager = new Manager();
             IStateCondition condiction = new StateCondition(720);
             Manager.Current.DeviceService = new DeviceService(Manager, condiction);
-            Manager.Database.CreateTable<FeedItem>();
+            Manager.Database.Configurate();
             Assert.IsTrue(true);
         }
         [TestMethod]
@@ -109,13 +109,13 @@ namespace UnitTest
         public void DatabaseAddDelete()
         {
             var feed = new FeedItem();
-            Manager.Database.AddItem(feed);
-            var number_of_feed_before = Manager.Database.GetItems<FeedItem>().Count();
+            Manager.Database.AddFeedItem(feed);
+            var number_of_feed_before = Manager.Database.GetFeedItem().Count();
 
             Assert.AreEqual(number_of_feed_before + 1, number_of_feed_before);
 
-            Manager.Database.Delete(feed);
-            var number_of_feed_after = Manager.Database.GetItems<FeedItem>().Count();
+            Manager.Database.DeleteFeed(feed);
+            var number_of_feed_after = Manager.Database.GetFeedItem().Count();
 
             Assert.AreEqual(number_of_feed_before - 1, number_of_feed_after);
         }

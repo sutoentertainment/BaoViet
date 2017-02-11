@@ -53,6 +53,16 @@ namespace BaoViet.Views
             this.SizeChanged += Home_Page_SizeChanged;
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
+            {
+                ViewModel.IsPaneOpen = true;
+                ViewModel.IsPaneOpen = false;
+            }
+            base.OnNavigatedTo(e);
+        }
+
         double sideMenuMaxY
         {
             get
@@ -205,7 +215,9 @@ namespace BaoViet.Views
         private void SlideMenu_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
+            {
                 ViewModel.IsPaneOpen = false;
+            }
             var menuItem = e.ClickedItem as MenuItemBase;
             switch (menuItem.Type)
             {
@@ -235,7 +247,9 @@ namespace BaoViet.Views
         private void SideMenuListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (App.Current.Manager.DeviceService.GetAppState() == AppState.Mobile)
+            {
                 ViewModel.IsPaneOpen = false;
+            }
             var context = e.ClickedItem as IMenuItem;
             context.OnClicked();
         }

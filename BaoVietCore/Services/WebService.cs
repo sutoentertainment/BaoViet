@@ -16,7 +16,7 @@ namespace BaoVietCore.Services
 {
     public class WebService : ServiceBase, IWebService
     {
-        HttpClient Client;
+        protected HttpClient Client;
         internal CancellationTokenSource CancelToken;
 
         public WebService(Manager man) : base(man)
@@ -30,7 +30,6 @@ namespace BaoVietCore.Services
             var response = await MakeRequest(url);
             return await response.Content.ReadAsStringAsync();
         }
-
 
         private async Task<HttpResponseMessage> MakeRequest(string url)
         {

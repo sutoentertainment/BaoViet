@@ -250,10 +250,10 @@ namespace BaoViet.ViewModels
             var address = "";
             address = CurrentFeed.Link;
             CurrentWebTitle = CurrentFeed.Title;
-            address = address.ToReadability();
+            address = address.ToMercury();
 
-            var response_content = await App.Current.Manager.WebService.GetString(address);
-            var response = JsonConvert.DeserializeObject<ReadabilityResponse>(response_content);
+            var response_content = await App.Current.Manager.MercuryService.GetString(address);
+            var response = JsonConvert.DeserializeObject<MercuryResponse>(response_content);
 
             var scaleFactor = DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
             var fontSize = scaleFactor * 18;

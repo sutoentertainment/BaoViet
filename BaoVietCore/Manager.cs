@@ -16,6 +16,7 @@ namespace BaoVietCore
         public IIAPService IAPService { get; set; }
         public IKeyboardService KeyboardService { get; set; }
         public IWebService WebService { get; set; }
+        public IWebService MercuryService { get; set; }
         public ILocalizationService LocalizationService { get; set; }
         public ILogService LogService { get; set; }
         public IAuthenticationService AuthenticationService { get; set; }
@@ -36,7 +37,8 @@ namespace BaoVietCore
 
             StorageService = new StorageService(this);
             WebService = new WebService(this);
-            Database = new Database(this);
+            MercuryService = new MercuryClient(this, "LDlCrO7jtLcMyCkscinCW7tKMxC7VwRVMPFpvBhd");
+            Database = new SqliteNetDatabase(this);
             AuthenticationService = new AuthenticationService(this);
             RateUsService = new RateUsService(this);
             ImageService = new ImageService(this);

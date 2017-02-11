@@ -7,6 +7,10 @@ using BaoVietCore.Models;
 using BaoVietCore.Interfaces;
 using BaoVietCore.Helpers;
 using BaoViet.Services;
+using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+using BaoViet.Helpers;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -47,8 +51,21 @@ namespace BaoViet.Views
                 attribute.Add("paper name", this.ViewModel.CurrentCategory.Owner.Title);
 
                 App.Current.Manager.TrackingService.TagEvent(Localytics.LocalyticsEvent.SaveArticle, attribute);
-                App.Current.Manager.Database.AddItem(model);
+                App.Current.Manager.Database.AddFeedItem(model);
                 App.Current.InvokeToast("Đã lưu", 1000);
+            }
+        }
+
+        private void _ImageBorder_Loaded(object sender, RoutedEventArgs e)
+        {
+            Border border = sender as Border;
+            ImageBrush brush = border.Background as ImageBrush;
+            if (brush != null)
+            {
+                brush.ImageOpened += delegate (object _brush, RoutedEventArgs _e)
+                {
+                    AnimationHelper.AnimateThumbnail(border);
+                };
             }
         }
     }

@@ -14,11 +14,16 @@ using BaoVietCore.CustomEventArgs;
 using Windows.UI.Xaml.Controls.Primitives;
 using GalaSoft.MvvmLight;
 using BaoVietCore.Services;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace BaoVietCore.Models
 {
     public abstract class PaperBase : ObservableObject, IPaper
     {
+        [Key]
+        public int Id { get; set; }
+
         [SQLite.Net.Attributes.Ignore]
         public virtual ObservableCollection<Category> Categories
         {
@@ -45,6 +50,7 @@ namespace BaoVietCore.Models
             get; set;
         }
         [SQLite.Net.Attributes.Ignore]
+        [NotMapped]
         public virtual Thickness Margin
         {
             get; set;
@@ -73,6 +79,7 @@ namespace BaoVietCore.Models
             }
         }
         [SQLite.Net.Attributes.Ignore]
+        [NotMapped]
         public RelayCommand PinCommand
         {
             get; set;
@@ -80,6 +87,11 @@ namespace BaoVietCore.Models
 
         [SQLite.Net.Attributes.Ignore]
         public IXmlParser Parser { get; set; }
+
+        public PaperBase()
+        {
+
+        }
 
         public PaperBase(PaperType type)
         {

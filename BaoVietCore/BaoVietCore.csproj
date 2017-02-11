@@ -11,8 +11,8 @@
     <AssemblyName>BaoVietCore</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -115,6 +115,7 @@
     <Compile Include="Interfaces\IMarkDownParser.cs" />
     <Compile Include="Interfaces\ICrittercismService.cs" />
     <Compile Include="Models\CustomPaper.cs" />
+    <Compile Include="Models\MercuryResponse.cs" />
     <Compile Include="Services\BasicCameraService.cs" />
     <Compile Include="Services\CrittercismService.cs" />
     <Compile Include="Services\DeviceService.cs" />
@@ -126,7 +127,9 @@
     <Compile Include="Interfaces\ISettingsService.cs" />
     <Compile Include="Interfaces\IStateCondition.cs" />
     <Compile Include="Services\MarkDownService.cs" />
+    <Compile Include="Services\MercuryClient.cs" />
     <Compile Include="Services\RssService.cs" />
+    <Compile Include="Services\SQL\NativeSqliteDatabase.cs" />
     <Compile Include="Services\StorageService.cs" />
     <Compile Include="XmlParser\ParserBase.cs" />
     <Compile Include="XmlParser\VietnamPlusParser.cs" />
@@ -212,7 +215,7 @@
     <Compile Include="Services\LogService.cs" />
     <Compile Include="Services\RateUsService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
-    <Compile Include="Services\SQL\Database.cs" />
+    <Compile Include="Services\SQL\SqliteNetDatabase.cs" />
     <Compile Include="Services\SQL\DebugTraceListener.cs" />
     <Compile Include="Interfaces\IDatabase.cs" />
     <Compile Include="Services\WebService.cs" />
@@ -225,7 +228,7 @@
     <SDKReference Include="Microsoft.VCLibs.120, Version=14.0">
       <Name>Microsoft Visual C++ 2013 Runtime Package for Windows Universal</Name>
     </SDKReference>
-    <SDKReference Include="SQLite.UWP.2015, Version=3.11.0">
+    <SDKReference Include="SQLite.UWP.2015, Version=3.15.2">
       <Name>SQLite for Universal Windows Platform</Name>
     </SDKReference>
   </ItemGroup>

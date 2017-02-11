@@ -4,15 +4,15 @@
     "HtmlAgilityPack": "1.4.9",
     "Localytics": "3.1.0",
     "MarkdownSharp.UWP": "1.5.2",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
     "mort8088.XML.XmlHelper": "1.0.2",
-    "MvvmLight": "5.2.0",
-    "MvvmLightLibs": "5.2.0",
-    "Newtonsoft.Json": "8.0.2",
+    "MvvmLight": "5.3.0",
+    "MvvmLightLibs": "5.4.0-alpha",
+    "Newtonsoft.Json": "9.0.2-beta2",
     "SQLite.Net-PCL": "3.1.1",
     "SQLite.Net.Async-PCL": "3.1.1",
-    "UniversalRateReminder": "2.0.0",
-    "WinUX.Common": "1.2.0"
+    "UniversalRateReminder": "2.2.0",
+    "WinUX.Common": "2.4.17005.1"
   },
   "frameworks": {
     "uap10.0": {}

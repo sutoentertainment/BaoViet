@@ -1,4 +1,5 @@
-﻿using BaoViet.ViewModels;
+﻿using BaoViet.Helpers;
+using BaoViet.ViewModels;
 using BaoVietCore.Interfaces;
 using BaoVietCore.Models;
 using Microsoft.Practices.ServiceLocation;
@@ -52,7 +53,20 @@ namespace BaoViet.Views
 
             var item = (sender as FrameworkElement).DataContext as FeedItem;
             ViewModel.ListFeed.Remove(item);
-            App.Current.Manager.Database.Delete(item);
+            App.Current.Manager.Database.DeleteFeed(item);
+        }
+
+        private void _ImageBorder_Loaded(object sender, RoutedEventArgs e)
+        {
+            Border border = sender as Border;
+            ImageBrush brush = border.Background as ImageBrush;
+            if (brush != null)
+            {
+                brush.ImageOpened += delegate (object _brush, RoutedEventArgs _e)
+                {
+                    AnimationHelper.AnimateThumbnail(border);
+                };
+            }
         }
     }
 }
